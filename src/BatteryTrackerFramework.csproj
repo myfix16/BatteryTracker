@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{67B8EB69-1EF8-4BF3-B8E8-66980F36CA9A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BatteryTrackerFramework</RootNamespace>
+    <AssemblyName>BatteryTracker</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <ProductName>BatteryTracker</ProductName>
+    <PublisherName>myfix16</PublisherName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>8.0</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>8.0</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icons\logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>E6F944EBC6A144990F28A9B59ECC7D6C6EB299FA</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>BatteryTrackerFramework_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>BatteryTrackerFramework.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.WindowsAPICodePack-Core.1.1.0.2\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistryMonitor.cs" />
+    <Compile Include="ResourceIcon.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceIcon.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TrayIcon.cs" />
+    <EmbeddedResource Include="ResourceIcon.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceIcon.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="BatteryTrackerFramework_TemporaryKey.pfx" />
+    <None Include="ClassDiagram.cd" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\logo.ico" />
+    <None Include="icons\light_100.ico" />
+    <None Include="icons\light_99.ico" />
+    <None Include="icons\light_98.ico" />
+    <None Include="icons\light_97.ico" />
+    <None Include="icons\light_96.ico" />
+    <None Include="icons\light_95.ico" />
+    <None Include="icons\light_94.ico" />
+    <None Include="icons\light_93.ico" />
+    <None Include="icons\light_92.ico" />
+    <None Include="icons\light_91.ico" />
+    <None Include="icons\light_90.ico" />
+    <None Include="icons\light_89.ico" />
+    <None Include="icons\light_88.ico" />
+    <None Include="icons\light_87.ico" />
+    <None Include="icons\light_86.ico" />
+    <None Include="icons\light_85.ico" />
+    <None Include="icons\light_84.ico" />
+    <None Include="icons\light_83.ico" />
+    <None Include="icons\light_82.ico" />
+    <None Include="icons\light_81.ico" />
+    <None Include="icons\light_80.ico" />
+    <None Include="icons\light_79.ico" />
+    <None Include="icons\light_78.ico" />
+    <None Include="icons\light_77.ico" />
+    <None Include="icons\light_76.ico" />
+    <None Include="icons\light_75.ico" />
+    <None Include="icons\light_74.ico" />
+    <None Include="icons\light_73.ico" />
+    <None Include="icons\light_72.ico" />
+    <None Include="icons\light_71.ico" />
+    <None Include="icons\light_70.ico" />
+    <None Include="icons\light_69.ico" />
+    <None Include="icons\light_68.ico" />
+    <None Include="icons\light_67.ico" />
+    <None Include="icons\light_66.ico" />
+    <None Include="icons\light_65.ico" />
+    <None Include="icons\light_64.ico" />
+    <None Include="icons\light_63.ico" />
+    <None Include="icons\light_62.ico" />
+    <None Include="icons\light_61.ico" />
+    <None Include="icons\light_60.ico" />
+    <None Include="icons\light_59.ico" />
+    <None Include="icons\light_58.ico" />
+    <None Include="icons\light_57.ico" />
+    <None Include="icons\light_56.ico" />
+    <None Include="icons\light_55.ico" />
+    <None Include="icons\light_54.ico" />
+    <None Include="icons\light_53.ico" />
+    <None Include="icons\light_52.ico" />
+    <None Include="icons\light_51.ico" />
+    <None Include="icons\light_50.ico" />
+    <None Include="icons\light_49.ico" />
+    <None Include="icons\light_48.ico" />
+    <None Include="icons\light_47.ico" />
+    <None Include="icons\light_46.ico" />
+    <None Include="icons\light_45.ico" />
+    <None Include="icons\light_44.ico" />
+    <None Include="icons\light_43.ico" />
+    <None Include="icons\light_42.ico" />
+    <None Include="icons\light_41.ico" />
+    <None Include="icons\light_40.ico" />
+    <None Include="icons\light_39.ico" />
+    <None Include="icons\light_38.ico" />
+    <None Include="icons\light_37.ico" />
+    <None Include="icons\light_36.ico" />
+    <None Include="icons\light_35.ico" />
+    <None Include="icons\light_34.ico" />
+    <None Include="icons\light_33.ico" />
+    <None Include="icons\light_32.ico" />
+    <None Include="icons\light_31.ico" />
+    <None Include="icons\light_30.ico" />
+    <None Include="icons\light_29.ico" />
+    <None Include="icons\light_28.ico" />
+    <None Include="icons\light_27.ico" />
+    <None Include="icons\light_26.ico" />
+    <None Include="icons\light_25.ico" />
+    <None Include="icons\light_24.ico" />
+    <None Include="icons\light_23.ico" />
+    <None Include="icons\light_22.ico" />
+    <None Include="icons\light_21.ico" />
+    <None Include="icons\light_20.ico" />
+    <None Include="icons\light_19.ico" />
+    <None Include="icons\light_18.ico" />
+    <None Include="icons\light_17.ico" />
+    <None Include="icons\light_16.ico" />
+    <None Include="icons\light_15.ico" />
+    <None Include="icons\light_14.ico" />
+    <None Include="icons\light_13.ico" />
+    <None Include="icons\light_12.ico" />
+    <None Include="icons\light_11.ico" />
+    <None Include="icons\light_10.ico" />
+    <None Include="icons\light_9.ico" />
+    <None Include="icons\light_8.ico" />
+    <None Include="icons\light_7.ico" />
+    <None Include="icons\light_6.ico" />
+    <None Include="icons\light_5.ico" />
+    <None Include="icons\light_4.ico" />
+    <None Include="icons\light_3.ico" />
+    <None Include="icons\light_2.ico" />
+    <None Include="icons\light_1.ico" />
+    <None Include="icons\dark_100.ico" />
+    <None Include="icons\dark_99.ico" />
+    <None Include="icons\dark_98.ico" />
+    <None Include="icons\dark_97.ico" />
+    <None Include="icons\dark_96.ico" />
+    <None Include="icons\dark_95.ico" />
+    <None Include="icons\dark_94.ico" />
+    <None Include="icons\dark_93.ico" />
+    <None Include="icons\dark_92.ico" />
+    <None Include="icons\dark_91.ico" />
+    <None Include="icons\dark_90.ico" />
+    <None Include="icons\dark_89.ico" />
+    <None Include="icons\dark_88.ico" />
+    <None Include="icons\dark_87.ico" />
+    <None Include="icons\dark_86.ico" />
+    <None Include="icons\dark_85.ico" />
+    <None Include="icons\dark_84.ico" />
+    <None Include="icons\dark_83.ico" />
+    <None Include="icons\dark_82.ico" />
+    <None Include="icons\dark_81.ico" />
+    <None Include="icons\dark_80.ico" />
+    <None Include="icons\dark_79.ico" />
+    <None Include="icons\dark_78.ico" />
+    <None Include="icons\dark_77.ico" />
+    <None Include="icons\dark_76.ico" />
+    <None Include="icons\dark_75.ico" />
+    <None Include="icons\dark_74.ico" />
+    <None Include="icons\dark_73.ico" />
+    <None Include="icons\dark_72.ico" />
+    <None Include="icons\dark_71.ico" />
+    <None Include="icons\dark_70.ico" />
+    <None Include="icons\dark_69.ico" />
+    <None Include="icons\dark_68.ico" />
+    <None Include="icons\dark_67.ico" />
+    <None Include="icons\dark_66.ico" />
+    <None Include="icons\dark_65.ico" />
+    <None Include="icons\dark_64.ico" />
+    <None Include="icons\dark_63.ico" />
+    <None Include="icons\dark_62.ico" />
+    <None Include="icons\dark_61.ico" />
+    <None Include="icons\dark_60.ico" />
+    <None Include="icons\dark_59.ico" />
+    <None Include="icons\dark_58.ico" />
+    <None Include="icons\dark_57.ico" />
+    <None Include="icons\dark_56.ico" />
+    <None Include="icons\dark_55.ico" />
+    <None Include="icons\dark_54.ico" />
+    <None Include="icons\dark_53.ico" />
+    <None Include="icons\dark_52.ico" />
+    <None Include="icons\dark_51.ico" />
+    <None Include="icons\dark_50.ico" />
+    <None Include="icons\dark_49.ico" />
+    <None Include="icons\dark_48.ico" />
+    <None Include="icons\dark_47.ico" />
+    <None Include="icons\dark_46.ico" />
+    <None Include="icons\dark_45.ico" />
+    <None Include="icons\dark_44.ico" />
+    <None Include="icons\dark_43.ico" />
+    <None Include="icons\dark_42.ico" />
+    <None Include="icons\dark_41.ico" />
+    <None Include="icons\dark_40.ico" />
+    <None Include="icons\dark_39.ico" />
+    <None Include="icons\dark_38.ico" />
+    <None Include="icons\dark_37.ico" />
+    <None Include="icons\dark_36.ico" />
+    <None Include="icons\dark_35.ico" />
+    <None Include="icons\dark_34.ico" />
+    <None Include="icons\dark_33.ico" />
+    <None Include="icons\dark_32.ico" />
+    <None Include="icons\dark_31.ico" />
+    <None Include="icons\dark_30.ico" />
+    <None Include="icons\dark_29.ico" />
+    <None Include="icons\dark_28.ico" />
+    <None Include="icons\dark_27.ico" />
+    <None Include="icons\dark_26.ico" />
+    <None Include="icons\dark_25.ico" />
+    <None Include="icons\dark_24.ico" />
+    <None Include="icons\dark_23.ico" />
+    <None Include="icons\dark_22.ico" />
+    <None Include="icons\dark_21.ico" />
+    <None Include="icons\dark_20.ico" />
+    <None Include="icons\dark_19.ico" />
+    <None Include="icons\dark_18.ico" />
+    <None Include="icons\dark_17.ico" />
+    <None Include="icons\dark_16.ico" />
+    <None Include="icons\dark_15.ico" />
+    <None Include="icons\dark_14.ico" />
+    <None Include="icons\dark_13.ico" />
+    <None Include="icons\dark_12.ico" />
+    <None Include="icons\dark_11.ico" />
+    <None Include="icons\dark_10.ico" />
+    <None Include="icons\dark_9.ico" />
+    <None Include="icons\dark_8.ico" />
+    <None Include="icons\dark_7.ico" />
+    <None Include="icons\dark_6.ico" />
+    <None Include="icons\dark_5.ico" />
+    <None Include="icons\dark_4.ico" />
+    <None Include="icons\dark_3.ico" />
+    <None Include="icons\dark_2.ico" />
+    <None Include="icons\dark_1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
