@@ -242,7 +242,7 @@ namespace BatteryTracker
 
                 default:
                     _registryHive = IntPtr.Zero;
-                    throw new ArgumentException(@"The registry hive '{nameParts[0]}' is not supported", "value");
+                    throw new ArgumentException($"The registry hive '{nameParts[0]}' is not supported", "value");
             }
 
             _registrySubName = string.Join("\\", nameParts, 1, nameParts.Length - 1);
