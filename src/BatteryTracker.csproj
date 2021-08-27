@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{67B8EB69-1EF8-4BF3-B8E8-66980F36CA9A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>BatteryTrackerFramework</RootNamespace>
+    <RootNamespace>BatteryTracker</RootNamespace>
     <AssemblyName>BatteryTracker</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -99,7 +99,7 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>BatteryTrackerFramework.Program</StartupObject>
+    <StartupObject>BatteryTracker.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -126,8 +126,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourceIcon.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="BatteryTrackerFramework_TemporaryKey.pfx" />
-    <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">

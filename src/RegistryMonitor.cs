@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using Microsoft.Win32;
 
-namespace RegistryUtils
+namespace BatteryTracker
 {
     /// <summary>
     /// <b>RegistryMonitor</b> allows you to monitor specific registry key.
@@ -150,8 +150,8 @@ namespace RegistryUtils
         /// <param name="name">The name.</param>
         public RegistryMonitor(string name)
         {
-            if (name == null || name.Length == 0)
-                throw new ArgumentNullException("name");
+            if (string.IsNullOrEmpty(name))
+                throw new ArgumentNullException(nameof(name));
 
             InitRegistryKey(name);
         }
@@ -181,7 +181,7 @@ namespace RegistryUtils
         /// </summary>
         public RegChangeNotifyFilter RegChangeNotifyFilter
         {
-            get { return _regFilter; }
+            get => _regFilter;
             set
             {
                 lock (_threadLock)
@@ -206,7 +206,7 @@ namespace RegistryUtils
                 RegistryHive.LocalMachine => HKEY_LOCAL_MACHINE,
                 RegistryHive.PerformanceData => HKEY_PERFORMANCE_DATA,
                 RegistryHive.Users => HKEY_USERS,
-                _ => throw new InvalidEnumArgumentException("hive", (int)hive, typeof(RegistryHive)),
+                _ => throw new InvalidEnumArgumentException(nameof(hive), (int)hive, typeof(RegistryHive)),
             };
             _registrySubName = name;
         }
@@ -242,10 +242,10 @@ namespace RegistryUtils
 
                 default:
                     _registryHive = IntPtr.Zero;
-                    throw new ArgumentException("The registry hive '" + nameParts[0] + "' is not supported", "value");
+                    throw new ArgumentException(@"The registry hive '{nameParts[0]}' is not supported", "value");
             }
 
-            _registrySubName = String.Join("\\", nameParts, 1, nameParts.Length - 1);
+            _registrySubName = string.Join("\\", nameParts, 1, nameParts.Length - 1);
         }
 
         #endregion
@@ -254,10 +254,7 @@ namespace RegistryUtils
         /// <b>true</b> if this <see cref="RegistryMonitor"/> object is currently monitoring;
         /// otherwise, <b>false</b>.
         /// </summary>
-        public bool IsMonitoring
-        {
-            get { return _thread != null; }
-        }
+        public bool IsMonitoring => _thread != null;
 
         /// <summary>
         /// Start monitoring.
@@ -269,15 +266,13 @@ namespace RegistryUtils
 
             lock (_threadLock)
             {
-                if (!IsMonitoring)
+                if (IsMonitoring) return;
+                _eventTerminate.Reset();
+                _thread = new Thread(new ThreadStart(MonitorThread))
                 {
-                    _eventTerminate.Reset();
-                    _thread = new Thread(new ThreadStart(MonitorThread))
-                    {
-                        IsBackground = true
-                    };
-                    _thread.Start();
-                }
+                    IsBackground = true
+                };
+                _thread.Start();
             }
         }
 
@@ -292,11 +287,9 @@ namespace RegistryUtils
             lock (_threadLock)
             {
                 Thread thread = _thread;
-                if (thread != null)
-                {
-                    _eventTerminate.Set();
-                    thread.Join();
-                }
+                if (thread == null) return;
+                _eventTerminate.Set();
+                thread.Join();
             }
         }
 

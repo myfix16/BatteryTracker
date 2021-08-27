@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BatteryTrackerFramework {
+namespace BatteryTracker {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace BatteryTrackerFramework {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BatteryTrackerFramework.ResourceIcon", typeof(ResourceIcon).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BatteryTracker.ResourceIcon", typeof(ResourceIcon).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -47,8 +47,8 @@ namespace BatteryTrackerFramework {
         }
         
         /// <summary>
-        ///   重写当前线程的 CurrentUICulture 属性
-        ///   重写当前线程的 CurrentUICulture 属性。
+        ///   重写当前线程的 CurrentUICulture 属性，对
+        ///   使用此强类型资源类的所有资源查找执行重写。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         public static global::System.Globalization.CultureInfo Culture {

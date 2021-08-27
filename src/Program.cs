@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace BatteryTrackerFramework
+namespace BatteryTracker
 {
     static class Program
     {
