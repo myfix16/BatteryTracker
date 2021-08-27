@@ -1,4 +1,4 @@
-﻿## Battery Tracker [.Net Framework]
+﻿## Battery Tracker
 ![full](https://raw.githubusercontent.com/myfix16/BatteryTrackerFramework/master/showcase1.png) Full Charged <br></br>
 ![not full](https://github.com/myfix16/BatteryTrackerFramework/raw/master/showcase2.png) Charging/Using
 ### Function
