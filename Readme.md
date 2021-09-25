@@ -6,7 +6,7 @@ The program will show remaining battery percentage on the task bar.
 ### Features
 1. Use different transparent icons for different percentages, thus looks more harmonious with the task bar (it has no black background).
 2. It will **automatically switch icon color** when user change to Light/Dark mode. ✨
-3. It's **event driven**. No timer & scanning. You can find scanning version from [here](https://github.com/myfix16/BatteryTracker).
+3. It's **event driven**. No timer & scanning.
 ### Credits
 The project partially refers to
 1. Kenneth Schnall's [percentage](https://github.com/kas/percentage)
