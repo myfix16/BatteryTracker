@@ -19,7 +19,7 @@ namespace BatteryTracker {
     // 类通过类似于 ResGen 或 Visual Studio 的工具自动生成的。
     // 若要添加或移除成员，请编辑 .ResX 文件，然后重新运行 ResGen
     // (以 /str 作为命令选项)，或重新生成 VS 项目。
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class ResourceIcon {
@@ -63,9 +63,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_1 {
+        public static System.Drawing.Icon Dark_1 {
             get {
-                object obj = ResourceManager.GetObject("dark_1", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_1", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_10 {
+        public static System.Drawing.Icon Dark_10 {
             get {
-                object obj = ResourceManager.GetObject("dark_10", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_10", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_100 {
+        public static System.Drawing.Icon Dark_100 {
             get {
-                object obj = ResourceManager.GetObject("dark_100", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_100", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_11 {
+        public static System.Drawing.Icon Dark_11 {
             get {
-                object obj = ResourceManager.GetObject("dark_11", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_11", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_12 {
+        public static System.Drawing.Icon Dark_12 {
             get {
-                object obj = ResourceManager.GetObject("dark_12", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_12", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_13 {
+        public static System.Drawing.Icon Dark_13 {
             get {
-                object obj = ResourceManager.GetObject("dark_13", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_13", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_14 {
+        public static System.Drawing.Icon Dark_14 {
             get {
-                object obj = ResourceManager.GetObject("dark_14", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_14", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_15 {
+        public static System.Drawing.Icon Dark_15 {
             get {
-                object obj = ResourceManager.GetObject("dark_15", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_15", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_16 {
+        public static System.Drawing.Icon Dark_16 {
             get {
-                object obj = ResourceManager.GetObject("dark_16", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_16", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -153,9 +153,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_17 {
+        public static System.Drawing.Icon Dark_17 {
             get {
-                object obj = ResourceManager.GetObject("dark_17", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_17", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -163,9 +163,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_18 {
+        public static System.Drawing.Icon Dark_18 {
             get {
-                object obj = ResourceManager.GetObject("dark_18", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_18", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -173,9 +173,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_19 {
+        public static System.Drawing.Icon Dark_19 {
             get {
-                object obj = ResourceManager.GetObject("dark_19", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_19", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -183,9 +183,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_2 {
+        public static System.Drawing.Icon Dark_2 {
             get {
-                object obj = ResourceManager.GetObject("dark_2", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_2", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -193,9 +193,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_20 {
+        public static System.Drawing.Icon Dark_20 {
             get {
-                object obj = ResourceManager.GetObject("dark_20", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_20", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -203,9 +203,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_21 {
+        public static System.Drawing.Icon Dark_21 {
             get {
-                object obj = ResourceManager.GetObject("dark_21", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_21", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -213,9 +213,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_22 {
+        public static System.Drawing.Icon Dark_22 {
             get {
-                object obj = ResourceManager.GetObject("dark_22", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_22", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -223,9 +223,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_23 {
+        public static System.Drawing.Icon Dark_23 {
             get {
-                object obj = ResourceManager.GetObject("dark_23", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_23", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -233,9 +233,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_24 {
+        public static System.Drawing.Icon Dark_24 {
             get {
-                object obj = ResourceManager.GetObject("dark_24", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_24", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -243,9 +243,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_25 {
+        public static System.Drawing.Icon Dark_25 {
             get {
-                object obj = ResourceManager.GetObject("dark_25", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_25", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -253,9 +253,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_26 {
+        public static System.Drawing.Icon Dark_26 {
             get {
-                object obj = ResourceManager.GetObject("dark_26", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_26", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -263,9 +263,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_27 {
+        public static System.Drawing.Icon Dark_27 {
             get {
-                object obj = ResourceManager.GetObject("dark_27", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_27", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -273,9 +273,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_28 {
+        public static System.Drawing.Icon Dark_28 {
             get {
-                object obj = ResourceManager.GetObject("dark_28", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_28", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -283,9 +283,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_29 {
+        public static System.Drawing.Icon Dark_29 {
             get {
-                object obj = ResourceManager.GetObject("dark_29", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_29", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -293,9 +293,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_3 {
+        public static System.Drawing.Icon Dark_3 {
             get {
-                object obj = ResourceManager.GetObject("dark_3", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_3", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -303,9 +303,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_30 {
+        public static System.Drawing.Icon Dark_30 {
             get {
-                object obj = ResourceManager.GetObject("dark_30", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_30", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -313,9 +313,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_31 {
+        public static System.Drawing.Icon Dark_31 {
             get {
-                object obj = ResourceManager.GetObject("dark_31", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_31", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -323,9 +323,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_32 {
+        public static System.Drawing.Icon Dark_32 {
             get {
-                object obj = ResourceManager.GetObject("dark_32", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_32", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -333,9 +333,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_33 {
+        public static System.Drawing.Icon Dark_33 {
             get {
-                object obj = ResourceManager.GetObject("dark_33", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_33", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -343,9 +343,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_34 {
+        public static System.Drawing.Icon Dark_34 {
             get {
-                object obj = ResourceManager.GetObject("dark_34", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_34", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -353,9 +353,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_35 {
+        public static System.Drawing.Icon Dark_35 {
             get {
-                object obj = ResourceManager.GetObject("dark_35", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_35", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -363,9 +363,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_36 {
+        public static System.Drawing.Icon Dark_36 {
             get {
-                object obj = ResourceManager.GetObject("dark_36", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_36", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -373,9 +373,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_37 {
+        public static System.Drawing.Icon Dark_37 {
             get {
-                object obj = ResourceManager.GetObject("dark_37", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_37", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -383,9 +383,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_38 {
+        public static System.Drawing.Icon Dark_38 {
             get {
-                object obj = ResourceManager.GetObject("dark_38", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_38", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -393,9 +393,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_39 {
+        public static System.Drawing.Icon Dark_39 {
             get {
-                object obj = ResourceManager.GetObject("dark_39", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_39", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -403,9 +403,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_4 {
+        public static System.Drawing.Icon Dark_4 {
             get {
-                object obj = ResourceManager.GetObject("dark_4", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_4", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -413,9 +413,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_40 {
+        public static System.Drawing.Icon Dark_40 {
             get {
-                object obj = ResourceManager.GetObject("dark_40", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_40", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -423,9 +423,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_41 {
+        public static System.Drawing.Icon Dark_41 {
             get {
-                object obj = ResourceManager.GetObject("dark_41", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_41", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -433,9 +433,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_42 {
+        public static System.Drawing.Icon Dark_42 {
             get {
-                object obj = ResourceManager.GetObject("dark_42", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_42", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -443,9 +443,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_43 {
+        public static System.Drawing.Icon Dark_43 {
             get {
-                object obj = ResourceManager.GetObject("dark_43", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_43", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -453,9 +453,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_44 {
+        public static System.Drawing.Icon Dark_44 {
             get {
-                object obj = ResourceManager.GetObject("dark_44", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_44", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -463,9 +463,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_45 {
+        public static System.Drawing.Icon Dark_45 {
             get {
-                object obj = ResourceManager.GetObject("dark_45", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_45", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -473,9 +473,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_46 {
+        public static System.Drawing.Icon Dark_46 {
             get {
-                object obj = ResourceManager.GetObject("dark_46", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_46", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -483,9 +483,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_47 {
+        public static System.Drawing.Icon Dark_47 {
             get {
-                object obj = ResourceManager.GetObject("dark_47", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_47", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -493,9 +493,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_48 {
+        public static System.Drawing.Icon Dark_48 {
             get {
-                object obj = ResourceManager.GetObject("dark_48", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_48", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -503,9 +503,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_49 {
+        public static System.Drawing.Icon Dark_49 {
             get {
-                object obj = ResourceManager.GetObject("dark_49", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_49", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -513,9 +513,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_5 {
+        public static System.Drawing.Icon Dark_5 {
             get {
-                object obj = ResourceManager.GetObject("dark_5", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_5", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -523,9 +523,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_50 {
+        public static System.Drawing.Icon Dark_50 {
             get {
-                object obj = ResourceManager.GetObject("dark_50", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_50", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -533,9 +533,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_51 {
+        public static System.Drawing.Icon Dark_51 {
             get {
-                object obj = ResourceManager.GetObject("dark_51", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_51", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -543,9 +543,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_52 {
+        public static System.Drawing.Icon Dark_52 {
             get {
-                object obj = ResourceManager.GetObject("dark_52", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_52", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -553,9 +553,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_53 {
+        public static System.Drawing.Icon Dark_53 {
             get {
-                object obj = ResourceManager.GetObject("dark_53", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_53", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -563,9 +563,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_54 {
+        public static System.Drawing.Icon Dark_54 {
             get {
-                object obj = ResourceManager.GetObject("dark_54", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_54", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -573,9 +573,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_55 {
+        public static System.Drawing.Icon Dark_55 {
             get {
-                object obj = ResourceManager.GetObject("dark_55", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_55", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -583,9 +583,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_56 {
+        public static System.Drawing.Icon Dark_56 {
             get {
-                object obj = ResourceManager.GetObject("dark_56", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_56", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -593,9 +593,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_57 {
+        public static System.Drawing.Icon Dark_57 {
             get {
-                object obj = ResourceManager.GetObject("dark_57", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_57", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -603,9 +603,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_58 {
+        public static System.Drawing.Icon Dark_58 {
             get {
-                object obj = ResourceManager.GetObject("dark_58", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_58", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -613,9 +613,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_59 {
+        public static System.Drawing.Icon Dark_59 {
             get {
-                object obj = ResourceManager.GetObject("dark_59", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_59", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -623,9 +623,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_6 {
+        public static System.Drawing.Icon Dark_6 {
             get {
-                object obj = ResourceManager.GetObject("dark_6", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_6", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -633,9 +633,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_60 {
+        public static System.Drawing.Icon Dark_60 {
             get {
-                object obj = ResourceManager.GetObject("dark_60", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_60", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -643,9 +643,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_61 {
+        public static System.Drawing.Icon Dark_61 {
             get {
-                object obj = ResourceManager.GetObject("dark_61", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_61", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -653,9 +653,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_62 {
+        public static System.Drawing.Icon Dark_62 {
             get {
-                object obj = ResourceManager.GetObject("dark_62", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_62", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -663,9 +663,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_63 {
+        public static System.Drawing.Icon Dark_63 {
             get {
-                object obj = ResourceManager.GetObject("dark_63", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_63", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -673,9 +673,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_64 {
+        public static System.Drawing.Icon Dark_64 {
             get {
-                object obj = ResourceManager.GetObject("dark_64", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_64", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -683,9 +683,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_65 {
+        public static System.Drawing.Icon Dark_65 {
             get {
-                object obj = ResourceManager.GetObject("dark_65", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_65", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -693,9 +693,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_66 {
+        public static System.Drawing.Icon Dark_66 {
             get {
-                object obj = ResourceManager.GetObject("dark_66", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_66", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -703,9 +703,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_67 {
+        public static System.Drawing.Icon Dark_67 {
             get {
-                object obj = ResourceManager.GetObject("dark_67", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_67", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -713,9 +713,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_68 {
+        public static System.Drawing.Icon Dark_68 {
             get {
-                object obj = ResourceManager.GetObject("dark_68", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_68", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -723,9 +723,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_69 {
+        public static System.Drawing.Icon Dark_69 {
             get {
-                object obj = ResourceManager.GetObject("dark_69", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_69", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -733,9 +733,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_7 {
+        public static System.Drawing.Icon Dark_7 {
             get {
-                object obj = ResourceManager.GetObject("dark_7", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_7", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -743,9 +743,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_70 {
+        public static System.Drawing.Icon Dark_70 {
             get {
-                object obj = ResourceManager.GetObject("dark_70", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_70", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -753,9 +753,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_71 {
+        public static System.Drawing.Icon Dark_71 {
             get {
-                object obj = ResourceManager.GetObject("dark_71", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_71", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -763,9 +763,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_72 {
+        public static System.Drawing.Icon Dark_72 {
             get {
-                object obj = ResourceManager.GetObject("dark_72", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_72", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -773,9 +773,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_73 {
+        public static System.Drawing.Icon Dark_73 {
             get {
-                object obj = ResourceManager.GetObject("dark_73", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_73", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -783,9 +783,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_74 {
+        public static System.Drawing.Icon Dark_74 {
             get {
-                object obj = ResourceManager.GetObject("dark_74", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_74", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -793,9 +793,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_75 {
+        public static System.Drawing.Icon Dark_75 {
             get {
-                object obj = ResourceManager.GetObject("dark_75", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_75", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -803,9 +803,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_76 {
+        public static System.Drawing.Icon Dark_76 {
             get {
-                object obj = ResourceManager.GetObject("dark_76", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_76", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -813,9 +813,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_77 {
+        public static System.Drawing.Icon Dark_77 {
             get {
-                object obj = ResourceManager.GetObject("dark_77", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_77", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -823,9 +823,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_78 {
+        public static System.Drawing.Icon Dark_78 {
             get {
-                object obj = ResourceManager.GetObject("dark_78", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_78", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -833,9 +833,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_79 {
+        public static System.Drawing.Icon Dark_79 {
             get {
-                object obj = ResourceManager.GetObject("dark_79", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_79", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -843,9 +843,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_8 {
+        public static System.Drawing.Icon Dark_8 {
             get {
-                object obj = ResourceManager.GetObject("dark_8", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_8", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -853,9 +853,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_80 {
+        public static System.Drawing.Icon Dark_80 {
             get {
-                object obj = ResourceManager.GetObject("dark_80", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_80", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -863,9 +863,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_81 {
+        public static System.Drawing.Icon Dark_81 {
             get {
-                object obj = ResourceManager.GetObject("dark_81", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_81", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -873,9 +873,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_82 {
+        public static System.Drawing.Icon Dark_82 {
             get {
-                object obj = ResourceManager.GetObject("dark_82", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_82", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -883,9 +883,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_83 {
+        public static System.Drawing.Icon Dark_83 {
             get {
-                object obj = ResourceManager.GetObject("dark_83", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_83", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -893,9 +893,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_84 {
+        public static System.Drawing.Icon Dark_84 {
             get {
-                object obj = ResourceManager.GetObject("dark_84", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_84", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -903,9 +903,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_85 {
+        public static System.Drawing.Icon Dark_85 {
             get {
-                object obj = ResourceManager.GetObject("dark_85", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_85", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -913,9 +913,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_86 {
+        public static System.Drawing.Icon Dark_86 {
             get {
-                object obj = ResourceManager.GetObject("dark_86", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_86", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -923,9 +923,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_87 {
+        public static System.Drawing.Icon Dark_87 {
             get {
-                object obj = ResourceManager.GetObject("dark_87", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_87", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -933,9 +933,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_88 {
+        public static System.Drawing.Icon Dark_88 {
             get {
-                object obj = ResourceManager.GetObject("dark_88", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_88", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -943,9 +943,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_89 {
+        public static System.Drawing.Icon Dark_89 {
             get {
-                object obj = ResourceManager.GetObject("dark_89", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_89", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -953,9 +953,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_9 {
+        public static System.Drawing.Icon Dark_9 {
             get {
-                object obj = ResourceManager.GetObject("dark_9", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_9", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -963,9 +963,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_90 {
+        public static System.Drawing.Icon Dark_90 {
             get {
-                object obj = ResourceManager.GetObject("dark_90", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_90", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -973,9 +973,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_91 {
+        public static System.Drawing.Icon Dark_91 {
             get {
-                object obj = ResourceManager.GetObject("dark_91", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_91", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -983,9 +983,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_92 {
+        public static System.Drawing.Icon Dark_92 {
             get {
-                object obj = ResourceManager.GetObject("dark_92", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_92", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -993,9 +993,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_93 {
+        public static System.Drawing.Icon Dark_93 {
             get {
-                object obj = ResourceManager.GetObject("dark_93", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_93", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1003,9 +1003,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_94 {
+        public static System.Drawing.Icon Dark_94 {
             get {
-                object obj = ResourceManager.GetObject("dark_94", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_94", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1013,9 +1013,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_95 {
+        public static System.Drawing.Icon Dark_95 {
             get {
-                object obj = ResourceManager.GetObject("dark_95", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_95", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1023,9 +1023,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_96 {
+        public static System.Drawing.Icon Dark_96 {
             get {
-                object obj = ResourceManager.GetObject("dark_96", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_96", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1033,9 +1033,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_97 {
+        public static System.Drawing.Icon Dark_97 {
             get {
-                object obj = ResourceManager.GetObject("dark_97", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_97", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1043,9 +1043,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_98 {
+        public static System.Drawing.Icon Dark_98 {
             get {
-                object obj = ResourceManager.GetObject("dark_98", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_98", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1053,9 +1053,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon dark_99 {
+        public static System.Drawing.Icon Dark_99 {
             get {
-                object obj = ResourceManager.GetObject("dark_99", resourceCulture);
+                object obj = ResourceManager.GetObject("Dark_99", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1063,9 +1063,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_1 {
+        public static System.Drawing.Icon Light_1 {
             get {
-                object obj = ResourceManager.GetObject("light_1", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_1", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1073,9 +1073,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_10 {
+        public static System.Drawing.Icon Light_10 {
             get {
-                object obj = ResourceManager.GetObject("light_10", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_10", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1083,9 +1083,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_100 {
+        public static System.Drawing.Icon Light_100 {
             get {
-                object obj = ResourceManager.GetObject("light_100", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_100", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1093,9 +1093,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_11 {
+        public static System.Drawing.Icon Light_11 {
             get {
-                object obj = ResourceManager.GetObject("light_11", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_11", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1103,9 +1103,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_12 {
+        public static System.Drawing.Icon Light_12 {
             get {
-                object obj = ResourceManager.GetObject("light_12", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_12", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1113,9 +1113,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_13 {
+        public static System.Drawing.Icon Light_13 {
             get {
-                object obj = ResourceManager.GetObject("light_13", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_13", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1123,9 +1123,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_14 {
+        public static System.Drawing.Icon Light_14 {
             get {
-                object obj = ResourceManager.GetObject("light_14", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_14", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1133,9 +1133,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_15 {
+        public static System.Drawing.Icon Light_15 {
             get {
-                object obj = ResourceManager.GetObject("light_15", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_15", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1143,9 +1143,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_16 {
+        public static System.Drawing.Icon Light_16 {
             get {
-                object obj = ResourceManager.GetObject("light_16", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_16", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1153,9 +1153,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_17 {
+        public static System.Drawing.Icon Light_17 {
             get {
-                object obj = ResourceManager.GetObject("light_17", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_17", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1163,9 +1163,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_18 {
+        public static System.Drawing.Icon Light_18 {
             get {
-                object obj = ResourceManager.GetObject("light_18", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_18", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1173,9 +1173,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_19 {
+        public static System.Drawing.Icon Light_19 {
             get {
-                object obj = ResourceManager.GetObject("light_19", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_19", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1183,9 +1183,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_2 {
+        public static System.Drawing.Icon Light_2 {
             get {
-                object obj = ResourceManager.GetObject("light_2", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_2", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1193,9 +1193,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_20 {
+        public static System.Drawing.Icon Light_20 {
             get {
-                object obj = ResourceManager.GetObject("light_20", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_20", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1203,9 +1203,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_21 {
+        public static System.Drawing.Icon Light_21 {
             get {
-                object obj = ResourceManager.GetObject("light_21", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_21", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1213,9 +1213,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_22 {
+        public static System.Drawing.Icon Light_22 {
             get {
-                object obj = ResourceManager.GetObject("light_22", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_22", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1223,9 +1223,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_23 {
+        public static System.Drawing.Icon Light_23 {
             get {
-                object obj = ResourceManager.GetObject("light_23", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_23", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1233,9 +1233,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_24 {
+        public static System.Drawing.Icon Light_24 {
             get {
-                object obj = ResourceManager.GetObject("light_24", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_24", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1243,9 +1243,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_25 {
+        public static System.Drawing.Icon Light_25 {
             get {
-                object obj = ResourceManager.GetObject("light_25", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_25", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1253,9 +1253,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_26 {
+        public static System.Drawing.Icon Light_26 {
             get {
-                object obj = ResourceManager.GetObject("light_26", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_26", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1263,9 +1263,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_27 {
+        public static System.Drawing.Icon Light_27 {
             get {
-                object obj = ResourceManager.GetObject("light_27", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_27", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1273,9 +1273,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_28 {
+        public static System.Drawing.Icon Light_28 {
             get {
-                object obj = ResourceManager.GetObject("light_28", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_28", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1283,9 +1283,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_29 {
+        public static System.Drawing.Icon Light_29 {
             get {
-                object obj = ResourceManager.GetObject("light_29", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_29", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1293,9 +1293,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_3 {
+        public static System.Drawing.Icon Light_3 {
             get {
-                object obj = ResourceManager.GetObject("light_3", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_3", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1303,9 +1303,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_30 {
+        public static System.Drawing.Icon Light_30 {
             get {
-                object obj = ResourceManager.GetObject("light_30", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_30", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1313,9 +1313,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_31 {
+        public static System.Drawing.Icon Light_31 {
             get {
-                object obj = ResourceManager.GetObject("light_31", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_31", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1323,9 +1323,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_32 {
+        public static System.Drawing.Icon Light_32 {
             get {
-                object obj = ResourceManager.GetObject("light_32", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_32", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1333,9 +1333,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_33 {
+        public static System.Drawing.Icon Light_33 {
             get {
-                object obj = ResourceManager.GetObject("light_33", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_33", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1343,9 +1343,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_34 {
+        public static System.Drawing.Icon Light_34 {
             get {
-                object obj = ResourceManager.GetObject("light_34", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_34", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1353,9 +1353,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_35 {
+        public static System.Drawing.Icon Light_35 {
             get {
-                object obj = ResourceManager.GetObject("light_35", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_35", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1363,9 +1363,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_36 {
+        public static System.Drawing.Icon Light_36 {
             get {
-                object obj = ResourceManager.GetObject("light_36", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_36", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1373,9 +1373,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_37 {
+        public static System.Drawing.Icon Light_37 {
             get {
-                object obj = ResourceManager.GetObject("light_37", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_37", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1383,9 +1383,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_38 {
+        public static System.Drawing.Icon Light_38 {
             get {
-                object obj = ResourceManager.GetObject("light_38", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_38", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1393,9 +1393,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_39 {
+        public static System.Drawing.Icon Light_39 {
             get {
-                object obj = ResourceManager.GetObject("light_39", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_39", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1403,9 +1403,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_4 {
+        public static System.Drawing.Icon Light_4 {
             get {
-                object obj = ResourceManager.GetObject("light_4", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_4", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1413,9 +1413,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_40 {
+        public static System.Drawing.Icon Light_40 {
             get {
-                object obj = ResourceManager.GetObject("light_40", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_40", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1423,9 +1423,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_41 {
+        public static System.Drawing.Icon Light_41 {
             get {
-                object obj = ResourceManager.GetObject("light_41", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_41", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1433,9 +1433,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_42 {
+        public static System.Drawing.Icon Light_42 {
             get {
-                object obj = ResourceManager.GetObject("light_42", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_42", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1443,9 +1443,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_43 {
+        public static System.Drawing.Icon Light_43 {
             get {
-                object obj = ResourceManager.GetObject("light_43", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_43", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1453,9 +1453,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_44 {
+        public static System.Drawing.Icon Light_44 {
             get {
-                object obj = ResourceManager.GetObject("light_44", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_44", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1463,9 +1463,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_45 {
+        public static System.Drawing.Icon Light_45 {
             get {
-                object obj = ResourceManager.GetObject("light_45", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_45", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1473,9 +1473,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_46 {
+        public static System.Drawing.Icon Light_46 {
             get {
-                object obj = ResourceManager.GetObject("light_46", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_46", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1483,9 +1483,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_47 {
+        public static System.Drawing.Icon Light_47 {
             get {
-                object obj = ResourceManager.GetObject("light_47", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_47", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1493,9 +1493,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_48 {
+        public static System.Drawing.Icon Light_48 {
             get {
-                object obj = ResourceManager.GetObject("light_48", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_48", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1503,9 +1503,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_49 {
+        public static System.Drawing.Icon Light_49 {
             get {
-                object obj = ResourceManager.GetObject("light_49", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_49", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1513,9 +1513,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_5 {
+        public static System.Drawing.Icon Light_5 {
             get {
-                object obj = ResourceManager.GetObject("light_5", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_5", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1523,9 +1523,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_50 {
+        public static System.Drawing.Icon Light_50 {
             get {
-                object obj = ResourceManager.GetObject("light_50", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_50", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1533,9 +1533,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_51 {
+        public static System.Drawing.Icon Light_51 {
             get {
-                object obj = ResourceManager.GetObject("light_51", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_51", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1543,9 +1543,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_52 {
+        public static System.Drawing.Icon Light_52 {
             get {
-                object obj = ResourceManager.GetObject("light_52", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_52", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1553,9 +1553,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_53 {
+        public static System.Drawing.Icon Light_53 {
             get {
-                object obj = ResourceManager.GetObject("light_53", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_53", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1563,9 +1563,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_54 {
+        public static System.Drawing.Icon Light_54 {
             get {
-                object obj = ResourceManager.GetObject("light_54", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_54", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1573,9 +1573,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_55 {
+        public static System.Drawing.Icon Light_55 {
             get {
-                object obj = ResourceManager.GetObject("light_55", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_55", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1583,9 +1583,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_56 {
+        public static System.Drawing.Icon Light_56 {
             get {
-                object obj = ResourceManager.GetObject("light_56", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_56", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1593,9 +1593,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_57 {
+        public static System.Drawing.Icon Light_57 {
             get {
-                object obj = ResourceManager.GetObject("light_57", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_57", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1603,9 +1603,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_58 {
+        public static System.Drawing.Icon Light_58 {
             get {
-                object obj = ResourceManager.GetObject("light_58", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_58", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1613,9 +1613,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_59 {
+        public static System.Drawing.Icon Light_59 {
             get {
-                object obj = ResourceManager.GetObject("light_59", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_59", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1623,9 +1623,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_6 {
+        public static System.Drawing.Icon Light_6 {
             get {
-                object obj = ResourceManager.GetObject("light_6", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_6", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1633,9 +1633,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_60 {
+        public static System.Drawing.Icon Light_60 {
             get {
-                object obj = ResourceManager.GetObject("light_60", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_60", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1643,9 +1643,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_61 {
+        public static System.Drawing.Icon Light_61 {
             get {
-                object obj = ResourceManager.GetObject("light_61", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_61", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1653,9 +1653,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_62 {
+        public static System.Drawing.Icon Light_62 {
             get {
-                object obj = ResourceManager.GetObject("light_62", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_62", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1663,9 +1663,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_63 {
+        public static System.Drawing.Icon Light_63 {
             get {
-                object obj = ResourceManager.GetObject("light_63", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_63", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1673,9 +1673,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_64 {
+        public static System.Drawing.Icon Light_64 {
             get {
-                object obj = ResourceManager.GetObject("light_64", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_64", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1683,9 +1683,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_65 {
+        public static System.Drawing.Icon Light_65 {
             get {
-                object obj = ResourceManager.GetObject("light_65", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_65", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1693,9 +1693,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_66 {
+        public static System.Drawing.Icon Light_66 {
             get {
-                object obj = ResourceManager.GetObject("light_66", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_66", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1703,9 +1703,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_67 {
+        public static System.Drawing.Icon Light_67 {
             get {
-                object obj = ResourceManager.GetObject("light_67", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_67", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1713,9 +1713,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_68 {
+        public static System.Drawing.Icon Light_68 {
             get {
-                object obj = ResourceManager.GetObject("light_68", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_68", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1723,9 +1723,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_69 {
+        public static System.Drawing.Icon Light_69 {
             get {
-                object obj = ResourceManager.GetObject("light_69", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_69", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1733,9 +1733,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_7 {
+        public static System.Drawing.Icon Light_7 {
             get {
-                object obj = ResourceManager.GetObject("light_7", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_7", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1743,9 +1743,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_70 {
+        public static System.Drawing.Icon Light_70 {
             get {
-                object obj = ResourceManager.GetObject("light_70", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_70", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1753,9 +1753,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_71 {
+        public static System.Drawing.Icon Light_71 {
             get {
-                object obj = ResourceManager.GetObject("light_71", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_71", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1763,9 +1763,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_72 {
+        public static System.Drawing.Icon Light_72 {
             get {
-                object obj = ResourceManager.GetObject("light_72", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_72", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1773,9 +1773,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_73 {
+        public static System.Drawing.Icon Light_73 {
             get {
-                object obj = ResourceManager.GetObject("light_73", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_73", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1783,9 +1783,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_74 {
+        public static System.Drawing.Icon Light_74 {
             get {
-                object obj = ResourceManager.GetObject("light_74", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_74", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1793,9 +1793,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_75 {
+        public static System.Drawing.Icon Light_75 {
             get {
-                object obj = ResourceManager.GetObject("light_75", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_75", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1803,9 +1803,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_76 {
+        public static System.Drawing.Icon Light_76 {
             get {
-                object obj = ResourceManager.GetObject("light_76", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_76", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1813,9 +1813,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_77 {
+        public static System.Drawing.Icon Light_77 {
             get {
-                object obj = ResourceManager.GetObject("light_77", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_77", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1823,9 +1823,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_78 {
+        public static System.Drawing.Icon Light_78 {
             get {
-                object obj = ResourceManager.GetObject("light_78", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_78", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1833,9 +1833,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_79 {
+        public static System.Drawing.Icon Light_79 {
             get {
-                object obj = ResourceManager.GetObject("light_79", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_79", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1843,9 +1843,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_8 {
+        public static System.Drawing.Icon Light_8 {
             get {
-                object obj = ResourceManager.GetObject("light_8", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_8", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1853,9 +1853,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_80 {
+        public static System.Drawing.Icon Light_80 {
             get {
-                object obj = ResourceManager.GetObject("light_80", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_80", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1863,9 +1863,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_81 {
+        public static System.Drawing.Icon Light_81 {
             get {
-                object obj = ResourceManager.GetObject("light_81", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_81", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1873,9 +1873,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_82 {
+        public static System.Drawing.Icon Light_82 {
             get {
-                object obj = ResourceManager.GetObject("light_82", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_82", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1883,9 +1883,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_83 {
+        public static System.Drawing.Icon Light_83 {
             get {
-                object obj = ResourceManager.GetObject("light_83", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_83", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1893,9 +1893,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_84 {
+        public static System.Drawing.Icon Light_84 {
             get {
-                object obj = ResourceManager.GetObject("light_84", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_84", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1903,9 +1903,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_85 {
+        public static System.Drawing.Icon Light_85 {
             get {
-                object obj = ResourceManager.GetObject("light_85", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_85", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1913,9 +1913,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_86 {
+        public static System.Drawing.Icon Light_86 {
             get {
-                object obj = ResourceManager.GetObject("light_86", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_86", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1923,9 +1923,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_87 {
+        public static System.Drawing.Icon Light_87 {
             get {
-                object obj = ResourceManager.GetObject("light_87", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_87", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1933,9 +1933,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_88 {
+        public static System.Drawing.Icon Light_88 {
             get {
-                object obj = ResourceManager.GetObject("light_88", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_88", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1943,9 +1943,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_89 {
+        public static System.Drawing.Icon Light_89 {
             get {
-                object obj = ResourceManager.GetObject("light_89", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_89", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1953,9 +1953,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_9 {
+        public static System.Drawing.Icon Light_9 {
             get {
-                object obj = ResourceManager.GetObject("light_9", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_9", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1963,9 +1963,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_90 {
+        public static System.Drawing.Icon Light_90 {
             get {
-                object obj = ResourceManager.GetObject("light_90", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_90", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1973,9 +1973,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_91 {
+        public static System.Drawing.Icon Light_91 {
             get {
-                object obj = ResourceManager.GetObject("light_91", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_91", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1983,9 +1983,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_92 {
+        public static System.Drawing.Icon Light_92 {
             get {
-                object obj = ResourceManager.GetObject("light_92", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_92", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -1993,9 +1993,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_93 {
+        public static System.Drawing.Icon Light_93 {
             get {
-                object obj = ResourceManager.GetObject("light_93", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_93", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -2003,9 +2003,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_94 {
+        public static System.Drawing.Icon Light_94 {
             get {
-                object obj = ResourceManager.GetObject("light_94", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_94", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -2013,9 +2013,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_95 {
+        public static System.Drawing.Icon Light_95 {
             get {
-                object obj = ResourceManager.GetObject("light_95", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_95", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -2023,9 +2023,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_96 {
+        public static System.Drawing.Icon Light_96 {
             get {
-                object obj = ResourceManager.GetObject("light_96", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_96", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -2033,9 +2033,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_97 {
+        public static System.Drawing.Icon Light_97 {
             get {
-                object obj = ResourceManager.GetObject("light_97", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_97", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -2043,9 +2043,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_98 {
+        public static System.Drawing.Icon Light_98 {
             get {
-                object obj = ResourceManager.GetObject("light_98", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_98", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -2053,9 +2053,9 @@ namespace BatteryTracker {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Icon light_99 {
+        public static System.Drawing.Icon Light_99 {
             get {
-                object obj = ResourceManager.GetObject("light_99", resourceCulture);
+                object obj = ResourceManager.GetObject("Light_99", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

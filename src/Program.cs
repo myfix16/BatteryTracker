@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Reflection;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
 using System.Windows.Forms;
 

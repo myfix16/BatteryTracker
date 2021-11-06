@@ -48,27 +48,27 @@ namespace BatteryTracker
         #region P/Invoke
 
         [DllImport("advapi32.dll", SetLastError = true)]
-        private static extern int RegOpenKeyEx(IntPtr hKey, string subKey, uint options, int samDesired,
+        static extern int RegOpenKeyEx(IntPtr hKey, string subKey, uint options, int samDesired,
                                                out IntPtr phkResult);
 
         [DllImport("advapi32.dll", SetLastError = true)]
-        private static extern int RegNotifyChangeKeyValue(IntPtr hKey, bool bWatchSubtree,
+        static extern int RegNotifyChangeKeyValue(IntPtr hKey, bool bWatchSubtree,
                                                           RegChangeNotifyFilter dwNotifyFilter, IntPtr hEvent,
                                                           bool fAsynchronous);
 
         [DllImport("advapi32.dll", SetLastError = true)]
-        private static extern int RegCloseKey(IntPtr hKey);
+        static extern int RegCloseKey(IntPtr hKey);
 
-        private const int KEY_QUERY_VALUE = 0x0001;
-        private const int KEY_NOTIFY = 0x0010;
-        private const int STANDARD_RIGHTS_READ = 0x00020000;
+        const int KEY_QUERY_VALUE = 0x0001;
+        const int KEY_NOTIFY = 0x0010;
+        const int STANDARD_RIGHTS_READ = 0x00020000;
 
-        private static readonly IntPtr HKEY_CLASSES_ROOT = new IntPtr(unchecked((int)0x80000000));
-        private static readonly IntPtr HKEY_CURRENT_USER = new IntPtr(unchecked((int)0x80000001));
-        private static readonly IntPtr HKEY_LOCAL_MACHINE = new IntPtr(unchecked((int)0x80000002));
-        private static readonly IntPtr HKEY_USERS = new IntPtr(unchecked((int)0x80000003));
-        private static readonly IntPtr HKEY_PERFORMANCE_DATA = new IntPtr(unchecked((int)0x80000004));
-        private static readonly IntPtr HKEY_CURRENT_CONFIG = new IntPtr(unchecked((int)0x80000005));
+        static readonly IntPtr HKEY_CLASSES_ROOT = new IntPtr(unchecked((int)0x80000000));
+        static readonly IntPtr HKEY_CURRENT_USER = new IntPtr(unchecked((int)0x80000001));
+        static readonly IntPtr HKEY_LOCAL_MACHINE = new IntPtr(unchecked((int)0x80000002));
+        static readonly IntPtr HKEY_USERS = new IntPtr(unchecked((int)0x80000003));
+        static readonly IntPtr HKEY_PERFORMANCE_DATA = new IntPtr(unchecked((int)0x80000004));
+        static readonly IntPtr HKEY_CURRENT_CONFIG = new IntPtr(unchecked((int)0x80000005));
 
         #endregion
 
@@ -123,15 +123,15 @@ namespace BatteryTracker
 
         #region Private member variables
 
-        private IntPtr _registryHive;
-        private string _registrySubName;
-        private object _threadLock = new object();
-        private Thread _thread;
-        private bool _disposed = false;
-        private ManualResetEvent _eventTerminate = new ManualResetEvent(false);
+        IntPtr _registryHive;
+        string _registrySubName;
+        object _threadLock = new object();
+        Thread _thread;
+        bool _disposed = false;
+        ManualResetEvent _eventTerminate = new ManualResetEvent(false);
 
-        private RegChangeNotifyFilter _regFilter = RegChangeNotifyFilter.Key | RegChangeNotifyFilter.Attribute |
-                                                   RegChangeNotifyFilter.Value | RegChangeNotifyFilter.Security;
+        RegChangeNotifyFilter _regFilter = RegChangeNotifyFilter.Key | RegChangeNotifyFilter.Attribute |
+                                           RegChangeNotifyFilter.Value | RegChangeNotifyFilter.Security;
 
         #endregion
 
@@ -196,7 +196,7 @@ namespace BatteryTracker
 
         #region Initialization
 
-        private void InitRegistryKey(RegistryHive hive, string name)
+        void InitRegistryKey(RegistryHive hive, string name)
         {
             _registryHive = hive switch
             {
@@ -211,7 +211,7 @@ namespace BatteryTracker
             _registrySubName = name;
         }
 
-        private void InitRegistryKey(string name)
+        void InitRegistryKey(string name)
         {
             string[] nameParts = name.Split('\\');
 
@@ -293,7 +293,7 @@ namespace BatteryTracker
             }
         }
 
-        private void MonitorThread()
+        void MonitorThread()
         {
             try
             {
@@ -306,7 +306,7 @@ namespace BatteryTracker
             _thread = null;
         }
 
-        private void ThreadLoop()
+        void ThreadLoop()
         {
             int result = RegOpenKeyEx(
                 _registryHive,
