@@ -10,7 +10,7 @@ namespace BatteryTracker
     {
         #region Fields and Properties
 
-        NotifyIcon MainNotifyIcon { get; }
+        NotifyIcon MainNotificationIcon { get; }
 
         /// <summary>
         /// The main entry of context menu.
@@ -32,10 +32,7 @@ namespace BatteryTracker
 
         const string PersonalizeSubKeyName = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize";
 
-        enum ColorState
-        {
-            Light, Dark
-        }
+        enum ColorState { Dark, Light }
 
         ColorState _colorState = ColorState.Dark;
 
@@ -43,11 +40,15 @@ namespace BatteryTracker
         const string StartupKey = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
         const string StartupValue = "BatteryTracker";
 
+        readonly RegistryMonitor _monitor = new RegistryMonitor(
+            RegistryHive.CurrentUser,
+            PersonalizeSubKeyName);
+
         #endregion
 
         public TrayIcon()
         {
-            MainNotifyIcon = new NotifyIcon();
+            MainNotificationIcon = new NotifyIcon();
             MainContextMenuStrip = new ContextMenuStrip();
             AutoStartTerm = new ToolStripMenuItem();
             LightModeTerm = new ToolStripMenuItem();
@@ -80,7 +81,7 @@ namespace BatteryTracker
             LightModeTerm.Text = "Light Mode";
             DarkModeTerm.Text = "Dark Mode";
             LightModeTerm.Checked = _colorState == ColorState.Light;
-            DarkModeTerm.Checked = _colorState == ColorState.Dark;
+            DarkModeTerm.Checked = !LightModeTerm.Checked;
             LightModeTerm.Click += (sender, args) =>
             {
                 if (_colorState == ColorState.Light) return;
@@ -103,24 +104,25 @@ namespace BatteryTracker
             ExitTerm.Click += new EventHandler(ToolStripMenuItemExit_Click);
 
             // Initialize MainNotifyIcon.
-            MainNotifyIcon.ContextMenuStrip = MainContextMenuStrip;
-            MainNotifyIcon.Visible = true;
+            MainNotificationIcon.ContextMenuStrip = MainContextMenuStrip;
+            MainNotificationIcon.Visible = true;
 
             // Initialize color mode.
             DetectColorMode();
             UpdateIcon();
 
             // Listening to the change of color mode.
-            var monitor = new RegistryMonitor(
-                RegistryHive.CurrentUser,
-                PersonalizeSubKeyName);
-
-            monitor.RegChanged += (o, e) => { DetectColorMode(); UpdateIcon(); };
+            _monitor.RegChanged += (o, e) => { DetectColorMode(); UpdateIcon(); };
 
             // Listening to the change of battery percentage.
             PowerManager.BatteryLifePercentChanged += (o, e) => UpdateIcon();
 
-            monitor.Start();
+            _monitor.Start();
+        }
+
+        ~TrayIcon()
+        {
+            _monitor.Stop();
         }
 
         void EnableStartup()
@@ -139,8 +141,8 @@ namespace BatteryTracker
 
         void ToolStripMenuItemExit_Click(object sender, EventArgs e)
         {
-            MainNotifyIcon.Visible = false;
-            MainNotifyIcon.Dispose();
+            MainNotificationIcon.Visible = false;
+            MainNotificationIcon.Dispose();
             Environment.Exit(Environment.ExitCode);
         }
 
@@ -152,9 +154,12 @@ namespace BatteryTracker
             _powerPercentage = PowerManager.BatteryLifePercent;
 
             // ! Note that only public properties can be retrieved here by reflection.
-            MainNotifyIcon.Icon = (Icon)typeof(ResourceIcon)
+            MainNotificationIcon.Icon = (Icon)typeof(ResourceIcon)
                 .GetProperty($"{_colorState}_{_powerPercentage}")
                 .GetValue(null, null);
+
+            LightModeTerm.Checked = _colorState == ColorState.Light;
+            DarkModeTerm.Checked = !LightModeTerm.Checked;
         }
 
         /// <summary>
