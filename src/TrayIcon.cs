@@ -28,8 +28,6 @@ namespace BatteryTracker
 
         const string PersonalizeSubKeyName = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize";
 
-        const string StartupValue = "BatteryTracker";
-
         enum ColorState
         {
             Dark,
@@ -49,7 +47,7 @@ namespace BatteryTracker
             AutoStartTerm = new MenuItem
             {
                 Text = "Auto run at startup",
-                Checked = AutoStartHelper.IsRunAtStartup(StartupValue)
+                Checked = AutoStartHelper.IsRunAtStartup().Result
             };
             LightModeTerm = new MenuItem { Text = "Light mode", Checked = _colorState == ColorState.Light };
             DarkModeTerm = new MenuItem { Text = "Dark mode", Checked = !LightModeTerm.Checked };
@@ -66,11 +64,11 @@ namespace BatteryTracker
             };
 
             // add event handlers
-            AutoStartTerm.Click += (sender, args) =>
+            AutoStartTerm.Click += async (sender, args) =>
             {
                 // Already checked, disable it. Otherwise, enable auto run at startup.
-                if (AutoStartTerm.Checked) AutoStartHelper.DisableStartup(StartupValue);
-                else AutoStartHelper.EnableStartup(StartupValue);
+                if (AutoStartTerm.Checked) await AutoStartHelper.DisableStartup();
+                else await AutoStartHelper.EnableStartup();
                 AutoStartTerm.Checked ^= true;
             };
 
