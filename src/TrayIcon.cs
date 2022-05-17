@@ -3,6 +3,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using Microsoft.WindowsAPICodePack.ApplicationServices;
+using Windows.UI.Xaml;
+using Windows.Storage;
 
 namespace BatteryTracker
 {
@@ -21,10 +23,14 @@ namespace BatteryTracker
 
         MenuItem AutoStartTerm { get; }
 
+        MenuItem ShowNotificationTerm { get; }
+
         MenuItem LightModeTerm { get; }
         MenuItem DarkModeTerm { get; }
 
         int _powerPercentage = PowerManager.BatteryLifePercent;
+
+        bool _showNotification;
 
         const string PersonalizeSubKeyName = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize";
 
@@ -49,11 +55,24 @@ namespace BatteryTracker
                 Text = "Auto run at startup",
                 Checked = AutoStartHelper.IsRunAtStartup().Result
             };
+
+            ApplicationDataContainer settings = SettingsHelper.GetSettings();
+            if (!settings.Values.ContainsKey(SettingsHelper.ShowNotificationSetting))
+            {
+                settings.Values[SettingsHelper.ShowNotificationSetting] = _showNotification = true;
+            }
+            else
+            {
+                _showNotification = (bool)settings.Values[SettingsHelper.ShowNotificationSetting];
+            }
+            ShowNotificationTerm = new MenuItem { Text = "Show Notification", Checked = _showNotification };
+
             LightModeTerm = new MenuItem { Text = "Light mode", Checked = _colorState == ColorState.Light };
             DarkModeTerm = new MenuItem { Text = "Dark mode", Checked = !LightModeTerm.Checked };
+
             ExitTerm = new MenuItem { Text = "Exit" };
-            MainContextMenuStrip = new ContextMenu
-            { MenuItems = { AutoStartTerm, LightModeTerm, DarkModeTerm, ExitTerm } };
+
+            MainContextMenuStrip = new ContextMenu { MenuItems = { AutoStartTerm, ShowNotificationTerm, LightModeTerm, DarkModeTerm, ExitTerm } };
             MainNotificationIcon = new NotifyIcon
             {
                 ContextMenu = MainContextMenuStrip,
@@ -70,6 +89,11 @@ namespace BatteryTracker
                 if (AutoStartTerm.Checked) await AutoStartHelper.DisableStartup();
                 else await AutoStartHelper.EnableStartup();
                 AutoStartTerm.Checked ^= true;
+            };
+
+            ShowNotificationTerm.Click += (sender, args) =>
+            {
+                settings.Values[SettingsHelper.ShowNotificationSetting] = ShowNotificationTerm.Checked = _showNotification = !_showNotification;
             };
 
             LightModeTerm.Click += (sender, args) =>
@@ -128,15 +152,18 @@ namespace BatteryTracker
                 .GetProperty($"{_colorState}_{_powerPercentage}")
                 .GetValue(null, null);
 
-            if (_powerPercentage < 25)
+            if (_showNotification)
             {
-                NotificationHelper.PushLowPowerNotification(
-                    _powerPercentage,
-                    SystemInformation.PowerStatus.BatteryLifeRemaining);
-            }
-            else if (_powerPercentage == 100)
-            {
-                NotificationHelper.PushChargedNotification();
+                if (_powerPercentage < 25)
+                {
+                    NotificationHelper.PushLowPowerNotification(
+                        _powerPercentage,
+                        SystemInformation.PowerStatus.BatteryLifeRemaining);
+                }
+                else if (_powerPercentage == 100)
+                {
+                    NotificationHelper.PushChargedNotification();
+                }
             }
         }
 

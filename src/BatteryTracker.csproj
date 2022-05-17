@@ -119,6 +119,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ResourceIcon.resx</DependentUpon>
     </Compile>
+    <Compile Include="SettingsHelper.cs" />
     <Compile Include="TrayIcon.cs" />
     <EmbeddedResource Include="ResourceIcon.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
