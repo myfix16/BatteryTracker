@@ -1,5 +1,5 @@
 ﻿## Battery Tracker
-![full](https://raw.githubusercontent.com/myfix16/BatteryTrackerFramework/master/showcase1.png) Full Charged <br></br>
+![full](https://raw.githubusercontent.com/myfix16/BatteryTrackerFramework/master/showcase1.png) Fully Charged <br></br>
 ![not full](https://github.com/myfix16/BatteryTrackerFramework/raw/master/showcase2.png) Charging/Using
 
 ### Function
@@ -21,3 +21,9 @@ The project requires .NET Framework 4.8 Runtime, you can download it from [here]
 
 ### Privacy Policy
 The app will not collect any data at all.
+
+### How to Download
+<script type="module" src="https://getbadgecdn.azureedge.net/ms-store-badge.bundled.js"></script>
+<ms-store-badge productid="9P1FBSLRNM43" size="large" language="en"></ms-store-badge>
+
+Alternatively, you can download the executable in release page.

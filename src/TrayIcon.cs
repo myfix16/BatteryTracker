@@ -3,7 +3,6 @@ using System.Drawing;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using Microsoft.WindowsAPICodePack.ApplicationServices;
-using Windows.UI.Xaml;
 using Windows.Storage;
 
 namespace BatteryTracker
