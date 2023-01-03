@@ -23,7 +23,6 @@ The project requires .NET Framework 4.8 Runtime, you can download it from [here]
 The app will not collect any data at all.
 
 ### How to Download
-<script type="module" src="https://getbadgecdn.azureedge.net/ms-store-badge.bundled.js"></script>
-<ms-store-badge productid="9P1FBSLRNM43" size="large" language="en"></ms-store-badge>
+<a href='https://www.microsoft.com/store/apps/9P1FBSLRNM43?ocid=badge'><img src='https://developer.microsoft.com/en-us/store/badges/images/English_get-it-from-MS.png' alt='Microsoft Store' width='160'/></a>
 
-Alternatively, you can download the executable in release page.
+Alternatively, you can download the executable in [release page](https://github.com/myfix16/BatteryTracker/releases).
