@@ -3,8 +3,6 @@ using CommunityToolkit.WinUI.UI.Helpers;
 using H.NotifyIcon;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media;
-using Microsoft.Windows.AppNotifications;
-using Microsoft.Windows.AppNotifications.Builder;
 using Microsoft.Windows.System.Power;
 using Brush = Microsoft.UI.Xaml.Media.Brush;
 using Color = Windows.UI.Color;
@@ -18,6 +16,8 @@ namespace BatteryTracker
 
         private TaskbarIcon? _trayIcon;
         private ThemeListener? _themeListener;
+
+        private bool _isLowPower;
 
         public void Init(ResourceDictionary resources)
         {
@@ -44,31 +44,30 @@ namespace BatteryTracker
             _trayIcon?.Dispose();
         }
 
-        internal void PushNotification(string title, string message)
-        {
-            var builder = new AppNotificationBuilder()
-                .AddText("Send a message.")
-                .AddTextBox("textBox");
-
-            var notificationManager = AppNotificationManager.Default;
-            notificationManager.Show(builder.BuildNotification());
-        }
-
         private void UpdateTrayIconPercent(object? _, object eventArg)
         {
             if (_trayIcon is null) return;
             int chargePercent = PowerManager.RemainingChargePercent;
-            _trayIcon.GeneratedIcon ??= new GeneratedIcon();
-            _trayIcon.GeneratedIcon.Text = chargePercent == 100 ? "F" : $"{chargePercent}%";
-            PushNotification("", "");
+            string newPercentText = chargePercent == 100 ? "F" : $"{chargePercent}%";
+            _trayIcon.GeneratedIcon.Text = newPercentText;
+
+            NotificationManager.PushMessage($"Percentage: {chargePercent}");
+
+            // push low power notification
+            if (!_isLowPower && chargePercent < 25)
+            {
+                _isLowPower = true;
+                TimeSpan estimatedBatteryLife = PowerManager.RemainingDischargeTime;
+                NotificationManager.PushMessage($"Lower power: {chargePercent}%. Estimated battery life: {estimatedBatteryLife}");
+            }
+            else if (chargePercent >= 25) _isLowPower = false;
         }
 
         private void UpdateTrayIconTheme(ThemeListener sender)
         {
             if (_trayIcon is null) return;
-            _trayIcon.GeneratedIcon ??= new GeneratedIcon();
-            _trayIcon.GeneratedIcon.Foreground = sender.CurrentTheme == ApplicationTheme.Dark
-                ? White : Black;
+            Brush newForeground = sender.CurrentTheme == ApplicationTheme.Dark ? White : Black;
+            _trayIcon.GeneratedIcon.Foreground = newForeground;
         }
     }
 }

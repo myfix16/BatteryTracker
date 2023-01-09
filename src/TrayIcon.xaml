@@ -28,6 +28,12 @@
     >
     </XamlUICommand>
     <XamlUICommand
+        x:Key="OpenSettingsCommand"
+        Label="Settings"
+        Description="Open settings window"
+    >
+    </XamlUICommand>
+    <XamlUICommand
         x:Key="ExitApplicationCommand"
         Label="Exit"
         Description="Exit"
@@ -36,14 +42,19 @@
     <tb:TaskbarIcon
         x:Key="TrayIcon"
         Visibility="Visible"
-        ToolTipText="ToolTip"
         NoLeftClickDelay="True"
         >
         <tb:TaskbarIcon.GeneratedIcon>
             <tb:GeneratedIcon
-                Text="F"
+                Text="99"
+                TextMargin="0 0 0 0"
+                Margin="0 0 0 0"
+                CornerRadius="0"
                 Foreground="White"
-                />
+                FontWeight="Bold"
+                FontSize="36"
+                FontFamily="Segoe UI"
+            />
         </tb:TaskbarIcon.GeneratedIcon>
         <tb:TaskbarIcon.ContextFlyout>
             <MenuFlyout>
@@ -52,6 +63,7 @@
                 <MenuFlyoutItem Command="{StaticResource LightModeCommand}" />
                 <MenuFlyoutItem Command="{StaticResource DarkModeCommand}" />
                 <MenuFlyoutSeparator />
+                <MenuFlyoutItem Command="{StaticResource OpenSettingsCommand}" />
                 <MenuFlyoutItem Command="{StaticResource ExitApplicationCommand}" />
             </MenuFlyout>
         </tb:TaskbarIcon.ContextFlyout>
