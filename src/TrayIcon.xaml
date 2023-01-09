@@ -1,0 +1,59 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:tb="using:H.NotifyIcon"
+    >
+    <XamlUICommand
+        x:Key="SwitchAutoStartupCommand"
+        Label="Run at startup"
+        Description="Switch running at startup"
+        >
+    </XamlUICommand>
+    <XamlUICommand
+        x:Key="SwitchNotificationCommand"
+        Label="Show Notifications"
+        Description="Enable/disable battery notifications"
+        >
+    </XamlUICommand>
+    <XamlUICommand
+        x:Key="LightModeCommand"
+        Label="Light mode"
+        Description="Switch to light mode"
+    >
+    </XamlUICommand>
+    <XamlUICommand
+        x:Key="DarkModeCommand"
+        Label="Dark mode"
+        Description="Switch to dark mode"
+    >
+    </XamlUICommand>
+    <XamlUICommand
+        x:Key="ExitApplicationCommand"
+        Label="Exit"
+        Description="Exit"
+        >
+    </XamlUICommand>
+    <tb:TaskbarIcon
+        x:Key="TrayIcon"
+        Visibility="Visible"
+        ToolTipText="ToolTip"
+        NoLeftClickDelay="True"
+        >
+        <tb:TaskbarIcon.GeneratedIcon>
+            <tb:GeneratedIcon
+                Text="F"
+                Foreground="White"
+                />
+        </tb:TaskbarIcon.GeneratedIcon>
+        <tb:TaskbarIcon.ContextFlyout>
+            <MenuFlyout>
+                <MenuFlyoutItem Command="{StaticResource SwitchAutoStartupCommand}" />
+                <MenuFlyoutItem Command="{StaticResource SwitchNotificationCommand}" />
+                <MenuFlyoutItem Command="{StaticResource LightModeCommand}" />
+                <MenuFlyoutItem Command="{StaticResource DarkModeCommand}" />
+                <MenuFlyoutSeparator />
+                <MenuFlyoutItem Command="{StaticResource ExitApplicationCommand}" />
+            </MenuFlyout>
+        </tb:TaskbarIcon.ContextFlyout>
+    </tb:TaskbarIcon>
+</ResourceDictionary>
