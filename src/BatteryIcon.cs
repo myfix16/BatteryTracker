@@ -1,4 +1,4 @@
-﻿using System;
+﻿using BatteryTracker.Helpers;
 using CommunityToolkit.WinUI.UI.Helpers;
 using H.NotifyIcon;
 using Microsoft.UI.Xaml;
@@ -40,16 +40,24 @@ namespace BatteryTracker
         public void Dispose()
         {
             PowerManager.RemainingChargePercentChanged -= UpdateTrayIconPercent;
-            if (_themeListener != null) _themeListener.ThemeChanged -= UpdateTrayIconTheme;
+            if (_themeListener != null)
+            {
+                _themeListener.ThemeChanged -= UpdateTrayIconTheme;
+            }
+
             _trayIcon?.Dispose();
         }
 
         private void UpdateTrayIconPercent(object? _, object eventArg)
         {
-            if (_trayIcon is null) return;
+            if (_trayIcon is null)
+            {
+                return;
+            }
+
             int chargePercent = PowerManager.RemainingChargePercent;
             string newPercentText = chargePercent == 100 ? "F" : $"{chargePercent}%";
-            _trayIcon.GeneratedIcon.Text = newPercentText;
+            // _trayIcon.GeneratedIcon.Text = newPercentText;
 
             NotificationManager.PushMessage($"Percentage: {chargePercent}");
 
@@ -60,14 +68,28 @@ namespace BatteryTracker
                 TimeSpan estimatedBatteryLife = PowerManager.RemainingDischargeTime;
                 NotificationManager.PushMessage($"Lower power: {chargePercent}%. Estimated battery life: {estimatedBatteryLife}");
             }
-            else if (chargePercent >= 25) _isLowPower = false;
+            else if (chargePercent >= 25)
+            {
+                _isLowPower = false;
+            }
+
+            // push fully charged notification
+            if (chargePercent == 100)
+            {
+                NotificationManager.PushMessage("The battery is fully charged⚡");
+            }
         }
 
         private void UpdateTrayIconTheme(ThemeListener sender)
         {
-            if (_trayIcon is null) return;
+            if (_trayIcon is null)
+            {
+                return;
+            }
+
             Brush newForeground = sender.CurrentTheme == ApplicationTheme.Dark ? White : Black;
-            _trayIcon.GeneratedIcon.Foreground = newForeground;
+            // _trayIcon.GeneratedIcon.Foreground = newForeground;
+            NotificationManager.PushMessage($"Theme changed to: {sender.CurrentThemeName}");
         }
     }
 }

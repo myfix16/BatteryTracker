@@ -1,7 +1,7 @@
 ﻿using Microsoft.Windows.AppNotifications;
 using Microsoft.Windows.AppNotifications.Builder;
 
-namespace BatteryTracker
+namespace BatteryTracker.Helpers
 {
     internal static class NotificationManager
     {

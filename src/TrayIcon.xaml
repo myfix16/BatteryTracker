@@ -3,18 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:tb="using:H.NotifyIcon"
     >
-    <XamlUICommand
-        x:Key="SwitchAutoStartupCommand"
-        Label="Run at startup"
-        Description="Switch running at startup"
-        >
-    </XamlUICommand>
-    <XamlUICommand
-        x:Key="SwitchNotificationCommand"
-        Label="Show Notifications"
-        Description="Enable/disable battery notifications"
-        >
-    </XamlUICommand>
+
     <XamlUICommand
         x:Key="LightModeCommand"
         Label="Light mode"
@@ -58,8 +47,6 @@
         </tb:TaskbarIcon.GeneratedIcon>
         <tb:TaskbarIcon.ContextFlyout>
             <MenuFlyout>
-                <MenuFlyoutItem Command="{StaticResource SwitchAutoStartupCommand}" />
-                <MenuFlyoutItem Command="{StaticResource SwitchNotificationCommand}" />
                 <MenuFlyoutItem Command="{StaticResource LightModeCommand}" />
                 <MenuFlyoutItem Command="{StaticResource DarkModeCommand}" />
                 <MenuFlyoutSeparator />
