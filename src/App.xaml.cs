@@ -36,17 +36,14 @@ namespace BatteryTracker
         // https://docs.microsoft.com/dotnet/core/extensions/dependency-injection
         // https://docs.microsoft.com/dotnet/core/extensions/configuration
         // https://docs.microsoft.com/dotnet/core/extensions/logging
-        public IHost Host
-        {
-            get;
-        }
+        public IHost Host { get; }
 
-        public static T GetService<T>()
-            where T : class
+        public static T GetService<T>() where T : class
         {
-            if ((App.Current as App)!.Host.Services.GetService(typeof(T)) is not T service)
+            if ((Current as App)!.Host.Services.GetService(typeof(T)) is not T service)
             {
-                throw new ArgumentException($"{typeof(T)} needs to be registered in ConfigureServices within App.xaml.cs.");
+                throw new ArgumentException(
+                    $"{typeof(T)} needs to be registered in ConfigureServices within App.xaml.cs.");
             }
 
             return service;
@@ -116,6 +113,12 @@ namespace BatteryTracker
             }
 
             InitializeTrayIcon();
+
+            MainWindow.Closed += (sender, eventArgs) =>
+            {
+                NotificationManager.PushMessage("Main Window closed.");
+                MainWindow.Hide();
+            };
         }
 
         private void InitializeTrayIcon()
@@ -132,7 +135,7 @@ namespace BatteryTracker
 
         private void OpenSettingsCommand_ExecuteRequested(object? _, ExecuteRequestedEventArgs args)
         {
-            MainWindow.Content = GetService<ShellPage>();
+            MainWindow.Content ??= GetService<ShellPage>();
             MainWindow.Show();
         }
 

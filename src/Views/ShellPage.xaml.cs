@@ -1,6 +1,5 @@
 ﻿using BatteryTracker.Helpers;
 using BatteryTracker.ViewModels;
-
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
@@ -9,10 +8,7 @@ namespace BatteryTracker.Views;
 
 public sealed partial class ShellPage : Page
 {
-    public ShellViewModel ViewModel
-    {
-        get;
-    }
+    public ShellViewModel ViewModel { get; }
 
     public ShellPage(ShellViewModel viewModel)
     {
@@ -38,12 +34,15 @@ public sealed partial class ShellPage : Page
 
     private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
     {
-        var resource = args.WindowActivationState == WindowActivationState.Deactivated ? "WindowCaptionForegroundDisabled" : "WindowCaptionForeground";
+        var resource = args.WindowActivationState == WindowActivationState.Deactivated
+            ? "WindowCaptionForegroundDisabled"
+            : "WindowCaptionForeground";
 
         AppTitleBarText.Foreground = (SolidColorBrush)Application.Current.Resources[resource];
     }
 
-    private void NavigationViewControl_DisplayModeChanged(NavigationView sender, NavigationViewDisplayModeChangedEventArgs args)
+    private void NavigationViewControl_DisplayModeChanged(NavigationView sender,
+        NavigationViewDisplayModeChangedEventArgs args)
     {
         AppTitleBar.Margin = new Thickness()
         {

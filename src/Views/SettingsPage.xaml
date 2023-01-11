@@ -22,7 +22,7 @@
                           IsChecked="{x:Bind ViewModel.EnableLowPowerNotification, Mode=TwoWay}" />
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <Slider x:Name="LowPowerThresholdSlider"
-                            IsEnabled="{x:Bind LowPowerNotificationCheckBox.IsChecked, Mode=TwoWay}"
+                            IsEnabled="{x:Bind ViewModel.EnableLowPowerNotification, Mode=OneWay}"
                             Value="{x:Bind ViewModel.LowPowerNotificationThreshold, Mode=TwoWay}"
                             HorizontalAlignment="Left" VerticalAlignment="Center"
                             Width="200" MinWidth="100" MaxWidth="400"
@@ -44,7 +44,6 @@
             <!--Autostart settings-->
             <TextBlock x:Uid="Settings_Autostart" Style="{ThemeResource SubtitleTextBlockStyle}" />
             <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
-                <!-- <TextBlock x:Uid="Settings_AutostartText" /> -->
                 <ToggleSwitch x:Uid="Settings_AutostartToggle" />
             </StackPanel>
 

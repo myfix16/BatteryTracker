@@ -1,6 +1,8 @@
 ﻿using BatteryTracker.Helpers;
+using CommunityToolkit.WinUI;
 using CommunityToolkit.WinUI.UI.Helpers;
 using H.NotifyIcon;
+using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.Windows.System.Power;
@@ -18,6 +20,8 @@ namespace BatteryTracker
         private ThemeListener? _themeListener;
 
         private bool _isLowPower;
+
+        private readonly DispatcherQueue dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
         public void Init(ResourceDictionary resources)
         {
@@ -48,7 +52,7 @@ namespace BatteryTracker
             _trayIcon?.Dispose();
         }
 
-        private void UpdateTrayIconPercent(object? _, object eventArg)
+        private async void UpdateTrayIconPercent(object? _, object eventArg)
         {
             if (_trayIcon is null)
             {
@@ -57,16 +61,21 @@ namespace BatteryTracker
 
             int chargePercent = PowerManager.RemainingChargePercent;
             string newPercentText = chargePercent == 100 ? "F" : $"{chargePercent}%";
-            // _trayIcon.GeneratedIcon.Text = newPercentText;
+            // Use a DispatcherQueue to execute UI related code on the main UI thread. Otherwise you may get an exception.
+            await dispatcherQueue.EnqueueAsync(() =>
+            {
+                _trayIcon.GeneratedIcon.Text = newPercentText;
+            });
 
-            NotificationManager.PushMessage($"Percentage: {chargePercent}");
+            // NotificationManager.PushMessage($"Percentage: {chargePercent}");
 
             // push low power notification
             if (!_isLowPower && chargePercent < 25)
             {
                 _isLowPower = true;
                 TimeSpan estimatedBatteryLife = PowerManager.RemainingDischargeTime;
-                NotificationManager.PushMessage($"Lower power: {chargePercent}%. Estimated battery life: {estimatedBatteryLife}");
+                NotificationManager.PushMessage(
+                    $"Lower power: {chargePercent}%. Estimated battery life: {estimatedBatteryLife}");
             }
             else if (chargePercent >= 25)
             {
@@ -80,7 +89,7 @@ namespace BatteryTracker
             }
         }
 
-        private void UpdateTrayIconTheme(ThemeListener sender)
+        private async void UpdateTrayIconTheme(ThemeListener sender)
         {
             if (_trayIcon is null)
             {
@@ -88,7 +97,11 @@ namespace BatteryTracker
             }
 
             Brush newForeground = sender.CurrentTheme == ApplicationTheme.Dark ? White : Black;
-            // _trayIcon.GeneratedIcon.Foreground = newForeground;
+            await dispatcherQueue.EnqueueAsync(() =>
+            {
+                _trayIcon.GeneratedIcon.Foreground = newForeground;
+            });
+
             NotificationManager.PushMessage($"Theme changed to: {sender.CurrentThemeName}");
         }
     }
