@@ -21,7 +21,7 @@ namespace BatteryTracker
 
         private bool _isLowPower;
 
-        private readonly DispatcherQueue dispatcherQueue = DispatcherQueue.GetForCurrentThread();
+        private readonly DispatcherQueue _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
         public void Init(ResourceDictionary resources)
         {
@@ -32,7 +32,8 @@ namespace BatteryTracker
             PowerManager.RemainingChargePercentChanged += UpdateTrayIconPercent;
 
             // register theme events
-            _themeListener ??= new ThemeListener();
+            // todo: bug, theme changed events not fired
+            _themeListener ??= new ThemeListener(_dispatcherQueue);
             _themeListener.ThemeChanged += UpdateTrayIconTheme;
         }
 
@@ -62,9 +63,12 @@ namespace BatteryTracker
             int chargePercent = PowerManager.RemainingChargePercent;
             string newPercentText = chargePercent == 100 ? "F" : $"{chargePercent}%";
             // Use a DispatcherQueue to execute UI related code on the main UI thread. Otherwise you may get an exception.
-            await dispatcherQueue.EnqueueAsync(() =>
+            await _dispatcherQueue.EnqueueAsync(() =>
             {
-                _trayIcon.GeneratedIcon.Text = newPercentText;
+                if (_trayIcon.GeneratedIcon != null)
+                {
+                    _trayIcon.GeneratedIcon.Text = newPercentText;
+                }
             });
 
             // NotificationManager.PushMessage($"Percentage: {chargePercent}");
@@ -97,9 +101,12 @@ namespace BatteryTracker
             }
 
             Brush newForeground = sender.CurrentTheme == ApplicationTheme.Dark ? White : Black;
-            await dispatcherQueue.EnqueueAsync(() =>
+            await _dispatcherQueue.EnqueueAsync(() =>
             {
-                _trayIcon.GeneratedIcon.Foreground = newForeground;
+                if (_trayIcon.GeneratedIcon != null)
+                {
+                    _trayIcon.GeneratedIcon.Foreground = newForeground;
+                }
             });
 
             NotificationManager.PushMessage($"Theme changed to: {sender.CurrentThemeName}");

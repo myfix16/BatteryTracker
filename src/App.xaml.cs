@@ -9,6 +9,7 @@ using BatteryTracker.ViewModels;
 using BatteryTracker.Views;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.Windows.AppLifecycle;
@@ -114,11 +115,7 @@ namespace BatteryTracker
 
             InitializeTrayIcon();
 
-            MainWindow.Closed += (sender, eventArgs) =>
-            {
-                NotificationManager.PushMessage("Main Window closed.");
-                MainWindow.Hide();
-            };
+            MainWindow.AppWindow.Closing += AppWindow_Closing;
         }
 
         private void InitializeTrayIcon()
@@ -133,9 +130,17 @@ namespace BatteryTracker
             _batteryIcon.Init(Resources);
         }
 
-        private void OpenSettingsCommand_ExecuteRequested(object? _, ExecuteRequestedEventArgs args)
+        private static void AppWindow_Closing(AppWindow sender, AppWindowClosingEventArgs args)
+        {
+            // closing the window will terminate the application, so hide it instead
+            args.Cancel = true;
+            MainWindow.Hide();
+        }
+
+        private static void OpenSettingsCommand_ExecuteRequested(object? _, ExecuteRequestedEventArgs args)
         {
             MainWindow.Content ??= GetService<ShellPage>();
+            GetService<INavigationService>().NavigateTo(typeof(SettingsViewModel).FullName!);
             MainWindow.Show();
         }
 

@@ -36,13 +36,11 @@
         <tb:TaskbarIcon.GeneratedIcon>
             <tb:GeneratedIcon
                 Text="99"
-                TextMargin="0 0 0 0"
-                Margin="0 0 0 0"
-                CornerRadius="0"
                 Foreground="White"
-                FontWeight="Bold"
-                FontSize="36"
-                FontFamily="Segoe UI"
+                Size="256"
+                FontSize="110"
+                FontWeight="SemiBold"
+                FontFamily="Arial"
             />
         </tb:TaskbarIcon.GeneratedIcon>
         <tb:TaskbarIcon.ContextFlyout>

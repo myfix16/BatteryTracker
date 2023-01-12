@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Input;
 using BatteryTracker.Contracts.Services;
+using BatteryTracker.Helpers;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.UI.Xaml;
@@ -53,14 +54,20 @@ public class SettingsViewModel : ObservableRecipient
         _themeSelectorService = themeSelectorService;
         _elementTheme = _themeSelectorService.Theme;
 
-        SwitchThemeCommand = new RelayCommand<ElementTheme>(
+        SwitchThemeCommand = new RelayCommand<ElementTheme?>(
             async (param) =>
             {
-                if (ElementTheme != param)
+                if (param == null || ElementTheme == param.Value) return;
+                ElementTheme newTheme = param.Value switch
                 {
-                    ElementTheme = param;
-                    await _themeSelectorService.SetThemeAsync(param);
-                }
+                    ElementTheme.Default => Application.Current.RequestedTheme == ApplicationTheme.Dark
+                        ? ElementTheme.Dark
+                        : ElementTheme.Light,
+                    _ => param.Value
+                };
+                ElementTheme = newTheme;
+                await _themeSelectorService.SetThemeAsync(newTheme);
+                TitleBarHelper.UpdateTitleBar(newTheme);
             });
     }
 }
