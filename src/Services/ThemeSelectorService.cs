@@ -9,18 +9,11 @@ public class ThemeSelectorService : IThemeSelectorService
 {
     private const string SettingsKey = "AppBackgroundRequestedTheme";
 
-    public ElementTheme Theme { get; set; } = ElementTheme.Default;
-
-    private readonly ILocalSettingsService _localSettingsService;
-
-    public ThemeSelectorService(ILocalSettingsService localSettingsService)
-    {
-        _localSettingsService = localSettingsService;
-    }
+    public ElementTheme Theme { get; private set; } = ElementTheme.Default;
 
     public async Task InitializeAsync()
     {
-        Theme = await LoadThemeFromSettingsAsync();
+        Theme = LoadThemeFromSettings();
         await Task.CompletedTask;
     }
 
@@ -29,7 +22,7 @@ public class ThemeSelectorService : IThemeSelectorService
         Theme = theme;
 
         await SetRequestedThemeAsync();
-        await SaveThemeInSettingsAsync(Theme);
+        SaveThemeToSettings(theme);
     }
 
     public async Task SetRequestedThemeAsync()
@@ -44,20 +37,20 @@ public class ThemeSelectorService : IThemeSelectorService
         await Task.CompletedTask;
     }
 
-    private async Task<ElementTheme> LoadThemeFromSettingsAsync()
+    private static ElementTheme LoadThemeFromSettings()
     {
-        var themeName = await _localSettingsService.ReadSettingAsync<string>(SettingsKey);
-
-        if (Enum.TryParse(themeName, out ElementTheme cacheTheme))
+        bool found = SettingsService.TryGetValue(SettingsKey, out object? result);
+        if (found && result != null && Enum.TryParse((string)(result), out ElementTheme theme))
         {
-            return cacheTheme;
+            return theme;
         }
 
+        SaveThemeToSettings(ElementTheme.Default);
         return ElementTheme.Default;
     }
 
-    private async Task SaveThemeInSettingsAsync(ElementTheme theme)
+    private static void SaveThemeToSettings(ElementTheme theme)
     {
-        await _localSettingsService.SaveSettingAsync(SettingsKey, theme.ToString());
+        SettingsService.Set(SettingsKey, Enum.GetName(theme)!);
     }
 }

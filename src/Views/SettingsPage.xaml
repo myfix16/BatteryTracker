@@ -38,13 +38,13 @@
             <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
                 <ComboBox x:Uid="Settings_LanguageComboBox" ItemsSource="{x:Bind ViewModel.Languages}" 
                           DisplayMemberPath="Item1" SelectedValuePath="Item2"
-                          Width="200"/>
+                          Width="200" SelectedItem="{x:Bind ViewModel.Language, Mode=TwoWay}"/>
             </StackPanel>
 
             <!--Autostart settings-->
             <TextBlock x:Uid="Settings_Autostart" Style="{ThemeResource SubtitleTextBlockStyle}" />
             <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
-                <ToggleSwitch x:Uid="Settings_AutostartToggle" />
+                <ToggleSwitch x:Uid="Settings_AutostartToggle" IsOn="{x:Bind ViewModel.EnableAutostart, Mode=TwoWay}" />
             </StackPanel>
 
             <!--Personalization settings-->

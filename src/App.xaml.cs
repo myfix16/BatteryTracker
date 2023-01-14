@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation and Contributors.
 // Licensed under the MIT License.
 
+using BatteryTracker.Activation;
 using BatteryTracker.Contracts.Services;
 using BatteryTracker.Helpers;
 using BatteryTracker.Models;
@@ -57,14 +58,14 @@ namespace BatteryTracker
             Host = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder().UseContentRoot(AppContext.BaseDirectory)
                 .ConfigureServices((context, services) =>
                 {
-                    // // Default Activation Handler
-                    // services.AddTransient<ActivationHandler<LaunchActivatedEventArgs>, DefaultActivationHandler>();
-                    //
-                    // // Other Activation Handlers
+                    // Default Activation Handler
+                    services.AddTransient<ActivationHandler<LaunchActivatedEventArgs>, DefaultActivationHandler>();
+                    
+                    // Other Activation Handlers
                     // services.AddTransient<IActivationHandler, AppNotificationActivationHandler>();
 
                     // Services
-                    // services.AddSingleton<IAppNotificationService, AppNotificationService>();
+                    services.AddSingleton<IAppNotificationService, AppNotificationService>();
                     services.AddSingleton<ILocalSettingsService, LocalSettingsService>();
                     services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
                     services.AddTransient<INavigationViewService, NavigationViewService>();
@@ -98,7 +99,7 @@ namespace BatteryTracker
 
         #region Event Handlers
 
-        protected override void OnLaunched(LaunchActivatedEventArgs args)
+        protected override async void OnLaunched(LaunchActivatedEventArgs args)
         {
             // Only allow single instance to run
             // Get or register the main instance
@@ -113,9 +114,11 @@ namespace BatteryTracker
                 return;
             }
 
-            InitializeTrayIcon();
-
             MainWindow.AppWindow.Closing += AppWindow_Closing;
+
+            await GetService<IActivationService>().ActivateAsync(args);
+
+            InitializeTrayIcon();
         }
 
         private void InitializeTrayIcon()
@@ -139,7 +142,7 @@ namespace BatteryTracker
 
         private static void OpenSettingsCommand_ExecuteRequested(object? _, ExecuteRequestedEventArgs args)
         {
-            MainWindow.Content ??= GetService<ShellPage>();
+            // MainWindow.Content ??= GetService<ShellPage>();
             GetService<INavigationService>().NavigateTo(typeof(SettingsViewModel).FullName!);
             MainWindow.Show();
         }

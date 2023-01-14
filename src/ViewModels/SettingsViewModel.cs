@@ -2,20 +2,39 @@
 using System.Windows.Input;
 using BatteryTracker.Contracts.Services;
 using BatteryTracker.Helpers;
+using BatteryTracker.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.UI.Xaml;
 
 namespace BatteryTracker.ViewModels;
 
-// todo: store settings persistently
+// todo: localization
+// todo: notification settings' effect
 public class SettingsViewModel : ObservableRecipient
 {
-    private readonly IThemeSelectorService _themeSelectorService;
     private ElementTheme _elementTheme;
     private bool _enableFullyChargedNotification;
     private bool _enableLowPowerNotification;
     private int _lowPowerNotificationThreshold;
+    private Tuple<string, string> _language;
+    private bool _enableAutostart;
+
+    private const string FullyChargedNotificationSettingsKey = "EnableFullyChargedNotification";
+    private const string LowPowerNotificationSettingsKey = "EnableLowPowerNotification";
+    private const string LowPowerNotificationThresholdSettingsKey = "LowPowerNotificationThreshold";
+    private const string LanguageSettingsKey = "language";
+    private const string AutostartSettingsKey = "Autostart";
+
+    private static readonly Dictionary<string, object> DefaultSettingsDict = new()
+    {
+        { FullyChargedNotificationSettingsKey, true },
+        { LowPowerNotificationSettingsKey, true },
+        { LowPowerNotificationThresholdSettingsKey, 25 },
+        { LanguageSettingsKey, "English,en-US"},
+        { AutostartSettingsKey, true },
+    };
+
 
     public ElementTheme ElementTheme
     {
@@ -28,19 +47,61 @@ public class SettingsViewModel : ObservableRecipient
     public bool EnableFullyChargedNotification
     {
         get => _enableFullyChargedNotification;
-        set => SetProperty(ref _enableFullyChargedNotification, value);
+        set
+        {
+            SetProperty(ref _enableFullyChargedNotification, value);
+            SettingsService.Set(FullyChargedNotificationSettingsKey, value);
+        }
     }
 
     public bool EnableLowPowerNotification
     {
         get => _enableLowPowerNotification;
-        set => SetProperty(ref _enableLowPowerNotification, value);
+        set
+        {
+            SetProperty(ref _enableLowPowerNotification, value);
+            SettingsService.Set(LowPowerNotificationSettingsKey, value);
+        }
     }
 
     public int LowPowerNotificationThreshold
     {
         get => _lowPowerNotificationThreshold;
-        set => SetProperty(ref _lowPowerNotificationThreshold, value);
+        set
+        {
+            SetProperty(ref _lowPowerNotificationThreshold, value);
+            SettingsService.Set(LowPowerNotificationThresholdSettingsKey, value);
+        }
+    }
+
+    public Tuple<string, string> Language
+    {
+        get => _language;
+        set
+        {
+            SetProperty(ref _language, value);
+            SettingsService.Set(LanguageSettingsKey, $"{value.Item1},{value.Item2}");
+        }
+    }
+
+    public bool EnableAutostart
+    {
+        get => _enableAutostart;
+        set
+        {
+            SetProperty(ref _enableAutostart, value);
+            bool isRunAtStartup = AutoStartService.IsRunAtStartup().Result;
+            switch (value)
+            {
+                case true when !isRunAtStartup:
+                    Task.Run(AutoStartService.EnableStartup);
+                    break;
+                case false when isRunAtStartup:
+                    Task.Run(AutoStartService.DisableStartup);
+                    break;
+            }
+            SettingsService.Set(AutostartSettingsKey, value);
+        }
     }
 
     public List<Tuple<string, string>> Languages { get; } = new()
@@ -51,23 +112,42 @@ public class SettingsViewModel : ObservableRecipient
 
     public SettingsViewModel(IThemeSelectorService themeSelectorService)
     {
-        _themeSelectorService = themeSelectorService;
-        _elementTheme = _themeSelectorService.Theme;
+        IThemeSelectorService themeService = themeSelectorService;
+        _elementTheme = themeService.Theme;
 
         SwitchThemeCommand = new RelayCommand<ElementTheme?>(
             async (param) =>
             {
                 if (param == null || ElementTheme == param.Value) return;
-                ElementTheme newTheme = param.Value switch
+                ElementTheme = param.Value;
+                await themeService.SetThemeAsync(param.Value);
+
+                // set titlebar theme
+                ElementTheme titleTheme = param.Value switch
                 {
                     ElementTheme.Default => Application.Current.RequestedTheme == ApplicationTheme.Dark
                         ? ElementTheme.Dark
                         : ElementTheme.Light,
                     _ => param.Value
                 };
-                ElementTheme = newTheme;
-                await _themeSelectorService.SetThemeAsync(newTheme);
-                TitleBarHelper.UpdateTitleBar(newTheme);
+                TitleBarHelper.UpdateTitleBar(titleTheme);
             });
+
+        // initialize settings if necessary
+        foreach (KeyValuePair<string, object> pair in DefaultSettingsDict)
+        {
+            if (!SettingsService.HasValue(pair.Key))
+            {
+                SettingsService.Set(pair.Key, pair.Value);
+            }
+        }
+
+        // load settings values
+        EnableFullyChargedNotification = (bool)SettingsService.Get(FullyChargedNotificationSettingsKey);
+        EnableLowPowerNotification = (bool)SettingsService.Get(LowPowerNotificationSettingsKey);
+        LowPowerNotificationThreshold = (int)SettingsService.Get(LowPowerNotificationThresholdSettingsKey);
+        string[] languageParams = ((string)SettingsService.Get(LanguageSettingsKey)).Split(',');
+        Language = new Tuple<string, string>(languageParams[0], languageParams[1]);
+        EnableAutostart = (bool)SettingsService.Get(AutostartSettingsKey);
     }
 }
