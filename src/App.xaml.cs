@@ -66,7 +66,7 @@ namespace BatteryTracker
 
                     // Services
                     services.AddSingleton<IAppNotificationService, AppNotificationService>();
-                    services.AddSingleton<ILocalSettingsService, LocalSettingsService>();
+                    // services.AddSingleton<ILocalSettingsService, LocalSettingsService>();
                     services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
                     services.AddTransient<INavigationViewService, NavigationViewService>();
 
@@ -75,7 +75,7 @@ namespace BatteryTracker
                     services.AddSingleton<INavigationService, NavigationService>();
 
                     // Core Services
-                    services.AddSingleton<IFileService, FileService>();
+                    // services.AddSingleton<IFileService, FileService>();
 
                     // Views and ViewModels
                     services.AddTransient<SettingsViewModel>();
@@ -85,9 +85,12 @@ namespace BatteryTracker
                     services.AddTransient<AboutPage>();
                     services.AddTransient<AboutViewModel>();
 
+                    // Taskbar icon
+                    services.AddTransient<BatteryIcon>();
+
                     // Configuration
-                    services.Configure<LocalSettingsOptions>(
-                        context.Configuration.GetSection(nameof(LocalSettingsOptions)));
+                    // services.Configure<LocalSettingsOptions>(
+                    //     context.Configuration.GetSection(nameof(LocalSettingsOptions)));
                 }).Build();
 
             // App.GetService<IAppNotificationService>().Initialize();
@@ -129,7 +132,7 @@ namespace BatteryTracker
             var exitApplicationCommand = (XamlUICommand)Resources["ExitApplicationCommand"];
             exitApplicationCommand.ExecuteRequested += ExitApplicationCommand_ExecuteRequested;
 
-            _batteryIcon = new BatteryIcon();
+            _batteryIcon = GetService<BatteryIcon>();
             _batteryIcon.Init(Resources);
         }
 

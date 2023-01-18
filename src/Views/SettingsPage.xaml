@@ -16,9 +16,9 @@
             <!--Notification settings-->
             <TextBlock x:Uid="Settings_Notification" Style="{ThemeResource SubtitleTextBlockStyle}" />
             <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
-                <CheckBox x:Uid="Settings_EnableFullyChargedNotification" 
+                <CheckBox x:Uid="Settings_EnableFullyChargedNotification"
                           IsChecked="{x:Bind ViewModel.EnableFullyChargedNotification, Mode=TwoWay}" />
-                <CheckBox x:Name="LowPowerNotificationCheckBox" x:Uid="Settings_EnableLowPowerNotification" 
+                <CheckBox x:Name="LowPowerNotificationCheckBox" x:Uid="Settings_EnableLowPowerNotification"
                           IsChecked="{x:Bind ViewModel.EnableLowPowerNotification, Mode=TwoWay}" />
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <Slider x:Name="LowPowerThresholdSlider"
@@ -27,19 +27,30 @@
                             HorizontalAlignment="Left" VerticalAlignment="Center"
                             Width="200" MinWidth="100" MaxWidth="400"
                             TickFrequency="10" TickPlacement="BottomRight" />
-                    <TextBlock x:Uid="Settings_LowPowerNotificationThreshold" 
-                               Text="{x:Bind LowPowerThresholdSlider.Value, Mode=OneWay}" 
+                    <TextBlock x:Uid="Settings_LowPowerNotificationThreshold"
+                               Text="{x:Bind LowPowerThresholdSlider.Value, Mode=OneWay}"
                                Margin="10 0 0 0" VerticalAlignment="Center" />
                 </StackPanel>
             </StackPanel>
 
             <!--Language settings-->
             <TextBlock x:Uid="Settings_Language" Style="{ThemeResource SubtitleTextBlockStyle}" />
+
             <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
-                <ComboBox x:Uid="Settings_LanguageComboBox" ItemsSource="{x:Bind ViewModel.Languages}" 
+                <ComboBox x:Uid="Settings_LanguageComboBox" ItemsSource="{x:Bind ViewModel.Languages}"
                           DisplayMemberPath="Item1" SelectedValuePath="Item2"
-                          Width="200" SelectedItem="{x:Bind ViewModel.Language, Mode=TwoWay}"/>
+                          Width="200" SelectedItem="{x:Bind ViewModel.Language, Mode=TwoWay}" />
             </StackPanel>
+            <InfoBar x:Uid="Settings_LanguageInfoBar"
+                     IsOpen="{x:Bind ViewModel.LanguageChanged, Mode=OneWay}"
+                     Severity="Informational"
+                     IsClosable="False"
+                     Margin="0 0 0 20">
+                <InfoBar.ActionButton>
+                    <Button x:Uid="Settings_LanguageButton"
+                            Visibility="{x:Bind ViewModel.LanguageChanged, Mode=OneWay}" />
+                </InfoBar.ActionButton>
+            </InfoBar>
 
             <!--Autostart settings-->
             <TextBlock x:Uid="Settings_Autostart" Style="{ThemeResource SubtitleTextBlockStyle}" />

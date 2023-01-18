@@ -1,27 +1,36 @@
-﻿using BatteryTracker.Helpers;
+﻿using Windows.UI.ViewManagement;
+using BatteryTracker.Helpers;
 using CommunityToolkit.WinUI;
 using CommunityToolkit.WinUI.UI.Helpers;
 using H.NotifyIcon;
+using Microsoft.UI;
 using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.Windows.System.Power;
 using Brush = Microsoft.UI.Xaml.Media.Brush;
 using Color = Windows.UI.Color;
+using System.Runtime.InteropServices;
 
 namespace BatteryTracker
 {
-    internal class BatteryIcon : IDisposable
+    public class BatteryIcon : IDisposable
     {
         private static readonly Brush White = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
         private static readonly Brush Black = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
 
         private TaskbarIcon? _trayIcon;
-        private ThemeListener? _themeListener;
+        private readonly UISettings _settings = new();
 
         private bool _isLowPower;
 
         private readonly DispatcherQueue _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
+
+        // notification settings
+        public bool EnableLowPowerNotification = true;
+        public int LowPowerNotificationThreshold = 25;
+        public bool EnableFullyChargedNotification = true;
+
 
         public void Init(ResourceDictionary resources)
         {
@@ -32,9 +41,7 @@ namespace BatteryTracker
             PowerManager.RemainingChargePercentChanged += UpdateTrayIconPercent;
 
             // register theme events
-            // todo: bug, theme changed events not fired
-            _themeListener ??= new ThemeListener(_dispatcherQueue);
-            _themeListener.ThemeChanged += UpdateTrayIconTheme;
+            _settings.ColorValuesChanged += UpdateTrayIconTheme;
         }
 
         ~BatteryIcon()
@@ -45,10 +52,7 @@ namespace BatteryTracker
         public void Dispose()
         {
             PowerManager.RemainingChargePercentChanged -= UpdateTrayIconPercent;
-            if (_themeListener != null)
-            {
-                _themeListener.ThemeChanged -= UpdateTrayIconTheme;
-            }
+            _settings.ColorValuesChanged -= UpdateTrayIconTheme;
 
             _trayIcon?.Dispose();
         }
@@ -71,45 +75,45 @@ namespace BatteryTracker
                 }
             });
 
-            // NotificationManager.PushMessage($"Percentage: {chargePercent}");
-
             // push low power notification
-            if (!_isLowPower && chargePercent < 25)
+            if (EnableLowPowerNotification && !_isLowPower && chargePercent < LowPowerNotificationThreshold)
             {
                 _isLowPower = true;
                 TimeSpan estimatedBatteryLife = PowerManager.RemainingDischargeTime;
                 NotificationManager.PushMessage(
                     $"Lower power: {chargePercent}%. Estimated battery life: {estimatedBatteryLife}");
             }
-            else if (chargePercent >= 25)
+            else if (chargePercent >= LowPowerNotificationThreshold)
             {
                 _isLowPower = false;
             }
 
             // push fully charged notification
-            if (chargePercent == 100)
+            if (EnableFullyChargedNotification && chargePercent == 100)
             {
                 NotificationManager.PushMessage("The battery is fully charged⚡");
             }
         }
 
-        private async void UpdateTrayIconTheme(ThemeListener sender)
+        private async void UpdateTrayIconTheme(UISettings sender, object args)
         {
             if (_trayIcon is null)
             {
                 return;
             }
 
-            Brush newForeground = sender.CurrentTheme == ApplicationTheme.Dark ? White : Black;
             await _dispatcherQueue.EnqueueAsync(() =>
             {
+                Brush newForeground = ShouldSystemUseDarkMode() ? White : Black;
+
                 if (_trayIcon.GeneratedIcon != null)
                 {
                     _trayIcon.GeneratedIcon.Foreground = newForeground;
                 }
             });
-
-            NotificationManager.PushMessage($"Theme changed to: {sender.CurrentThemeName}");
         }
+
+        [DllImport("UXTheme.dll", SetLastError = true, EntryPoint = "#138")]
+        public static extern bool ShouldSystemUseDarkMode();
     }
 }

@@ -121,31 +121,31 @@
     <value>Battery Tracker</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>Show battery remaining percentage on taskbar</value>
+    <value>一款在任务栏显示电量百分比的实用工具</value>
   </data>
   <data name="Settings_Personalization.Text" xml:space="preserve">
-    <value>Personalization</value>
+    <value>个性化</value>
   </data>
   <data name="Settings_Theme.Text" xml:space="preserve">
-    <value>Theme</value>
+    <value>应用主题</value>
   </data>
   <data name="Settings_Theme_Light.Content" xml:space="preserve">
-    <value>Light</value>
+    <value>浅色</value>
   </data>
   <data name="Settings_Theme_Dark.Content" xml:space="preserve">
-    <value>Dark</value>
+    <value>深色</value>
   </data>
   <data name="Settings_Theme_Default.Content" xml:space="preserve">
-    <value>Default</value>
+    <value>默认值</value>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
-    <value>About this application</value>
+    <value>关于本应用</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
-    <value>Show battery remaining percentage on taskbar.</value>
+    <value>一款在任务栏显示电量百分比的实用工具</value>
   </data>
   <data name="SettingsPage_PrivacyTermsLink.Content" xml:space="preserve">
-    <value>Privacy Statement</value>
+    <value>隐私声明</value>
   </data>
   <data name="SettingsPage_PrivacyTermsLink.NavigateUri" xml:space="preserve">
     <value>https://YourPrivacyUrlGoesHere/</value>
@@ -165,36 +165,36 @@
 &lt;/toast&gt;</value>
   </data>
   <data name="Settings_Autostart.Text" xml:space="preserve">
-    <value>Autostart</value>
+    <value>开机自启</value>
   </data>
   <data name="Settings_AutostartToggle.Header" xml:space="preserve">
-    <value>Start BatteryTracker with Windows</value>
+    <value>让本应用随Windows开机启动</value>
   </data>
   <data name="Settings_EnableFullyChargedNotification.Content" xml:space="preserve">
-    <value>Notify me when battery is fully charged</value>
+    <value>电池充满时推送通知</value>
   </data>
   <data name="Settings_EnableLowPowerNotification.Content" xml:space="preserve">
-    <value>Notify me when battery percentage is lower than:</value>
+    <value>当电量百分比低于以下值时通知我：</value>
   </data>
   <data name="Settings_Language.Text" xml:space="preserve">
-    <value>Language</value>
+    <value>语言</value>
   </data>
   <data name="Settings_LanguageComboBox.Header" xml:space="preserve">
-    <value>Language:</value>
+    <value>应用语言：</value>
   </data>
   <data name="Settings_Notification.Text" xml:space="preserve">
-    <value>Notifications</value>
+    <value>通知</value>
   </data>
   <data name="Shell_About.Content" xml:space="preserve">
-    <value>About</value>
+    <value>关于</value>
   </data>
   <data name="Shell_Settings.Content" xml:space="preserve">
-    <value>Settings</value>
+    <value>设置</value>
   </data>
-  <data name="Settings_LanguageButton.Content" xml:space="preserve">
-    <value>Restart</value>
+  <data name="Settings_LanguageButton" xml:space="preserve">
+    <value>重启</value>
   </data>
   <data name="Settings_LanguageInfoBar.Message" xml:space="preserve">
-    <value>Restart the app for the language change to take effect</value>
+    <value>重启应用使语言变更生效</value>
   </data>
 </root>

@@ -6,6 +6,8 @@ using BatteryTracker.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Windows.Globalization;
 
 namespace BatteryTracker.ViewModels;
 
@@ -18,6 +20,8 @@ public class SettingsViewModel : ObservableRecipient
     private bool _enableLowPowerNotification;
     private int _lowPowerNotificationThreshold;
     private Tuple<string, string> _language;
+    private readonly string _appLanguage;
+    private bool _languageChanged;
     private bool _enableAutostart;
 
     private const string FullyChargedNotificationSettingsKey = "EnableFullyChargedNotification";
@@ -35,6 +39,9 @@ public class SettingsViewModel : ObservableRecipient
         { AutostartSettingsKey, true },
     };
 
+    // service reference
+    private readonly BatteryIcon _batteryIcon;
+    private readonly INavigationService _navigationService;
 
     public ElementTheme ElementTheme
     {
@@ -50,6 +57,7 @@ public class SettingsViewModel : ObservableRecipient
         set
         {
             SetProperty(ref _enableFullyChargedNotification, value);
+            _batteryIcon.EnableFullyChargedNotification = value;
             SettingsService.Set(FullyChargedNotificationSettingsKey, value);
         }
     }
@@ -60,6 +68,7 @@ public class SettingsViewModel : ObservableRecipient
         set
         {
             SetProperty(ref _enableLowPowerNotification, value);
+            _batteryIcon.EnableLowPowerNotification = value;
             SettingsService.Set(LowPowerNotificationSettingsKey, value);
         }
     }
@@ -70,6 +79,7 @@ public class SettingsViewModel : ObservableRecipient
         set
         {
             SetProperty(ref _lowPowerNotificationThreshold, value);
+            _batteryIcon.LowPowerNotificationThreshold = value;
             SettingsService.Set(LowPowerNotificationThresholdSettingsKey, value);
         }
     }
@@ -79,9 +89,21 @@ public class SettingsViewModel : ObservableRecipient
         get => _language;
         set
         {
+            // change app language
+            ApplicationLanguages.PrimaryLanguageOverride = value.Item2;
+            // _navigationService.NavigateTo(typeof(SettingsViewModel).FullName!);
+           
+            LanguageChanged = value.Item2 != _appLanguage;
+
             SetProperty(ref _language, value);
             SettingsService.Set(LanguageSettingsKey, $"{value.Item1},{value.Item2}");
         }
+    }
+
+    public bool LanguageChanged
+    {
+        get => _languageChanged;
+        set => SetProperty(ref _languageChanged, value);
     }
 
     public bool EnableAutostart
@@ -112,6 +134,10 @@ public class SettingsViewModel : ObservableRecipient
 
     public SettingsViewModel(IThemeSelectorService themeSelectorService)
     {
+        // initialize service references
+        _batteryIcon = App.GetService<BatteryIcon>();
+        _navigationService = App.GetService<INavigationService>();
+
         IThemeSelectorService themeService = themeSelectorService;
         _elementTheme = themeService.Theme;
 
@@ -149,5 +175,7 @@ public class SettingsViewModel : ObservableRecipient
         string[] languageParams = ((string)SettingsService.Get(LanguageSettingsKey)).Split(',');
         Language = new Tuple<string, string>(languageParams[0], languageParams[1]);
         EnableAutostart = (bool)SettingsService.Get(AutostartSettingsKey);
+
+        _appLanguage = Language.Item2;
     }
 }
