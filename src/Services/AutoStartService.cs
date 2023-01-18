@@ -7,7 +7,7 @@ namespace BatteryTracker.Services
     {
         private const string StartupTaskName = "BatteryTrackerStartup";
 
-        private static StartupTask? _startupTask; 
+        private static StartupTask? _startupTask;
 
         internal static async Task<bool> IsRunAtStartup()
         {

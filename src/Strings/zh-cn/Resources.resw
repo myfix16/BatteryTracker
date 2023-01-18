@@ -191,7 +191,7 @@
   <data name="Shell_Settings.Content" xml:space="preserve">
     <value>设置</value>
   </data>
-  <data name="Settings_LanguageButton" xml:space="preserve">
+  <data name="Settings_LanguageButton.Content" xml:space="preserve">
     <value>重启</value>
   </data>
   <data name="Settings_LanguageInfoBar.Message" xml:space="preserve">

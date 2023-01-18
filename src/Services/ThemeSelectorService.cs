@@ -1,8 +1,6 @@
 ﻿using BatteryTracker.Contracts.Services;
 using BatteryTracker.Helpers;
 
-using Microsoft.UI.Xaml;
-
 namespace BatteryTracker.Services;
 
 public class ThemeSelectorService : IThemeSelectorService

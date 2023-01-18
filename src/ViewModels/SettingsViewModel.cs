@@ -5,14 +5,10 @@ using BatteryTracker.Helpers;
 using BatteryTracker.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Controls;
 using Windows.Globalization;
 
 namespace BatteryTracker.ViewModels;
 
-// todo: localization
-// todo: notification settings' effect
 public class SettingsViewModel : ObservableRecipient
 {
     private ElementTheme _elementTheme;
@@ -35,7 +31,7 @@ public class SettingsViewModel : ObservableRecipient
         { FullyChargedNotificationSettingsKey, true },
         { LowPowerNotificationSettingsKey, true },
         { LowPowerNotificationThresholdSettingsKey, 25 },
-        { LanguageSettingsKey, "English,en-US"},
+        { LanguageSettingsKey, "English,en-US" },
         { AutostartSettingsKey, true },
     };
 
@@ -92,7 +88,7 @@ public class SettingsViewModel : ObservableRecipient
             // change app language
             ApplicationLanguages.PrimaryLanguageOverride = value.Item2;
             // _navigationService.NavigateTo(typeof(SettingsViewModel).FullName!);
-           
+
             LanguageChanged = value.Item2 != _appLanguage;
 
             SetProperty(ref _language, value);
@@ -105,6 +101,8 @@ public class SettingsViewModel : ObservableRecipient
         get => _languageChanged;
         set => SetProperty(ref _languageChanged, value);
     }
+
+    public ICommand RestartCommand { get; }
 
     public bool EnableAutostart
     {
@@ -158,6 +156,11 @@ public class SettingsViewModel : ObservableRecipient
                 };
                 TitleBarHelper.UpdateTitleBar(titleTheme);
             });
+
+        RestartCommand = new RelayCommand(() =>
+        {
+            Microsoft.Windows.AppLifecycle.AppInstance.Restart("");
+        });
 
         // initialize settings if necessary
         foreach (KeyValuePair<string, object> pair in DefaultSettingsDict)

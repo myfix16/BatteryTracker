@@ -1,6 +1,4 @@
-﻿using Microsoft.UI.Xaml;
-
-namespace BatteryTracker.Contracts.Services;
+﻿namespace BatteryTracker.Contracts.Services;
 
 public interface IThemeSelectorService
 {

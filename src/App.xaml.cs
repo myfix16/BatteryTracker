@@ -4,14 +4,12 @@
 using BatteryTracker.Activation;
 using BatteryTracker.Contracts.Services;
 using BatteryTracker.Helpers;
-using BatteryTracker.Models;
 using BatteryTracker.Services;
 using BatteryTracker.ViewModels;
 using BatteryTracker.Views;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.UI.Windowing;
-using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.Windows.AppLifecycle;
 using WinUIEx;
@@ -60,22 +58,18 @@ namespace BatteryTracker
                 {
                     // Default Activation Handler
                     services.AddTransient<ActivationHandler<LaunchActivatedEventArgs>, DefaultActivationHandler>();
-                    
+
                     // Other Activation Handlers
                     // services.AddTransient<IActivationHandler, AppNotificationActivationHandler>();
 
                     // Services
                     services.AddSingleton<IAppNotificationService, AppNotificationService>();
-                    // services.AddSingleton<ILocalSettingsService, LocalSettingsService>();
                     services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
                     services.AddTransient<INavigationViewService, NavigationViewService>();
 
                     services.AddSingleton<IActivationService, ActivationService>();
                     services.AddSingleton<IPageService, PageService>();
                     services.AddSingleton<INavigationService, NavigationService>();
-
-                    // Core Services
-                    // services.AddSingleton<IFileService, FileService>();
 
                     // Views and ViewModels
                     services.AddTransient<SettingsViewModel>();
@@ -87,10 +81,6 @@ namespace BatteryTracker
 
                     // Taskbar icon
                     services.AddTransient<BatteryIcon>();
-
-                    // Configuration
-                    // services.Configure<LocalSettingsOptions>(
-                    //     context.Configuration.GetSection(nameof(LocalSettingsOptions)));
                 }).Build();
 
             // App.GetService<IAppNotificationService>().Initialize();
@@ -124,18 +114,6 @@ namespace BatteryTracker
             InitializeTrayIcon();
         }
 
-        private void InitializeTrayIcon()
-        {
-            var openSettingsCommand = (XamlUICommand)Resources["OpenSettingsCommand"];
-            openSettingsCommand.ExecuteRequested += OpenSettingsCommand_ExecuteRequested;
-
-            var exitApplicationCommand = (XamlUICommand)Resources["ExitApplicationCommand"];
-            exitApplicationCommand.ExecuteRequested += ExitApplicationCommand_ExecuteRequested;
-
-            _batteryIcon = GetService<BatteryIcon>();
-            _batteryIcon.Init(Resources);
-        }
-
         private static void AppWindow_Closing(AppWindow sender, AppWindowClosingEventArgs args)
         {
             // closing the window will terminate the application, so hide it instead
@@ -163,5 +141,17 @@ namespace BatteryTracker
         }
 
         #endregion
+
+        private void InitializeTrayIcon()
+        {
+            var openSettingsCommand = (XamlUICommand)Resources["OpenSettingsCommand"];
+            openSettingsCommand.ExecuteRequested += OpenSettingsCommand_ExecuteRequested;
+
+            var exitApplicationCommand = (XamlUICommand)Resources["ExitApplicationCommand"];
+            exitApplicationCommand.ExecuteRequested += ExitApplicationCommand_ExecuteRequested;
+
+            _batteryIcon = GetService<BatteryIcon>();
+            _batteryIcon.Init(Resources);
+        }
     }
 }

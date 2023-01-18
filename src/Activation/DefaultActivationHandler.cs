@@ -1,8 +1,6 @@
 ﻿using BatteryTracker.Contracts.Services;
 using BatteryTracker.ViewModels;
 
-using Microsoft.UI.Xaml;
-
 namespace BatteryTracker.Activation;
 
 public class DefaultActivationHandler : ActivationHandler<LaunchActivatedEventArgs>

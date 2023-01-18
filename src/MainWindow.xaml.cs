@@ -1,5 +1,4 @@
 ﻿using BatteryTracker.Helpers;
-using BatteryTracker.Views;
 using WinUIEx;
 
 namespace BatteryTracker;

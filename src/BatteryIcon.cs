@@ -1,20 +1,17 @@
-﻿using Windows.UI.ViewManagement;
+﻿using System.Runtime.InteropServices;
 using BatteryTracker.Helpers;
 using CommunityToolkit.WinUI;
-using CommunityToolkit.WinUI.UI.Helpers;
 using H.NotifyIcon;
-using Microsoft.UI;
 using Microsoft.UI.Dispatching;
-using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.Windows.System.Power;
+using Windows.UI.ViewManagement;
 using Brush = Microsoft.UI.Xaml.Media.Brush;
 using Color = Windows.UI.Color;
-using System.Runtime.InteropServices;
 
 namespace BatteryTracker
 {
-    public class BatteryIcon : IDisposable
+    public partial class BatteryIcon : IDisposable
     {
         private static readonly Brush White = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
         private static readonly Brush Black = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
@@ -113,7 +110,8 @@ namespace BatteryTracker
             });
         }
 
-        [DllImport("UXTheme.dll", SetLastError = true, EntryPoint = "#138")]
-        public static extern bool ShouldSystemUseDarkMode();
+        [LibraryImport("UXTheme.dll", EntryPoint = "#138", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static unsafe partial bool ShouldSystemUseDarkMode();
     }
 }

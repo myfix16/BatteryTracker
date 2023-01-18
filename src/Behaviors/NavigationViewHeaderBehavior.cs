@@ -1,6 +1,4 @@
 ﻿using BatteryTracker.Contracts.Services;
-
-using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
 using Microsoft.Xaml.Interactivity;

@@ -18,7 +18,7 @@
             <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
                 <CheckBox x:Uid="Settings_EnableFullyChargedNotification"
                           IsChecked="{x:Bind ViewModel.EnableFullyChargedNotification, Mode=TwoWay}" />
-                <CheckBox x:Name="LowPowerNotificationCheckBox" x:Uid="Settings_EnableLowPowerNotification"
+                <CheckBox x:Uid="Settings_EnableLowPowerNotification"
                           IsChecked="{x:Bind ViewModel.EnableLowPowerNotification, Mode=TwoWay}" />
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <Slider x:Name="LowPowerThresholdSlider"
@@ -48,7 +48,8 @@
                      Margin="0 0 0 20">
                 <InfoBar.ActionButton>
                     <Button x:Uid="Settings_LanguageButton"
-                            Visibility="{x:Bind ViewModel.LanguageChanged, Mode=OneWay}" />
+                            Visibility="{x:Bind ViewModel.LanguageChanged, Mode=OneWay}"
+                            Command="{x:Bind ViewModel.RestartCommand}" />
                 </InfoBar.ActionButton>
             </InfoBar>
 
