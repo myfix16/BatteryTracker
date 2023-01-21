@@ -2,18 +2,12 @@
 using System.Web;
 using BatteryTracker.Contracts.Services;
 using Microsoft.Windows.AppNotifications;
+using Microsoft.Windows.AppNotifications.Builder;
 
 namespace BatteryTracker.Services;
 
 public class AppNotificationService : IAppNotificationService
 {
-    private readonly INavigationService _navigationService;
-
-    public AppNotificationService(INavigationService navigationService)
-    {
-        _navigationService = navigationService;
-    }
-
     ~AppNotificationService()
     {
         Unregister();
@@ -21,48 +15,38 @@ public class AppNotificationService : IAppNotificationService
 
     public void Initialize()
     {
-        AppNotificationManager.Default.NotificationInvoked += OnNotificationInvoked;
+        // AppNotificationManager.Default.NotificationInvoked += OnNotificationInvoked;
 
         AppNotificationManager.Default.Register();
     }
 
+    /// <summary>
+    /// Handle notification invocations when the app is already running.
+    /// </summary>
     public void OnNotificationInvoked(AppNotificationManager sender, AppNotificationActivatedEventArgs args)
     {
-        // TODO: Handle notification invocations when your app is already running.
+        // App.MainWindow.DispatcherQueue.TryEnqueue(() =>
+        // {
+        //     App.MainWindow.ShowMessageDialogAsync("Handle notification invocations when your app is already running.", "Notification Invoked");
+        //
+        //     App.MainWindow.BringToFront();
+        // });
 
-        //// // Navigate to a specific page based on the notification arguments.
-        //// if (ParseArguments(args.Argument)["action"] == "Settings")
-        //// {
-        ////    App.MainWindow.DispatcherQueue.TryEnqueue(() =>
-        ////    {
-        ////        _navigationService.NavigateTo(typeof(SettingsViewModel).FullName!);
-        ////    });
-        //// }
-
-        App.MainWindow.DispatcherQueue.TryEnqueue(() =>
-        {
-            App.MainWindow.ShowMessageDialogAsync("TODO: Handle notification invocations when your app is already running.", "Notification Invoked");
-
-            App.MainWindow.BringToFront();
-        });
+        // do nothing
     }
 
     public bool Show(string payload)
     {
-        var appNotification = new AppNotification(payload);
+        AppNotificationBuilder builder = new AppNotificationBuilder()
+            .AddText(payload);
 
+        AppNotification appNotification = builder.BuildNotification();
         AppNotificationManager.Default.Show(appNotification);
 
         return appNotification.Id != 0;
     }
 
-    public NameValueCollection ParseArguments(string arguments)
-    {
-        return HttpUtility.ParseQueryString(arguments);
-    }
+    public NameValueCollection ParseArguments(string arguments) => HttpUtility.ParseQueryString(arguments);
 
-    public void Unregister()
-    {
-        AppNotificationManager.Default.Unregister();
-    }
+    public void Unregister() => AppNotificationManager.Default.Unregister();
 }

@@ -37,7 +37,7 @@ public class SettingsViewModel : ObservableRecipient
 
     // service reference
     private readonly BatteryIcon _batteryIcon;
-    private readonly INavigationService _navigationService;
+    private readonly IAppNotificationService _appNotificationService;
 
     public ElementTheme ElementTheme
     {
@@ -87,8 +87,6 @@ public class SettingsViewModel : ObservableRecipient
         {
             // change app language
             ApplicationLanguages.PrimaryLanguageOverride = value.Item2;
-            // _navigationService.NavigateTo(typeof(SettingsViewModel).FullName!);
-
             LanguageChanged = value.Item2 != _appLanguage;
 
             SetProperty(ref _language, value);
@@ -124,19 +122,21 @@ public class SettingsViewModel : ObservableRecipient
         }
     }
 
+    public ICommand NotificationCommand { get; }
+
     public List<Tuple<string, string>> Languages { get; } = new()
     {
         new("English", "en-US"),
         new("简体中文", "zh-CN"),
     };
 
-    public SettingsViewModel(IThemeSelectorService themeSelectorService)
+    public SettingsViewModel(BatteryIcon icon, IThemeSelectorService themeSelectorService, IAppNotificationService appNotificationService)
     {
         // initialize service references
-        _batteryIcon = App.GetService<BatteryIcon>();
-        _navigationService = App.GetService<INavigationService>();
-
+        _batteryIcon = icon;
         IThemeSelectorService themeService = themeSelectorService;
+        _appNotificationService = appNotificationService;
+
         _elementTheme = themeService.Theme;
 
         SwitchThemeCommand = new RelayCommand<ElementTheme?>(
@@ -160,6 +160,11 @@ public class SettingsViewModel : ObservableRecipient
         RestartCommand = new RelayCommand(() =>
         {
             Microsoft.Windows.AppLifecycle.AppInstance.Restart("");
+        });
+
+        NotificationCommand = new RelayCommand(() =>
+        {
+            _appNotificationService.Show("test");
         });
 
         // initialize settings if necessary

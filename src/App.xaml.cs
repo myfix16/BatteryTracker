@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation and Contributors.
 // Licensed under the MIT License.
 
+using Windows.ApplicationModel.Activation;
 using BatteryTracker.Activation;
 using BatteryTracker.Contracts.Services;
 using BatteryTracker.Helpers;
@@ -9,9 +10,11 @@ using BatteryTracker.ViewModels;
 using BatteryTracker.Views;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.Windows.AppLifecycle;
+using Windows.Storage;
 using WinUIEx;
 using LaunchActivatedEventArgs = Microsoft.UI.Xaml.LaunchActivatedEventArgs;
 
@@ -25,9 +28,12 @@ namespace BatteryTracker
     /// </summary>
     public partial class App : Application
     {
-        private BatteryIcon? _batteryIcon;
-
         public static WindowEx MainWindow { get; } = new MainWindow();
+
+        private BatteryIcon? _batteryIcon;
+        private readonly ILogger<App> _logger;
+        private readonly INavigationService _navigationService;
+        private readonly IAppNotificationService _notificationService;
 
         #region Services
 
@@ -45,7 +51,6 @@ namespace BatteryTracker
                 throw new ArgumentException(
                     $"{typeof(T)} needs to be registered in ConfigureServices within App.xaml.cs.");
             }
-
             return service;
         }
 
@@ -60,7 +65,7 @@ namespace BatteryTracker
                     services.AddTransient<ActivationHandler<LaunchActivatedEventArgs>, DefaultActivationHandler>();
 
                     // Other Activation Handlers
-                    // services.AddTransient<IActivationHandler, AppNotificationActivationHandler>();
+                    services.AddTransient<IActivationHandler, AppNotificationActivationHandler>();
 
                     // Services
                     services.AddSingleton<IAppNotificationService, AppNotificationService>();
@@ -80,10 +85,21 @@ namespace BatteryTracker
                     services.AddTransient<AboutViewModel>();
 
                     // Taskbar icon
-                    services.AddTransient<BatteryIcon>();
+                    services.AddSingleton<BatteryIcon>();
+
+                    // configure Serilog
+                    services.AddLogging();
                 }).Build();
 
-            // App.GetService<IAppNotificationService>().Initialize();
+            GetService<IAppNotificationService>().Initialize();
+
+            // Tell the logging service to use Serilog.File extension.
+            string fullPath = $"{ApplicationData.Current.LocalFolder.Path}\\Logs\\App.log";
+            GetService<ILoggerFactory>().AddFile(fullPath);
+            _logger = GetService<ILogger<App>>();
+
+            _navigationService = GetService<INavigationService>();
+            _notificationService = GetService<IAppNotificationService>();
 
             UnhandledException += App_UnhandledException;
         }
@@ -96,13 +112,13 @@ namespace BatteryTracker
         {
             // Only allow single instance to run
             // Get or register the main instance
-            var mainInstance = AppInstance.FindOrRegisterForKey("main");
+            AppInstance mainInstance = AppInstance.FindOrRegisterForKey("main");
 
             // If the main instance isn't this current instance
             if (!mainInstance.IsCurrent)
             {
                 // Prompt user that the app is already running and exit our instance
-                NotificationManager.PushMessage("Another instance is already running.");
+                _notificationService.Show("Another instance is already running.");
                 System.Diagnostics.Process.GetCurrentProcess().Kill();
                 return;
             }
@@ -121,10 +137,9 @@ namespace BatteryTracker
             MainWindow.Hide();
         }
 
-        private static void OpenSettingsCommand_ExecuteRequested(object? _, ExecuteRequestedEventArgs args)
+        private void OpenSettingsCommand_ExecuteRequested(object? _, ExecuteRequestedEventArgs args)
         {
-            // MainWindow.Content ??= GetService<ShellPage>();
-            GetService<INavigationService>().NavigateTo(typeof(SettingsViewModel).FullName!);
+            _navigationService.NavigateTo(typeof(SettingsViewModel).FullName!);
             MainWindow.Show();
         }
 
@@ -136,8 +151,8 @@ namespace BatteryTracker
 
         private void App_UnhandledException(object sender, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)
         {
-            // TODO: Log and handle exceptions as appropriate.
             // https://docs.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.unhandledexception.
+            _logger.LogTrace(e.Exception, "Unhandled exception");
         }
 
         #endregion
