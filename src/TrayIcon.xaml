@@ -8,19 +8,19 @@
         x:Key="LightModeCommand"
         Label="Light mode"
         Description="Switch to light mode"
-    >
+        >
     </XamlUICommand>
     <XamlUICommand
         x:Key="DarkModeCommand"
         Label="Dark mode"
         Description="Switch to dark mode"
-    >
+        >
     </XamlUICommand>
     <XamlUICommand
         x:Key="OpenSettingsCommand"
         Label="Settings"
         Description="Open settings window"
-    >
+        >
     </XamlUICommand>
     <XamlUICommand
         x:Key="ExitApplicationCommand"
@@ -32,7 +32,9 @@
         x:Key="TrayIcon"
         Visibility="Visible"
         NoLeftClickDelay="True"
-        >
+        ContextMenuMode="PopupMenu"
+        ToolTipText="Battery Tracker"
+    >
         <tb:TaskbarIcon.GeneratedIcon>
             <tb:GeneratedIcon
                 Text="99"

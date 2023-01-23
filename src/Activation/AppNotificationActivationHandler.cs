@@ -1,15 +1,20 @@
 ﻿using System.Diagnostics;
-using System.Runtime.Serialization;
 using BatteryTracker.Contracts.Services;
-using BatteryTracker.ViewModels;
-using Microsoft.UI.Dispatching;
 using Microsoft.Windows.AppLifecycle;
 using Microsoft.Windows.AppNotifications;
+using Windows.System;
 
 namespace BatteryTracker.Activation;
 
 public class AppNotificationActivationHandler : ActivationHandler<LaunchActivatedEventArgs>
 {
+    private readonly IAppNotificationService _notificationService;
+
+    public AppNotificationActivationHandler(IAppNotificationService notificationService)
+    {
+        _notificationService = notificationService;
+    }
+
     protected override bool CanHandleInternal(LaunchActivatedEventArgs args)
     {
         return AppInstance.GetCurrent().GetActivatedEventArgs()?.Kind == ExtendedActivationKind.AppNotification;
@@ -18,24 +23,15 @@ public class AppNotificationActivationHandler : ActivationHandler<LaunchActivate
     protected override async Task HandleInternalAsync(LaunchActivatedEventArgs args)
     {
         // Access the AppNotificationActivatedEventArgs.
-        // var activatedEventArgs = (AppNotificationActivatedEventArgs)AppInstance.GetCurrent().GetActivatedEventArgs().Data;
+        var activatedEventArgs = (AppNotificationActivatedEventArgs)AppInstance.GetCurrent().GetActivatedEventArgs().Data;
 
-        // Navigate to a specific page based on the notification arguments.
-        // if (_notificationService.ParseArguments(activatedEventArgs.Argument)["action"] == "Settings")
-        // {
-        //     // Queue navigation with low priority to allow the UI to initialize.
-        //     App.MainWindow.DispatcherQueue.TryEnqueue(DispatcherQueuePriority.Low, () =>
-        //     {
-        //         _navigationService.NavigateTo(typeof(SettingsViewModel).FullName!);
-        //     });
-        // }
+        // Handle the case when users click `Submit feedback` button on notifications
+        if (activatedEventArgs.Arguments.TryGetValue("action", out string? value) && value == "SubmitFeedback")
+        {
+            await Launcher.LaunchUriAsync(new Uri("https://github.com/myfix16/BatteryTracker/issues/new/choose"));
+        }
 
-        // App.MainWindow.DispatcherQueue.TryEnqueue(DispatcherQueuePriority.Low, () =>
-        // {
-        //     App.MainWindow.ShowMessageDialogAsync("Handle notification activations.", "Notification Activation");
-        // });
-
-        // ignore notification activation and quit
+        // quit
         Process.GetCurrentProcess().Kill();
         await Task.CompletedTask;
     }

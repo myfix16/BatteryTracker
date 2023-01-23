@@ -23,7 +23,7 @@ public class AppNotificationService : IAppNotificationService
     /// <summary>
     /// Handle notification invocations when the app is already running.
     /// </summary>
-    public void OnNotificationInvoked(AppNotificationManager sender, AppNotificationActivatedEventArgs args)
+    public static void OnNotificationInvoked(AppNotificationManager sender, AppNotificationActivatedEventArgs args)
     {
         // App.MainWindow.DispatcherQueue.TryEnqueue(() =>
         // {
@@ -32,7 +32,6 @@ public class AppNotificationService : IAppNotificationService
         //     App.MainWindow.BringToFront();
         // });
 
-        // do nothing
     }
 
     public bool Show(string payload)

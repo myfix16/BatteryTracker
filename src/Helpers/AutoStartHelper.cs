@@ -1,9 +1,9 @@
 ﻿using Windows.ApplicationModel;
 using Windows.UI.Popups;
 
-namespace BatteryTracker.Services
+namespace BatteryTracker.Helpers
 {
-    internal static class AutoStartService
+    internal static class AutoStartHelper
     {
         private const string StartupTaskName = "BatteryTrackerStartup";
 
@@ -12,7 +12,7 @@ namespace BatteryTracker.Services
         internal static async Task<bool> IsRunAtStartup()
         {
             _startupTask ??= await StartupTask.GetAsync(StartupTaskName);
-            StartupTaskState startupTaskState = (_startupTask).State;
+            StartupTaskState startupTaskState = _startupTask.State;
             return startupTaskState is StartupTaskState.Enabled or StartupTaskState.EnabledByPolicy;
         }
 

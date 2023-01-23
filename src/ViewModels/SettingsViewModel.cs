@@ -5,6 +5,7 @@ using BatteryTracker.Helpers;
 using BatteryTracker.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.Windows.System.Power;
 using Windows.Globalization;
 
 namespace BatteryTracker.ViewModels;
@@ -37,7 +38,7 @@ public class SettingsViewModel : ObservableRecipient
 
     // service reference
     private readonly BatteryIcon _batteryIcon;
-    private readonly IAppNotificationService _appNotificationService;
+    private readonly IAppNotificationService _notificationService;
 
     public ElementTheme ElementTheme
     {
@@ -108,14 +109,14 @@ public class SettingsViewModel : ObservableRecipient
         set
         {
             SetProperty(ref _enableAutostart, value);
-            bool isRunAtStartup = AutoStartService.IsRunAtStartup().Result;
+            bool isRunAtStartup = AutoStartHelper.IsRunAtStartup().Result;
             switch (value)
             {
                 case true when !isRunAtStartup:
-                    Task.Run(AutoStartService.EnableStartup);
+                    Task.Run(AutoStartHelper.EnableStartup);
                     break;
                 case false when isRunAtStartup:
-                    Task.Run(AutoStartService.DisableStartup);
+                    Task.Run(AutoStartHelper.DisableStartup);
                     break;
             }
             SettingsService.Set(AutostartSettingsKey, value);
@@ -130,12 +131,12 @@ public class SettingsViewModel : ObservableRecipient
         new("简体中文", "zh-CN"),
     };
 
-    public SettingsViewModel(BatteryIcon icon, IThemeSelectorService themeSelectorService, IAppNotificationService appNotificationService)
+    public SettingsViewModel(BatteryIcon icon, IThemeSelectorService themeSelectorService, IAppNotificationService notificationService)
     {
         // initialize service references
         _batteryIcon = icon;
         IThemeSelectorService themeService = themeSelectorService;
-        _appNotificationService = appNotificationService;
+        _notificationService = notificationService;
 
         _elementTheme = themeService.Theme;
 
@@ -164,7 +165,9 @@ public class SettingsViewModel : ObservableRecipient
 
         NotificationCommand = new RelayCommand(() =>
         {
-            _appNotificationService.Show("test");
+            int percentage = PowerManager.RemainingChargePercent;
+            TimeSpan remainingTime = PowerManager.RemainingDischargeTime;
+            _notificationService.Show($"Lower power: {percentage}%. Estimated battery life: {remainingTime}");
         });
 
         // initialize settings if necessary

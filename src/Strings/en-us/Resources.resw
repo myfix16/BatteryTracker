@@ -147,9 +147,6 @@
   <data name="SettingsPage_PrivacyTermsLink.Content" xml:space="preserve">
     <value>Privacy Statement</value>
   </data>
-  <data name="SettingsPage_PrivacyTermsLink.NavigateUri" xml:space="preserve">
-    <value>https://YourPrivacyUrlGoesHere/</value>
-  </data>
   <data name="AppNotificationSamplePayload" xml:space="preserve">
     <value>&lt;toast launch="action=ToastClick"&gt;
   &lt;visual&gt;
@@ -196,5 +193,20 @@
   </data>
   <data name="Settings_LanguageInfoBar.Message" xml:space="preserve">
     <value>Restart the app for the language change to take effect</value>
+  </data>
+  <data name="UnhandledExceptionMessage" xml:space="preserve">
+    <value>The app is aborting because an unexpected error occurred</value>
+  </data>
+  <data name="SettingsPage_EmailLink.Content" xml:space="preserve">
+    <value>Send feedback via email</value>
+  </data>
+  <data name="SettingsPage_GitHubIssuesLink.Content" xml:space="preserve">
+    <value>Send feedback on GitHub</value>
+  </data>
+  <data name="Settings_Feedback.Text" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="SubmitFeedback" xml:space="preserve">
+    <value>Submit feedback</value>
   </data>
 </root>

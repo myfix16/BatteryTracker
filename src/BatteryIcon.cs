@@ -1,12 +1,11 @@
 ﻿using System.Runtime.InteropServices;
-using BatteryTracker.Helpers;
+using BatteryTracker.Contracts.Services;
 using CommunityToolkit.WinUI;
 using H.NotifyIcon;
 using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.Windows.System.Power;
 using Windows.UI.ViewManagement;
-using BatteryTracker.Contracts.Services;
 using Brush = Microsoft.UI.Xaml.Media.Brush;
 using Color = Windows.UI.Color;
 
@@ -23,32 +22,33 @@ public partial class BatteryIcon : IDisposable
 
     private bool _isLowPower;
 
+    private bool _trayIconEventsRegistered;
+
     private readonly DispatcherQueue _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
     // notification settings
-    public bool EnableLowPowerNotification = true;
-    public int LowPowerNotificationThreshold = 25;
-    public bool EnableFullyChargedNotification = true;
+    public bool EnableLowPowerNotification;
+    public int LowPowerNotificationThreshold;
+    public bool EnableFullyChargedNotification;
 
     public BatteryIcon(IAppNotificationService notificationService)
     {
         _notificationService = notificationService;
     }
 
-    public void Init(ResourceDictionary resources)
+    public async Task Init(ResourceDictionary resources)
     {
         _trayIcon = (TaskbarIcon)resources["TrayIcon"];
-        _trayIcon.ForceCreate();
+        _trayIcon.ForceCreate(true);
 
         // init percentage and color
-        UpdateTrayIconPercent(null, null);
-        UpdateTrayIconTheme(_settings, null);
+        await UpdateTrayIconPercent();
+        OnThemeChanged(_settings, null);
 
-        // register power events
-        PowerManager.RemainingChargePercentChanged += UpdateTrayIconPercent;
+        RegisterTrayIconEvents();
 
-        // register theme events
-        _settings.ColorValuesChanged += UpdateTrayIconTheme;
+        // register display events
+        PowerManager.DisplayStatusChanged += PowerManager_DisplayStatusChanged;
     }
 
     ~BatteryIcon()
@@ -58,29 +58,51 @@ public partial class BatteryIcon : IDisposable
 
     public void Dispose()
     {
-        PowerManager.RemainingChargePercentChanged -= UpdateTrayIconPercent;
-        _settings.ColorValuesChanged -= UpdateTrayIconTheme;
+        UnregisterTrayIconEvents();
+        PowerManager.DisplayStatusChanged -= PowerManager_DisplayStatusChanged;
 
         _trayIcon?.Dispose();
     }
 
-    private async void UpdateTrayIconPercent(object? _, object? eventArg)
+    private void PowerManager_DisplayStatusChanged(object? sender, object _)
     {
-        if (_trayIcon is null)
+        DisplayStatus displayStatus = PowerManager.DisplayStatus;
+        switch (displayStatus)
         {
-            return;
+            case DisplayStatus.Off:
+                if (_trayIconEventsRegistered) UnregisterTrayIconEvents();
+                break;
+            case DisplayStatus.On:
+                if (!_trayIconEventsRegistered) RegisterTrayIconEvents();
+                break;
+            case DisplayStatus.Dimmed:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException($"Invalid display status: {displayStatus}");
         }
+    }
 
-        int chargePercent = PowerManager.RemainingChargePercent;
-        string newPercentText = chargePercent == 100 ? "F" : $"{chargePercent}%";
-        // Use a DispatcherQueue to execute UI related code on the main UI thread. Otherwise you may get an exception.
-        await _dispatcherQueue.EnqueueAsync(() =>
-        {
-            if (_trayIcon.GeneratedIcon != null)
-            {
-                _trayIcon.GeneratedIcon.Text = newPercentText;
-            }
-        });
+    private void RegisterTrayIconEvents()
+    {
+        // register power events
+        PowerManager.RemainingChargePercentChanged += OnRemainingChargePercentChanged;
+        // register theme events
+        _settings.ColorValuesChanged += OnThemeChanged;
+        _trayIconEventsRegistered = true;
+    }
+
+    private void UnregisterTrayIconEvents()
+    {
+        // unregister power events
+        PowerManager.RemainingChargePercentChanged -= OnRemainingChargePercentChanged;
+        // unregister theme events
+        _settings.ColorValuesChanged -= OnThemeChanged;
+        _trayIconEventsRegistered = false;
+    }
+
+    private async void OnRemainingChargePercentChanged(object? _, object? eventArg)
+    {
+        int chargePercent = await UpdateTrayIconPercent();
 
         // push low power notification
         if (EnableLowPowerNotification && !_isLowPower && chargePercent < LowPowerNotificationThreshold)
@@ -101,7 +123,22 @@ public partial class BatteryIcon : IDisposable
         }
     }
 
-    private async void UpdateTrayIconTheme(UISettings sender, object? _)
+    private async ValueTask<int> UpdateTrayIconPercent()
+    {
+        int chargePercent = PowerManager.RemainingChargePercent;
+        string newPercentText = chargePercent == 100 ? "F" : $"{chargePercent}";
+        // Use a DispatcherQueue to execute UI related code on the main UI thread. Otherwise you may get an exception.
+        await _dispatcherQueue.EnqueueAsync(() =>
+        {
+            if (_trayIcon?.GeneratedIcon != null)
+            {
+                _trayIcon.GeneratedIcon.Text = newPercentText;
+            }
+        });
+        return chargePercent;
+    }
+
+    private async void OnThemeChanged(UISettings sender, object? _)
     {
         if (_trayIcon is null)
         {

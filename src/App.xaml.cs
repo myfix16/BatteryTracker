@@ -1,7 +1,6 @@
 ﻿// Copyright (c) Microsoft Corporation and Contributors.
 // Licensed under the MIT License.
 
-using Windows.ApplicationModel.Activation;
 using BatteryTracker.Activation;
 using BatteryTracker.Contracts.Services;
 using BatteryTracker.Helpers;
@@ -14,6 +13,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.Windows.AppLifecycle;
+using Microsoft.Windows.AppNotifications;
+using Microsoft.Windows.AppNotifications.Builder;
 using Windows.Storage;
 using WinUIEx;
 using LaunchActivatedEventArgs = Microsoft.UI.Xaml.LaunchActivatedEventArgs;
@@ -21,152 +22,157 @@ using LaunchActivatedEventArgs = Microsoft.UI.Xaml.LaunchActivatedEventArgs;
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
-namespace BatteryTracker
+namespace BatteryTracker;
+
+/// <summary>
+/// Provides application-specific behavior to supplement the default Application class.
+/// </summary>
+public partial class App : Application
 {
-    /// <summary>
-    /// Provides application-specific behavior to supplement the default Application class.
-    /// </summary>
-    public partial class App : Application
+    public static WindowEx MainWindow { get; } = new MainWindow();
+
+    private BatteryIcon? _batteryIcon;
+    private readonly ILogger<App> _logger;
+    private readonly INavigationService _navigationService;
+    private readonly IAppNotificationService _notificationService;
+
+    #region Services
+
+    // The .NET Generic Host provides dependency injection, configuration, logging, and other services.
+    // https://docs.microsoft.com/dotnet/core/extensions/generic-host
+    // https://docs.microsoft.com/dotnet/core/extensions/dependency-injection
+    // https://docs.microsoft.com/dotnet/core/extensions/configuration
+    // https://docs.microsoft.com/dotnet/core/extensions/logging
+    public IHost Host { get; }
+
+    public static T GetService<T>() where T : class
     {
-        public static WindowEx MainWindow { get; } = new MainWindow();
-
-        private BatteryIcon? _batteryIcon;
-        private readonly ILogger<App> _logger;
-        private readonly INavigationService _navigationService;
-        private readonly IAppNotificationService _notificationService;
-
-        #region Services
-
-        // The .NET Generic Host provides dependency injection, configuration, logging, and other services.
-        // https://docs.microsoft.com/dotnet/core/extensions/generic-host
-        // https://docs.microsoft.com/dotnet/core/extensions/dependency-injection
-        // https://docs.microsoft.com/dotnet/core/extensions/configuration
-        // https://docs.microsoft.com/dotnet/core/extensions/logging
-        public IHost Host { get; }
-
-        public static T GetService<T>() where T : class
+        if ((Current as App)!.Host.Services.GetService(typeof(T)) is not T service)
         {
-            if ((Current as App)!.Host.Services.GetService(typeof(T)) is not T service)
+            throw new ArgumentException(
+                $"{typeof(T)} needs to be registered in ConfigureServices within App.xaml.cs.");
+        }
+        return service;
+    }
+
+    public App()
+    {
+        InitializeComponent();
+
+        Host = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder().UseContentRoot(AppContext.BaseDirectory)
+            .ConfigureServices((context, services) =>
             {
-                throw new ArgumentException(
-                    $"{typeof(T)} needs to be registered in ConfigureServices within App.xaml.cs.");
-            }
-            return service;
-        }
+                // Default Activation Handler
+                services.AddTransient<ActivationHandler<LaunchActivatedEventArgs>, DefaultActivationHandler>();
 
-        public App()
+                // Other Activation Handlers
+                services.AddTransient<IActivationHandler, AppNotificationActivationHandler>();
+
+                // Services
+                services.AddSingleton<IAppNotificationService, AppNotificationService>();
+                services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
+                services.AddTransient<INavigationViewService, NavigationViewService>();
+
+                services.AddSingleton<IActivationService, ActivationService>();
+                services.AddSingleton<IPageService, PageService>();
+                services.AddSingleton<INavigationService, NavigationService>();
+
+                // Views and ViewModels
+                services.AddTransient<SettingsViewModel>();
+                services.AddTransient<SettingsPage>();
+                services.AddTransient<ShellPage>();
+                services.AddTransient<ShellViewModel>();
+                services.AddTransient<AboutPage>();
+                services.AddTransient<AboutViewModel>();
+
+                // Taskbar icon
+                services.AddSingleton<BatteryIcon>();
+
+                // configure Serilog
+                services.AddLogging();
+            }).Build();
+
+        GetService<IAppNotificationService>().Initialize();
+
+        // Tell the logging service to use Serilog.File extension.
+        string fullPath = $"{ApplicationData.Current.LocalFolder.Path}\\Logs\\App.log";
+        GetService<ILoggerFactory>().AddFile(fullPath);
+        _logger = GetService<ILogger<App>>();
+
+        _navigationService = GetService<INavigationService>();
+        _notificationService = GetService<IAppNotificationService>();
+
+        UnhandledException += App_UnhandledException;
+    }
+
+    #endregion
+
+    #region Event Handlers
+
+    protected override async void OnLaunched(LaunchActivatedEventArgs args)
+    {
+        // Only allow single instance to run
+        // Get or register the main instance
+        AppInstance mainInstance = AppInstance.FindOrRegisterForKey("main");
+
+        // If the main instance isn't this current instance
+        if (!mainInstance.IsCurrent)
         {
-            InitializeComponent();
-
-            Host = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder().UseContentRoot(AppContext.BaseDirectory)
-                .ConfigureServices((context, services) =>
-                {
-                    // Default Activation Handler
-                    services.AddTransient<ActivationHandler<LaunchActivatedEventArgs>, DefaultActivationHandler>();
-
-                    // Other Activation Handlers
-                    services.AddTransient<IActivationHandler, AppNotificationActivationHandler>();
-
-                    // Services
-                    services.AddSingleton<IAppNotificationService, AppNotificationService>();
-                    services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
-                    services.AddTransient<INavigationViewService, NavigationViewService>();
-
-                    services.AddSingleton<IActivationService, ActivationService>();
-                    services.AddSingleton<IPageService, PageService>();
-                    services.AddSingleton<INavigationService, NavigationService>();
-
-                    // Views and ViewModels
-                    services.AddTransient<SettingsViewModel>();
-                    services.AddTransient<SettingsPage>();
-                    services.AddTransient<ShellPage>();
-                    services.AddTransient<ShellViewModel>();
-                    services.AddTransient<AboutPage>();
-                    services.AddTransient<AboutViewModel>();
-
-                    // Taskbar icon
-                    services.AddSingleton<BatteryIcon>();
-
-                    // configure Serilog
-                    services.AddLogging();
-                }).Build();
-
-            GetService<IAppNotificationService>().Initialize();
-
-            // Tell the logging service to use Serilog.File extension.
-            string fullPath = $"{ApplicationData.Current.LocalFolder.Path}\\Logs\\App.log";
-            GetService<ILoggerFactory>().AddFile(fullPath);
-            _logger = GetService<ILogger<App>>();
-
-            _navigationService = GetService<INavigationService>();
-            _notificationService = GetService<IAppNotificationService>();
-
-            UnhandledException += App_UnhandledException;
+            // Prompt user that the app is already running and exit our instance
+            _notificationService.Show("Another instance is already running.");
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            return;
         }
 
-        #endregion
+        await GetService<IActivationService>().ActivateAsync(args);
 
-        #region Event Handlers
+        MainWindow.AppWindow.Closing += AppWindow_Closing;
 
-        protected override async void OnLaunched(LaunchActivatedEventArgs args)
-        {
-            // Only allow single instance to run
-            // Get or register the main instance
-            AppInstance mainInstance = AppInstance.FindOrRegisterForKey("main");
+        InitializeTrayIcon();
+    }
 
-            // If the main instance isn't this current instance
-            if (!mainInstance.IsCurrent)
-            {
-                // Prompt user that the app is already running and exit our instance
-                _notificationService.Show("Another instance is already running.");
-                System.Diagnostics.Process.GetCurrentProcess().Kill();
-                return;
-            }
+    private static void AppWindow_Closing(AppWindow sender, AppWindowClosingEventArgs args)
+    {
+        // closing the window will terminate the application, so hide it instead
+        args.Cancel = true;
+        MainWindow.Hide();
+    }
 
-            MainWindow.AppWindow.Closing += AppWindow_Closing;
+    private void OpenSettingsCommand_ExecuteRequested(object? _, ExecuteRequestedEventArgs args)
+    {
+        _navigationService.NavigateTo(typeof(SettingsViewModel).FullName!);
+        MainWindow.Show();
+    }
 
-            await GetService<IActivationService>().ActivateAsync(args);
+    private void ExitApplicationCommand_ExecuteRequested(object? _, ExecuteRequestedEventArgs args)
+    {
+        _batteryIcon?.Dispose();
+        Exit();
+    }
 
-            InitializeTrayIcon();
-        }
+    private void App_UnhandledException(object sender, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)
+    {
+        // https://docs.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.unhandledexception.
+        _logger.LogCritical(e.Exception, "Unhandled exception");
+        // _notificationService.Show("UnhandledExceptionMessage".GetLocalized());
+        AppNotificationBuilder notificationBuilder = new AppNotificationBuilder()
+            .AddText("UnhandledExceptionMessage".GetLocalized())
+            .AddButton(new AppNotificationButton("SubmitFeedback".GetLocalized())
+                .AddArgument("action", "SubmitFeedback"));
+        AppNotificationManager.Default.Show(notificationBuilder.BuildNotification());
+    }
 
-        private static void AppWindow_Closing(AppWindow sender, AppWindowClosingEventArgs args)
-        {
-            // closing the window will terminate the application, so hide it instead
-            args.Cancel = true;
-            MainWindow.Hide();
-        }
+    #endregion
 
-        private void OpenSettingsCommand_ExecuteRequested(object? _, ExecuteRequestedEventArgs args)
-        {
-            _navigationService.NavigateTo(typeof(SettingsViewModel).FullName!);
-            MainWindow.Show();
-        }
+    private void InitializeTrayIcon()
+    {
+        var openSettingsCommand = (XamlUICommand)Resources["OpenSettingsCommand"];
+        openSettingsCommand.ExecuteRequested += OpenSettingsCommand_ExecuteRequested;
 
-        private void ExitApplicationCommand_ExecuteRequested(object? _, ExecuteRequestedEventArgs args)
-        {
-            _batteryIcon?.Dispose();
-            Exit();
-        }
+        var exitApplicationCommand = (XamlUICommand)Resources["ExitApplicationCommand"];
+        exitApplicationCommand.ExecuteRequested += ExitApplicationCommand_ExecuteRequested;
 
-        private void App_UnhandledException(object sender, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)
-        {
-            // https://docs.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.unhandledexception.
-            _logger.LogTrace(e.Exception, "Unhandled exception");
-        }
-
-        #endregion
-
-        private void InitializeTrayIcon()
-        {
-            var openSettingsCommand = (XamlUICommand)Resources["OpenSettingsCommand"];
-            openSettingsCommand.ExecuteRequested += OpenSettingsCommand_ExecuteRequested;
-
-            var exitApplicationCommand = (XamlUICommand)Resources["ExitApplicationCommand"];
-            exitApplicationCommand.ExecuteRequested += ExitApplicationCommand_ExecuteRequested;
-
-            _batteryIcon = GetService<BatteryIcon>();
-            _batteryIcon.Init(Resources);
-        }
+        _batteryIcon = GetService<BatteryIcon>();
+        _batteryIcon.Init(Resources);
     }
 }

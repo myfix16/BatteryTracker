@@ -2,7 +2,6 @@
 using System.Linq;
 using BatteryTracker.Activation;
 using BatteryTracker.Contracts.Services;
-using BatteryTracker.Helpers;
 using BatteryTracker.Views;
 using Microsoft.UI.Xaml.Controls;
 
