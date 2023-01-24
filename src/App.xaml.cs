@@ -19,9 +19,6 @@ using Windows.Storage;
 using WinUIEx;
 using LaunchActivatedEventArgs = Microsoft.UI.Xaml.LaunchActivatedEventArgs;
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
-
 namespace BatteryTracker;
 
 /// <summary>
@@ -43,7 +40,7 @@ public partial class App : Application
     // https://docs.microsoft.com/dotnet/core/extensions/dependency-injection
     // https://docs.microsoft.com/dotnet/core/extensions/configuration
     // https://docs.microsoft.com/dotnet/core/extensions/logging
-    public IHost Host { get; }
+    private IHost Host { get; }
 
     public static T GetService<T>() where T : class
     {
@@ -140,8 +137,8 @@ public partial class App : Application
 
     private void OpenSettingsCommand_ExecuteRequested(object? _, ExecuteRequestedEventArgs args)
     {
-        _navigationService.NavigateTo(typeof(SettingsViewModel).FullName!);
         MainWindow.Show();
+        _navigationService.NavigateTo(typeof(SettingsViewModel).FullName!);
     }
 
     private void ExitApplicationCommand_ExecuteRequested(object? _, ExecuteRequestedEventArgs args)
