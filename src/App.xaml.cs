@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation and Contributors.
 // Licensed under the MIT License.
 
+using System.Diagnostics;
 using BatteryTracker.Activation;
 using BatteryTracker.Contracts.Services;
 using BatteryTracker.Helpers;
@@ -151,12 +152,14 @@ public partial class App : Application
     {
         // https://docs.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.unhandledexception.
         _logger.LogCritical(e.Exception, "Unhandled exception");
-        // _notificationService.Show("UnhandledExceptionMessage".GetLocalized());
+
         AppNotificationBuilder notificationBuilder = new AppNotificationBuilder()
             .AddText("UnhandledExceptionMessage".GetLocalized())
             .AddButton(new AppNotificationButton("SubmitFeedback".GetLocalized())
                 .AddArgument("action", "SubmitFeedback"));
         AppNotificationManager.Default.Show(notificationBuilder.BuildNotification());
+
+        Process.GetCurrentProcess().Kill();
     }
 
     #endregion
@@ -170,6 +173,6 @@ public partial class App : Application
         exitApplicationCommand.ExecuteRequested += ExitApplicationCommand_ExecuteRequested;
 
         _batteryIcon = GetService<BatteryIcon>();
-        _batteryIcon.Init(Resources);
+        _batteryIcon.InitAsync(Resources).Wait();
     }
 }

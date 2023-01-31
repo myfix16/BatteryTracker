@@ -7,6 +7,9 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Windows.System.Power;
 using Windows.Globalization;
+using Windows.UI.Popups;
+using CommunityToolkit.WinUI;
+using Microsoft.UI.Dispatching;
 
 namespace BatteryTracker.ViewModels;
 
@@ -39,11 +42,11 @@ public class SettingsViewModel : ObservableRecipient
     // service reference
     private readonly BatteryIcon _batteryIcon;
     private readonly IAppNotificationService _notificationService;
-
+    
     public ElementTheme ElementTheme
     {
         get => _elementTheme;
-        set => SetProperty(ref _elementTheme, value);
+        private set => SetProperty(ref _elementTheme, value);
     }
 
     public ICommand SwitchThemeCommand { get; }
@@ -170,6 +173,9 @@ public class SettingsViewModel : ObservableRecipient
             _notificationService.Show($"Lower power: {percentage}%. Estimated battery life: {remainingTime}");
         });
 
+        IReadOnlyList<string> userLanguages = Windows.System.UserProfile.GlobalizationPreferences.Languages;
+        DefaultSettingsDict[LanguageSettingsKey] = userLanguages[0];
+
         // initialize settings if necessary
         foreach (KeyValuePair<string, object> pair in DefaultSettingsDict)
         {
@@ -184,9 +190,9 @@ public class SettingsViewModel : ObservableRecipient
         EnableLowPowerNotification = (bool)SettingsService.Get(LowPowerNotificationSettingsKey);
         LowPowerNotificationThreshold = (int)SettingsService.Get(LowPowerNotificationThresholdSettingsKey);
         string[] languageParams = ((string)SettingsService.Get(LanguageSettingsKey)).Split(',');
-        Language = new Tuple<string, string>(languageParams[0], languageParams[1]);
+        var loadedLanguage = Languages.Find(t => t.Item2 == languageParams[1]) ?? Languages[0];
+        _appLanguage = loadedLanguage.Item2;
+        Language = loadedLanguage;
         EnableAutostart = (bool)SettingsService.Get(AutostartSettingsKey);
-
-        _appLanguage = Language.Item2;
     }
 }

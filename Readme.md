@@ -9,6 +9,12 @@ The program will show the remaining battery percentage on the taskbar.
 1. It will **automatically switch icon color** when user change to Light/Dark mode. ✨
 2. It can notify users when the battery life is less than a threshold or the battery is fully charged. And the notifications are customizable!
 3. Modern setting UI that fits the Operating System
+	<table>
+		<tr>
+			<td><img src=showcase3.png border=0></td>
+			<td><img src=showcase4.png border=0></td>
+		</tr>
+	</table>
 
 ### Prerequisites
 The project requires **.NET 7 Desktop Runtime**. If you install from Microsoft Store, the dependency will be automatically installed. Otherwise, you can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
@@ -21,12 +27,13 @@ The project requires **.NET 7 Desktop Runtime**. If you install from Microsoft S
 Alternatively, you can download the executable in release page.
 
 ### Privacy Policy
-The app will not collect any data at all.
+The app will not collect any privacy data at all.
 
 ### How to Contribute
-Priority place for bugs: https://github.com/myfix16/BatteryTracker/issues
+Priority place for bugs: https://github.com/myfix16/BatteryTracker/issues  
 Priority place for ideas and general questions: https://github.com/myfix16/BatteryTracker/discussions
 
 ### Credits
-Special thanks to
+Special thanks to:
+- [Windows App SDK](https://github.com/microsoft/WindowsAppSDK)
 - HavenDV's [H.NotifyIcon](https://github.com/HavenDV/H.NotifyIcon)

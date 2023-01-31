@@ -36,7 +36,7 @@ public partial class BatteryIcon : IDisposable
         _notificationService = notificationService;
     }
 
-    public async Task Init(ResourceDictionary resources)
+    public async Task InitAsync(ResourceDictionary resources)
     {
         _trayIcon = (TaskbarIcon)resources["TrayIcon"];
         _trayIcon.ForceCreate(true);
