@@ -64,7 +64,7 @@ public partial class BatteryIcon : IDisposable
         _trayIcon?.Dispose();
     }
 
-    private void PowerManager_DisplayStatusChanged(object? sender, object _)
+    private async void PowerManager_DisplayStatusChanged(object? sender, object _)
     {
         DisplayStatus displayStatus = PowerManager.DisplayStatus;
         switch (displayStatus)
@@ -74,6 +74,7 @@ public partial class BatteryIcon : IDisposable
                 break;
             case DisplayStatus.On:
                 if (!_trayIconEventsRegistered) RegisterTrayIconEvents();
+                await UpdateTrayIconPercent();
                 break;
             case DisplayStatus.Dimmed:
                 break;
@@ -123,7 +124,7 @@ public partial class BatteryIcon : IDisposable
         }
     }
 
-    private async ValueTask<int> UpdateTrayIconPercent()
+    private async Task<int> UpdateTrayIconPercent()
     {
         int chargePercent = PowerManager.RemainingChargePercent;
         string newPercentText = chargePercent == 100 ? "F" : $"{chargePercent}";

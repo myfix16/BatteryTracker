@@ -74,7 +74,7 @@
 				<!-- Startup task -->
 				<uap5:Extension
 					Category="windows.startupTask"
-					Executable="$targetnametoken$.exe"
+					Executable="BatteryTracker.exe"
 					EntryPoint="$targetentrypoint$">
 					<uap5:StartupTask
 						TaskId="BatteryTrackerStartup"

@@ -39,7 +39,7 @@
             <tb:GeneratedIcon
                 Text="99"
                 Foreground="White"
-                Size="512"
+                Size="256"
                 FontSize="220"
                 FontWeight="SemiBold"
                 FontFamily="Arial"

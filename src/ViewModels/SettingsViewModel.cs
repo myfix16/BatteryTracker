@@ -7,9 +7,6 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Windows.System.Power;
 using Windows.Globalization;
-using Windows.UI.Popups;
-using CommunityToolkit.WinUI;
-using Microsoft.UI.Dispatching;
 
 namespace BatteryTracker.ViewModels;
 
@@ -35,14 +32,14 @@ public class SettingsViewModel : ObservableRecipient
         { FullyChargedNotificationSettingsKey, true },
         { LowPowerNotificationSettingsKey, true },
         { LowPowerNotificationThresholdSettingsKey, 25 },
-        { LanguageSettingsKey, "English,en-US" },
+        { LanguageSettingsKey, "en-US" },
         { AutostartSettingsKey, true },
     };
 
     // service reference
     private readonly BatteryIcon _batteryIcon;
     private readonly IAppNotificationService _notificationService;
-    
+
     public ElementTheme ElementTheme
     {
         get => _elementTheme;
@@ -94,7 +91,7 @@ public class SettingsViewModel : ObservableRecipient
             LanguageChanged = value.Item2 != _appLanguage;
 
             SetProperty(ref _language, value);
-            SettingsService.Set(LanguageSettingsKey, $"{value.Item1},{value.Item2}");
+            SettingsService.Set(LanguageSettingsKey, value.Item2);
         }
     }
 
@@ -131,7 +128,7 @@ public class SettingsViewModel : ObservableRecipient
     public List<Tuple<string, string>> Languages { get; } = new()
     {
         new("English", "en-US"),
-        new("简体中文", "zh-CN"),
+        new("简体中文", "zh-Hans"),
     };
 
     public SettingsViewModel(BatteryIcon icon, IThemeSelectorService themeSelectorService, IAppNotificationService notificationService)
@@ -189,8 +186,8 @@ public class SettingsViewModel : ObservableRecipient
         EnableFullyChargedNotification = (bool)SettingsService.Get(FullyChargedNotificationSettingsKey);
         EnableLowPowerNotification = (bool)SettingsService.Get(LowPowerNotificationSettingsKey);
         LowPowerNotificationThreshold = (int)SettingsService.Get(LowPowerNotificationThresholdSettingsKey);
-        string[] languageParams = ((string)SettingsService.Get(LanguageSettingsKey)).Split(',');
-        var loadedLanguage = Languages.Find(t => t.Item2 == languageParams[1]) ?? Languages[0];
+        string languageParam = (string)SettingsService.Get(LanguageSettingsKey);
+        var loadedLanguage = Languages.Find(t => languageParam.Contains(t.Item2)) ?? Languages[0];
         _appLanguage = loadedLanguage.Item2;
         Language = loadedLanguage;
         EnableAutostart = (bool)SettingsService.Get(AutostartSettingsKey);

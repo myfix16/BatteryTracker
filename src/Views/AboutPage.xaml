@@ -39,5 +39,7 @@
                              NavigateUri="mailto:myfix16@outlook.com?subject=Battery%20Tracker%20Feedback"
                              ToolTipService.ToolTip="mailto:myfix16@outlook.com" />
         </StackPanel>
+
+        <!-- todo: Add third-party component used -->
     </StackPanel>
 </Page>

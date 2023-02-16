@@ -47,8 +47,7 @@ public partial class App : Application
     {
         if ((Current as App)!.Host.Services.GetService(typeof(T)) is not T service)
         {
-            throw new ArgumentException(
-                $"{typeof(T)} needs to be registered in ConfigureServices within App.xaml.cs.");
+            throw new ArgumentException($"{typeof(T)} needs to be registered in ConfigureServices within App.xaml.cs.");
         }
         return service;
     }
@@ -118,7 +117,7 @@ public partial class App : Application
         {
             // Prompt user that the app is already running and exit our instance
             _notificationService.Show("Another instance is already running.");
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            Process.GetCurrentProcess().Kill();
             return;
         }
 
@@ -138,8 +137,20 @@ public partial class App : Application
 
     private void OpenSettingsCommand_ExecuteRequested(object? _, ExecuteRequestedEventArgs args)
     {
+        if (MainWindow.Visible)
+        {
+            MainWindow.BringToFront();
+            return;
+        }
+
         MainWindow.Show();
-        _navigationService.NavigateTo(typeof(SettingsViewModel).FullName!);
+
+        // Sometimes, when users open settings panel for the first time, the navigation will fail.
+        // This is a temporary workaround.
+        if (!_navigationService.NavigateTo(typeof(SettingsViewModel).FullName!))
+        {
+            _navigationService.NavigateTo(typeof(SettingsViewModel).FullName!);
+        }
     }
 
     private void ExitApplicationCommand_ExecuteRequested(object? _, ExecuteRequestedEventArgs args)
