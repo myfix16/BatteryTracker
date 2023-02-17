@@ -39,18 +39,13 @@
             <tb:GeneratedIcon
                 Text="99"
                 Foreground="White"
-                Size="256"
-                FontSize="220"
+                FontSize="55"
                 FontWeight="SemiBold"
                 FontFamily="Arial"
-                FontStretch="SemiExpanded"
             />
         </tb:TaskbarIcon.GeneratedIcon>
         <tb:TaskbarIcon.ContextFlyout>
             <MenuFlyout>
-                <!-- <MenuFlyoutItem Command="{StaticResource LightModeCommand}" /> -->
-                <!-- <MenuFlyoutItem Command="{StaticResource DarkModeCommand}" /> -->
-                <!-- <MenuFlyoutSeparator /> -->
                 <MenuFlyoutItem Command="{StaticResource OpenSettingsCommand}" />
                 <MenuFlyoutItem Command="{StaticResource ExitApplicationCommand}" />
             </MenuFlyout>
