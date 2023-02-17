@@ -109,8 +109,7 @@ public partial class BatteryIcon : IDisposable
         if (EnableLowPowerNotification && !_isLowPower && chargePercent < LowPowerNotificationThreshold)
         {
             _isLowPower = true;
-            TimeSpan estimatedBatteryLife = PowerManager.RemainingDischargeTime;  // todo: COM Exception
-            _notificationService.Show($"Lower power: {chargePercent}%. Estimated battery life: {estimatedBatteryLife}");
+            _notificationService.Show($"Lower power: {chargePercent}%");
         }
         else if (chargePercent >= LowPowerNotificationThreshold)
         {

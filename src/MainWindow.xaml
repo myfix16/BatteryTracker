@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:windowex="using:WinUIEx"
     Width="450"
-    Height="500"
+    Height="600"
     MinWidth="400"
     MinHeight="500"
     PersistenceId="MainWindow"

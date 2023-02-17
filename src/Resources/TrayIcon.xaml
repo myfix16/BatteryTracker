@@ -5,26 +5,14 @@
     >
 
     <XamlUICommand
-        x:Key="LightModeCommand"
-        Label="Light mode"
-        Description="Switch to light mode"
-        >
-    </XamlUICommand>
-    <XamlUICommand
-        x:Key="DarkModeCommand"
-        Label="Dark mode"
-        Description="Switch to dark mode"
-        >
-    </XamlUICommand>
-    <XamlUICommand
         x:Key="OpenSettingsCommand"
-        Label="Settings"
+        x:Uid="OpenSettingsCommand"
         Description="Open settings window"
         >
     </XamlUICommand>
     <XamlUICommand
         x:Key="ExitApplicationCommand"
-        Label="Exit"
+        x:Uid="ExitApplicationCommand"
         Description="Exit"
         >
     </XamlUICommand>

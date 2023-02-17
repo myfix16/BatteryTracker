@@ -209,4 +209,10 @@
   <data name="SubmitFeedback" xml:space="preserve">
     <value>提交反馈</value>
   </data>
+  <data name="ExitApplicationCommand.Label" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="OpenSettingsCommand.Label" xml:space="preserve">
+    <value>设置</value>
+  </data>
 </root>

@@ -99,9 +99,9 @@
             </StackPanel>
 
             <!-- test -->
-            <StackPanel>
-                <Button Content="Power Notification" Command="{x:Bind ViewModel.NotificationCommand}" />
-            </StackPanel>
+            <!-- <StackPanel> -->
+            <!--     <Button Content="Power Notification" Command="{x:Bind ViewModel.NotificationCommand}" /> -->
+            <!-- </StackPanel> -->
         </StackPanel>
     </ScrollViewer>
 </Page>
