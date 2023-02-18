@@ -25,9 +25,14 @@ public sealed partial class ShellPage : Page
         AppTitleBarText.Text = "AppDisplayName".GetLocalized();
     }
 
-    private void OnLoaded(object sender, RoutedEventArgs e)
+    private async void OnLoaded(object sender, RoutedEventArgs e)
     {
         TitleBarHelper.UpdateTitleBar(RequestedTheme);
+
+        // Adapt to current DPI and listen to DPI changes
+        var appInstance = ((App)Application.Current);
+        await appInstance.AdaptToDpiChange(App.MainWindow.Content.XamlRoot.RasterizationScale);
+        App.MainWindow.Content.XamlRoot.Changed += appInstance.OnXamlRootChanged;
     }
 
     private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)

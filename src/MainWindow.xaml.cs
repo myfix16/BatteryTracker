@@ -1,4 +1,6 @@
-﻿using BatteryTracker.Helpers;
+﻿using System.Runtime.InteropServices;
+using BatteryTracker.Helpers;
+using WinRT;
 using WinUIEx;
 
 namespace BatteryTracker;

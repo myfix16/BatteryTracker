@@ -16,6 +16,8 @@ public class SettingsViewModel : ObservableRecipient
     private bool _enableFullyChargedNotification;
     private bool _enableLowPowerNotification;
     private int _lowPowerNotificationThreshold;
+    private bool _enableHighPowerNotification;
+    private int _highPowerNotificationThreshold;
     private Tuple<string, string> _language;
     private readonly string _appLanguage;
     private bool _languageChanged;
@@ -24,6 +26,8 @@ public class SettingsViewModel : ObservableRecipient
     private const string FullyChargedNotificationSettingsKey = "EnableFullyChargedNotification";
     private const string LowPowerNotificationSettingsKey = "EnableLowPowerNotification";
     private const string LowPowerNotificationThresholdSettingsKey = "LowPowerNotificationThreshold";
+    private const string HighPowerNotificationSettingsKey = "EnableHighPowerNotification";
+    private const string HighPowerNotificationThresholdSettingsKey = "HighPowerNotificationThreshold";
     private const string LanguageSettingsKey = "language";
     private const string AutostartSettingsKey = "Autostart";
 
@@ -32,6 +36,8 @@ public class SettingsViewModel : ObservableRecipient
         { FullyChargedNotificationSettingsKey, true },
         { LowPowerNotificationSettingsKey, true },
         { LowPowerNotificationThresholdSettingsKey, 25 },
+        { HighPowerNotificationSettingsKey, true },
+        { HighPowerNotificationThresholdSettingsKey, 80 },
         { LanguageSettingsKey, "en-US" },
         { AutostartSettingsKey, true },
     };
@@ -78,6 +84,28 @@ public class SettingsViewModel : ObservableRecipient
             SetProperty(ref _lowPowerNotificationThreshold, value);
             _batteryIcon.LowPowerNotificationThreshold = value;
             SettingsService.Set(LowPowerNotificationThresholdSettingsKey, value);
+        }
+    }
+
+    public bool EnableHighPowerNotification
+    {
+        get => _enableHighPowerNotification;
+        set
+        {
+            SetProperty(ref _enableHighPowerNotification, value);
+            _batteryIcon.EnableHighPowerNotification = value;
+            SettingsService.Set(HighPowerNotificationSettingsKey, value);
+        }
+    }
+
+    public int HighPowerNotificationThreshold
+    {
+        get => _highPowerNotificationThreshold;
+        set
+        {
+            SetProperty(ref _highPowerNotificationThreshold, value);
+            _batteryIcon.HighPowerNotificationThreshold = value;
+            SettingsService.Set(HighPowerNotificationThresholdSettingsKey, value);
         }
     }
 
@@ -186,6 +214,8 @@ public class SettingsViewModel : ObservableRecipient
         EnableFullyChargedNotification = (bool)SettingsService.Get(FullyChargedNotificationSettingsKey);
         EnableLowPowerNotification = (bool)SettingsService.Get(LowPowerNotificationSettingsKey);
         LowPowerNotificationThreshold = (int)SettingsService.Get(LowPowerNotificationThresholdSettingsKey);
+        EnableHighPowerNotification = (bool)SettingsService.Get(HighPowerNotificationSettingsKey);
+        HighPowerNotificationThreshold = (int)SettingsService.Get(HighPowerNotificationThresholdSettingsKey);
         string languageParam = (string)SettingsService.Get(LanguageSettingsKey);
         var loadedLanguage = Languages.Find(t => languageParam.Contains(t.Item2)) ?? Languages[0];
         _appLanguage = loadedLanguage.Item2;

@@ -1,4 +1,6 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
 using BatteryTracker.Contracts.Services;
 using CommunityToolkit.WinUI;
 using H.NotifyIcon;
@@ -21,14 +23,30 @@ public partial class BatteryIcon : IDisposable
     private readonly IAppNotificationService _notificationService;
 
     private bool _isLowPower;
+    private bool _isHighPower;
 
     private bool _trayIconEventsRegistered;
 
     private readonly DispatcherQueue _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
+    private static readonly Dictionary<double, int> DpiFontSizeMap = new()
+    {
+        { 1.0, 82 },
+        { 1.25, 66 },
+        { 1.5, 55 },
+        { 1.75, 45 },
+        { 2.0, 40 },
+        { 2.25, 36 },
+        { 2.5, 33 },
+        { 3, 27 },
+        { 3.5, 23 },
+    };
+
     // notification settings
     public bool EnableLowPowerNotification;
     public int LowPowerNotificationThreshold;
+    public bool EnableHighPowerNotification;
+    public int HighPowerNotificationThreshold;
     public bool EnableFullyChargedNotification;
 
     public BatteryIcon(IAppNotificationService notificationService)
@@ -62,6 +80,18 @@ public partial class BatteryIcon : IDisposable
         PowerManager.DisplayStatusChanged -= PowerManager_DisplayStatusChanged;
 
         _trayIcon?.Dispose();
+    }
+
+    public async Task AdaptToDpiChange(double rastScale)
+    {
+        double scale = DpiFontSizeMap.Keys.MinBy(d => Math.Abs(d - rastScale));
+        await _dispatcherQueue.EnqueueAsync(() =>
+        {
+            if (_trayIcon?.GeneratedIcon != null)
+            {
+                _trayIcon.GeneratedIcon.FontSize = DpiFontSizeMap[scale];
+            }
+        });
     }
 
     private async void PowerManager_DisplayStatusChanged(object? sender, object _)
@@ -106,20 +136,31 @@ public partial class BatteryIcon : IDisposable
         int chargePercent = await UpdateTrayIconPercent();
 
         // push low power notification
-        if (EnableLowPowerNotification && !_isLowPower && chargePercent < LowPowerNotificationThreshold)
+        if (EnableLowPowerNotification && !_isLowPower && chargePercent <= LowPowerNotificationThreshold)
         {
             _isLowPower = true;
-            _notificationService.Show($"Lower power: {chargePercent}%");
+            _notificationService.Show($"{"LowPowerMessage".GetLocalized()}: {chargePercent}%");
         }
-        else if (chargePercent >= LowPowerNotificationThreshold)
+        else if (chargePercent > LowPowerNotificationThreshold)
         {
             _isLowPower = false;
+        }
+
+        // push high power notification
+        if (EnableHighPowerNotification && !_isHighPower && chargePercent >= HighPowerNotificationThreshold)
+        {
+            _isHighPower = true;
+            _notificationService.Show($"{"HighPowerMessage".GetLocalized()}: {chargePercent}%");
+        }
+        else if (chargePercent < HighPowerNotificationThreshold)
+        {
+            _isHighPower = false;
         }
 
         // push fully charged notification
         if (EnableFullyChargedNotification && chargePercent == 100)
         {
-            _notificationService.Show("The battery is fully charged⚡");
+            _notificationService.Show($"{"FullyChargedMessage".GetLocalized()}⚡");
         }
     }
 

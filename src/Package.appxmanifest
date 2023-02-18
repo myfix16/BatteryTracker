@@ -54,7 +54,7 @@
 					<uap:Rotation Preference="landscapeFlipped"/>
 					<uap:Rotation Preference="portraitFlipped"/>
 				</uap:InitialRotationPreference>
-				<uap:LockScreen BadgeLogo="Assets\BadgeLogo.png" Notification="badge"/>
+				<!-- <uap:LockScreen BadgeLogo="Assets\BadgeLogo.png" Notification="badge"/> -->
 			</uap:VisualElements>
 			<Extensions>
 				<!--Specify which CLSID to activate when app notification clicked-->

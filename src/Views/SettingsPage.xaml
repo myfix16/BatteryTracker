@@ -16,8 +16,10 @@
             <!--Notification settings-->
             <TextBlock x:Uid="Settings_Notification" Style="{ThemeResource SubtitleTextBlockStyle}" />
             <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
+                <!-- Enable fully charged notification -->
                 <CheckBox x:Uid="Settings_EnableFullyChargedNotification"
                           IsChecked="{x:Bind ViewModel.EnableFullyChargedNotification, Mode=TwoWay}" />
+                <!-- Enable low power notification -->
                 <CheckBox x:Uid="Settings_EnableLowPowerNotification"
                           IsChecked="{x:Bind ViewModel.EnableLowPowerNotification, Mode=TwoWay}" />
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
@@ -29,6 +31,20 @@
                             TickFrequency="10" TickPlacement="BottomRight" />
                     <TextBlock x:Uid="Settings_LowPowerNotificationThreshold"
                                Text="{x:Bind LowPowerThresholdSlider.Value, Mode=OneWay}"
+                               Margin="10 0 0 0" VerticalAlignment="Center" />
+                </StackPanel>
+                <!-- Enable high power notification -->
+                <CheckBox x:Uid="Settings_EnableHighPowerNotification"
+                          IsChecked="{x:Bind ViewModel.EnableHighPowerNotification, Mode=TwoWay}" />
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Slider x:Name="HighPowerThresholdSlider"
+                            IsEnabled="{x:Bind ViewModel.EnableHighPowerNotification, Mode=OneWay}"
+                            Value="{x:Bind ViewModel.HighPowerNotificationThreshold, Mode=TwoWay}"
+                            HorizontalAlignment="Left" VerticalAlignment="Center"
+                            Width="200" MinWidth="100" MaxWidth="400"
+                            TickFrequency="10" TickPlacement="BottomRight" />
+                    <TextBlock x:Uid="Settings_HighPowerNotificationThreshold"
+                               Text="{x:Bind HighPowerThresholdSlider.Value, Mode=OneWay}"
                                Margin="10 0 0 0" VerticalAlignment="Center" />
                 </StackPanel>
             </StackPanel>

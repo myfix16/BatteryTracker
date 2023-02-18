@@ -34,6 +34,8 @@ public partial class App : Application
     private readonly INavigationService _navigationService;
     private readonly IAppNotificationService _notificationService;
 
+    private double _rastScale = 0;
+
     #region Services
 
     // The .NET Generic Host provides dependency injection, configuration, logging, and other services.
@@ -106,6 +108,16 @@ public partial class App : Application
 
     #region Event Handlers
 
+    public async void OnXamlRootChanged(XamlRoot sender, XamlRootChangedEventArgs _)
+    {
+        // Check whether DPI has changed
+        if (Math.Abs(_rastScale - sender.RasterizationScale) < 0.0000001 && _batteryIcon != null)
+        {
+            _rastScale = sender.RasterizationScale;
+            await _batteryIcon.AdaptToDpiChange(sender.RasterizationScale);
+        }
+    }
+
     protected override async void OnLaunched(LaunchActivatedEventArgs args)
     {
         // Only allow single instance to run
@@ -128,7 +140,7 @@ public partial class App : Application
         InitializeTrayIcon();
     }
 
-    private static void AppWindow_Closing(AppWindow sender, AppWindowClosingEventArgs args)
+    private static void AppWindow_Closing(AppWindow _, AppWindowClosingEventArgs args)
     {
         // closing the window will terminate the application, so hide it instead
         args.Cancel = true;
@@ -169,6 +181,14 @@ public partial class App : Application
     }
 
     #endregion
+
+    public async Task AdaptToDpiChange(double rastScale)
+    {
+        if (_batteryIcon != null)
+        {
+            await _batteryIcon.AdaptToDpiChange(rastScale);
+        }
+    }
 
     private void InitializeTrayIcon()
     {

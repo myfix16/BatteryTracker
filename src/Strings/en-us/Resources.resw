@@ -215,4 +215,16 @@
   <data name="OpenSettingsCommand.Label" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="FullyChargedMessage" xml:space="preserve">
+    <value>The battery is fully charged</value>
+  </data>
+  <data name="HighPowerMessage" xml:space="preserve">
+    <value>The battery has enough charge</value>
+  </data>
+  <data name="LowPowerMessage" xml:space="preserve">
+    <value>Low power</value>
+  </data>
+  <data name="Settings_EnableHighPowerNotification.Content" xml:space="preserve">
+    <value>Notify me when battery percentage is higher than:</value>
+  </data>
 </root>

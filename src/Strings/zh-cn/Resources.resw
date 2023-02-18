@@ -171,7 +171,7 @@
     <value>电池充满时推送通知</value>
   </data>
   <data name="Settings_EnableLowPowerNotification.Content" xml:space="preserve">
-    <value>当电量百分比低于以下值时通知我：</value>
+    <value>当电量百分比低于以下值时推送通知：</value>
   </data>
   <data name="Settings_Language.Text" xml:space="preserve">
     <value>语言</value>
@@ -214,5 +214,17 @@
   </data>
   <data name="OpenSettingsCommand.Label" xml:space="preserve">
     <value>设置</value>
+  </data>
+  <data name="FullyChargedMessage" xml:space="preserve">
+    <value>电池已充满</value>
+  </data>
+  <data name="HighPowerMessage" xml:space="preserve">
+    <value>电池已有足够电量</value>
+  </data>
+  <data name="LowPowerMessage" xml:space="preserve">
+    <value>电池电量低</value>
+  </data>
+  <data name="Settings_EnableHighPowerNotification.Content" xml:space="preserve">
+    <value>在电量百分比高于以下值时推送通知：</value>
   </data>
 </root>
