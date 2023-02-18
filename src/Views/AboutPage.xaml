@@ -1,0 +1,45 @@
+<!-- Copyright (c) Microsoft Corporation and Contributors. -->
+<!-- Licensed under the MIT License. -->
+
+<Page
+    x:Class="BatteryTracker.Views.AboutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BatteryTracker.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel x:Name="ContentArea">
+        <!-- About -->
+        <TextBlock x:Uid="Settings_About" Style="{ThemeResource SubtitleTextBlockStyle}" />
+        <StackPanel Margin="{StaticResource XSmallTopMargin}">
+            <TextBlock Text="{x:Bind ViewModel.VersionDescription, Mode=OneWay}"
+                       Style="{ThemeResource BodyTextBlockStyle}" />
+            <TextBlock
+                x:Uid="Settings_AboutDescription"
+                Margin="{StaticResource XSmallTopMargin}"
+                Style="{ThemeResource BodyTextBlockStyle}" />
+            <HyperlinkButton x:Uid="SettingsPage_PrivacyTermsLink"
+                             Margin="{StaticResource SettingsPageHyperlinkButtonMargin}"
+                             NavigateUri="https://github.com/myfix16/BatteryTracker"
+                             ToolTipService.ToolTip="https://github.com/myfix16/BatteryTracker" />
+        </StackPanel>
+
+        <!-- Feedback -->
+        <TextBlock x:Uid="Settings_Feedback" Style="{ThemeResource SubtitleTextBlockStyle}"
+                   Margin="0 20 0 0" />
+        <StackPanel>
+            <HyperlinkButton x:Uid="SettingsPage_GitHubIssuesLink"
+                             Margin="{StaticResource SettingsPageHyperlinkButtonMargin}"
+                             NavigateUri="https://github.com/myfix16/BatteryTracker/issues/new/choose"
+                             ToolTipService.ToolTip="https://github.com/myfix16/BatteryTracker/issues/new/choose" />
+            <HyperlinkButton x:Uid="SettingsPage_EmailLink"
+                             Margin="{StaticResource SettingsPageHyperlinkButtonMargin}"
+                             NavigateUri="mailto:myfix16@outlook.com?subject=Battery%20Tracker%20Feedback"
+                             ToolTipService.ToolTip="mailto:myfix16@outlook.com" />
+        </StackPanel>
+
+        <!-- todo: Add third-party component used -->
+    </StackPanel>
+</Page>

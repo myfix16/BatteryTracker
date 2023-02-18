@@ -1,0 +1,107 @@
+﻿<Page
+    x:Class="BatteryTracker.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:helpers="using:BatteryTracker.Helpers"
+    xmlns:xaml="using:Microsoft.UI.Xaml"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <helpers:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+    </Page.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel x:Name="ContentArea">
+            <!--Notification settings-->
+            <TextBlock x:Uid="Settings_Notification" Style="{ThemeResource SubtitleTextBlockStyle}" />
+            <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
+                <CheckBox x:Uid="Settings_EnableFullyChargedNotification"
+                          IsChecked="{x:Bind ViewModel.EnableFullyChargedNotification, Mode=TwoWay}" />
+                <CheckBox x:Uid="Settings_EnableLowPowerNotification"
+                          IsChecked="{x:Bind ViewModel.EnableLowPowerNotification, Mode=TwoWay}" />
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Slider x:Name="LowPowerThresholdSlider"
+                            IsEnabled="{x:Bind ViewModel.EnableLowPowerNotification, Mode=OneWay}"
+                            Value="{x:Bind ViewModel.LowPowerNotificationThreshold, Mode=TwoWay}"
+                            HorizontalAlignment="Left" VerticalAlignment="Center"
+                            Width="200" MinWidth="100" MaxWidth="400"
+                            TickFrequency="10" TickPlacement="BottomRight" />
+                    <TextBlock x:Uid="Settings_LowPowerNotificationThreshold"
+                               Text="{x:Bind LowPowerThresholdSlider.Value, Mode=OneWay}"
+                               Margin="10 0 0 0" VerticalAlignment="Center" />
+                </StackPanel>
+            </StackPanel>
+
+            <!--Language settings-->
+            <TextBlock x:Uid="Settings_Language" Style="{ThemeResource SubtitleTextBlockStyle}" />
+
+            <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
+                <ComboBox x:Uid="Settings_LanguageComboBox" ItemsSource="{x:Bind ViewModel.Languages}"
+                          DisplayMemberPath="Item1" SelectedValuePath="Item2"
+                          Width="200" SelectedItem="{x:Bind ViewModel.Language, Mode=TwoWay}" />
+            </StackPanel>
+            <InfoBar x:Uid="Settings_LanguageInfoBar"
+                     IsOpen="{x:Bind ViewModel.LanguageChanged, Mode=OneWay}"
+                     Severity="Informational"
+                     IsClosable="False"
+                     Margin="0 0 0 20">
+                <InfoBar.ActionButton>
+                    <Button x:Uid="Settings_LanguageButton"
+                            Visibility="{x:Bind ViewModel.LanguageChanged, Mode=OneWay}"
+                            Command="{x:Bind ViewModel.RestartCommand}" />
+                </InfoBar.ActionButton>
+            </InfoBar>
+
+            <!--Autostart settings-->
+            <TextBlock x:Uid="Settings_Autostart" Style="{ThemeResource SubtitleTextBlockStyle}" />
+            <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
+                <ToggleSwitch x:Uid="Settings_AutostartToggle" IsOn="{x:Bind ViewModel.EnableAutostart, Mode=TwoWay}" />
+            </StackPanel>
+
+            <!--Personalization settings-->
+            <TextBlock x:Uid="Settings_Personalization" Style="{ThemeResource SubtitleTextBlockStyle}" />
+            <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
+                <TextBlock x:Uid="Settings_Theme" />
+
+                <StackPanel Margin="{StaticResource XSmallTopMargin}">
+                    <RadioButton
+                        x:Uid="Settings_Theme_Light"
+                        Command="{x:Bind ViewModel.SwitchThemeCommand}"
+                        IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Light, Mode=OneWay}"
+                        FontSize="15"
+                        GroupName="AppTheme">
+                        <RadioButton.CommandParameter>
+                            <xaml:ElementTheme>Light</xaml:ElementTheme>
+                        </RadioButton.CommandParameter>
+                    </RadioButton>
+                    <RadioButton
+                        x:Uid="Settings_Theme_Dark"
+                        Command="{x:Bind ViewModel.SwitchThemeCommand}"
+                        IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Dark, Mode=OneWay}"
+                        FontSize="15"
+                        GroupName="AppTheme">
+                        <RadioButton.CommandParameter>
+                            <xaml:ElementTheme>Dark</xaml:ElementTheme>
+                        </RadioButton.CommandParameter>
+                    </RadioButton>
+                    <RadioButton
+                        x:Uid="Settings_Theme_Default"
+                        Command="{x:Bind ViewModel.SwitchThemeCommand}"
+                        IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Default, Mode=OneWay}"
+                        FontSize="15"
+                        GroupName="AppTheme">
+                        <RadioButton.CommandParameter>
+                            <xaml:ElementTheme>Default</xaml:ElementTheme>
+                        </RadioButton.CommandParameter>
+                    </RadioButton>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- test -->
+            <!-- <StackPanel> -->
+            <!--     <Button Content="Power Notification" Command="{x:Bind ViewModel.NotificationCommand}" /> -->
+            <!-- </StackPanel> -->
+        </StackPanel>
+    </ScrollViewer>
+</Page>
