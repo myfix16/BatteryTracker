@@ -27,7 +27,7 @@ namespace BatteryTracker;
 /// </summary>
 public partial class App : Application
 {
-    public static WindowEx MainWindow { get; } = new MainWindow();
+    public static MainWindow MainWindow { get; } = new();
 
     private BatteryIcon? _batteryIcon;
     private readonly ILogger<App> _logger;
@@ -199,6 +199,6 @@ public partial class App : Application
         exitApplicationCommand.ExecuteRequested += ExitApplicationCommand_ExecuteRequested;
 
         _batteryIcon = GetService<BatteryIcon>();
-        _batteryIcon.InitAsync(Resources).Wait();
+        _batteryIcon.InitAsync(MainWindow.BatteryTrayIcon).Wait();
     }
 }

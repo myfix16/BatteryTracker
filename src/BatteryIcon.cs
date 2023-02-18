@@ -54,9 +54,9 @@ public partial class BatteryIcon : IDisposable
         _notificationService = notificationService;
     }
 
-    public async Task InitAsync(ResourceDictionary resources)
+    public async Task InitAsync(TaskbarIcon icon)
     {
-        _trayIcon = (TaskbarIcon)resources["TrayIcon"];
+        _trayIcon = icon;
         _trayIcon.ForceCreate(true);
 
         // init percentage and color

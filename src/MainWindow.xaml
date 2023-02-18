@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:windowex="using:WinUIEx"
+    xmlns:tb="using:H.NotifyIcon"
     Width="500"
     Height="700"
     MinWidth="400"
@@ -14,4 +15,28 @@
     <windowex:WindowEx.Backdrop>
         <windowex:MicaSystemBackdrop/>
     </windowex:WindowEx.Backdrop>
+
+    <tb:TaskbarIcon
+        x:Name="TrayIcon"
+        Visibility="Visible"
+        NoLeftClickDelay="True"
+        ContextMenuMode="PopupMenu"
+        ToolTipText="Battery Tracker"
+    >
+        <tb:TaskbarIcon.GeneratedIcon>
+            <tb:GeneratedIcon
+                Text="99"
+                Foreground="White"
+                FontFamily="Arial"
+                FontWeight="SemiBold"
+                BackgroundType="Rectangle"
+            />
+        </tb:TaskbarIcon.GeneratedIcon>
+        <tb:TaskbarIcon.ContextFlyout>
+            <MenuFlyout>
+                <MenuFlyoutItem Command="{StaticResource OpenSettingsCommand}" />
+                <MenuFlyoutItem Command="{StaticResource ExitApplicationCommand}" />
+            </MenuFlyout>
+        </tb:TaskbarIcon.ContextFlyout>
+    </tb:TaskbarIcon>
 </windowex:WindowEx>
