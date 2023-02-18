@@ -27,9 +27,9 @@
             <tb:GeneratedIcon
                 Text="99"
                 Foreground="White"
-                FontSize="55"
-                FontWeight="SemiBold"
+                FontSize="40"
                 FontFamily="Arial"
+                FontWeight="SemiBold"
             />
         </tb:TaskbarIcon.GeneratedIcon>
         <tb:TaskbarIcon.ContextFlyout>

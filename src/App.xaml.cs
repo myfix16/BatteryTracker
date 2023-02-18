@@ -145,12 +145,7 @@ public partial class App : Application
 
         MainWindow.Show();
 
-        // Sometimes, when users open settings panel for the first time, the navigation will fail.
-        // This is a temporary workaround.
-        if (!_navigationService.NavigateTo(typeof(SettingsViewModel).FullName!))
-        {
-            _navigationService.NavigateTo(typeof(SettingsViewModel).FullName!);
-        }
+        _navigationService.NavigateTo(typeof(SettingsViewModel).FullName!);
     }
 
     private void ExitApplicationCommand_ExecuteRequested(object? _, ExecuteRequestedEventArgs args)
