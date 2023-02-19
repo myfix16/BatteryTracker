@@ -36,7 +36,7 @@ namespace BatteryTracker.ViewModels
             }
 
             return
-                $"{"AppDisplayName".GetLocalized()} - {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
+                $"{"AppDisplayName".Localized()} - {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
         }
     }
 }

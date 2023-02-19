@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Runtime.InteropServices;
 using BatteryTracker.Contracts.Services;
+using BatteryTracker.Helpers;
 using CommunityToolkit.WinUI;
 using H.NotifyIcon;
 using Microsoft.UI.Dispatching;
@@ -21,6 +22,8 @@ public partial class BatteryIcon : IDisposable
     private TaskbarIcon? _trayIcon;
     private readonly UISettings _settings = new();
     private readonly IAppNotificationService _notificationService;
+
+    private int _chargedPercent;
 
     private bool _isLowPower;
     private bool _isHighPower;
@@ -44,10 +47,32 @@ public partial class BatteryIcon : IDisposable
 
     // notification settings
     public bool EnableLowPowerNotification;
-    public int LowPowerNotificationThreshold;
+
+    public int LowPowerNotificationThreshold
+    {
+        get => _lowPowerNotificationThreshold;
+        set
+        {
+            _lowPowerNotificationThreshold = value;
+            _isLowPower = false;
+        }
+    }
+
     public bool EnableHighPowerNotification;
-    public int HighPowerNotificationThreshold;
+
+    public int HighPowerNotificationThreshold
+    {
+        get => _highPowerNotificationThreshold;
+        set
+        {
+            _highPowerNotificationThreshold = value;
+            _isHighPower = false;
+        }
+    }
+
     public bool EnableFullyChargedNotification;
+    private int _lowPowerNotificationThreshold;
+    private int _highPowerNotificationThreshold;
 
     public BatteryIcon(IAppNotificationService notificationService)
     {
@@ -67,6 +92,8 @@ public partial class BatteryIcon : IDisposable
 
         // register display events
         PowerManager.DisplayStatusChanged += PowerManager_DisplayStatusChanged;
+
+        _notificationService.Show($"{"HighPowerMessage".Localized()}: {_chargedPercent}%");
     }
 
     ~BatteryIcon()
@@ -133,41 +160,41 @@ public partial class BatteryIcon : IDisposable
 
     private async void OnRemainingChargePercentChanged(object? _, object? eventArg)
     {
-        int chargePercent = await UpdateTrayIconPercent();
+        _chargedPercent = await UpdateTrayIconPercent();
 
         // push low power notification
-        if (EnableLowPowerNotification && !_isLowPower && chargePercent <= LowPowerNotificationThreshold)
+        if (EnableLowPowerNotification && !_isLowPower && _chargedPercent <= LowPowerNotificationThreshold)
         {
             _isLowPower = true;
-            _notificationService.Show($"{"LowPowerMessage".GetLocalized()}: {chargePercent}%");
+            _notificationService.Show($"{"LowPowerMessage".Localized()}: {_chargedPercent}%");
         }
-        else if (chargePercent > LowPowerNotificationThreshold)
+        else if (_chargedPercent > LowPowerNotificationThreshold)
         {
             _isLowPower = false;
         }
 
         // push high power notification
-        if (EnableHighPowerNotification && !_isHighPower && chargePercent >= HighPowerNotificationThreshold)
+        if (EnableHighPowerNotification && !_isHighPower && _chargedPercent >= HighPowerNotificationThreshold)
         {
             _isHighPower = true;
-            _notificationService.Show($"{"HighPowerMessage".GetLocalized()}: {chargePercent}%");
+            _notificationService.Show($"{"HighPowerMessage".Localized()}: {_chargedPercent}%");
         }
-        else if (chargePercent < HighPowerNotificationThreshold)
+        else if (_chargedPercent < HighPowerNotificationThreshold)
         {
             _isHighPower = false;
         }
 
         // push fully charged notification
-        if (EnableFullyChargedNotification && chargePercent == 100)
+        if (EnableFullyChargedNotification && _chargedPercent == 100)
         {
-            _notificationService.Show($"{"FullyChargedMessage".GetLocalized()}⚡");
+            _notificationService.Show($"{"FullyChargedMessage".Localized()}⚡");
         }
     }
 
     private async Task<int> UpdateTrayIconPercent()
     {
-        int chargePercent = PowerManager.RemainingChargePercent;
-        string newPercentText = chargePercent == 100 ? "F" : $"{chargePercent}";
+        _chargedPercent = PowerManager.RemainingChargePercent;
+        string newPercentText = _chargedPercent == 100 ? "F" : $"{_chargedPercent}";
         // Use a DispatcherQueue to execute UI related code on the main UI thread. Otherwise you may get an exception.
         await _dispatcherQueue.EnqueueAsync(() =>
         {
@@ -176,7 +203,7 @@ public partial class BatteryIcon : IDisposable
                 _trayIcon.GeneratedIcon.Text = newPercentText;
             }
         });
-        return chargePercent;
+        return _chargedPercent;
     }
 
     private async void OnThemeChanged(UISettings sender, object? _)

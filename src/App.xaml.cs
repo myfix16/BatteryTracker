@@ -137,7 +137,7 @@ public partial class App : Application
 
         MainWindow.AppWindow.Closing += AppWindow_Closing;
 
-        InitializeTrayIcon();
+        await InitializeTrayIconAsync();
     }
 
     private static void AppWindow_Closing(AppWindow _, AppWindowClosingEventArgs args)
@@ -172,8 +172,8 @@ public partial class App : Application
         _logger.LogCritical(e.Exception, "Unhandled exception");
 
         AppNotificationBuilder notificationBuilder = new AppNotificationBuilder()
-            .AddText("UnhandledExceptionMessage".GetLocalized())
-            .AddButton(new AppNotificationButton("SubmitFeedback".GetLocalized())
+            .AddText("UnhandledExceptionMessage".Localized())
+            .AddButton(new AppNotificationButton("SubmitFeedback".Localized())
                 .AddArgument("action", "SubmitFeedback"));
         AppNotificationManager.Default.Show(notificationBuilder.BuildNotification());
 
@@ -190,7 +190,7 @@ public partial class App : Application
         }
     }
 
-    private void InitializeTrayIcon()
+    private async Task InitializeTrayIconAsync()
     {
         var openSettingsCommand = (XamlUICommand)Resources["OpenSettingsCommand"];
         openSettingsCommand.ExecuteRequested += OpenSettingsCommand_ExecuteRequested;
@@ -199,6 +199,6 @@ public partial class App : Application
         exitApplicationCommand.ExecuteRequested += ExitApplicationCommand_ExecuteRequested;
 
         _batteryIcon = GetService<BatteryIcon>();
-        _batteryIcon.InitAsync(MainWindow.BatteryTrayIcon).Wait();
+        await _batteryIcon.InitAsync(MainWindow.BatteryTrayIcon);
     }
 }

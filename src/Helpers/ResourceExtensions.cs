@@ -4,7 +4,7 @@ namespace BatteryTracker.Helpers;
 
 public static class ResourceExtensions
 {
-    private static readonly ResourceLoader ResourceLoader = new();
+    public static readonly ResourceLoader ResourceLoader = new();
 
-    public static string GetLocalized(this string resourceKey) => ResourceLoader.GetString(resourceKey);
+    public static string Localized(this string resourceKey) => ResourceLoader.GetString(resourceKey);
 }
