@@ -227,4 +227,7 @@
   <data name="Settings_EnableHighPowerNotification.Content" xml:space="preserve">
     <value>在电量百分比高于以下值时推送通知：</value>
   </data>
+  <data name="InstanceRunningMessage" xml:space="preserve">
+    <value>该应用的另一个实例正在运行</value>
+  </data>
 </root>

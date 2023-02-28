@@ -5,7 +5,6 @@ using BatteryTracker.Helpers;
 using BatteryTracker.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Microsoft.Windows.System.Power;
 using Windows.Globalization;
 
 namespace BatteryTracker.ViewModels;
@@ -151,8 +150,6 @@ public class SettingsViewModel : ObservableRecipient
         }
     }
 
-    public ICommand NotificationCommand { get; }
-
     public List<Tuple<string, string>> Languages { get; } = new()
     {
         new("English", "en-US"),
@@ -168,7 +165,7 @@ public class SettingsViewModel : ObservableRecipient
 
         _elementTheme = themeService.Theme;
 
-        SwitchThemeCommand = new RelayCommand<ElementTheme?>(
+        SwitchThemeCommand = new AsyncRelayCommand<ElementTheme?>(
             async (param) =>
             {
                 if (param == null || ElementTheme == param.Value) return;
@@ -191,13 +188,6 @@ public class SettingsViewModel : ObservableRecipient
             Microsoft.Windows.AppLifecycle.AppInstance.Restart("");
         });
 
-        NotificationCommand = new RelayCommand(() =>
-        {
-            int percentage = PowerManager.RemainingChargePercent;
-            TimeSpan remainingTime = PowerManager.RemainingDischargeTime;
-            _notificationService.Show($"Lower power: {percentage}%. Estimated battery life: {remainingTime}");
-        });
-
         IReadOnlyList<string> userLanguages = Windows.System.UserProfile.GlobalizationPreferences.Languages;
         DefaultSettingsDict[LanguageSettingsKey] = userLanguages[0];
 
@@ -217,7 +207,7 @@ public class SettingsViewModel : ObservableRecipient
         EnableHighPowerNotification = (bool)SettingsService.Get(HighPowerNotificationSettingsKey);
         HighPowerNotificationThreshold = (int)SettingsService.Get(HighPowerNotificationThresholdSettingsKey);
         string languageParam = (string)SettingsService.Get(LanguageSettingsKey);
-        var loadedLanguage = Languages.Find(t => languageParam.Contains(t.Item2)) ?? Languages[0];
+        Tuple<string, string> loadedLanguage = Languages.Find(t => languageParam.Contains(t.Item2)) ?? Languages[0];
         _appLanguage = loadedLanguage.Item2;
         Language = loadedLanguage;
         EnableAutostart = (bool)SettingsService.Get(AutostartSettingsKey);

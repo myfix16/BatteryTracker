@@ -124,16 +124,16 @@ public partial class App : Application
         // Get or register the main instance
         AppInstance mainInstance = AppInstance.FindOrRegisterForKey("main");
 
+        await GetService<IActivationService>().ActivateAsync(args);
+
         // If the main instance isn't this current instance
         if (!mainInstance.IsCurrent)
         {
             // Prompt user that the app is already running and exit our instance
-            _notificationService.Show("Another instance is already running.");
+            _notificationService.Show("InstanceRunningMessage".Localized());
             Process.GetCurrentProcess().Kill();
             return;
         }
-
-        await GetService<IActivationService>().ActivateAsync(args);
 
         MainWindow.AppWindow.Closing += AppWindow_Closing;
 
