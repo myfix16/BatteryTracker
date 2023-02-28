@@ -20,7 +20,7 @@ The program will show the remaining battery percentage on the taskbar.
 The project requires **.NET 7 Desktop Runtime**. If you install from Microsoft Store, the dependency will be automatically installed. Otherwise, you can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
 ### How to Download
-<a href='https://www.microsoft.com/store/apps/9P1FBSLRNM43?ocid=badge'>
+<a href='https://www.microsoft.com/store/apps/9P1FBSLRNM43'>
 	<img src='https://developer.microsoft.com/en-us/store/badges/images/English_get-it-from-MS.png' alt='Microsoft Store' width='160'/>
 </a>
 
