@@ -13,7 +13,7 @@
 	<Identity
 	  Name="18699myfix16.BatteryTracker"
 	  Publisher="CN=07065B9D-9C58-40F8-B757-7BD2595084E8"
-	  Version="1.3.1.0" />
+	  Version="1.3.2.0" />
 
 	<!-- <Identity -->
 	<!-- 	Name="BatteryTracker" -->
