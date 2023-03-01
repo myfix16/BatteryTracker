@@ -92,8 +92,6 @@ public partial class BatteryIcon : IDisposable
 
         // register display events
         PowerManager.DisplayStatusChanged += PowerManager_DisplayStatusChanged;
-
-        _notificationService.Show($"{"HighPowerMessage".Localized()}: {_chargedPercent}%");
     }
 
     ~BatteryIcon()

@@ -182,7 +182,7 @@ public partial class App : Application
 
     #endregion
 
-    public async Task AdaptToDpiChange(double rastScale)
+    public async Task AdaptToDpiChangeAsync(double rastScale)
     {
         if (_batteryIcon != null)
         {
