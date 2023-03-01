@@ -31,7 +31,7 @@ public sealed partial class ShellPage : Page
 
         // Adapt to current DPI and listen to DPI changes
         var appInstance = ((App)Application.Current);
-        await appInstance.AdaptToDpiChange(App.MainWindow.Content.XamlRoot.RasterizationScale);
+        await appInstance.AdaptToDpiChangeAsync(App.MainWindow.Content.XamlRoot.RasterizationScale);
         App.MainWindow.Content.XamlRoot.Changed += appInstance.OnXamlRootChanged;
     }
 
