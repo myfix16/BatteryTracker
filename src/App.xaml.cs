@@ -29,6 +29,8 @@ public partial class App : Application
 {
     public static MainWindow MainWindow { get; } = new();
 
+    public bool HasLaunched { get; internal set; }
+
     private BatteryIcon? _batteryIcon;
     private readonly ILogger<App> _logger;
     private readonly INavigationService _navigationService;
@@ -66,6 +68,7 @@ public partial class App : Application
 
                 // Other Activation Handlers
                 services.AddTransient<IActivationHandler, AppNotificationActivationHandler>();
+                services.AddTransient<IActivationHandler, AppActivationHandler>();
 
                 // Services
                 services.AddSingleton<IAppNotificationService, AppNotificationService>();
@@ -120,20 +123,10 @@ public partial class App : Application
 
     protected override async void OnLaunched(LaunchActivatedEventArgs args)
     {
-        // Only allow single instance to run
-        // Get or register the main instance
-        AppInstance mainInstance = AppInstance.FindOrRegisterForKey("main");
+        var activationArgs = AppInstance.GetCurrent().GetActivatedEventArgs();
+        _logger.LogInformation($"App launched with activation kind: {activationArgs.Kind}");
 
         await GetService<IActivationService>().ActivateAsync(args);
-
-        // If the main instance isn't this current instance
-        if (!mainInstance.IsCurrent)
-        {
-            // Prompt user that the app is already running and exit our instance
-            _notificationService.Show("InstanceRunningMessage".Localized());
-            Process.GetCurrentProcess().Kill();
-            return;
-        }
 
         MainWindow.AppWindow.Closing += AppWindow_Closing;
 

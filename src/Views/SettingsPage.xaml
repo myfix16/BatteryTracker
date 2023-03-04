@@ -114,7 +114,6 @@
                 </StackPanel>
             </StackPanel>
 
-            <!-- test -->
             <!-- <StackPanel> -->
             <!--     <Button Content="Power Notification" Command="{x:Bind ViewModel.NotificationCommand}" /> -->
             <!-- </StackPanel> -->
