@@ -26,6 +26,11 @@ public class SettingsViewModel : ObservableRecipient
 
     public ICommand SwitchThemeCommand { get; }
 
+    public ICommand RestartCommand { get; }
+
+    // todo: NotificationCommand- debug only
+    public ICommand NotificationCommand { get; }
+
     public bool EnableFullyChargedNotification
     {
         get => SettingsService.EnableFullyChargedNotification;
@@ -50,7 +55,7 @@ public class SettingsViewModel : ObservableRecipient
 
     public int LowPowerNotificationThreshold
     {
-        get => SettingsService.LowPowerNotificationThreshold; 
+        get => SettingsService.LowPowerNotificationThreshold;
         set
         {
             SetProperty(ref SettingsService.LowPowerNotificationThreshold, value);
@@ -61,7 +66,7 @@ public class SettingsViewModel : ObservableRecipient
 
     public bool EnableHighPowerNotification
     {
-        get => SettingsService.EnableHighPowerNotification; 
+        get => SettingsService.EnableHighPowerNotification;
         set
         {
             SetProperty(ref SettingsService.EnableHighPowerNotification, value);
@@ -72,7 +77,7 @@ public class SettingsViewModel : ObservableRecipient
 
     public int HighPowerNotificationThreshold
     {
-        get => SettingsService.HighPowerNotificationThreshold; 
+        get => SettingsService.HighPowerNotificationThreshold;
         set
         {
             SetProperty(ref SettingsService.HighPowerNotificationThreshold, value);
@@ -100,8 +105,6 @@ public class SettingsViewModel : ObservableRecipient
         get => _languageChanged;
         set => SetProperty(ref _languageChanged, value);
     }
-
-    public ICommand RestartCommand { get; }
 
     public bool EnableAutostart
     {
@@ -154,6 +157,11 @@ public class SettingsViewModel : ObservableRecipient
         RestartCommand = new RelayCommand(() =>
         {
             Microsoft.Windows.AppLifecycle.AppInstance.Restart("");
+        });
+
+        NotificationCommand = new RelayCommand(() =>
+        {
+            App.GetService<IAppNotificationService>().Show("test");
         });
     }
 }

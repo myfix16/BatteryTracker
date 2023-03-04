@@ -33,6 +33,5 @@ public class AppNotificationActivationHandler : ActivationHandler<LaunchActivate
 
         // quit
         Process.GetCurrentProcess().Kill();
-        await Task.CompletedTask;
     }
 }

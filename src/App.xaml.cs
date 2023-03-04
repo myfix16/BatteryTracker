@@ -13,7 +13,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml.Input;
-using Microsoft.Windows.AppLifecycle;
 using Microsoft.Windows.AppNotifications;
 using Microsoft.Windows.AppNotifications.Builder;
 using Windows.Storage;
@@ -28,6 +27,8 @@ namespace BatteryTracker;
 public partial class App : Application
 {
     public static MainWindow MainWindow { get; } = new();
+
+    public bool HasLaunched { get; internal set; }
 
     private BatteryIcon? _batteryIcon;
     private readonly ILogger<App> _logger;
@@ -66,6 +67,7 @@ public partial class App : Application
 
                 // Other Activation Handlers
                 services.AddTransient<IActivationHandler, AppNotificationActivationHandler>();
+                services.AddTransient<IActivationHandler, AppActivationHandler>();
 
                 // Services
                 services.AddSingleton<IAppNotificationService, AppNotificationService>();
@@ -120,20 +122,7 @@ public partial class App : Application
 
     protected override async void OnLaunched(LaunchActivatedEventArgs args)
     {
-        // Only allow single instance to run
-        // Get or register the main instance
-        AppInstance mainInstance = AppInstance.FindOrRegisterForKey("main");
-
         await GetService<IActivationService>().ActivateAsync(args);
-
-        // If the main instance isn't this current instance
-        if (!mainInstance.IsCurrent)
-        {
-            // Prompt user that the app is already running and exit our instance
-            _notificationService.Show("InstanceRunningMessage".Localized());
-            Process.GetCurrentProcess().Kill();
-            return;
-        }
 
         MainWindow.AppWindow.Closing += AppWindow_Closing;
 
