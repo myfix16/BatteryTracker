@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.IO;
+using System.Threading;
 using BatteryTracker.Contracts.Services;
 using CommunityToolkit.WinUI;
 using Microsoft.UI.Dispatching;
@@ -10,6 +11,8 @@ namespace BatteryTracker
     public static class Program
     {
         private static DispatcherQueue? _uiDispatcherQueue;
+
+        public const string LogPath = @"C:\Users\MyFix\Desktop\BatteryTracker.log";
 
         // Replaces the standard App.g.i.cs.
         // Note: We can't declare Main to be async because in a WinUI app
@@ -27,12 +30,10 @@ namespace BatteryTracker
                     _uiDispatcherQueue = DispatcherQueue.GetForCurrentThread();
                     var context = new DispatcherQueueSynchronizationContext(_uiDispatcherQueue);
                     SynchronizationContext.SetSynchronizationContext(context);
-                    new App();
+                    _ = new App();
                 });
             }
         }
-
-        #region Report helpers
 
         private static void OnActivated(object? sender, AppActivationArguments args)
         {
@@ -41,8 +42,6 @@ namespace BatteryTracker
                 App.GetService<IActivationService>().ActivateAsync(args).Wait();
             }).Wait();
         }
-
-        #endregion
 
 
         #region Redirection
@@ -69,16 +68,17 @@ namespace BatteryTracker
                 // According to https://github.com/microsoft/WindowsAppSDK/issues/2959#issue-1368660765,
                 // this method must be called first to use AppInstance.GetCurrent().GetActivatedEventArgs().
                 AppNotificationManager.Default.Register();
-
                 // Find out what kind of activation this is.
                 AppActivationArguments args = AppInstance.GetCurrent().GetActivatedEventArgs();
+                AppNotificationManager.Default.Unregister();
+
                 RedirectActivationTo(args, mainInstance);
             }
 
             return isRedirect;
         }
 
-        private static IntPtr redirectEventHandle = IntPtr.Zero;
+        // private static IntPtr redirectEventHandle = IntPtr.Zero;
 
         // Do the redirection on another thread, and use a non-blocking
         // wait method to wait for the redirection to complete.

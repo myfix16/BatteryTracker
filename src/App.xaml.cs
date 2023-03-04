@@ -2,6 +2,7 @@
 // Licensed under the MIT License.
 
 using System.Diagnostics;
+using System.IO;
 using BatteryTracker.Activation;
 using BatteryTracker.Contracts.Services;
 using BatteryTracker.Helpers;
@@ -16,6 +17,7 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.Windows.AppNotifications;
 using Microsoft.Windows.AppNotifications.Builder;
 using Windows.Storage;
+using Microsoft.Windows.AppLifecycle;
 using WinUIEx;
 using LaunchActivatedEventArgs = Microsoft.UI.Xaml.LaunchActivatedEventArgs;
 
@@ -122,6 +124,9 @@ public partial class App : Application
 
     protected override async void OnLaunched(LaunchActivatedEventArgs args)
     {
+        var activationArgs = AppInstance.GetCurrent().GetActivatedEventArgs();
+        _logger.LogInformation($"App launched with activation kind: {activationArgs.Kind}");
+
         await GetService<IActivationService>().ActivateAsync(args);
 
         MainWindow.AppWindow.Closing += AppWindow_Closing;

@@ -28,8 +28,10 @@ public class SettingsViewModel : ObservableRecipient
 
     public ICommand RestartCommand { get; }
 
-    // todo: NotificationCommand- debug only
+#if DEBUG
+    // NotificationCommand- debug only
     public ICommand NotificationCommand { get; }
+#endif
 
     public bool EnableFullyChargedNotification
     {
@@ -159,9 +161,11 @@ public class SettingsViewModel : ObservableRecipient
             Microsoft.Windows.AppLifecycle.AppInstance.Restart("");
         });
 
+#if DEBUG
         NotificationCommand = new RelayCommand(() =>
         {
             App.GetService<IAppNotificationService>().Show("test");
         });
+#endif
     }
 }

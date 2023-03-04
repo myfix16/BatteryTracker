@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Windows.AppLifecycle;
 using BatteryTracker.Activation;
 using BatteryTracker.Contracts.Services;
 using BatteryTracker.Views;
