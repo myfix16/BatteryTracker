@@ -16,8 +16,8 @@ public class AppActivationHandler : ActivationHandler<AppActivationArguments>
 
     protected override bool CanHandleInternal(AppActivationArguments args)
     {
-        AppActivationArguments activatedArgs = AppInstance.GetCurrent().GetActivatedEventArgs();
-        return activatedArgs.Kind == ExtendedActivationKind.Launch;
+        // The args is passes by Program.Main() calling AppInstance.GetCurrent().GetActivatedEventArgs()
+        return args.Kind == ExtendedActivationKind.Launch;
     }
 
     protected override async Task HandleInternalAsync(AppActivationArguments args)
