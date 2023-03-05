@@ -36,7 +36,7 @@
                              ToolTipService.ToolTip="https://github.com/myfix16/BatteryTracker/issues/new/choose" />
             <HyperlinkButton x:Uid="SettingsPage_EmailLink"
                              Margin="{StaticResource SettingsPageHyperlinkButtonMargin}"
-                             NavigateUri="mailto:myfix16@outlook.com?subject=Battery%20Tracker%20Feedback"
+                             Click="HyperlinkButton_Click"
                              ToolTipService.ToolTip="mailto:myfix16@outlook.com" />
         </StackPanel>
 

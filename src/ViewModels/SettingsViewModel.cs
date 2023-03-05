@@ -6,6 +6,7 @@ using BatteryTracker.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Windows.Globalization;
+using Microsoft.Extensions.Logging;
 
 namespace BatteryTracker.ViewModels;
 
@@ -17,14 +18,18 @@ public class SettingsViewModel : ObservableRecipient
 
     // service reference
     private readonly BatteryIcon _batteryIcon;
+    private readonly ILogger<SettingsViewModel> _logger;
+    private readonly IThemeSelectorService _themeService;
 
     public ElementTheme ElementTheme
     {
         get => _elementTheme;
-        private set => SetProperty(ref _elementTheme, value);
+        set
+        {
+            SetProperty(ref _elementTheme, value);
+            SwitchThemeAsync(value).Wait();
+        }
     }
-
-    public ICommand SwitchThemeCommand { get; }
 
     public ICommand RestartCommand { get; }
 
@@ -125,36 +130,20 @@ public class SettingsViewModel : ObservableRecipient
                     break;
             }
             SettingsService.Set(SettingsService.AutostartSettingsKey, value);
+            _logger.LogInformation($"Set auto start to: {value}");
         }
     }
 
     public List<Tuple<string, string>> Languages => SettingsService.Languages;
 
-    public SettingsViewModel(BatteryIcon icon, IThemeSelectorService themeSelectorService)
+    public SettingsViewModel(BatteryIcon icon, IThemeSelectorService themeSelectorService, ILogger<SettingsViewModel> logger)
     {
         // initialize service references
         _batteryIcon = icon;
-        IThemeSelectorService themeService = themeSelectorService;
+        _themeService = themeSelectorService;
+        _logger = logger;
 
-        _elementTheme = themeService.Theme;
-
-        SwitchThemeCommand = new AsyncRelayCommand<ElementTheme?>(
-            async (param) =>
-            {
-                if (param == null || ElementTheme == param.Value) return;
-                ElementTheme = param.Value;
-                await themeService.SetThemeAsync(param.Value);
-
-                // set titlebar theme
-                ElementTheme titleTheme = param.Value switch
-                {
-                    ElementTheme.Default => Application.Current.RequestedTheme == ApplicationTheme.Dark
-                        ? ElementTheme.Dark
-                        : ElementTheme.Light,
-                    _ => param.Value
-                };
-                TitleBarHelper.UpdateTitleBar(titleTheme);
-            });
+        _elementTheme = _themeService.Theme;
 
         RestartCommand = new RelayCommand(() =>
         {
@@ -167,5 +156,20 @@ public class SettingsViewModel : ObservableRecipient
             App.GetService<IAppNotificationService>().Show("test");
         });
 #endif
+    }
+
+    private async Task SwitchThemeAsync(ElementTheme theme)
+    {
+        await _themeService.SetThemeAsync(theme);
+
+        // set titlebar theme
+        ElementTheme titleTheme = theme switch
+        {
+            ElementTheme.Default => Application.Current.RequestedTheme == ApplicationTheme.Dark
+                ? ElementTheme.Dark
+                : ElementTheme.Light,
+            _ => theme
+        };
+        TitleBarHelper.UpdateTitleBar(titleTheme);
     }
 }

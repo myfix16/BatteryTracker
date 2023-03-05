@@ -1,7 +1,5 @@
-﻿// Copyright (c) Microsoft Corporation and Contributors.
-// Licensed under the MIT License.
-
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using System.Text;
 using BatteryTracker.Activation;
 using BatteryTracker.Contracts.Services;
 using BatteryTracker.Helpers;
@@ -29,14 +27,12 @@ public partial class App : Application
 {
     public static MainWindow MainWindow { get; } = new();
 
-    public bool HasLaunched { get; internal set; }
-
     private BatteryIcon? _batteryIcon;
     private readonly ILogger<App> _logger;
     private readonly INavigationService _navigationService;
-    private readonly IAppNotificationService _notificationService;
+    // private readonly IAppNotificationService _notificationService;
 
-    private double _rastScale = 0;
+    private double _rastScale;
 
     #region Services
 
@@ -102,9 +98,10 @@ public partial class App : Application
         _logger = GetService<ILogger<App>>();
 
         _navigationService = GetService<INavigationService>();
-        _notificationService = GetService<IAppNotificationService>();
+        // _notificationService = GetService<IAppNotificationService>();
 
         UnhandledException += App_UnhandledException;
+        TaskScheduler.UnobservedTaskException += TaskScheduler_OnUnobservedTaskException;
     }
 
     #endregion
@@ -135,9 +132,9 @@ public partial class App : Application
 
     private static void AppWindow_Closing(AppWindow _, AppWindowClosingEventArgs args)
     {
-        // closing the window will terminate the application, so hide it instead
-        args.Cancel = true;
+        // Closing the window will terminate the application, so hide it instead
         MainWindow.Hide();
+        args.Cancel = true;
     }
 
     private void OpenSettingsCommand_ExecuteRequested(object? _, ExecuteRequestedEventArgs args)
@@ -159,18 +156,15 @@ public partial class App : Application
         Exit();
     }
 
-    private void App_UnhandledException(object sender, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)
+    private void App_UnhandledException(object? _, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)
     {
         // https://docs.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.unhandledexception.
-        _logger.LogCritical(e.Exception, "Unhandled exception");
+        ProcessUnhandledException(e.Exception, true);
+    }
 
-        AppNotificationBuilder notificationBuilder = new AppNotificationBuilder()
-            .AddText("UnhandledExceptionMessage".Localized())
-            .AddButton(new AppNotificationButton("SubmitFeedback".Localized())
-                .AddArgument("action", "SubmitFeedback"));
-        AppNotificationManager.Default.Show(notificationBuilder.BuildNotification());
-
-        Process.GetCurrentProcess().Kill();
+    private void TaskScheduler_OnUnobservedTaskException(object? _, UnobservedTaskExceptionEventArgs e)
+    {
+        ProcessUnhandledException(e.Exception, false);
     }
 
     #endregion
@@ -193,5 +187,57 @@ public partial class App : Application
 
         _batteryIcon = GetService<BatteryIcon>();
         await _batteryIcon.InitAsync(MainWindow.BatteryTrayIcon);
+    }
+
+    private void ProcessUnhandledException(Exception? e, bool showNotification)
+    {
+        _logger.LogCritical(e, "Unhandled exception");
+
+        StringBuilder formattedException = new() { Capacity = 200 };
+        formattedException.Append("--------- UNHANDLED EXCEPTION ---------");
+        if (e is not null)
+        {
+            formattedException.Append($"\n>>>> HRESULT: {e.HResult}\n");
+
+            formattedException.Append("\n--- MESSAGE ---");
+            formattedException.Append(e.Message);
+            if (e.StackTrace is not null)
+            {
+                formattedException.Append("\n--- STACKTRACE ---");
+                formattedException.Append(e.StackTrace);
+            }
+            if (e.Source is not null)
+            {
+                formattedException.Append("\n--- SOURCE ---");
+                formattedException.Append(e.Source);
+            }
+            if (e.InnerException is not null)
+            {
+                formattedException.Append("\n--- INNER ---");
+                formattedException.Append(e.InnerException);
+            }
+        }
+        else
+        {
+            formattedException.Append("\nException is null!\n");
+        }
+
+        formattedException.Append("---------------------------------------");
+
+        Debug.WriteLine(formattedException.ToString());
+
+        Debugger.Break(); // Please check "Output Window" for exception details (View -> Output Window) (CTRL + ALT + O)
+
+
+        if (showNotification)
+        {
+            AppNotificationBuilder notificationBuilder = new AppNotificationBuilder()
+                .AddText("UnhandledExceptionMessage".Localized())
+                .AddButton(new AppNotificationButton("SubmitFeedback".Localized())
+                    .AddArgument("action", "SubmitFeedback"));
+            AppNotificationManager.Default.Show(notificationBuilder.BuildNotification());
+        }
+
+        Process.GetCurrentProcess().Kill();
     }
 }

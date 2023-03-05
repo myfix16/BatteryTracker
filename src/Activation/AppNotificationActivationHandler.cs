@@ -8,11 +8,11 @@ namespace BatteryTracker.Activation;
 
 public class AppNotificationActivationHandler : ActivationHandler<LaunchActivatedEventArgs>
 {
-    private readonly IAppNotificationService _notificationService;
+    // private readonly IAppNotificationService _notificationService;
 
     public AppNotificationActivationHandler(IAppNotificationService notificationService)
     {
-        _notificationService = notificationService;
+        // _notificationService = notificationService;
     }
 
     protected override bool CanHandleInternal(LaunchActivatedEventArgs args)
