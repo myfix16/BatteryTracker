@@ -104,6 +104,7 @@
 		<PackageReference Include="CommunityToolkit.Labs.WinUI.SettingsControls" Version="0.0.17" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 		<PackageReference Include="CommunityToolkit.WinUI.UI" Version="7.1.2" />
+		<PackageReference Include="CommunityToolkit.WinUI.UI.Controls" Version="7.1.2" />
 		<PackageReference Include="H.NotifyIcon.WinUI" Version="2.0.86" />
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
 		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.230217.4" />
@@ -161,20 +162,33 @@
     Explorer "Package and Publish" context menu entry to be enabled for this project even if 
     the Windows App SDK Nuget package has not yet been restored.
   -->
-	<PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+	<PropertyGroup
+		Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
 		<HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
 	</PropertyGroup>
 	<ItemGroup>
 		<PRIResource Remove="StaticResources\**" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Styles\Button.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<Page Update="Styles\Button.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Controls\SettingsGroup.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<Page Update="Controls\SettingsGroup.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
 	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Controls\SettingsGroup\" />
+	</ItemGroup>
+	<!-- <ItemGroup> -->
+	<!-- 	<Page Remove="Themes\Generic.xaml" /> -->
+	<!-- </ItemGroup> -->
+	<!-- <ItemGroup> -->
+	<!-- 	<Page Include="Themes\Generic.xaml"> -->
+	<!-- 		<SubType>Designer</SubType> -->
+	<!-- 		<Generator>MSBuild:Compile</Generator> -->
+	<!-- 	</Page> -->
+	<!-- </ItemGroup> -->
 </Project>

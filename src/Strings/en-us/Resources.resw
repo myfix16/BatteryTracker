@@ -171,7 +171,7 @@
     <value>Enable fully charged notification</value>
   </data>
   <data name="Settings_EnableLowPowerNotification.Header" xml:space="preserve">
-    <value>Enable high power notification</value>
+    <value>Enable sufficient power notification</value>
   </data>
   <data name="Settings_Language.Header" xml:space="preserve">
     <value>Language</value>
@@ -232,6 +232,9 @@
   </data>
   <data name="Settings_ColorModeHeader.Header" xml:space="preserve">
     <value>Application theme</value>
+  </data>
+  <data name="Settings_General.ModuleTitle" xml:space="preserve">
+    <value>Settings</value>
   </data>
   <data name="Settings_HighPowerThreshold.Header" xml:space="preserve">
     <value>Notify me when battery percentage is higher than:</value>

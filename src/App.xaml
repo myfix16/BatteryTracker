@@ -17,6 +17,7 @@
                 <ResourceDictionary Source="/Styles/FontSizes.xaml" />
                 <ResourceDictionary Source="/Styles/Thickness.xaml" />
                 <ResourceDictionary Source="/Styles/TextBlock.xaml" />
+                <!-- <ResourceDictionary Source="/Themes/Generic.xaml" /> -->
             </ResourceDictionary.MergedDictionaries>
 
             <!-- Other app resources here -->

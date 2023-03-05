@@ -168,7 +168,7 @@
     <value>让本应用随Windows开机启动</value>
   </data>
   <data name="Settings_EnableFullyChargedNotification.Header" xml:space="preserve">
-    <value>启用慢电量通知</value>
+    <value>启用满电量通知</value>
   </data>
   <data name="Settings_EnableLowPowerNotification.Header" xml:space="preserve">
     <value>启用低电量通知</value>
@@ -222,7 +222,7 @@
     <value>电池电量低</value>
   </data>
   <data name="Settings_EnableHighPowerNotification.Header" xml:space="preserve">
-    <value>启用高电量通知</value>
+    <value>启用电量充足通知</value>
   </data>
   <data name="InstanceRunningMessage" xml:space="preserve">
     <value>该应用的另一个实例正在运行</value>
@@ -232,6 +232,9 @@
   </data>
   <data name="Settings_ColorModeHeader.Header" xml:space="preserve">
     <value>应用主题</value>
+  </data>
+  <data name="Settings_General.ModuleTitle" xml:space="preserve">
+    <value>设置</value>
   </data>
   <data name="Settings_HighPowerThreshold.Header" xml:space="preserve">
     <value>在电量百分比高于以下值时推送通知：</value>

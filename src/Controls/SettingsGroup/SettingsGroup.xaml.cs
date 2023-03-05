@@ -3,6 +3,7 @@
 // See the LICENSE file in the project root for more information.
 
 using System.ComponentModel;
+using System.Diagnostics;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Automation.Peers;
 using Microsoft.UI.Xaml.Controls;
@@ -18,8 +19,8 @@ namespace BatteryTracker.Controls
     public partial class SettingsGroup : ItemsControl
     {
         private const string PartDescriptionPresenter = "DescriptionPresenter";
-        private ContentPresenter _descriptionPresenter;
-        private SettingsGroup _settingsGroup;
+        private ContentPresenter? _descriptionPresenter;
+        private SettingsGroup? _settingsGroup;
 
         public SettingsGroup()
         {
@@ -34,20 +35,20 @@ namespace BatteryTracker.Controls
         }
 
         public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register(
-            "Header",
+            nameof(Header),
             typeof(string),
             typeof(SettingsGroup),
             new PropertyMetadata(default(string)));
 
         [Localizable(true)]
-        public object Description
+        public object? Description
         {
-            get => (object)GetValue(DescriptionProperty);
+            get => GetValue(DescriptionProperty);
             set => SetValue(DescriptionProperty, value);
         }
 
         public static readonly DependencyProperty DescriptionProperty = DependencyProperty.Register(
-            "Description",
+            nameof(Description),
             typeof(object),
             typeof(SettingsGroup),
             new PropertyMetadata(null, OnDescriptionChanged));
@@ -55,7 +56,7 @@ namespace BatteryTracker.Controls
         protected override void OnApplyTemplate()
         {
             IsEnabledChanged -= SettingsGroup_IsEnabledChanged;
-            _settingsGroup = (SettingsGroup)this;
+            _settingsGroup = this;
             _descriptionPresenter = (ContentPresenter)_settingsGroup.GetTemplateChild(PartDescriptionPresenter);
             SetEnabledState();
             IsEnabledChanged += SettingsGroup_IsEnabledChanged;
@@ -84,13 +85,11 @@ namespace BatteryTracker.Controls
                 return;
             }
 
-            if (_settingsGroup.Description == null)
+            if (_settingsGroup._descriptionPresenter != null)
             {
-                _settingsGroup._descriptionPresenter.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                _settingsGroup._descriptionPresenter.Visibility = Visibility.Visible;
+                _settingsGroup._descriptionPresenter.Visibility = _settingsGroup.Description == null
+                    ? Visibility.Collapsed
+                    : Visibility.Visible;
             }
         }
 

@@ -4,26 +4,24 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:helpers="using:BatteryTracker.Helpers"
     xmlns:converters="using:BatteryTracker.Converters"
-    xmlns:xaml="using:Microsoft.UI.Xaml"
+    xmlns:controls="using:BatteryTracker.Controls"
     xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:ui="using:CommunityToolkit.WinUI.UI"
-    xmlns:controls="using:BatteryTracker.Controls"
+    AutomationProperties.LandmarkType="Main"
     mc:Ignorable="d">
     <Page.Resources>
         <converters:EnumToIntConverter x:Key="EnumToIntConverter" />
     </Page.Resources>
 
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <StackPanel x:Name="ContentArea">
-
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0 0 24 0">
+        <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
             <!--Notification settings-->
-            <controls:SettingsGroup x:Uid="Settings_Notification">
+            <controls:SettingsGroup x:Uid="Settings_Notification" Margin="0 -24 0 0" >
                 <!-- Enable fully charged notification -->
                 <labs:SettingsCard
                     x:Uid="Settings_EnableFullyChargedNotification"
-                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xE7EF;}"
+                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xEA8F;}"
                     IsEnabled="True">
                     <ToggleSwitch IsOn="{x:Bind ViewModel.EnableFullyChargedNotification, Mode=TwoWay}" />
                 </labs:SettingsCard>
@@ -31,8 +29,8 @@
                 <!-- Enable low power notification -->
                 <labs:SettingsExpander
                     x:Uid="Settings_EnableLowPowerNotification"
-                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xE7EF;}"
-                    IsExpanded="True">
+                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xEA8F;}"
+                    IsExpanded="{x:Bind ViewModel.EnableLowPowerNotification, Mode=OneWay}">
                     <ToggleSwitch IsOn="{x:Bind ViewModel.EnableLowPowerNotification, Mode=TwoWay}" />
                     <labs:SettingsExpander.Items>
                         <labs:SettingsCard
@@ -55,8 +53,8 @@
                 <!-- Enable high power notification -->
                 <labs:SettingsExpander
                     x:Uid="Settings_EnableHighPowerNotification"
-                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xE7EF;}"
-                    IsExpanded="True">
+                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xEA8F;}"
+                    IsExpanded="{x:Bind ViewModel.EnableHighPowerNotification, Mode=OneWay}">
                     <ToggleSwitch IsOn="{x:Bind ViewModel.EnableHighPowerNotification, Mode=TwoWay}" />
                     <labs:SettingsExpander.Items>
                         <labs:SettingsCard
@@ -83,8 +81,7 @@
                 IsEnabled="True">
                 <labs:SettingsCard
                     x:Uid="Settings_ColorModeHeader"
-                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily},
-                                                 Glyph=&#xE790;}">
+                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xE790;}">
                     <labs:SettingsCard.Description>
                         <HyperlinkButton x:Uid="Settings_Windows_Color_Settings"
                                          Click="HyperlinkButton_Click" />
@@ -98,7 +95,9 @@
                     </ComboBox>
                 </labs:SettingsCard>
 
-                <labs:SettingsCard x:Uid="Settings_RunAtStartUp">
+                <labs:SettingsCard 
+                    x:Uid="Settings_RunAtStartUp"
+                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xE7E8;}">
                     <ToggleSwitch IsOn="{x:Bind ViewModel.EnableAutostart, Mode=TwoWay}" />
                 </labs:SettingsCard>
             </controls:SettingsGroup>
