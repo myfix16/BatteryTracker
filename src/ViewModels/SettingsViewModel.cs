@@ -5,8 +5,8 @@ using BatteryTracker.Helpers;
 using BatteryTracker.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Windows.Globalization;
 using Microsoft.Extensions.Logging;
+using Windows.Globalization;
 
 namespace BatteryTracker.ViewModels;
 
@@ -147,6 +147,7 @@ public class SettingsViewModel : ObservableRecipient
 
         RestartCommand = new RelayCommand(() =>
         {
+            // todo: Reopen settings window on restart
             Microsoft.Windows.AppLifecycle.AppInstance.Restart("");
         });
 

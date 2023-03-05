@@ -144,7 +144,7 @@
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
     <value>一款在任务栏显示电量百分比的实用工具</value>
   </data>
-  <data name="SettingsPage_PrivacyTermsLink.Content" xml:space="preserve">
+  <data name="Settings_PrivacyTerms.Header" xml:space="preserve">
     <value>隐私声明</value>
   </data>
   <data name="AppNotificationSamplePayload" xml:space="preserve">
@@ -160,12 +160,6 @@
     &lt;action content="Settings" arguments="action=Settings"/&gt;
   &lt;/actions&gt;
 &lt;/toast&gt;</value>
-  </data>
-  <data name="Settings_Autostart.Text" xml:space="preserve">
-    <value>开机自启</value>
-  </data>
-  <data name="Settings_AutostartToggle.Header" xml:space="preserve">
-    <value>让本应用随Windows开机启动</value>
   </data>
   <data name="Settings_EnableFullyChargedNotification.Header" xml:space="preserve">
     <value>启用满电量通知</value>
@@ -195,13 +189,13 @@
     <value>出现了未知错误，应用将退出</value>
   </data>
   <data name="SettingsPage_EmailLink.Content" xml:space="preserve">
-    <value>邮件反馈问题</value>
+    <value>邮件反馈</value>
   </data>
   <data name="SettingsPage_GitHubIssuesLink.Content" xml:space="preserve">
-    <value>在GitHub上提交issue</value>
+    <value>在 GitHub 上提交 issue</value>
   </data>
-  <data name="Settings_Feedback.Text" xml:space="preserve">
-    <value>反馈</value>
+  <data name="Settings_Feedback.Header" xml:space="preserve">
+    <value>提供反馈</value>
   </data>
   <data name="SubmitFeedback" xml:space="preserve">
     <value>提交反馈</value>
@@ -233,8 +227,23 @@
   <data name="Settings_ColorModeHeader.Header" xml:space="preserve">
     <value>应用主题</value>
   </data>
+  <data name="Settings_CopyAppVersionMenuItem.Text" xml:space="preserve">
+    <value>应用版本</value>
+  </data>
+  <data name="Settings_CopyVersionButton.Content" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="Settings_CopyWindowsVersionMenuItem.Text" xml:space="preserve">
+    <value>Windows 版本</value>
+  </data>
   <data name="Settings_General.ModuleTitle" xml:space="preserve">
     <value>设置</value>
+  </data>
+  <data name="Settings_GitHubLink.Header" xml:space="preserve">
+    <value>GitHub 存储库</value>
+  </data>
+  <data name="Settings_Help_Support.Header" xml:space="preserve">
+    <value>帮助和支持</value>
   </data>
   <data name="Settings_HighPowerThreshold.Header" xml:space="preserve">
     <value>在电量百分比高于以下值时推送通知：</value>
@@ -242,16 +251,31 @@
   <data name="Settings_LanguageHeader.Header" xml:space="preserve">
     <value>应用语言</value>
   </data>
+  <data name="Settings_Logs.Header" xml:space="preserve">
+    <value>打开日志文件夹</value>
+  </data>
   <data name="Settings_LowPowerThreshold.Header" xml:space="preserve">
     <value>当电量百分比低于以下值时推送通知：</value>
   </data>
+  <data name="Settings_OpenSource.Header" xml:space="preserve">
+    <value>开放源代码</value>
+  </data>
   <data name="Settings_RunAtStartUp.Description" xml:space="preserve">
-    <value>Battery Tracker将自动启动</value>
+    <value>Battery Tracker 将自动启动</value>
   </data>
   <data name="Settings_RunAtStartUp.Header" xml:space="preserve">
     <value>启动时运行</value>
   </data>
+  <data name="Settings_ThirdPartyLicense.Header" xml:space="preserve">
+    <value>第三方许可</value>
+  </data>
+  <data name="Settings_Version.Header" xml:space="preserve">
+    <value>版本</value>
+  </data>
+  <data name="Settings_VersionCopiedTextBlock.Text" xml:space="preserve">
+    <value>已复制！</value>
+  </data>
   <data name="Settings_Windows_Color_Settings.Content" xml:space="preserve">
-    <value>Windows颜色设置</value>
+    <value>Windows 颜色设置</value>
   </data>
 </root>

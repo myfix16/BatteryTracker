@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BatteryTracker.Helpers
+﻿namespace BatteryTracker.Helpers
 {
     public class EnumIntConvertHelper
     {

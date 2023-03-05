@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using BatteryTracker.Helpers;
+﻿using BatteryTracker.Helpers;
 using BatteryTracker.ViewModels;
 using Microsoft.UI.Xaml.Controls;
 
@@ -15,8 +14,8 @@ public sealed partial class SettingsPage : Page
         InitializeComponent();
     }
 
-    private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+    private async void HyperlinkButton_Click(object sender, RoutedEventArgs e)
     {
-        StartProcessHelper.Start(StartProcessHelper.ColorsSettings);
+        await LaunchHelper.LaunchUriAsync(LaunchHelper.ColorsSettingsUri);
     }
 }

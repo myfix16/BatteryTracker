@@ -22,7 +22,7 @@ namespace BatteryTracker.Views
 
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
-            StartProcessHelper.Start("mailto:myfix16@outlook.com?subject=Battery%20Tracker%20Feedback");
+            LaunchHelper.StartProcess("mailto:myfix16@outlook.com?subject=Battery%20Tracker%20Feedback");
         }
     }
 }

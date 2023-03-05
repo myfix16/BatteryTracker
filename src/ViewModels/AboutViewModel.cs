@@ -1,23 +1,85 @@
 ﻿using System.Reflection;
+using System.Windows.Input;
 using BatteryTracker.Helpers;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.WinUI.Helpers;
 using Windows.ApplicationModel;
+using Windows.ApplicationModel.DataTransfer;
+using Windows.Storage;
+using Windows.System;
 
 namespace BatteryTracker.ViewModels
 {
     public class AboutViewModel : ObservableRecipient
     {
-        private string _versionDescription;
+        private const string GitHubRepoUri = "https://github.com/myfix16/BatteryTracker";
+        private const string PrivacyStatementUri = "https://github.com/myfix16/BatteryTracker";
 
-        public string VersionDescription
+        private bool _showCopiedMessage;
+
+        public string VersionDescription { get; }
+
+        public bool ShowCopiedMessage
         {
-            get => _versionDescription;
-            set => SetProperty(ref _versionDescription, value);
+            get => _showCopiedMessage;
+            set => SetProperty(ref _showCopiedMessage, value);
         }
+
+        public ICommand CopyAppVersionCommand { get; }
+
+        public ICommand CopyWindowsVersionCommand { get; }
+
+        public ICommand OpenLogFolderCommand { get; }
+
+        public ICommand OpenGitHubRepoCommand { get; }
+
+        public ICommand OpenPrivacyStatementCommand { get; }
 
         public AboutViewModel()
         {
-            _versionDescription = GetVersionDescription();
+            const int copiedMessageDisplayTime = 1500;
+
+            VersionDescription = GetVersionDescription();
+
+            CopyAppVersionCommand = new AsyncRelayCommand(async () =>
+            {
+                DataPackage package = new() { RequestedOperation = DataPackageOperation.Copy };
+                package.SetText(VersionDescription[1..]);
+                Clipboard.SetContent(package);
+
+                // Show copied message
+                ShowCopiedMessage = true;
+                await Task.Delay(copiedMessageDisplayTime);
+                ShowCopiedMessage = false;
+            });
+
+            CopyWindowsVersionCommand = new AsyncRelayCommand(async () =>
+            {
+                DataPackage package = new() { RequestedOperation = DataPackageOperation.Copy };
+                package.SetText(SystemInformation.Instance.OperatingSystemVersion.ToString());
+                Clipboard.SetContent(package);
+
+                // Show copied message
+                ShowCopiedMessage = true;
+                await Task.Delay(copiedMessageDisplayTime);
+                ShowCopiedMessage = false;
+            });
+
+            OpenLogFolderCommand = new AsyncRelayCommand(async () =>
+            {
+                await Launcher.LaunchFolderAsync(ApplicationData.Current.LocalFolder);
+            });
+
+            OpenGitHubRepoCommand = new AsyncRelayCommand(async () =>
+            {
+                await LaunchHelper.LaunchUriAsync(GitHubRepoUri);
+            });
+
+            OpenPrivacyStatementCommand = new AsyncRelayCommand(async () =>
+            {
+                await LaunchHelper.LaunchUriAsync(PrivacyStatementUri);
+            });
         }
 
         private static string GetVersionDescription()
@@ -26,17 +88,17 @@ namespace BatteryTracker.ViewModels
 
             if (RuntimeHelper.IsMSIX)
             {
-                var packageVersion = Package.Current.Id.Version;
+                PackageVersion packageVersion = Package.Current.Id.Version;
 
-                version = new(packageVersion.Major, packageVersion.Minor, packageVersion.Build, packageVersion.Revision);
+                version = new Version(packageVersion.Major, packageVersion.Minor, packageVersion.Build,
+                    packageVersion.Revision);
             }
             else
             {
                 version = Assembly.GetExecutingAssembly().GetName().Version!;
             }
 
-            return
-                $"{"AppDisplayName".Localized()} - {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
+            return $"v{version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
         }
     }
 }

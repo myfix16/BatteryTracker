@@ -51,7 +51,7 @@
             <NavigationView.FooterMenuItems>
                 <NavigationViewItem x:Uid="Shell_About" helpers:NavigationHelper.NavigateTo="BatteryTracker.ViewModels.AboutViewModel">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe783;"/>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe946;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
             </NavigationView.FooterMenuItems>
