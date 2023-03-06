@@ -228,7 +228,6 @@ public partial class App : Application
 
         Debugger.Break(); // Please check "Output Window" for exception details (View -> Output Window) (CTRL + ALT + O)
 
-
         if (showNotification)
         {
             AppNotificationBuilder notificationBuilder = new AppNotificationBuilder()

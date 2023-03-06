@@ -119,18 +119,31 @@ public class SettingsViewModel : ObservableRecipient
         set
         {
             SetProperty(ref SettingsService.EnableAutostart, value);
-            bool isRunAtStartup = AutoStartHelper.IsRunAtStartup().Result;
-            switch (value)
+            Task.Run(async () =>
             {
-                case true when !isRunAtStartup:
-                    Task.Run(AutoStartHelper.EnableStartup);
-                    break;
-                case false when isRunAtStartup:
-                    Task.Run(AutoStartHelper.DisableStartup);
-                    break;
-            }
-            SettingsService.Set(SettingsService.AutostartSettingsKey, value);
-            _logger.LogInformation($"Set auto start to: {value}");
+                bool isRunAtStartup = await AutoStartHelper.IsRunAtStartup();
+                bool needChange = value != isRunAtStartup;
+                if (needChange)
+                {
+                    bool success = value switch
+                    {
+                        true => await AutoStartHelper.EnableStartup(),
+                        false => await AutoStartHelper.DisableStartup()
+                    };
+
+                    if (success)
+                    {
+                        _logger.LogInformation($"Set running at startup to: {value}");
+                        SettingsService.Set(SettingsService.AutostartSettingsKey, value);
+                    }
+                    else
+                    {
+                        // Log and revert the change
+                        _logger.LogError($"Setting running at startup failed.");
+                        SettingsService.Set(SettingsService.AutostartSettingsKey, !value);
+                    }
+                }
+            });
         }
     }
 

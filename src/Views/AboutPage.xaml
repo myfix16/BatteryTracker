@@ -15,27 +15,33 @@
     <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0 0 24 0">
         <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
             <!--Version-->
-            <controls:SettingsGroup x:Uid="Settings_Version" Margin="0 -24 0 0" >
+            <controls:SettingsGroup x:Uid="Settings_Version" Margin="0 -24 0 0">
                 <!-- App version -->
                 <labs:SettingsCard
                     Header="Battery Tracker"
                     HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xE946;}"
-                    Description="{x:Bind ViewModel.VersionDescription}"
                     IsEnabled="True">
-                    <StackPanel Orientation="Horizontal" 
-                                VerticalAlignment="Center" 
-                                HorizontalAlignment="Right" 
+                    <labs:SettingsCard.Description>
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <TextBlock Text="{x:Bind ViewModel.VersionDescription}" />
+                            <TextBlock Text="|" />
+                            <TextBlock x:Uid="Settings_AboutDescription" />
+                        </StackPanel>
+                    </labs:SettingsCard.Description>
+                    <StackPanel Orientation="Horizontal"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Right"
                                 Spacing="8">
                         <TextBlock x:Uid="Settings_VersionCopiedTextBlock"
                                    VerticalAlignment="Center"
-                                   Visibility="{x:Bind ViewModel.ShowCopiedMessage, Mode=OneWay}"/>
+                                   Visibility="{x:Bind ViewModel.ShowCopiedMessage, Mode=OneWay}" />
                         <DropDownButton x:Uid="Settings_CopyVersionButton">
                             <DropDownButton.Flyout>
                                 <MenuFlyout Placement="Bottom">
-                                    <MenuFlyoutItem x:Uid="Settings_CopyAppVersionMenuItem" 
-                                                    Command="{x:Bind ViewModel.CopyAppVersionCommand}"/>
-                                    <MenuFlyoutItem x:Uid="Settings_CopyWindowsVersionMenuItem" 
-                                                    Command="{x:Bind ViewModel.CopyWindowsVersionCommand}"/>
+                                    <MenuFlyoutItem x:Uid="Settings_CopyAppVersionMenuItem"
+                                                    Command="{x:Bind ViewModel.CopyAppVersionCommand}" />
+                                    <MenuFlyoutItem x:Uid="Settings_CopyWindowsVersionMenuItem"
+                                                    Command="{x:Bind ViewModel.CopyWindowsVersionCommand}" />
                                 </MenuFlyout>
                             </DropDownButton.Flyout>
                         </DropDownButton>
@@ -65,7 +71,7 @@
                 </labs:SettingsCard>
 
                 <!-- Logs -->
-                <labs:SettingsCard 
+                <labs:SettingsCard
                     x:Uid="Settings_Logs"
                     HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xED25;}"
                     ActionIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, FontSize=14, Glyph=&#xE8A7;}"
