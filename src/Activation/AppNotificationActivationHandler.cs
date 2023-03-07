@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using BatteryTracker.Contracts.Services;
 using Microsoft.Windows.AppLifecycle;
 using Microsoft.Windows.AppNotifications;
 using Windows.System;
@@ -10,7 +9,7 @@ public class AppNotificationActivationHandler : ActivationHandler<LaunchActivate
 {
     // private readonly IAppNotificationService _notificationService;
 
-    public AppNotificationActivationHandler(IAppNotificationService notificationService)
+    public AppNotificationActivationHandler()
     {
         // _notificationService = notificationService;
     }

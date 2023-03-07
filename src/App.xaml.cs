@@ -63,6 +63,7 @@ public partial class App : Application
                 services.AddTransient<ActivationHandler<LaunchActivatedEventArgs>, DefaultActivationHandler>();
 
                 // Other Activation Handlers
+                services.AddTransient<IActivationHandler, LaunchActivationHandler>();
                 services.AddTransient<IActivationHandler, AppNotificationActivationHandler>();
                 services.AddTransient<IActivationHandler, AppActivationHandler>();
 

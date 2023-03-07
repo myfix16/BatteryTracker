@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Input;
+using BatteryTracker.Activation;
 using BatteryTracker.Contracts.Services;
 using BatteryTracker.Helpers;
 using BatteryTracker.Services;
@@ -160,8 +161,7 @@ public class SettingsViewModel : ObservableRecipient
 
         RestartCommand = new RelayCommand(() =>
         {
-            // todo: Reopen settings window on restart
-            Microsoft.Windows.AppLifecycle.AppInstance.Restart("");
+            Microsoft.Windows.AppLifecycle.AppInstance.Restart(LaunchActivationHandler.OpenSettingsCommandArg);
         });
 
 #if DEBUG
