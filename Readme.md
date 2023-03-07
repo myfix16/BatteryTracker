@@ -1,6 +1,14 @@
 ﻿## Battery Tracker
-![full](https://raw.githubusercontent.com/myfix16/BatteryTracker/master/showcase1.png) Fully Charged <br></br>
-![not full](https://github.com/myfix16/BatteryTracker/raw/master/showcase2.png) Charging/Using
+<table>
+	<tr>
+		<td><img src=showcase2.png border=0></td>
+		<td><img src=showcase1.png border=0></td>
+	</tr>
+	<tr>
+		<td style="text-align: center; vertical-align: middle;">Charging</td>
+		<td style="text-align: center; vertical-align: middle;">Fully Charged</td>
+	</tr>
+</table>
 
 ### Function
 The program will show the remaining battery percentage on the taskbar.
@@ -17,17 +25,18 @@ The program will show the remaining battery percentage on the taskbar.
 	</table>
 
 ### Prerequisites
-The project requires **.NET 7 Desktop Runtime**. If you install from Microsoft Store, the dependency will be automatically installed. Otherwise, you can download it from [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
+The application requires **.NET 7 Desktop Runtime** and **Windows App SDK Runtime**. If you install from Microsoft Store, dependencies will be automatically installed. 
+Otherwise, you can download them from [Microsoft .NET Website](https://dotnet.microsoft.com/en-us/download/dotnet/7.0) and [Windows App SDK Downloading Page](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/downloads).
 
-### How to Download
+### How to Install
 <a href='https://www.microsoft.com/store/apps/9P1FBSLRNM43'>
 	<img src='https://developer.microsoft.com/en-us/store/badges/images/English_get-it-from-MS.png' alt='Microsoft Store' width='160'/>
 </a>
 
-Alternatively, you can download the executable in release page.
+Alternatively, you can download the installers in the release page.
 
 ### Privacy Policy
-The app will not collect any privacy data at all.
+See [Privacy.md](./Privacy.md).
 
 ### How to Contribute
 Priority place for bugs: https://github.com/myfix16/BatteryTracker/issues  
@@ -35,5 +44,4 @@ Priority place for ideas and general questions: https://github.com/myfix16/Batte
 
 ### Credits
 Special thanks to:
-- [Windows App SDK](https://github.com/microsoft/WindowsAppSDK)
 - HavenDV's [H.NotifyIcon](https://github.com/HavenDV/H.NotifyIcon)

@@ -13,7 +13,7 @@ public sealed partial class MainWindow : WindowEx
         InitializeComponent();
 
         Content = null;
-        AppWindow.SetIcon(Path.Combine(AppContext.BaseDirectory, "Assets\\Logo.ico"));
+        // AppWindow.SetIcon(Path.Combine(AppContext.BaseDirectory, "Assets\\Logo.ico"));
         Title = "AppDisplayName".Localized();
     }
 }

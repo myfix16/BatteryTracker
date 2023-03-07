@@ -13,9 +13,6 @@ namespace BatteryTracker.ViewModels
 {
     public class AboutViewModel : ObservableRecipient
     {
-        private const string GitHubRepoUri = "https://github.com/myfix16/BatteryTracker";
-        private const string PrivacyStatementUri = "https://github.com/myfix16/BatteryTracker";
-
         private bool _showCopiedMessage;
 
         public string VersionDescription { get; }
@@ -73,12 +70,12 @@ namespace BatteryTracker.ViewModels
 
             OpenGitHubRepoCommand = new AsyncRelayCommand(async () =>
             {
-                await LaunchHelper.LaunchUriAsync(GitHubRepoUri);
+                await LaunchHelper.LaunchUriAsync(LaunchHelper.GitHubRepoUri);
             });
 
             OpenPrivacyStatementCommand = new AsyncRelayCommand(async () =>
             {
-                await LaunchHelper.LaunchUriAsync(PrivacyStatementUri);
+                await LaunchHelper.LaunchUriAsync(LaunchHelper.PrivacyStatementUri);
             });
         }
 

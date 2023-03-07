@@ -2,6 +2,7 @@
 using Microsoft.Windows.AppLifecycle;
 using Microsoft.Windows.AppNotifications;
 using Windows.System;
+using BatteryTracker.Helpers;
 
 namespace BatteryTracker.Activation;
 
@@ -27,7 +28,7 @@ public class AppNotificationActivationHandler : ActivationHandler<AppActivationA
         // Handle the case when users click `Submit feedback` button on notifications
         if (activatedEventArgs.Arguments.TryGetValue("action", out string? value) && value == "SubmitFeedback")
         {
-            await Launcher.LaunchUriAsync(new Uri("https://github.com/myfix16/BatteryTracker/issues/new/choose"));
+            await LaunchHelper.LaunchUriAsync(LaunchHelper.GitHubNewIssueUri);
             // Quit
             Process.GetCurrentProcess().Kill();
         }
