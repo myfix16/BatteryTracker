@@ -6,10 +6,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:windowex="using:WinUIEx"
     xmlns:tb="using:H.NotifyIcon"
-    Width="500"
-    Height="700"
-    MinWidth="400"
-    MinHeight="500"
     PersistenceId="MainWindow"
     mc:Ignorable="d">
     <windowex:WindowEx.Backdrop>

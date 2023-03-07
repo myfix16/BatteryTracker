@@ -13,11 +13,24 @@
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
                 <!-- Other merged dictionaries here -->
                 <ResourceDictionary Source="/Resources/Commands.xaml" />
+                <ResourceDictionary Source="/Styles/Button.xaml" />
                 <ResourceDictionary Source="/Styles/FontSizes.xaml" />
                 <ResourceDictionary Source="/Styles/Thickness.xaml" />
                 <ResourceDictionary Source="/Styles/TextBlock.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
             <!-- Other app resources here -->
+            <!--  Overrides  -->
+            <Thickness x:Key="InfoBarIconMargin">6,16,16,16</Thickness>
+            <Thickness x:Key="InfoBarContentRootPadding">16,0,0,0</Thickness>
+            <x:Double x:Key="SettingActionControlMinWidth">240</x:Double>
+
+            <TransitionCollection x:Key="SettingsCardsAnimations">
+                <EntranceThemeTransition FromVerticalOffset="50"/>
+                <!-- Animates cards when loaded-->
+                <RepositionThemeTransition  IsStaggeringEnabled="False" />
+                <!-- Smoothly animates individual cards upon whenever Expanders are expanded/collapsed -->
+            </TransitionCollection>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

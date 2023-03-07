@@ -3,9 +3,9 @@ using Windows.UI.Popups;
 
 namespace BatteryTracker.Helpers
 {
-    internal static class AutoStartHelper
+    internal static class StartupHelper
     {
-        private const string StartupTaskName = "BatteryTrackerStartup";
+        private const string StartupTaskName = "BatteryTrackerStartupTask";
 
         private static StartupTask? _startupTask;
 
@@ -16,7 +16,7 @@ namespace BatteryTracker.Helpers
             return startupTaskState is StartupTaskState.Enabled or StartupTaskState.EnabledByPolicy;
         }
 
-        internal static async Task DisableStartup()
+        internal static async Task<bool> DisableStartup()
         {
             _startupTask ??= await StartupTask.GetAsync(StartupTaskName);
             switch (_startupTask.State)
@@ -29,21 +29,24 @@ namespace BatteryTracker.Helpers
                     await dialog.ShowAsync();
                     break;
             }
+            return true;
         }
 
-        internal static async Task EnableStartup()
+        internal static async Task<bool> EnableStartup()
         {
             _startupTask ??= await StartupTask.GetAsync(StartupTaskName);
             switch (_startupTask.State)
             {
                 // Task is disabled but can be enabled.
                 case StartupTaskState.Disabled:
-                    await _startupTask.RequestEnableAsync();
-                    break;
+                    StartupTaskState newState = await _startupTask.RequestEnableAsync();
+                    return newState is StartupTaskState.Enabled or StartupTaskState.EnabledByPolicy;
                 case StartupTaskState.DisabledByPolicy:
                     var dialog = new MessageDialog("Startup disabled by group policy, or not supported on this device");
                     await dialog.ShowAsync();
-                    break;
+                    return false;
+                default:
+                    return false;
             }
         }
     }

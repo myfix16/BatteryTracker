@@ -1,6 +1,6 @@
 ﻿using Microsoft.UI.Xaml.Data;
 
-namespace BatteryTracker.Helpers;
+namespace BatteryTracker.Converters;
 
 public class EnumToBooleanConverter : IValueConverter
 {

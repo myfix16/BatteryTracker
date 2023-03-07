@@ -136,7 +136,7 @@
     <value>Dark</value>
   </data>
   <data name="Settings_Theme_Default.Content" xml:space="preserve">
-    <value>Default</value>
+    <value>Windows Default</value>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
     <value>About this application</value>
@@ -144,7 +144,7 @@
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
     <value>Show battery remaining percentage on taskbar.</value>
   </data>
-  <data name="SettingsPage_PrivacyTermsLink.Content" xml:space="preserve">
+  <data name="Settings_PrivacyTerms.Header" xml:space="preserve">
     <value>Privacy Statement</value>
   </data>
   <data name="AppNotificationSamplePayload" xml:space="preserve">
@@ -161,25 +161,16 @@
   &lt;/actions&gt;
 &lt;/toast&gt;</value>
   </data>
-  <data name="Settings_Autostart.Text" xml:space="preserve">
-    <value>Autostart</value>
+  <data name="Settings_EnableFullyChargedNotification.Header" xml:space="preserve">
+    <value>Enable fully charged notification</value>
   </data>
-  <data name="Settings_AutostartToggle.Header" xml:space="preserve">
-    <value>Start BatteryTracker with Windows</value>
+  <data name="Settings_EnableLowPowerNotification.Header" xml:space="preserve">
+    <value>Enable low power notification</value>
   </data>
-  <data name="Settings_EnableFullyChargedNotification.Content" xml:space="preserve">
-    <value>Notify me when battery is fully charged</value>
-  </data>
-  <data name="Settings_EnableLowPowerNotification.Content" xml:space="preserve">
-    <value>Notify me when battery percentage is lower than:</value>
-  </data>
-  <data name="Settings_Language.Text" xml:space="preserve">
+  <data name="Settings_Language.Header" xml:space="preserve">
     <value>Language</value>
   </data>
-  <data name="Settings_LanguageComboBox.Header" xml:space="preserve">
-    <value>Language:</value>
-  </data>
-  <data name="Settings_Notification.Text" xml:space="preserve">
+  <data name="Settings_Notification.Header" xml:space="preserve">
     <value>Notifications</value>
   </data>
   <data name="Shell_About.Content" xml:space="preserve">
@@ -201,10 +192,10 @@
     <value>Send feedback via email</value>
   </data>
   <data name="SettingsPage_GitHubIssuesLink.Content" xml:space="preserve">
-    <value>Send feedback on GitHub</value>
+    <value>Submit an issue on GitHub</value>
   </data>
-  <data name="Settings_Feedback.Text" xml:space="preserve">
-    <value>Feedback</value>
+  <data name="Settings_Feedback.Header" xml:space="preserve">
+    <value>Provide feedback</value>
   </data>
   <data name="SubmitFeedback" xml:space="preserve">
     <value>Submit feedback</value>
@@ -224,10 +215,67 @@
   <data name="LowPowerMessage" xml:space="preserve">
     <value>Low power</value>
   </data>
-  <data name="Settings_EnableHighPowerNotification.Content" xml:space="preserve">
-    <value>Notify me when battery percentage is higher than:</value>
+  <data name="Settings_EnableHighPowerNotification.Header" xml:space="preserve">
+    <value>Enable sufficient power notification</value>
   </data>
   <data name="InstanceRunningMessage" xml:space="preserve">
     <value>Another instance is already running</value>
+  </data>
+  <data name="Settings_Appearance_Behavior.Header" xml:space="preserve">
+    <value>Appearance &amp; behavior</value>
+  </data>
+  <data name="Settings_ColorModeHeader.Header" xml:space="preserve">
+    <value>Application theme</value>
+  </data>
+  <data name="Settings_CopyAppVersionMenuItem.Text" xml:space="preserve">
+    <value>Application version</value>
+  </data>
+  <data name="Settings_CopyVersionButton.Content" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="Settings_CopyWindowsVersionMenuItem.Text" xml:space="preserve">
+    <value>Windows version</value>
+  </data>
+  <data name="Settings_General.ModuleTitle" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Settings_GitHubLink.Header" xml:space="preserve">
+    <value>GitHub repository</value>
+  </data>
+  <data name="Settings_Help_Support.Header" xml:space="preserve">
+    <value>Help &amp; support</value>
+  </data>
+  <data name="Settings_HighPowerThreshold.Header" xml:space="preserve">
+    <value>Notify me when battery percentage is higher than:</value>
+  </data>
+  <data name="Settings_LanguageHeader.Header" xml:space="preserve">
+    <value>Application language</value>
+  </data>
+  <data name="Settings_Logs.Header" xml:space="preserve">
+    <value>Open log folder</value>
+  </data>
+  <data name="Settings_LowPowerThreshold.Header" xml:space="preserve">
+    <value>Notify me when battery percentage is lower than:</value>
+  </data>
+  <data name="Settings_OpenSource.Header" xml:space="preserve">
+    <value>Open source</value>
+  </data>
+  <data name="Settings_RunAtStartUp.Description" xml:space="preserve">
+    <value>Battery Tracker will launch automatically</value>
+  </data>
+  <data name="Settings_RunAtStartUp.Header" xml:space="preserve">
+    <value>Run at startup</value>
+  </data>
+  <data name="Settings_ThirdPartyLicense.Header" xml:space="preserve">
+    <value>Third-party licenses</value>
+  </data>
+  <data name="Settings_Version.Header" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="Settings_VersionCopiedTextBlock.Text" xml:space="preserve">
+    <value>Copied!</value>
+  </data>
+  <data name="Settings_Windows_Color_Settings.Content" xml:space="preserve">
+    <value>Windows color settings</value>
   </data>
 </root>
