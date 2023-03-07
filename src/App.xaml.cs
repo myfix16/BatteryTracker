@@ -71,11 +71,12 @@ public partial class App : Application
                 // Services
                 services.AddSingleton<IAppNotificationService, AppNotificationService>();
                 services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
-                services.AddTransient<INavigationViewService, NavigationViewService>();
-
                 services.AddSingleton<IActivationService, ActivationService>();
                 services.AddSingleton<IPageService, PageService>();
                 services.AddSingleton<INavigationService, NavigationService>();
+                services.AddSingleton<ISettingsStorageService, AppLocalSettingsStorageService>();
+                services.AddSingleton<SettingsService>();
+                services.AddTransient<INavigationViewService, NavigationViewService>();
 
                 // Views and ViewModels
                 services.AddTransient<SettingsViewModel>();

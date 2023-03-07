@@ -25,7 +25,7 @@ public sealed partial class ShellPage : Page
         AppTitleBarText.Text = "AppDisplayName".Localized();
     }
 
-    private async void OnLoaded(object sender, RoutedEventArgs e)
+    private async void OnLoaded(object _, RoutedEventArgs _1)
     {
         TitleBarHelper.UpdateTitleBar(RequestedTheme);
 
@@ -45,7 +45,7 @@ public sealed partial class ShellPage : Page
     }
 
     private void NavigationViewControl_DisplayModeChanged(NavigationView sender,
-        NavigationViewDisplayModeChangedEventArgs args)
+        NavigationViewDisplayModeChangedEventArgs _)
     {
         AppTitleBar.Margin = new Thickness()
         {

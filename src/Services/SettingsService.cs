@@ -2,10 +2,11 @@
 using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.System.UserProfile;
+using BatteryTracker.Contracts.Services;
 
 namespace BatteryTracker.Services;
 
-public static class SettingsService
+public class SettingsService
 {
     #region Setting Keys
 
@@ -15,7 +16,8 @@ public static class SettingsService
     public const string HighPowerNotificationSettingsKey = "EnableHighPowerNotification";
     public const string HighPowerNotificationThresholdSettingsKey = "HighPowerNotificationThreshold";
     public const string LanguageSettingsKey = "language";
-    public const string AutostartSettingsKey = "Autostart";
+    public const string RunAtStartupSettingsKey = "Autostart";
+    public const string AppThemeSettingsKey = "AppBackgroundRequestedTheme";
 
     #endregion
 
@@ -27,18 +29,18 @@ public static class SettingsService
         new("简体中文", "zh-Hans"),
     };
 
-    public static bool EnableFullyChargedNotification;
-    public static bool EnableLowPowerNotification;
-    public static int LowPowerNotificationThreshold;
-    public static bool EnableHighPowerNotification;
-    public static int HighPowerNotificationThreshold;
-    public static Tuple<string, string> Language;
-    public static readonly string AppLanguage;
-    public static bool EnableAutostart;
+    public bool EnableFullyChargedNotification;
+    public bool EnableLowPowerNotification;
+    public int LowPowerNotificationThreshold;
+    public bool EnableHighPowerNotification;
+    public int HighPowerNotificationThreshold;
+    public Tuple<string, string> Language;
+    public readonly string AppLanguage;
+    public bool RunAtStartup;
 
     #endregion
 
-    public static readonly Dictionary<string, object> DefaultSettingsDict = new()
+    private readonly Dictionary<string, object> _defaultSettingsDict = new()
     {
         { FullyChargedNotificationSettingsKey, true },
         { LowPowerNotificationSettingsKey, true },
@@ -46,22 +48,21 @@ public static class SettingsService
         { HighPowerNotificationSettingsKey, true },
         { HighPowerNotificationThresholdSettingsKey, 80 },
         { LanguageSettingsKey, "en-US" },
-        { AutostartSettingsKey, true },
+        { RunAtStartupSettingsKey, true },
+        { AppThemeSettingsKey, "Default" },
     };
 
-    public static readonly IPropertySet PropertySet = ApplicationData.Current.LocalSettings.Values;
+    #region Methods
 
-    #region Static Methods
+    public bool HasValue(string key) => _settingsStorage.ContainsKey(key);
 
-    public static bool HasValue(string key) => PropertySet.ContainsKey(key);
+    public void Set(string key, object value) => _settingsStorage[key] = value;
 
-    public static void Set(string key, object value) => PropertySet[key] = value;
+    public object Get(string key) => _settingsStorage[key];
 
-    public static object Get(string key) => PropertySet[key];
-
-    public static bool TryGetValue(string key, out object? result)
+    public bool TryGetValue(string key, out object? result)
     {
-        bool found = PropertySet.TryGetValue(key, out object? value);
+        bool found = _settingsStorage.TryGetValue(key, out object? value);
         if (found)
         {
             result = value;
@@ -74,13 +75,16 @@ public static class SettingsService
 
     #endregion
 
-    static SettingsService()
+    private readonly IDictionary<string, object> _settingsStorage;
+
+    public SettingsService(ISettingsStorageService settingsStorageService)
     {
-        IReadOnlyList<string> userLanguages = GlobalizationPreferences.Languages;
-        DefaultSettingsDict[LanguageSettingsKey] = userLanguages[0];
+        _settingsStorage = settingsStorageService.GetSettingsStorage();
 
         // initialize settings if necessary
-        foreach (KeyValuePair<string, object> pair in DefaultSettingsDict)
+        IReadOnlyList<string> userLanguages = GlobalizationPreferences.Languages;
+        _defaultSettingsDict[LanguageSettingsKey] = userLanguages[0];
+        foreach (KeyValuePair<string, object> pair in _defaultSettingsDict)
         {
             if (!HasValue(pair.Key))
             {
@@ -98,6 +102,6 @@ public static class SettingsService
         Tuple<string, string> loadedLanguage = Languages.Find(t => languageParam.Contains(t.Item2)) ?? Languages[0];
         AppLanguage = loadedLanguage.Item2;
         Language = loadedLanguage;
-        EnableAutostart = (bool)Get(AutostartSettingsKey);
+        RunAtStartup = (bool)Get(RunAtStartupSettingsKey);
     }
 }

@@ -20,9 +20,9 @@ namespace BatteryTracker.Views
             InitializeComponent();
         }
 
-        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+        private async void HyperlinkButton_Click(object _, RoutedEventArgs _1)
         {
-            LaunchHelper.StartProcess("mailto:myfix16@outlook.com?subject=Battery%20Tracker%20Feedback");
+            await LaunchHelper.LaunchUriAsync(LaunchHelper.MailFeedbackUri);
         }
     }
 }

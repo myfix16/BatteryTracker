@@ -5,9 +5,14 @@ namespace BatteryTracker.Services;
 
 public class ThemeSelectorService : IThemeSelectorService
 {
-    private const string SettingsKey = "AppBackgroundRequestedTheme";
+    private readonly SettingsService _settingsService;
 
     public ElementTheme Theme { get; private set; } = ElementTheme.Default;
+
+    public ThemeSelectorService(SettingsService settingsService)
+    {
+        _settingsService = settingsService;
+    }
 
     public async Task InitializeAsync()
     {
@@ -35,9 +40,9 @@ public class ThemeSelectorService : IThemeSelectorService
         await Task.CompletedTask;
     }
 
-    private static ElementTheme LoadThemeFromSettings()
+    private ElementTheme LoadThemeFromSettings()
     {
-        bool found = SettingsService.TryGetValue(SettingsKey, out object? result);
+        bool found = _settingsService.TryGetValue(SettingsService.AppThemeSettingsKey, out object? result);
         if (found && result != null && Enum.TryParse((string)(result), out ElementTheme theme))
         {
             return theme;
@@ -47,8 +52,8 @@ public class ThemeSelectorService : IThemeSelectorService
         return ElementTheme.Default;
     }
 
-    private static void SaveThemeToSettings(ElementTheme theme)
+    private void SaveThemeToSettings(ElementTheme theme)
     {
-        SettingsService.Set(SettingsKey, Enum.GetName(theme)!);
+        _settingsService.Set(SettingsService.AppThemeSettingsKey, Enum.GetName(theme)!);
     }
 }

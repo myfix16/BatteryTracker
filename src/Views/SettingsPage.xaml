@@ -98,7 +98,7 @@
                 <labs:SettingsCard 
                     x:Uid="Settings_RunAtStartUp"
                     HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xE7E8;}">
-                    <ToggleSwitch IsOn="{x:Bind ViewModel.EnableAutostart, Mode=TwoWay}" />
+                    <ToggleSwitch IsOn="{x:Bind ViewModel.RunAtStartup, Mode=TwoWay}" />
                 </labs:SettingsCard>
             </controls:SettingsGroup>
 

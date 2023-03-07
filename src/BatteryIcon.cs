@@ -30,7 +30,7 @@ public partial class BatteryIcon : IDisposable
 
     private bool _trayIconEventsRegistered;
 
-    private readonly DispatcherQueue _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
+    private DispatcherQueue? _dispatcherQueue;
 
     private static readonly Dictionary<double, int> DpiFontSizeMap = new()
     {
@@ -71,6 +71,7 @@ public partial class BatteryIcon : IDisposable
     }
 
     public bool EnableFullyChargedNotification;
+
     private int _lowPowerNotificationThreshold;
     private int _highPowerNotificationThreshold;
 
@@ -81,6 +82,8 @@ public partial class BatteryIcon : IDisposable
 
     public async Task InitAsync(TaskbarIcon icon)
     {
+        _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
+
         _trayIcon = icon;
         _trayIcon.ForceCreate(true);
 
@@ -110,7 +113,7 @@ public partial class BatteryIcon : IDisposable
     public async Task AdaptToDpiChange(double rastScale)
     {
         double scale = DpiFontSizeMap.Keys.MinBy(d => Math.Abs(d - rastScale));
-        await _dispatcherQueue.EnqueueAsync(() =>
+        await _dispatcherQueue!.EnqueueAsync(() =>
         {
             if (_trayIcon?.GeneratedIcon != null)
             {
@@ -194,7 +197,7 @@ public partial class BatteryIcon : IDisposable
         _chargedPercent = PowerManager.RemainingChargePercent;
         string newPercentText = _chargedPercent == 100 ? "F" : $"{_chargedPercent}";
         // Use a DispatcherQueue to execute UI related code on the main UI thread. Otherwise you may get an exception.
-        await _dispatcherQueue.EnqueueAsync(() =>
+        await _dispatcherQueue!.EnqueueAsync(() =>
         {
             if (_trayIcon?.GeneratedIcon != null)
             {
@@ -211,7 +214,7 @@ public partial class BatteryIcon : IDisposable
             return;
         }
 
-        await _dispatcherQueue.EnqueueAsync(() =>
+        await _dispatcherQueue!.EnqueueAsync(() =>
         {
             Brush newForeground = ShouldSystemUseDarkMode() ? White : Black;
 

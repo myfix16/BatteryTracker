@@ -14,7 +14,7 @@ public sealed partial class SettingsPage : Page
         InitializeComponent();
     }
 
-    private async void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+    private async void HyperlinkButton_Click(object _, RoutedEventArgs _1)
     {
         await LaunchHelper.LaunchUriAsync(LaunchHelper.ColorsSettingsUri);
     }

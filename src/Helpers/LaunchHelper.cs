@@ -8,10 +8,11 @@ namespace BatteryTracker.Helpers
         public const string GitHubRepoUri = "https://github.com/myfix16/BatteryTracker";
         public const string GitHubNewIssueUri = "https://github.com/myfix16/BatteryTracker/issues/new/choose";
         public const string PrivacyStatementUri = "https://github.com/myfix16/BatteryTracker/blob/main/Privacy.md";
+        public const string MailFeedbackUri = "mailto:myfix16@outlook.com?subject=Battery%20Tracker%20Feedback";
 
-        public static void StartProcess(string process)
+        public static Process? StartProcess(string process)
         {
-            Process.Start(new ProcessStartInfo(process) { UseShellExecute = true });
+            return Process.Start(new ProcessStartInfo(process) { UseShellExecute = true });
         }
 
         public static async Task<bool> LaunchUriAsync(string uri)
