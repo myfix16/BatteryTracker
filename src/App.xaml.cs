@@ -27,6 +27,8 @@ public partial class App : Application
 {
     public static MainWindow MainWindow { get; } = new();
 
+    public bool HasLaunched { get; internal set; }
+
     private BatteryIcon? _batteryIcon;
     private readonly ILogger<App> _logger;
     private readonly INavigationService _navigationService;
@@ -60,12 +62,11 @@ public partial class App : Application
             .ConfigureServices((context, services) =>
             {
                 // Default Activation Handler
-                services.AddTransient<ActivationHandler<LaunchActivatedEventArgs>, DefaultActivationHandler>();
+                services.AddTransient<ActivationHandler<AppActivationArguments>, DefaultActivationHandler>();
 
                 // Other Activation Handlers
                 services.AddTransient<IActivationHandler, LaunchActivationHandler>();
                 services.AddTransient<IActivationHandler, AppNotificationActivationHandler>();
-                services.AddTransient<IActivationHandler, AppActivationHandler>();
 
                 // Services
                 services.AddSingleton<IAppNotificationService, AppNotificationService>();
@@ -121,10 +122,10 @@ public partial class App : Application
 
     protected override async void OnLaunched(LaunchActivatedEventArgs args)
     {
-        var activationArgs = AppInstance.GetCurrent().GetActivatedEventArgs();
+        AppActivationArguments activationArgs = AppInstance.GetCurrent().GetActivatedEventArgs();
         _logger.LogInformation($"App launched with activation kind: {activationArgs.Kind}");
 
-        await GetService<IActivationService>().ActivateAsync(args);
+        await GetService<IActivationService>().ActivateAsync(activationArgs);
 
         MainWindow.AppWindow.Closing += AppWindow_Closing;
 

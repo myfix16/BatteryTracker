@@ -3,7 +3,7 @@ using Windows.UI.Popups;
 
 namespace BatteryTracker.Helpers
 {
-    internal static class AutoStartHelper
+    internal static class StartupHelper
     {
         private const string StartupTaskName = "BatteryTrackerStartupTask";
 

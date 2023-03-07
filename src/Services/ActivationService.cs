@@ -4,17 +4,18 @@ using BatteryTracker.Activation;
 using BatteryTracker.Contracts.Services;
 using BatteryTracker.Views;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.Windows.AppLifecycle;
 
 namespace BatteryTracker.Services;
 
 public class ActivationService : IActivationService
 {
-    private readonly ActivationHandler<LaunchActivatedEventArgs> _defaultHandler;
+    private readonly ActivationHandler<AppActivationArguments> _defaultHandler;
     private readonly IEnumerable<IActivationHandler> _activationHandlers;
     private readonly IThemeSelectorService _themeSelectorService;
     private UIElement? _shell;
 
-    public ActivationService(ActivationHandler<LaunchActivatedEventArgs> defaultHandler, IEnumerable<IActivationHandler> activationHandlers, IThemeSelectorService themeSelectorService)
+    public ActivationService(ActivationHandler<AppActivationArguments> defaultHandler, IEnumerable<IActivationHandler> activationHandlers, IThemeSelectorService themeSelectorService)
     {
         _defaultHandler = defaultHandler;
         _activationHandlers = activationHandlers;
@@ -33,6 +34,9 @@ public class ActivationService : IActivationService
             App.MainWindow.Content = _shell ?? new Frame();
         }
 
+        // todo: Refactor activation handlers to handle AppActivationArguments
+        // retrieved by AppInstance.GetCurrent().GetActivatedEventArgs()
+
         // Handle activation via ActivationHandlers.
         await HandleActivationAsync(activationArgs);
 
@@ -48,8 +52,7 @@ public class ActivationService : IActivationService
         {
             await activationHandler.HandleAsync(activationArgs);
         }
-
-        if (_defaultHandler.CanHandle(activationArgs))
+        else if (_defaultHandler.CanHandle(activationArgs))
         {
             await _defaultHandler.HandleAsync(activationArgs);
         }

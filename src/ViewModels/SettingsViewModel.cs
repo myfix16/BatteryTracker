@@ -122,14 +122,14 @@ public class SettingsViewModel : ObservableRecipient
             SetProperty(ref SettingsService.EnableAutostart, value);
             Task.Run(async () =>
             {
-                bool isRunAtStartup = await AutoStartHelper.IsRunAtStartup();
+                bool isRunAtStartup = await StartupHelper.IsRunAtStartup();
                 bool needChange = value != isRunAtStartup;
                 if (needChange)
                 {
                     bool success = value switch
                     {
-                        true => await AutoStartHelper.EnableStartup(),
-                        false => await AutoStartHelper.DisableStartup()
+                        true => await StartupHelper.EnableStartup(),
+                        false => await StartupHelper.DisableStartup()
                     };
 
                     if (success)
