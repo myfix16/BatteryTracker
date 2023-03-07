@@ -5,10 +5,13 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{DF232D98-0EEC-4D7C-8B98-2613B8412726}"
 	ProjectSection(SolutionItems) = preProject
+		Privacy.md = Privacy.md
 		Readme.md = Readme.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BatteryTracker", "src\BatteryTracker.csproj", "{D3E4014A-5A7D-44B7-BFC1-75D7FDFE6B1A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BatteryTracker.Tests.UnitTests", "Tests\BatteryTracker.Tests.UnitTests\BatteryTracker.Tests.UnitTests.csproj", "{62C16DC2-CFE0-476E-9F70-49123031249D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,6 +49,22 @@ Global
 		{D3E4014A-5A7D-44B7-BFC1-75D7FDFE6B1A}.Release|x86.ActiveCfg = Release|x86
 		{D3E4014A-5A7D-44B7-BFC1-75D7FDFE6B1A}.Release|x86.Build.0 = Release|x86
 		{D3E4014A-5A7D-44B7-BFC1-75D7FDFE6B1A}.Release|x86.Deploy.0 = Release|x86
+		{62C16DC2-CFE0-476E-9F70-49123031249D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62C16DC2-CFE0-476E-9F70-49123031249D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62C16DC2-CFE0-476E-9F70-49123031249D}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{62C16DC2-CFE0-476E-9F70-49123031249D}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{62C16DC2-CFE0-476E-9F70-49123031249D}.Debug|x64.ActiveCfg = Debug|x64
+		{62C16DC2-CFE0-476E-9F70-49123031249D}.Debug|x64.Build.0 = Debug|x64
+		{62C16DC2-CFE0-476E-9F70-49123031249D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{62C16DC2-CFE0-476E-9F70-49123031249D}.Debug|x86.Build.0 = Debug|Any CPU
+		{62C16DC2-CFE0-476E-9F70-49123031249D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62C16DC2-CFE0-476E-9F70-49123031249D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62C16DC2-CFE0-476E-9F70-49123031249D}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{62C16DC2-CFE0-476E-9F70-49123031249D}.Release|ARM64.Build.0 = Release|Any CPU
+		{62C16DC2-CFE0-476E-9F70-49123031249D}.Release|x64.ActiveCfg = Release|Any CPU
+		{62C16DC2-CFE0-476E-9F70-49123031249D}.Release|x64.Build.0 = Release|Any CPU
+		{62C16DC2-CFE0-476E-9F70-49123031249D}.Release|x86.ActiveCfg = Release|Any CPU
+		{62C16DC2-CFE0-476E-9F70-49123031249D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
