@@ -1,4 +1,7 @@
 ﻿## Battery Tracker
+
+### Function
+The program will show the remaining battery percentage on the taskbar.
 <table>
 	<tr>
 		<td><img src=showcase2.png border=0></td>
@@ -10,19 +13,12 @@
 	</tr>
 </table>
 
-### Function
-The program will show the remaining battery percentage on the taskbar.
-
 ### Features
 1. It will **automatically switch icon color** when user change to Light/Dark mode. ✨
 2. It can notify users when the battery life is less than a threshold or the battery is fully charged. And the notifications are customizable!
 3. Modern setting UI that fits the Operating System
-	<table>
-		<tr>
-			<td><img src=showcase3.png border=0></td>
-			<td><img src=showcase4.png border=0></td>
-		</tr>
-	</table>
+	
+	<img style="width:60%;" src=showcase5.png />
 
 ### Prerequisites
 The application requires **.NET 7 Desktop Runtime** and **Windows App SDK Runtime**. If you install from Microsoft Store, dependencies will be automatically installed. 
