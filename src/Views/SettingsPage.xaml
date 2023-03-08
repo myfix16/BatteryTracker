@@ -14,7 +14,7 @@
         <converters:EnumToIntConverter x:Key="EnumToIntConverter" />
     </Page.Resources>
 
-    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0 0 24 0">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0 0 36 0">
         <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
             <!--Notification settings-->
             <controls:SettingsGroup x:Uid="Settings_Notification" Margin="0 -24 0 0" >
@@ -40,10 +40,11 @@
                                 <Slider x:Name="LowPowerThresholdSlider"
                                         Value="{x:Bind ViewModel.LowPowerNotificationThreshold, Mode=TwoWay}"
                                         HorizontalAlignment="Left" VerticalAlignment="Center"
-                                        Width="200" MinWidth="100" MaxWidth="400"
-                                        TickFrequency="10" TickPlacement="BottomRight" />
+                                        Width="250" MinWidth="100" MaxWidth="400"
+                                        TickFrequency="20" TickPlacement="BottomRight" />
                                 <TextBlock Text="{x:Bind LowPowerThresholdSlider.Value, Mode=OneWay}"
-                                           Margin="10 0 0 0" VerticalAlignment="Center" />
+                                           Margin="10 0 0 0" Width="25" 
+                                           VerticalAlignment="Center" TextAlignment="Center" />
                                 <TextBlock Text="%" Margin="2 0 0 0" VerticalAlignment="Center" />
                             </StackPanel>
                         </labs:SettingsCard>
@@ -64,10 +65,11 @@
                                 <Slider x:Name="HighPowerThresholdSlider"
                                         Value="{x:Bind ViewModel.HighPowerNotificationThreshold, Mode=TwoWay}"
                                         HorizontalAlignment="Left" VerticalAlignment="Center"
-                                        Width="200" MinWidth="100" MaxWidth="400"
-                                        TickFrequency="10" TickPlacement="BottomRight" />
+                                        Width="250" MinWidth="100" MaxWidth="400"
+                                        TickFrequency="20" TickPlacement="BottomRight" />
                                 <TextBlock Text="{x:Bind HighPowerThresholdSlider.Value, Mode=OneWay}"
-                                           Margin="10 0 0 0" VerticalAlignment="Center" />
+                                           Margin="10 0 0 0" Width="25" 
+                                           VerticalAlignment="Center" TextAlignment="Center" />
                                 <TextBlock Text="%" Margin="2 0 0 0" VerticalAlignment="Center" />
                             </StackPanel>
                         </labs:SettingsCard>

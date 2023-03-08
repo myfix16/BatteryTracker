@@ -142,7 +142,7 @@
     <value>About this application</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
-    <value>Show battery remaining percentage on taskbar.</value>
+    <value>Show battery remaining percentage on taskbar</value>
   </data>
   <data name="Settings_PrivacyTerms.Header" xml:space="preserve">
     <value>Privacy Statement</value>
@@ -277,5 +277,8 @@
   </data>
   <data name="Settings_Windows_Color_Settings.Content" xml:space="preserve">
     <value>Windows color settings</value>
+  </data>
+  <data name="SettingsPage_RateTheApp.Content" xml:space="preserve">
+    <value>Rate the app</value>
   </data>
 </root>

@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BatteryTracker.Contracts.Services;
-using H.NotifyIcon.Core;
+﻿using BatteryTracker.Contracts.Services;
 using H.NotifyIcon;
 
 namespace BatteryTracker.Tests.UnitTests.Mocks
 {
-    internal class MockBatteryIcon: BatteryIcon
+    internal class MockBatteryIcon : BatteryIcon
     {
         public MockBatteryIcon(IAppNotificationService notificationService) : base(notificationService)
         {

@@ -1,10 +1,7 @@
-﻿using System.Diagnostics;
-using BatteryTracker.Helpers;
-using BatteryTracker.Services;
+﻿using BatteryTracker.Services;
 using BatteryTracker.Tests.UnitTests.Mocks;
 using BatteryTracker.ViewModels;
 using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Controls;
 
 namespace BatteryTracker.Tests.UnitTests.ViewModelsTests;
 

@@ -150,7 +150,7 @@ public class SettingsViewModel : ObservableRecipient
 
     public List<Tuple<string, string>> Languages => SettingsService.Languages;
 
-    public SettingsViewModel(BatteryIcon icon, IThemeSelectorService themeSelectorService, 
+    public SettingsViewModel(BatteryIcon icon, IThemeSelectorService themeSelectorService,
         ILogger<SettingsViewModel> logger, SettingsService settingsService)
     {
         // initialize service references

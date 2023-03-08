@@ -35,7 +35,7 @@ namespace BatteryTracker.ViewModels
 
         public AboutViewModel()
         {
-            const int copiedMessageDisplayTime = 1500;
+            const int copiedMessageDisplayTime = 2000;
 
             VersionDescription = GetVersionDescription();
 

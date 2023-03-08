@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using Windows.Foundation.Collections;
-using Windows.Storage;
-using Windows.System.UserProfile;
 using BatteryTracker.Contracts.Services;
+using Windows.System.UserProfile;
 
 namespace BatteryTracker.Services;
 

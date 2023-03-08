@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using BatteryTracker.Helpers;
+﻿using BatteryTracker.Helpers;
 
 namespace BatteryTracker.Tests.UnitTests.ModelsTests;
 
@@ -39,9 +38,17 @@ public class LaunchHelperTest
     }
 
     [TestMethod]
-    public async Task TestLaunchHelperLaunchMailFeedback()
+    public async Task TestLaunchHelperLaunchEmailFeedback()
     {
-        bool result = await LaunchHelper.LaunchUriAsync(LaunchHelper.MailFeedbackUri);
+        bool result = await LaunchHelper.LaunchUriAsync(LaunchHelper.EmailFeedbackUri);
+        Assert.IsTrue(result);
+        await Task.Delay(5000);
+    }
+
+    [TestMethod]
+    public async Task TestLaunchHelperLaunchStoreRating()
+    {
+        bool result = await LaunchHelper.LaunchUriAsync(LaunchHelper.StoreRatingUri);
         Assert.IsTrue(result);
         await Task.Delay(5000);
     }

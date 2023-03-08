@@ -7,12 +7,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:helpers="using:BatteryTracker.Helpers"
     xmlns:controls="using:BatteryTracker.Controls"
     xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:ui="using:CommunityToolkit.WinUI.UI"
     mc:Ignorable="d">
 
-    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0 0 24 0">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0 0 36 0">
         <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
             <!--Version-->
             <controls:SettingsGroup x:Uid="Settings_Version" Margin="0 -24 0 0">
@@ -58,14 +59,15 @@
                     x:Uid="Settings_Feedback"
                     HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xED15;}">
                     <labs:SettingsCard.Description>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Spacing="2">
                             <HyperlinkButton x:Uid="SettingsPage_GitHubIssuesLink"
-                                             NavigateUri="https://github.com/myfix16/BatteryTracker/issues/new/choose"
-                                             ToolTipService.ToolTip="https://github.com/myfix16/BatteryTracker/issues/new/choose" />
+                                             NavigateUri="https://github.com/myfix16/BatteryTracker/issues/new/choose" />
                             <TextBlock Text="|" />
                             <HyperlinkButton x:Uid="SettingsPage_EmailLink"
-                                             Click="HyperlinkButton_Click"
-                                             ToolTipService.ToolTip="mailto:myfix16@outlook.com" />
+                                             Click="EmailFeedbackHyperlinkButton_Click" />
+                            <TextBlock Text="|" />
+                            <HyperlinkButton x:Uid="SettingsPage_RateTheApp"
+                                             Click="RateTheAppHyperlinkButton_Click" />
                         </StackPanel>
                     </labs:SettingsCard.Description>
                 </labs:SettingsCard>

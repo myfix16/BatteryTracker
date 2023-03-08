@@ -1,8 +1,7 @@
 ﻿using System.Diagnostics;
+using BatteryTracker.Helpers;
 using Microsoft.Windows.AppLifecycle;
 using Microsoft.Windows.AppNotifications;
-using Windows.System;
-using BatteryTracker.Helpers;
 
 namespace BatteryTracker.Activation;
 

@@ -278,4 +278,7 @@
   <data name="Settings_Windows_Color_Settings.Content" xml:space="preserve">
     <value>Windows 颜色设置</value>
   </data>
+  <data name="SettingsPage_RateTheApp.Content" xml:space="preserve">
+    <value>评价本应用</value>
+  </data>
 </root>

@@ -20,9 +20,14 @@ namespace BatteryTracker.Views
             InitializeComponent();
         }
 
-        private async void HyperlinkButton_Click(object _, RoutedEventArgs _1)
+        private async void EmailFeedbackHyperlinkButton_Click(object _, RoutedEventArgs _1)
         {
-            await LaunchHelper.LaunchUriAsync(LaunchHelper.MailFeedbackUri);
+            await LaunchHelper.LaunchUriAsync(LaunchHelper.EmailFeedbackUri);
+        }
+
+        private async void RateTheAppHyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            await LaunchHelper.LaunchUriAsync(LaunchHelper.StoreRatingUri);
         }
     }
 }

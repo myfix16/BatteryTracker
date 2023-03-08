@@ -14,12 +14,17 @@
               Canvas.ZIndex="1"
               Height="{Binding ElementName=NavigationViewControl, Path=CompactPaneLength}"
               IsHitTestVisible="True"
-              VerticalAlignment="Top">
+              VerticalAlignment="Top"
+              ColumnDefinitions="24, *">
+            <BitmapIcon Grid.Column="0" 
+                        UriSource="ms-appx:///Assets/Logo.ico" 
+                        Width="24" />
             <TextBlock x:Name="AppTitleBarText"
-                       VerticalAlignment="Center"
-                       TextWrapping="NoWrap"
-                       Style="{StaticResource CaptionTextBlockStyle}"
-                       Margin="28,0,0,0"/>
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    TextWrapping="NoWrap"
+                    Style="{StaticResource CaptionTextBlockStyle}"
+                    Margin="8,0,0,0"/>
         </Grid>
         <NavigationView
             x:Name="NavigationViewControl"
@@ -29,6 +34,7 @@
             SelectedItem="{x:Bind ViewModel.Selected, Mode=OneWay}"
             IsSettingsVisible="False"
             PaneDisplayMode="Auto"
+            OpenPaneLength="240"
             DisplayModeChanged="NavigationViewControl_DisplayModeChanged"
             Header="{x:Bind ((ContentControl)ViewModel.Selected).Content, Mode=OneWay}">
             <NavigationView.MenuItems>
@@ -49,7 +55,8 @@
                 </DataTemplate>
             </NavigationView.HeaderTemplate>
             <NavigationView.FooterMenuItems>
-                <NavigationViewItem x:Uid="Shell_About" helpers:NavigationHelper.NavigateTo="BatteryTracker.ViewModels.AboutViewModel">
+                <NavigationViewItem x:Uid="Shell_About" 
+                                    helpers:NavigationHelper.NavigateTo="BatteryTracker.ViewModels.AboutViewModel">
                     <NavigationViewItem.Icon>
                         <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe946;"/>
                     </NavigationViewItem.Icon>
@@ -60,7 +67,7 @@
                     DefaultHeader="{x:Bind ((ContentControl)ViewModel.Selected).Content, Mode=OneWay, FallbackValue=Null}">
                     <behaviors:NavigationViewHeaderBehavior.DefaultHeaderTemplate>
                         <DataTemplate>
-                            <Grid Margin="-32 0 0 0">
+                            <Grid Margin="-20 0 0 0">
                                 <TextBlock
                                     Text="{Binding}"
                                     Style="{ThemeResource TitleTextBlockStyle}" />

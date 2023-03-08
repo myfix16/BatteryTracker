@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using BatteryTracker.Contracts.Services;
 using Windows.Storage;
 
 namespace BatteryTracker.Services
 {
-    internal class AppLocalSettingsStorageService: ISettingsStorageService
+    internal class AppLocalSettingsStorageService : ISettingsStorageService
     {
         public IDictionary<string, object> GetSettingsStorage()
         {

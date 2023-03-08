@@ -1,11 +1,11 @@
 ﻿using System.Linq;
 using BatteryTracker.Contracts.Services;
+using BatteryTracker.Helpers;
 using BatteryTracker.ViewModels;
+using Microsoft.Extensions.Logging;
 using Microsoft.Windows.AppLifecycle;
 using Windows.ApplicationModel.Activation;
-using Microsoft.Extensions.Logging;
 using WinUIEx;
-using BatteryTracker.Helpers;
 
 namespace BatteryTracker.Activation;
 

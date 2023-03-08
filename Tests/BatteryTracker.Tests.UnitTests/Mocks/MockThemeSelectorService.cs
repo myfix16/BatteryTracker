@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BatteryTracker.Contracts.Services;
+﻿using BatteryTracker.Contracts.Services;
 using BatteryTracker.Services;
 using Microsoft.UI.Xaml;
 
 namespace BatteryTracker.Tests.UnitTests.Mocks
 {
-    internal class MockThemeSelectorService: IThemeSelectorService
+    internal class MockThemeSelectorService : IThemeSelectorService
     {
         public ElementTheme Theme { get; private set; } = ElementTheme.Default;
 
