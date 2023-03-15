@@ -9,7 +9,7 @@ using WinUIEx;
 
 namespace BatteryTracker.Activation;
 
-public class LaunchActivationHandler : ActivationHandler<AppActivationArguments>
+public sealed class LaunchActivationHandler : ActivationHandler<AppActivationArguments>
 {
     public const string OpenSettingsCommandArg = "--open-settings";
 

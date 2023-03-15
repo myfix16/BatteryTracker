@@ -11,7 +11,7 @@ using Windows.System;
 
 namespace BatteryTracker.ViewModels
 {
-    public class AboutViewModel : ObservableRecipient
+    public sealed class AboutViewModel : ObservableRecipient
     {
         private bool _showCopiedMessage;
 

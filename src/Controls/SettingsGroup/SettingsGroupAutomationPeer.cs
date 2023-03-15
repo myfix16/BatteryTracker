@@ -6,7 +6,7 @@ using Microsoft.UI.Xaml.Automation.Peers;
 
 namespace BatteryTracker.Controls
 {
-    public class SettingsGroupAutomationPeer : FrameworkElementAutomationPeer
+    public sealed class SettingsGroupAutomationPeer : FrameworkElementAutomationPeer
     {
         public SettingsGroupAutomationPeer(SettingsGroup owner) : base(owner)
         {

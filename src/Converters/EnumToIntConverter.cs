@@ -2,7 +2,7 @@
 
 namespace BatteryTracker.Converters;
 
-public class EnumToIntConverter : IValueConverter
+public sealed class EnumToIntConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, string language)
     {

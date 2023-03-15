@@ -4,7 +4,7 @@ using Microsoft.UI.Xaml.Navigation;
 
 namespace BatteryTracker.ViewModels;
 
-public class ShellViewModel : ObservableRecipient
+public sealed class ShellViewModel : ObservableRecipient
 {
     private bool _isBackEnabled;
     private object? _selected;

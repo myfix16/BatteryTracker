@@ -4,7 +4,7 @@ using Windows.System.UserProfile;
 
 namespace BatteryTracker.Services;
 
-public class SettingsService
+public sealed class SettingsService
 {
     #region Setting Keys
 

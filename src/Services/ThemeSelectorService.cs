@@ -3,7 +3,7 @@ using BatteryTracker.Helpers;
 
 namespace BatteryTracker.Services;
 
-public class ThemeSelectorService : IThemeSelectorService
+public sealed class ThemeSelectorService : IThemeSelectorService
 {
     private readonly SettingsService _settingsService;
 

@@ -8,7 +8,7 @@ using Microsoft.Windows.AppLifecycle;
 
 namespace BatteryTracker.Services;
 
-public class ActivationService : IActivationService
+public sealed class ActivationService : IActivationService
 {
     private readonly ActivationHandler<AppActivationArguments> _defaultHandler;
     private readonly IEnumerable<IActivationHandler> _activationHandlers;

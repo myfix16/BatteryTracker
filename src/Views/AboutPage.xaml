@@ -11,7 +11,8 @@
     xmlns:controls="using:BatteryTracker.Controls"
     xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:ui="using:CommunityToolkit.WinUI.UI"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    NavigationCacheMode="Required">
 
     <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0 0 36 0">
         <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">

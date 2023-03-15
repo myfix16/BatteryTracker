@@ -4,7 +4,7 @@ using Windows.Storage;
 
 namespace BatteryTracker.Services
 {
-    internal class AppLocalSettingsStorageService : ISettingsStorageService
+    internal sealed class AppLocalSettingsStorageService : ISettingsStorageService
     {
         public IDictionary<string, object> GetSettingsStorage()
         {

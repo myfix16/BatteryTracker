@@ -9,6 +9,7 @@ using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.Windows.System.Power;
 using Windows.UI.ViewManagement;
+using Microsoft.Extensions.Logging;
 using Brush = Microsoft.UI.Xaml.Media.Brush;
 using Color = Windows.UI.Color;
 
@@ -22,6 +23,7 @@ public partial class BatteryIcon : IDisposable
     private TaskbarIcon? _trayIcon;
     private readonly UISettings _settings = new();
     private readonly IAppNotificationService _notificationService;
+    private readonly ILogger<BatteryIcon> _logger;
 
     private int _chargedPercent;
 
@@ -45,6 +47,7 @@ public partial class BatteryIcon : IDisposable
         { 3.5, 23 },
     };
 
+    // todo: [Code quality] change public fields to properties
     // notification settings
     public bool EnableLowPowerNotification;
 
@@ -75,9 +78,10 @@ public partial class BatteryIcon : IDisposable
     private int _lowPowerNotificationThreshold;
     private int _highPowerNotificationThreshold;
 
-    public BatteryIcon(IAppNotificationService notificationService)
+    public BatteryIcon(IAppNotificationService notificationService, ILogger<BatteryIcon> logger)
     {
         _notificationService = notificationService;
+        _logger = logger;
     }
 
     public async Task InitAsync(TaskbarIcon icon)
@@ -89,10 +93,9 @@ public partial class BatteryIcon : IDisposable
 
         // init percentage and color
         await UpdateTrayIconPercent();
-        OnThemeChanged(_settings, null);
+        await UpdateTrayIconTheme();
 
         RegisterTrayIconEvents();
-
         // register display events
         PowerManager.DisplayStatusChanged += PowerManager_DisplayStatusChanged;
     }
@@ -108,6 +111,8 @@ public partial class BatteryIcon : IDisposable
         PowerManager.DisplayStatusChanged -= PowerManager_DisplayStatusChanged;
 
         _trayIcon?.Dispose();
+
+        GC.SuppressFinalize(this);
     }
 
     public async Task AdaptToDpiChange(double rastScale)
@@ -128,16 +133,26 @@ public partial class BatteryIcon : IDisposable
         switch (displayStatus)
         {
             case DisplayStatus.Off:
-                if (_trayIconEventsRegistered) UnregisterTrayIconEvents();
+                if (_trayIconEventsRegistered)
+                {
+                    UnregisterTrayIconEvents();
+                    _logger.LogInformation("Display off, unregister power events");
+                }
                 break;
             case DisplayStatus.On:
-                if (!_trayIconEventsRegistered) RegisterTrayIconEvents();
+                if (!_trayIconEventsRegistered)
+                {
+                    RegisterTrayIconEvents();
+                    _logger.LogInformation("Display on, register power events");
+                }
                 await UpdateTrayIconPercent();
+                await UpdateTrayIconTheme();
                 break;
             case DisplayStatus.Dimmed:
                 break;
             default:
-                throw new ArgumentOutOfRangeException($"Invalid display status: {displayStatus}");
+                _logger.LogWarning($"Invalid display status: {displayStatus}");
+                break;
         }
     }
 
@@ -157,6 +172,8 @@ public partial class BatteryIcon : IDisposable
         // unregister theme events
         _settings.ColorValuesChanged -= OnThemeChanged;
         _trayIconEventsRegistered = false;
+
+        // ! note: cannot add display status events here
     }
 
     private async void OnRemainingChargePercentChanged(object? _, object? eventArg)
@@ -208,6 +225,11 @@ public partial class BatteryIcon : IDisposable
     }
 
     private async void OnThemeChanged(UISettings sender, object? _)
+    {
+        await UpdateTrayIconTheme();
+    }
+
+    private async Task UpdateTrayIconTheme()
     {
         if (_trayIcon is null)
         {

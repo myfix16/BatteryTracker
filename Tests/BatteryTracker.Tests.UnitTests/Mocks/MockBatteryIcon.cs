@@ -1,11 +1,13 @@
 ﻿using BatteryTracker.Contracts.Services;
 using H.NotifyIcon;
+using Microsoft.Extensions.Logging;
 
 namespace BatteryTracker.Tests.UnitTests.Mocks
 {
     internal class MockBatteryIcon : BatteryIcon
     {
-        public MockBatteryIcon(IAppNotificationService notificationService) : base(notificationService)
+        public MockBatteryIcon(IAppNotificationService notificationService, ILogger<MockBatteryIcon> logger) 
+            : base(notificationService, logger)
         {
         }
 

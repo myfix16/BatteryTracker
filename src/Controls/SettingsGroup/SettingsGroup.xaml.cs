@@ -14,7 +14,7 @@ namespace BatteryTracker.Controls
     [TemplateVisualState(Name = "Normal", GroupName = "CommonStates")]
     [TemplateVisualState(Name = "Disabled", GroupName = "CommonStates")]
     [TemplatePart(Name = PartDescriptionPresenter, Type = typeof(ContentPresenter))]
-    public partial class SettingsGroup : ItemsControl
+    public sealed class SettingsGroup : ItemsControl
     {
         private const string PartDescriptionPresenter = "DescriptionPresenter";
         private ContentPresenter? _descriptionPresenter;

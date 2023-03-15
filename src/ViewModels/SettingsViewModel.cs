@@ -11,7 +11,7 @@ using Windows.Globalization;
 
 namespace BatteryTracker.ViewModels;
 
-public class SettingsViewModel : ObservableRecipient
+public sealed class SettingsViewModel : ObservableRecipient
 {
     private ElementTheme _elementTheme;
 

@@ -9,6 +9,7 @@
     xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:ui="using:CommunityToolkit.WinUI.UI"
     AutomationProperties.LandmarkType="Main"
+    NavigationCacheMode="Required"
     mc:Ignorable="d">
     <Page.Resources>
         <converters:EnumToIntConverter x:Key="EnumToIntConverter" />

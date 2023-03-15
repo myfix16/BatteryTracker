@@ -1,6 +1,7 @@
 ﻿using BatteryTracker.Services;
 using BatteryTracker.Tests.UnitTests.Mocks;
 using BatteryTracker.ViewModels;
+using Microsoft.Extensions.Logging;
 using Microsoft.UI.Xaml;
 
 namespace BatteryTracker.Tests.UnitTests.ViewModelsTests;
@@ -17,10 +18,12 @@ public class SettingsViewModelTest
 
     public SettingsViewModelTest()
     {
+        ILoggerFactory loggerFactory = new LoggerFactory();
+
         _settingsService = new SettingsService(new MockSettingsStorageService());
 
         _viewModel = new SettingsViewModel(
-            new MockBatteryIcon(new MockAppNotificationService()),
+            new MockBatteryIcon(new MockAppNotificationService(), new Logger<MockBatteryIcon>(loggerFactory)),
             new MockThemeSelectorService(_settingsService),
             new MockLogger<SettingsViewModel>(),
             _settingsService

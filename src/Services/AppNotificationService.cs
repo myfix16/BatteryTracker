@@ -6,7 +6,7 @@ using Microsoft.Windows.AppNotifications.Builder;
 
 namespace BatteryTracker.Services;
 
-public class AppNotificationService : IAppNotificationService
+public sealed class AppNotificationService : IAppNotificationService
 {
     ~AppNotificationService()
     {
@@ -23,16 +23,16 @@ public class AppNotificationService : IAppNotificationService
     /// <summary>
     /// Handle notification invocations when the app is already running.
     /// </summary>
-    public static void OnNotificationInvoked(AppNotificationManager sender, AppNotificationActivatedEventArgs args)
-    {
-        // App.MainWindow.DispatcherQueue.TryEnqueue(() =>
-        // {
-        //     App.MainWindow.ShowMessageDialogAsync("Handle notification invocations when your app is already running.", "Notification Invoked");
-        //
-        //     App.MainWindow.BringToFront();
-        // });
-
-    }
+    // public static void OnNotificationInvoked(AppNotificationManager sender, AppNotificationActivatedEventArgs args)
+    // {
+    //     App.MainWindow.DispatcherQueue.TryEnqueue(() =>
+    //     {
+    //         App.MainWindow.ShowMessageDialogAsync("Handle notification invocations when your app is already running.", "Notification Invoked");
+    //     
+    //         App.MainWindow.BringToFront();
+    //     });
+    //
+    // }
 
     public bool Show(string payload)
     {

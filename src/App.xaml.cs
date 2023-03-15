@@ -23,7 +23,7 @@ namespace BatteryTracker;
 /// <summary>
 /// Provides application-specific behavior to supplement the default Application class.
 /// </summary>
-public partial class App : Application
+public sealed partial class App : Application
 {
     public static MainWindow MainWindow { get; } = new();
 
@@ -155,6 +155,7 @@ public partial class App : Application
 
     private void ExitApplicationCommand_ExecuteRequested(object? _, ExecuteRequestedEventArgs args)
     {
+        _logger.LogInformation("User quits the app");
         _batteryIcon?.Dispose();
         Exit();
     }
