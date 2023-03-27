@@ -4,7 +4,7 @@ using Windows.System.UserProfile;
 
 namespace BatteryTracker.Services;
 
-internal sealed class JsonSettingsService : BaseJsonSettingsService, ISettingsService
+internal sealed class SettingsService : BaseJsonSettingsService, ISettingsService
 {
     #region Setting Keys
 
@@ -140,7 +140,7 @@ internal sealed class JsonSettingsService : BaseJsonSettingsService, ISettingsSe
 
     #endregion
 
-    public JsonSettingsService(ISettingsStorageService settingsStorageService)
+    public SettingsService(ISettingsStorageService settingsStorageService)
         : base(settingsStorageService)
     {
         IReadOnlyList<string> userLanguages = GlobalizationPreferences.Languages;

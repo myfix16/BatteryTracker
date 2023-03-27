@@ -72,6 +72,7 @@ public partial class BatteryIcon : IDisposable
     private static readonly Brush Black = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
 
     private TaskbarIcon? _trayIcon;
+    private GeneratedIconSource? _iconSource;
     private readonly UISettings _settings = new();
     private readonly IAppNotificationService _notificationService;
     private readonly ILogger<BatteryIcon> _logger;
@@ -99,6 +100,7 @@ public partial class BatteryIcon : IDisposable
 
         _trayIcon = icon;
         _trayIcon.ForceCreate(true);
+        _iconSource = (GeneratedIconSource)_trayIcon.IconSource;
 
         // init percentage and color
         await UpdateTrayIconPercent();
@@ -129,9 +131,10 @@ public partial class BatteryIcon : IDisposable
         double scale = DpiFontSizeMap.Keys.MinBy(d => Math.Abs(d - rastScale));
         await _dispatcherQueue!.EnqueueAsync(() =>
         {
-            if (_trayIcon?.GeneratedIcon != null)
+            if (_iconSource != null)
             {
-                _trayIcon.GeneratedIcon.FontSize = DpiFontSizeMap[scale];
+                _iconSource.FontSize = DpiFontSizeMap[scale];
+                _trayIcon!.UpdateIcon(_iconSource.ToIcon());
             }
         });
     }
@@ -221,13 +224,14 @@ public partial class BatteryIcon : IDisposable
     private async Task<int> UpdateTrayIconPercent()
     {
         _chargedPercent = PowerManager.RemainingChargePercent;
-        string newPercentText = _chargedPercent == 100 ? "F" : $"{_chargedPercent}";
+        string newPercentText = _chargedPercent == 100 ? " F" : $"{_chargedPercent}";
         // Use a DispatcherQueue to execute UI related code on the main UI thread. Otherwise you may get an exception.
         await _dispatcherQueue!.EnqueueAsync(() =>
         {
-            if (_trayIcon?.GeneratedIcon != null)
+            if (_iconSource != null)
             {
-                _trayIcon.GeneratedIcon.Text = newPercentText;
+                _iconSource.Text = newPercentText;
+                _trayIcon!.UpdateIcon(_iconSource.ToIcon());
             }
         });
         return _chargedPercent;
@@ -249,9 +253,10 @@ public partial class BatteryIcon : IDisposable
         {
             Brush newForeground = ShouldSystemUseDarkMode() ? White : Black;
 
-            if (_trayIcon.GeneratedIcon != null)
+            if (_iconSource != null)
             {
-                _trayIcon.GeneratedIcon.Foreground = newForeground;
+                _iconSource.Foreground = newForeground;
+                _trayIcon!.UpdateIcon(_iconSource.ToIcon());
             }
         });
     }

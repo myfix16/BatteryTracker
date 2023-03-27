@@ -34,9 +34,6 @@ public sealed class ActivationService : IActivationService
             App.MainWindow.Content = _shell ?? new Frame();
         }
 
-        // todo: Refactor activation handlers to handle AppActivationArguments
-        // retrieved by AppInstance.GetCurrent().GetActivatedEventArgs()
-
         // Handle activation via ActivationHandlers.
         await HandleActivationAsync(activationArgs);
 

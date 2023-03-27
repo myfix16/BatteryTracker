@@ -77,7 +77,7 @@ public sealed partial class App : Application
                 services.AddSingleton<IPageService, PageService>();
                 services.AddSingleton<INavigationService, NavigationService>();
                 services.AddSingleton<ISettingsStorageService, AppLocalSettingsStorageService>();
-                services.AddSingleton<ISettingsService, JsonSettingsService>();
+                services.AddSingleton<ISettingsService, SettingsService>();
                 services.AddTransient<INavigationViewService, NavigationViewService>();
 
                 // Views and ViewModels
