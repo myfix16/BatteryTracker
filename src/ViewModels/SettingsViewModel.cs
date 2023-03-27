@@ -3,7 +3,6 @@ using System.Windows.Input;
 using BatteryTracker.Activation;
 using BatteryTracker.Contracts.Services;
 using BatteryTracker.Helpers;
-using BatteryTracker.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.Logging;
@@ -13,16 +12,6 @@ namespace BatteryTracker.ViewModels;
 
 public sealed class SettingsViewModel : ObservableRecipient
 {
-    private ElementTheme _elementTheme;
-
-    private bool _languageChanged;
-
-    // service reference
-    private readonly BatteryIcon _batteryIcon;
-    private readonly ILogger<SettingsViewModel> _logger;
-    private readonly IThemeSelectorService _themeService;
-    private readonly SettingsService _settingsService;
-
     public ElementTheme ElementTheme
     {
         get => _elementTheme;
@@ -40,86 +29,87 @@ public sealed class SettingsViewModel : ObservableRecipient
     public ICommand NotificationCommand { get; }
 #endif
 
+    private bool _enableFullyChargedNotification;
     public bool EnableFullyChargedNotification
     {
         get => _settingsService.EnableFullyChargedNotification;
         set
         {
-            SetProperty(ref _settingsService.EnableFullyChargedNotification, value);
+            SetProperty(ref _enableFullyChargedNotification, value);
             _batteryIcon.EnableFullyChargedNotification = value;
-            _settingsService.Set(SettingsService.FullyChargedNotificationSettingsKey, value);
+            _settingsService.EnableFullyChargedNotification = value;
         }
     }
 
+    private bool _enableLowPowerNotification;
     public bool EnableLowPowerNotification
     {
         get => _settingsService.EnableLowPowerNotification;
         set
         {
-            SetProperty(ref _settingsService.EnableLowPowerNotification, value);
+            SetProperty(ref _enableLowPowerNotification, value);
             _batteryIcon.EnableLowPowerNotification = value;
-            _settingsService.Set(SettingsService.LowPowerNotificationSettingsKey, value);
+            _settingsService.EnableLowPowerNotification = value;
         }
     }
 
+    private int _lowPowerNotificationThreshold;
     public int LowPowerNotificationThreshold
     {
         get => _settingsService.LowPowerNotificationThreshold;
         set
         {
-            SetProperty(ref _settingsService.LowPowerNotificationThreshold, value);
+            SetProperty(ref _lowPowerNotificationThreshold, value);
             _batteryIcon.LowPowerNotificationThreshold = value;
-            _settingsService.Set(SettingsService.LowPowerNotificationThresholdSettingsKey, value);
+            _settingsService.LowPowerNotificationThreshold = value;
         }
     }
 
+    private bool _enableHighPowerNotification;
     public bool EnableHighPowerNotification
     {
         get => _settingsService.EnableHighPowerNotification;
         set
         {
-            SetProperty(ref _settingsService.EnableHighPowerNotification, value);
+            SetProperty(ref _enableHighPowerNotification, value);
             _batteryIcon.EnableHighPowerNotification = value;
-            _settingsService.Set(SettingsService.HighPowerNotificationSettingsKey, value);
+            _settingsService.EnableHighPowerNotification = value;
         }
     }
 
+    private int _highPowerNotificationThreshold;
     public int HighPowerNotificationThreshold
     {
         get => _settingsService.HighPowerNotificationThreshold;
         set
         {
-            SetProperty(ref _settingsService.HighPowerNotificationThreshold, value);
+            SetProperty(ref _highPowerNotificationThreshold, value);
             _batteryIcon.HighPowerNotificationThreshold = value;
-            _settingsService.Set(SettingsService.HighPowerNotificationThresholdSettingsKey, value);
+            _settingsService.HighPowerNotificationThreshold = value;
         }
     }
 
+    private Tuple<string, string> _language;
     public Tuple<string, string> Language
     {
-        get => _settingsService.Language;
+        get => _language;
         set
         {
-            LanguageChanged = value.Item2 != _settingsService.AppLanguage;
-            SetProperty(ref _settingsService.Language, value);
-            _settingsService.Set(SettingsService.LanguageSettingsKey, value.Item2);
+            LanguageChanged = value.Item2 != _appLanguage;
+            SetProperty(ref _language, value);
+            _settingsService.Language = value;
 
             ApplicationLanguages.PrimaryLanguageOverride = value.Item2;
         }
     }
 
-    public bool LanguageChanged
-    {
-        get => _languageChanged;
-        set => SetProperty(ref _languageChanged, value);
-    }
-
+    private bool _runAtStartup;
     public bool RunAtStartup
     {
         get => _settingsService.RunAtStartup;
         set
         {
-            SetProperty(ref _settingsService.RunAtStartup, value);
+            SetProperty(ref _runAtStartup, value);
             Task.Run(async () =>
             {
                 bool isRunAtStartup = await StartupHelper.IsRunAtStartup();
@@ -135,23 +125,44 @@ public sealed class SettingsViewModel : ObservableRecipient
                     if (success)
                     {
                         _logger.LogInformation($"Set running at startup to: {value}");
-                        _settingsService.Set(SettingsService.RunAtStartupSettingsKey, value);
+                        _settingsService.RunAtStartup = value;
                     }
                     else
                     {
                         // Log and revert the change
                         _logger.LogError($"Setting running at startup failed.");
-                        _settingsService.RunAtStartup = !value;
+                        SetProperty(ref _runAtStartup, !value);
                     }
                 }
             });
         }
     }
 
-    public List<Tuple<string, string>> Languages => SettingsService.Languages;
+    public bool LanguageChanged
+    {
+        get => _languageChanged;
+        private set => SetProperty(ref _languageChanged, value);
+    }
+
+    public List<Tuple<string, string>> Languages => _settingsService.Languages;
+
+    #region Private fields
+
+    private ElementTheme _elementTheme;
+
+    private readonly string _appLanguage;
+    private bool _languageChanged;
+
+    // service reference
+    private readonly BatteryIcon _batteryIcon;
+    private readonly ILogger<SettingsViewModel> _logger;
+    private readonly IThemeSelectorService _themeService;
+    private readonly ISettingsService _settingsService;
+
+    #endregion
 
     public SettingsViewModel(BatteryIcon icon, IThemeSelectorService themeSelectorService,
-        ILogger<SettingsViewModel> logger, SettingsService settingsService)
+        ILogger<SettingsViewModel> logger, ISettingsService settingsService)
     {
         // initialize service references
         _batteryIcon = icon;
@@ -172,6 +183,21 @@ public sealed class SettingsViewModel : ObservableRecipient
             App.GetService<IAppNotificationService>().Show("test");
         });
 #endif
+
+        ReadSettingValues();
+
+        _appLanguage = Language.Item2;
+    }
+
+    private void ReadSettingValues()
+    {
+        _enableFullyChargedNotification = _settingsService.EnableFullyChargedNotification;
+        _enableLowPowerNotification = _settingsService.EnableLowPowerNotification;
+        _lowPowerNotificationThreshold = _settingsService.LowPowerNotificationThreshold;
+        _enableHighPowerNotification = _settingsService.EnableHighPowerNotification;
+        _highPowerNotificationThreshold = _settingsService.HighPowerNotificationThreshold;
+        _language = _settingsService.Language;
+        _runAtStartup = _settingsService.RunAtStartup;
     }
 
     private async Task SwitchThemeAsync(ElementTheme theme)

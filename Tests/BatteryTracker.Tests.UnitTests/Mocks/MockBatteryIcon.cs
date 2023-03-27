@@ -6,7 +6,7 @@ namespace BatteryTracker.Tests.UnitTests.Mocks
 {
     internal class MockBatteryIcon : BatteryIcon
     {
-        public MockBatteryIcon(IAppNotificationService notificationService, ILogger<MockBatteryIcon> logger) 
+        public MockBatteryIcon(IAppNotificationService notificationService, ILogger<MockBatteryIcon> logger)
             : base(notificationService, logger)
         {
         }

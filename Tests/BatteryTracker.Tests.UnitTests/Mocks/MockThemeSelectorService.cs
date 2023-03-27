@@ -1,5 +1,4 @@
 ﻿using BatteryTracker.Contracts.Services;
-using BatteryTracker.Services;
 using Microsoft.UI.Xaml;
 
 namespace BatteryTracker.Tests.UnitTests.Mocks
@@ -8,9 +7,9 @@ namespace BatteryTracker.Tests.UnitTests.Mocks
     {
         public ElementTheme Theme { get; private set; } = ElementTheme.Default;
 
-        private readonly SettingsService _settingsService;
+        private readonly ISettingsService _settingsService;
 
-        public MockThemeSelectorService(SettingsService settingsService)
+        public MockThemeSelectorService(ISettingsService settingsService)
         {
             _settingsService = settingsService;
         }
@@ -23,7 +22,7 @@ namespace BatteryTracker.Tests.UnitTests.Mocks
         public Task SetThemeAsync(ElementTheme theme)
         {
             Theme = theme;
-            _settingsService.Set(SettingsService.AppThemeSettingsKey, Enum.GetName(theme)!);
+            _settingsService.Theme = theme;
 
             return Task.CompletedTask;
         }

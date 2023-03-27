@@ -5,11 +5,11 @@ using BatteryTracker.Contracts.Services;
 using BatteryTracker.Helpers;
 using CommunityToolkit.WinUI;
 using H.NotifyIcon;
+using Microsoft.Extensions.Logging;
 using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.Windows.System.Power;
 using Windows.UI.ViewManagement;
-using Microsoft.Extensions.Logging;
 using Brush = Microsoft.UI.Xaml.Media.Brush;
 using Color = Windows.UI.Color;
 
