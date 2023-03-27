@@ -17,6 +17,57 @@ namespace BatteryTracker;
 
 public partial class BatteryIcon : IDisposable
 {
+    #region Static
+
+    private static readonly Dictionary<double, int> DpiFontSizeMap = new()
+    {
+        { 1.0, 82 },
+        { 1.25, 66 },
+        { 1.5, 55 },
+        { 1.75, 45 },
+        { 2.0, 40 },
+        { 2.25, 36 },
+        { 2.5, 33 },
+        { 3, 27 },
+        { 3.5, 23 },
+    };
+
+    #endregion
+
+    #region Properties
+
+    public bool EnableLowPowerNotification { get; set; }
+
+    public bool EnableHighPowerNotification { get; set; }
+
+    public bool EnableFullyChargedNotification { get; set; }
+
+    private int _lowPowerNotificationThreshold;
+    public int LowPowerNotificationThreshold
+    {
+        get => _lowPowerNotificationThreshold;
+        set
+        {
+            _lowPowerNotificationThreshold = value;
+            _isLowPower = false;
+        }
+    }
+
+    private int _highPowerNotificationThreshold;
+    public int HighPowerNotificationThreshold
+    {
+        get => _highPowerNotificationThreshold;
+        set
+        {
+            _highPowerNotificationThreshold = value;
+            _isHighPower = false;
+        }
+    }
+
+    #endregion
+
+    #region Private fields
+
     private static readonly Brush White = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
     private static readonly Brush Black = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
 
@@ -34,49 +85,7 @@ public partial class BatteryIcon : IDisposable
 
     private DispatcherQueue? _dispatcherQueue;
 
-    private static readonly Dictionary<double, int> DpiFontSizeMap = new()
-    {
-        { 1.0, 82 },
-        { 1.25, 66 },
-        { 1.5, 55 },
-        { 1.75, 45 },
-        { 2.0, 40 },
-        { 2.25, 36 },
-        { 2.5, 33 },
-        { 3, 27 },
-        { 3.5, 23 },
-    };
-
-    // todo: [Code quality] change public fields to properties
-    // notification settings
-    public bool EnableLowPowerNotification;
-
-    public int LowPowerNotificationThreshold
-    {
-        get => _lowPowerNotificationThreshold;
-        set
-        {
-            _lowPowerNotificationThreshold = value;
-            _isLowPower = false;
-        }
-    }
-
-    public bool EnableHighPowerNotification;
-
-    public int HighPowerNotificationThreshold
-    {
-        get => _highPowerNotificationThreshold;
-        set
-        {
-            _highPowerNotificationThreshold = value;
-            _isHighPower = false;
-        }
-    }
-
-    public bool EnableFullyChargedNotification;
-
-    private int _lowPowerNotificationThreshold;
-    private int _highPowerNotificationThreshold;
+    #endregion
 
     public BatteryIcon(IAppNotificationService notificationService, ILogger<BatteryIcon> logger)
     {
