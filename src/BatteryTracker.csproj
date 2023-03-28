@@ -67,17 +67,18 @@
 		<Content Remove="Assets\Square44x44Logo.altform-unplated_targetsize-256.png" />
 		<Content Remove="Assets\Square44x44Logo.altform-unplated_targetsize-32.png" />
 		<Content Remove="Assets\Square44x44Logo.altform-unplated_targetsize-48.png" />
-		<Content Remove="Assets\Square44x44Logo.scale-100.png" />
-		<Content Remove="Assets\Square44x44Logo.scale-125.png" />
-		<Content Remove="Assets\Square44x44Logo.scale-150.png" />
-		<Content Remove="Assets\Square44x44Logo.scale-400.png" />
-		<Content Remove="Assets\Square44x44Logo.targetsize-16.png" />
-		<Content Remove="Assets\Square44x44Logo.targetsize-24.png" />
-		<Content Remove="Assets\Square44x44Logo.targetsize-256.png" />
-		<Content Remove="Assets\Square44x44Logo.targetsize-32.png" />
-		<Content Remove="Assets\Square44x44Logo.targetsize-48.png" />
 	</ItemGroup>
 	<ItemGroup>
+		<None Remove="Assets\Square44x44Logo.scale-100.png" />
+		<None Remove="Assets\Square44x44Logo.scale-125.png" />
+		<None Remove="Assets\Square44x44Logo.scale-150.png" />
+		<None Remove="Assets\Square44x44Logo.scale-400.png" />
+		<None Remove="Assets\Square44x44Logo.targetsize-16.png" />
+		<None Remove="Assets\Square44x44Logo.targetsize-24.png" />
+		<None Remove="Assets\Square44x44Logo.targetsize-256.png" />
+		<None Remove="Assets\Square44x44Logo.targetsize-32.png" />
+		<None Remove="Assets\Square44x44Logo.targetsize-48.png" />
+		<None Remove="Assets\Square44x44Logo.targetsize-48_altform-unplated.png" />
 		<None Remove="Controls\SettingsGroup.xaml" />
 		<None Remove="MainWindow.xaml" />
 		<None Remove="Settings.xaml" />

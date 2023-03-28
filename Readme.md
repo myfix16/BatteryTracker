@@ -38,6 +38,7 @@ See [Privacy.md](./Privacy.md).
 Priority place for bugs: https://github.com/myfix16/BatteryTracker/issues  
 Priority place for ideas and general questions: https://github.com/myfix16/BatteryTracker/discussions
 
-### Credits
+### Acknowledgments
 Special thanks to:
 - HavenDV's [H.NotifyIcon](https://github.com/HavenDV/H.NotifyIcon)
+- www.flaticon.com's <a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Pixel perfect - Flaticon</a>
