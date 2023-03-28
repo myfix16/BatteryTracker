@@ -35,10 +35,9 @@ public sealed class SettingsViewModel : ObservableRecipient
 #endif
 
     private bool _enableFullyChargedNotification;
-
     public bool EnableFullyChargedNotification
     {
-        get => _settingsService.EnableFullyChargedNotification;
+        get => _enableFullyChargedNotification;
         set
         {
             SetProperty(ref _enableFullyChargedNotification, value);
@@ -48,10 +47,9 @@ public sealed class SettingsViewModel : ObservableRecipient
     }
 
     private bool _enableLowPowerNotification;
-
     public bool EnableLowPowerNotification
     {
-        get => _settingsService.EnableLowPowerNotification;
+        get => _enableLowPowerNotification;
         set
         {
             SetProperty(ref _enableLowPowerNotification, value);
@@ -64,7 +62,7 @@ public sealed class SettingsViewModel : ObservableRecipient
 
     public int LowPowerNotificationThreshold
     {
-        get => _settingsService.LowPowerNotificationThreshold;
+        get => _lowPowerNotificationThreshold;
         set
         {
             SetProperty(ref _lowPowerNotificationThreshold, value);
@@ -77,7 +75,7 @@ public sealed class SettingsViewModel : ObservableRecipient
 
     public bool EnableHighPowerNotification
     {
-        get => _settingsService.EnableHighPowerNotification;
+        get => _enableHighPowerNotification;
         set
         {
             SetProperty(ref _enableHighPowerNotification, value);
@@ -90,7 +88,7 @@ public sealed class SettingsViewModel : ObservableRecipient
 
     public int HighPowerNotificationThreshold
     {
-        get => _settingsService.HighPowerNotificationThreshold;
+        get => _highPowerNotificationThreshold;
         set
         {
             SetProperty(ref _highPowerNotificationThreshold, value);
@@ -133,7 +131,7 @@ public sealed class SettingsViewModel : ObservableRecipient
 
     public bool RunAtStartup
     {
-        get => _settingsService.RunAtStartup;
+        get => _runAtStartup;
         set
         {
             SetProperty(ref _runAtStartup, value);
