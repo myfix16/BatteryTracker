@@ -113,8 +113,9 @@
                     x:Uid="Settings_LanguageHeader"
                     HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily},
                                                  Glyph=&#xF2B7;}">
-                    <ComboBox x:Uid="Settings_LanguageComboBox" ItemsSource="{x:Bind ViewModel.Languages}"
-                              DisplayMemberPath="Item1" SelectedValuePath="Item2"
+                    <ComboBox x:Uid="Settings_LanguageComboBox" 
+                              ItemsSource="{x:Bind ViewModel.Languages}"
+                              DisplayMemberPath="LanguageName" SelectedValuePath="LanguageId"
                               Width="200" SelectedItem="{x:Bind ViewModel.Language, Mode=TwoWay}" />
                 </labs:SettingsCard>
             </controls:SettingsGroup>

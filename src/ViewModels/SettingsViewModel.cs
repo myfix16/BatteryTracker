@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Input;
 using BatteryTracker.Activation;
 using BatteryTracker.Contracts.Services;
@@ -7,6 +8,9 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.Logging;
 using Windows.Globalization;
+using BatteryTracker.Models;
+using Windows.System.UserProfile;
+using Microsoft.Windows.AppLifecycle;
 
 namespace BatteryTracker.ViewModels;
 
@@ -30,6 +34,7 @@ public sealed class SettingsViewModel : ObservableRecipient
 #endif
 
     private bool _enableFullyChargedNotification;
+
     public bool EnableFullyChargedNotification
     {
         get => _settingsService.EnableFullyChargedNotification;
@@ -42,6 +47,7 @@ public sealed class SettingsViewModel : ObservableRecipient
     }
 
     private bool _enableLowPowerNotification;
+
     public bool EnableLowPowerNotification
     {
         get => _settingsService.EnableLowPowerNotification;
@@ -54,6 +60,7 @@ public sealed class SettingsViewModel : ObservableRecipient
     }
 
     private int _lowPowerNotificationThreshold;
+
     public int LowPowerNotificationThreshold
     {
         get => _settingsService.LowPowerNotificationThreshold;
@@ -66,6 +73,7 @@ public sealed class SettingsViewModel : ObservableRecipient
     }
 
     private bool _enableHighPowerNotification;
+
     public bool EnableHighPowerNotification
     {
         get => _settingsService.EnableHighPowerNotification;
@@ -78,6 +86,7 @@ public sealed class SettingsViewModel : ObservableRecipient
     }
 
     private int _highPowerNotificationThreshold;
+
     public int HighPowerNotificationThreshold
     {
         get => _settingsService.HighPowerNotificationThreshold;
@@ -89,21 +98,38 @@ public sealed class SettingsViewModel : ObservableRecipient
         }
     }
 
-    private Tuple<string, string> _language;
-    public Tuple<string, string> Language
+    private AppLanguageItem _language;
+
+    public AppLanguageItem Language
     {
         get => _language;
         set
         {
-            LanguageChanged = value.Item2 != _appLanguage;
+            string newLanguageId = value.LanguageId;
+            // Check whether the actual language is changed
+            if (value.LanguageId == string.Empty)
+            {
+                // Select system default
+                newLanguageId = GlobalizationPreferences.Languages[0];
+                LanguageChanged = newLanguageId != _appLanguageId;
+            }
+            else
+            {
+                LanguageChanged = value.LanguageId != _appLanguageId;
+            }
+
             SetProperty(ref _language, value);
             _settingsService.Language = value;
 
-            ApplicationLanguages.PrimaryLanguageOverride = value.Item2;
+            if (LanguageChanged)
+            {
+                ApplicationLanguages.PrimaryLanguageOverride = newLanguageId;
+            }
         }
     }
 
     private bool _runAtStartup;
+
     public bool RunAtStartup
     {
         get => _settingsService.RunAtStartup;
@@ -144,13 +170,13 @@ public sealed class SettingsViewModel : ObservableRecipient
         private set => SetProperty(ref _languageChanged, value);
     }
 
-    public List<Tuple<string, string>> Languages => _settingsService.Languages;
+    public IList<AppLanguageItem> Languages => _settingsService.Languages;
 
     #region Private fields
 
     private ElementTheme _elementTheme;
 
-    private readonly string _appLanguage;
+    private readonly string _appLanguageId;
     private bool _languageChanged;
 
     // service reference
@@ -174,7 +200,7 @@ public sealed class SettingsViewModel : ObservableRecipient
 
         RestartCommand = new RelayCommand(() =>
         {
-            Microsoft.Windows.AppLifecycle.AppInstance.Restart(LaunchActivationHandler.OpenSettingsCommandArg);
+            AppInstance.Restart(LaunchActivationHandler.OpenSettingsCommandArg);
         });
 
 #if DEBUG
@@ -184,11 +210,15 @@ public sealed class SettingsViewModel : ObservableRecipient
         });
 #endif
 
-        ReadSettingValues();
+        // todo: this line breaks the unit tests for SettingsViewModel
+        _appLanguageId = ApplicationLanguages.PrimaryLanguageOverride;
 
-        _appLanguage = Language.Item2;
+        ReadSettingValues();
     }
 
+    /// <summary>
+    /// Read setting values from the settings service
+    /// </summary>
     private void ReadSettingValues()
     {
         _enableFullyChargedNotification = _settingsService.EnableFullyChargedNotification;
@@ -196,8 +226,9 @@ public sealed class SettingsViewModel : ObservableRecipient
         _lowPowerNotificationThreshold = _settingsService.LowPowerNotificationThreshold;
         _enableHighPowerNotification = _settingsService.EnableHighPowerNotification;
         _highPowerNotificationThreshold = _settingsService.HighPowerNotificationThreshold;
-        _language = _settingsService.Language;
         _runAtStartup = _settingsService.RunAtStartup;
+        Language = Languages.FirstOrDefault(l => l.LanguageId == _settingsService.Language.LanguageId)
+                   ?? Languages[0];
     }
 
     private async Task SwitchThemeAsync(ElementTheme theme)

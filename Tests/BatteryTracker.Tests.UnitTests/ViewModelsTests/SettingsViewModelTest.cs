@@ -115,6 +115,6 @@ public class SettingsViewModelTest
         }
         catch { }
 
-        Assert.IsTrue((_settingsService.Language.Item2.Contains(_settingsService.Languages[index].Item2)));
+        Assert.IsTrue((_settingsService.Language.LanguageId.Contains(_settingsService.Languages[index].LanguageId)));
     }
 }

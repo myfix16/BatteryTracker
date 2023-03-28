@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using BatteryTracker.Models;
 
 namespace BatteryTracker.Contracts.Services
 {
     public interface ISettingsService
     {
-        List<Tuple<string, string>> Languages { get; }
+        IList<AppLanguageItem> Languages { get; }
 
         bool EnableFullyChargedNotification { get; set; }
 
@@ -18,7 +19,7 @@ namespace BatteryTracker.Contracts.Services
 
         ElementTheme Theme { get; set; }
 
-        Tuple<string, string> Language { get; set; }
+        AppLanguageItem Language { get; set; }
 
         bool RunAtStartup { get; set; }
     }

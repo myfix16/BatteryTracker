@@ -1,6 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using BatteryTracker.Contracts.Services;
+using Windows.Globalization;
 using Windows.System.UserProfile;
+using BatteryTracker.Models;
 
 namespace BatteryTracker.Services;
 
@@ -30,17 +34,13 @@ internal sealed class SettingsService : BaseJsonSettingsService, ISettingsServic
     private const int HighPowerNotificationThresholdDefault = 80;
     private const ElementTheme ThemeDefault = ElementTheme.Default;
     private const bool RunAtStartupDefault = true;
-    private readonly Tuple<string, string> _languageDefault;
+    private readonly AppLanguageItem _languageDefault;
 
     #endregion
 
     #region Setting Values
 
-    public List<Tuple<string, string>> Languages { get; } = new()
-    {
-        new("English", "en-US"),
-        new("简体中文", "zh-Hans"),
-    };
+    public IList<AppLanguageItem> Languages { get; private set; }
 
     private bool _enableFullyChargedNotification;
 
@@ -114,9 +114,9 @@ internal sealed class SettingsService : BaseJsonSettingsService, ISettingsServic
         }
     }
 
-    private Tuple<string, string> _language;
+    private AppLanguageItem _language;
 
-    public Tuple<string, string> Language
+    public AppLanguageItem Language
     {
         get => _language;
         set
@@ -143,8 +143,10 @@ internal sealed class SettingsService : BaseJsonSettingsService, ISettingsServic
     public SettingsService(ISettingsStorageService settingsStorageService)
         : base(settingsStorageService)
     {
-        IReadOnlyList<string> userLanguages = GlobalizationPreferences.Languages;
-        _languageDefault = Languages.Find(t => userLanguages[0].Contains(t.Item2)) ?? Languages[0];
+        // Add supported languages and set default language
+        AddSupportedAppLanguages();
+        string languageId = GlobalizationPreferences.Languages[0];
+        _languageDefault = Languages!.FirstOrDefault(dl => dl.LanguageId == languageId) ?? Languages!.First();
 
         // Read setting values from storage
         string? settingsVersion = Get<string>(SettingVersionSettingsKey, null);
@@ -158,8 +160,17 @@ internal sealed class SettingsService : BaseJsonSettingsService, ISettingsServic
         }
     }
 
-
     #region Methods
+
+    private void AddSupportedAppLanguages()
+    {
+        Languages = ApplicationLanguages.ManifestLanguages
+            .Append(string.Empty) // Add default language id
+            .Select(language => new AppLanguageItem(language))
+            .OrderBy(language => language.LanguageId is not "") // Default language on top
+            .ThenBy(language => language.LanguageName)
+            .ToList();
+    }
 
     private void LoadSettingValues()
     {
@@ -175,7 +186,7 @@ internal sealed class SettingsService : BaseJsonSettingsService, ISettingsServic
             Get(HighPowerNotificationThresholdSettingsKey, HighPowerNotificationThresholdDefault);
         _theme = Get(ThemeSettingsKey, ThemeDefault);
         _runAtStartup = Get(RunAtStartupSettingsKey, RunAtStartupDefault);
-        Language = Get(LanguageSettingsKey, _languageDefault)!;
+        _language = Get(LanguageSettingsKey, _languageDefault)!;
     }
 
     /// <summary>
@@ -200,9 +211,9 @@ internal sealed class SettingsService : BaseJsonSettingsService, ISettingsServic
         value = StorageGetRawValue(RunAtStartupSettingsKey);
         RunAtStartup = value != null ? (bool)value : RunAtStartupDefault;
         value = StorageGetRawValue(LanguageSettingsKey);
-        var languageParam = value != null ? (string)value : "en-US";
-        Tuple<string, string> loadedLanguage = Languages.Find(t => languageParam.Contains(t.Item2)) ?? Languages[0];
-        Language = loadedLanguage;
+        var languageId = value != null ? (string)value : string.Empty;
+        Language = Languages.FirstOrDefault(l => l.LanguageId.Contains(languageId) || languageId.Contains(l.LanguageId))
+                   ?? _languageDefault;
 
         // Mark the new settings version
         Set(SettingVersionSettingsKey, App.SettingsVersion);

@@ -281,4 +281,7 @@
   <data name="SettingsPage_RateTheApp.Content" xml:space="preserve">
     <value>Rate the app</value>
   </data>
+  <data name="SettingsPreferencesSystemDefaultLanguageOption" xml:space="preserve">
+    <value>System default</value>
+  </data>
 </root>
