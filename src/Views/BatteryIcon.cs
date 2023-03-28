@@ -13,7 +13,7 @@ using Windows.UI.ViewManagement;
 using Brush = Microsoft.UI.Xaml.Media.Brush;
 using Color = Windows.UI.Color;
 
-namespace BatteryTracker;
+namespace BatteryTracker.Views;
 
 public partial class BatteryIcon : IDisposable
 {
@@ -134,7 +134,7 @@ public partial class BatteryIcon : IDisposable
             if (_iconSource != null)
             {
                 _iconSource.FontSize = DpiFontSizeMap[scale];
-                _trayIcon!.UpdateIcon(_iconSource.ToIcon());
+                // _trayIcon!.UpdateIcon(_iconSource.ToIcon());
             }
         });
     }
@@ -231,7 +231,7 @@ public partial class BatteryIcon : IDisposable
             if (_iconSource != null)
             {
                 _iconSource.Text = newPercentText;
-                _trayIcon!.UpdateIcon(_iconSource.ToIcon());
+                // _trayIcon!.UpdateIcon(_iconSource.ToIcon());
             }
         });
         return _chargedPercent;
@@ -256,7 +256,7 @@ public partial class BatteryIcon : IDisposable
             if (_iconSource != null)
             {
                 _iconSource.Foreground = newForeground;
-                _trayIcon!.UpdateIcon(_iconSource.ToIcon());
+                // _trayIcon!.UpdateIcon(_iconSource.ToIcon());
             }
         });
     }

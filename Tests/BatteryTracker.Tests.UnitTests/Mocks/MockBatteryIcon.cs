@@ -1,4 +1,5 @@
 ﻿using BatteryTracker.Contracts.Services;
+using BatteryTracker.Views;
 using H.NotifyIcon;
 using Microsoft.Extensions.Logging;
 

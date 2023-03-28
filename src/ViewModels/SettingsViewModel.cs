@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Windows.Globalization;
 using BatteryTracker.Models;
 using Windows.System.UserProfile;
+using BatteryTracker.Views;
 using Microsoft.Windows.AppLifecycle;
 
 namespace BatteryTracker.ViewModels;
