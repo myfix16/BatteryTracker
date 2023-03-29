@@ -12,15 +12,15 @@ namespace BatteryTracker.Tests.UnitTests.Mocks
         {
         }
 
-        public new bool EnableLowPowerNotification;
+        public new bool EnableLowPowerNotification { get; set; }
 
         public new int LowPowerNotificationThreshold { get; set; }
 
-        public new bool EnableHighPowerNotification;
+        public new bool EnableHighPowerNotification { get; set; }
 
         public new int HighPowerNotificationThreshold { get; set; }
 
-        public new bool EnableFullyChargedNotification;
+        public new bool EnableFullyChargedNotification { get; set; }
 
         public new async Task InitAsync(TaskbarIcon icon)
         {

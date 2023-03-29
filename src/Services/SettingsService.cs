@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using BatteryTracker.Contracts.Services;
-using Windows.Globalization;
-using Windows.System.UserProfile;
 using BatteryTracker.Models;
+using Microsoft.Extensions.Logging;
+using Windows.Globalization;
 
 namespace BatteryTracker.Services;
 
@@ -43,7 +42,6 @@ internal sealed class SettingsService : BaseJsonSettingsService, ISettingsServic
     public IList<AppLanguageItem> Languages { get; private set; }
 
     private bool _enableFullyChargedNotification;
-
     public bool EnableFullyChargedNotification
     {
         get => _enableFullyChargedNotification;
@@ -55,7 +53,6 @@ internal sealed class SettingsService : BaseJsonSettingsService, ISettingsServic
     }
 
     private bool _enableLowPowerNotification;
-
     public bool EnableLowPowerNotification
     {
         get => _enableLowPowerNotification;
@@ -67,7 +64,6 @@ internal sealed class SettingsService : BaseJsonSettingsService, ISettingsServic
     }
 
     private int _lowPowerNotificationThreshold;
-
     public int LowPowerNotificationThreshold
     {
         get => _lowPowerNotificationThreshold;
@@ -79,7 +75,6 @@ internal sealed class SettingsService : BaseJsonSettingsService, ISettingsServic
     }
 
     private bool _enableHighPowerNotification;
-
     public bool EnableHighPowerNotification
     {
         get => _enableHighPowerNotification;
@@ -91,7 +86,6 @@ internal sealed class SettingsService : BaseJsonSettingsService, ISettingsServic
     }
 
     private int _highPowerNotificationThreshold;
-
     public int HighPowerNotificationThreshold
     {
         get => _highPowerNotificationThreshold;
@@ -103,7 +97,6 @@ internal sealed class SettingsService : BaseJsonSettingsService, ISettingsServic
     }
 
     private ElementTheme _theme;
-
     public ElementTheme Theme
     {
         get => _theme;
@@ -115,7 +108,6 @@ internal sealed class SettingsService : BaseJsonSettingsService, ISettingsServic
     }
 
     private AppLanguageItem _language;
-
     public AppLanguageItem Language
     {
         get => _language;
@@ -140,13 +132,20 @@ internal sealed class SettingsService : BaseJsonSettingsService, ISettingsServic
 
     #endregion
 
-    public SettingsService(ISettingsStorageService settingsStorageService)
+    #region Private fields
+
+    private ILogger<SettingsService> _logger;
+
+    #endregion
+
+    public SettingsService(ISettingsStorageService settingsStorageService, ILogger<SettingsService> logger)
         : base(settingsStorageService)
     {
+        _logger = logger;
+
         // Add supported languages and set default language
         AddSupportedAppLanguages();
-        string languageId = GlobalizationPreferences.Languages[0];
-        _languageDefault = Languages!.FirstOrDefault(dl => dl.LanguageId == languageId) ?? Languages!.First();
+        _languageDefault = new AppLanguageItem(string.Empty);
 
         // Read setting values from storage
         string? settingsVersion = Get<string>(SettingVersionSettingsKey, null);
@@ -194,6 +193,8 @@ internal sealed class SettingsService : BaseJsonSettingsService, ISettingsServic
     /// </summary>
     private void ConvertAndLoadOlderSettings()
     {
+        _logger.LogInformation("Older settings or no settings are found. Converting to new settings.");
+
         // Read and convert old settings
         object? value;
         value = StorageGetRawValue(EnableFullyChargedNotificationSettingsKey);

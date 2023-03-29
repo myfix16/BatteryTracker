@@ -4,14 +4,14 @@ using System.Windows.Input;
 using BatteryTracker.Activation;
 using BatteryTracker.Contracts.Services;
 using BatteryTracker.Helpers;
+using BatteryTracker.Models;
+using BatteryTracker.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.Logging;
-using Windows.Globalization;
-using BatteryTracker.Models;
-using Windows.System.UserProfile;
-using BatteryTracker.Views;
 using Microsoft.Windows.AppLifecycle;
+using Windows.Globalization;
+using Windows.System.UserProfile;
 
 namespace BatteryTracker.ViewModels;
 
@@ -59,7 +59,6 @@ public sealed class SettingsViewModel : ObservableRecipient
     }
 
     private int _lowPowerNotificationThreshold;
-
     public int LowPowerNotificationThreshold
     {
         get => _lowPowerNotificationThreshold;
@@ -72,7 +71,6 @@ public sealed class SettingsViewModel : ObservableRecipient
     }
 
     private bool _enableHighPowerNotification;
-
     public bool EnableHighPowerNotification
     {
         get => _enableHighPowerNotification;
@@ -85,7 +83,6 @@ public sealed class SettingsViewModel : ObservableRecipient
     }
 
     private int _highPowerNotificationThreshold;
-
     public int HighPowerNotificationThreshold
     {
         get => _highPowerNotificationThreshold;
@@ -98,37 +95,26 @@ public sealed class SettingsViewModel : ObservableRecipient
     }
 
     private AppLanguageItem _language;
-
     public AppLanguageItem Language
     {
         get => _language;
         set
         {
             string newLanguageId = value.LanguageId;
-            // Check whether the actual language is changed
-            if (value.LanguageId == string.Empty)
-            {
-                // Select system default
-                newLanguageId = GlobalizationPreferences.Languages[0];
-                LanguageChanged = newLanguageId != _appLanguageId;
-            }
-            else
-            {
-                LanguageChanged = value.LanguageId != _appLanguageId;
-            }
 
+            LanguageChanged = newLanguageId != _appLanguageId;
             SetProperty(ref _language, value);
             _settingsService.Language = value;
 
             if (LanguageChanged)
             {
-                ApplicationLanguages.PrimaryLanguageOverride = newLanguageId;
+                ApplicationLanguages.PrimaryLanguageOverride = value.LanguageId == string.Empty
+                    ? GlobalizationPreferences.Languages[0] : newLanguageId;
             }
         }
     }
 
     private bool _runAtStartup;
-
     public bool RunAtStartup
     {
         get => _runAtStartup;
@@ -163,6 +149,7 @@ public sealed class SettingsViewModel : ObservableRecipient
         }
     }
 
+    private bool _languageChanged;
     public bool LanguageChanged
     {
         get => _languageChanged;
@@ -176,7 +163,6 @@ public sealed class SettingsViewModel : ObservableRecipient
     private ElementTheme _elementTheme;
 
     private readonly string _appLanguageId;
-    private bool _languageChanged;
 
     // service reference
     private readonly BatteryIcon _batteryIcon;
@@ -209,10 +195,9 @@ public sealed class SettingsViewModel : ObservableRecipient
         });
 #endif
 
-        // todo: this line breaks the unit tests for SettingsViewModel
-        _appLanguageId = ApplicationLanguages.PrimaryLanguageOverride;
-
+        _appLanguageId = _settingsService.Language.LanguageId;
         ReadSettingValues();
+        LanguageChanged = false;
     }
 
     /// <summary>

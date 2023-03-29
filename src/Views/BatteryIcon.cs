@@ -188,12 +188,15 @@ public partial class BatteryIcon : IDisposable
         // ! note: cannot add display status events here
     }
 
-    private async void OnRemainingChargePercentChanged(object? _, object? eventArg)
+    private async void OnRemainingChargePercentChanged(object? _, object? __)
     {
         _chargedPercent = await UpdateTrayIconPercent();
+        BatteryStatus batteryStatus = PowerManager.BatteryStatus;
 
         // push low power notification
-        if (EnableLowPowerNotification && !_isLowPower && _chargedPercent <= LowPowerNotificationThreshold)
+        if (EnableLowPowerNotification
+            && !_isLowPower
+            && _chargedPercent <= LowPowerNotificationThreshold)
         {
             _isLowPower = true;
             _notificationService.Show($"{"LowPowerMessage".Localized()}: {_chargedPercent}%");
@@ -204,7 +207,10 @@ public partial class BatteryIcon : IDisposable
         }
 
         // push high power notification
-        if (EnableHighPowerNotification && !_isHighPower && _chargedPercent >= HighPowerNotificationThreshold)
+        if (EnableHighPowerNotification
+            && batteryStatus != BatteryStatus.Discharging // only when the battery is not discharging
+            && !_isHighPower
+            && _chargedPercent >= HighPowerNotificationThreshold)
         {
             _isHighPower = true;
             _notificationService.Show($"{"HighPowerMessage".Localized()}: {_chargedPercent}%");
