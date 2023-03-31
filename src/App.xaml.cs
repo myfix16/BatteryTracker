@@ -175,6 +175,8 @@ public sealed partial class App : Application
 
     #endregion
 
+    #region Methods
+
     public async Task AdaptToDpiChangeAsync(double rastScale)
     {
         if (_batteryIcon != null)
@@ -245,4 +247,6 @@ public sealed partial class App : Application
 
         Process.GetCurrentProcess().Kill();
     }
+
+    #endregion
 }

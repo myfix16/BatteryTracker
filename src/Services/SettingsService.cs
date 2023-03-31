@@ -134,7 +134,7 @@ internal sealed class SettingsService : BaseJsonSettingsService, ISettingsServic
 
     #region Private fields
 
-    private ILogger<SettingsService> _logger;
+    private readonly ILogger<SettingsService> _logger;
 
     #endregion
 

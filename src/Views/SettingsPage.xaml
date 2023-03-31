@@ -127,9 +127,17 @@
                     <Button x:Uid="Settings_LanguageButton" Command="{x:Bind ViewModel.RestartCommand}" />
                 </InfoBar.ActionButton>
             </InfoBar>
-
+            
+            <!-- ~1~ Tests @1@ -->
             <!-- <StackPanel> -->
-            <!--     <Button Content="Power Notification" Command="{x:Bind ViewModel.NotificationCommand}" /> -->
+            <!--     <TextBlock Text="Notifications" /> -->
+            <!--     <Button Command="{x:Bind ViewModel.NotificationCommand}" Content="Power notification" /> -->
+            <!-- -->
+            <!--     <TextBlock Text="Tray icon" /> -->
+            <!--     <Button Command="{x:Bind ViewModel.TestTrayIconCommand}" Content="Test tray icon" /> -->
+            <!--     <Slider -->
+            <!--         SnapsTo="StepValues" TickFrequency="20" TickPlacement="Outside" -->
+            <!--         Value="{x:Bind ViewModel.TestTrayIconCount, Mode=TwoWay}" /> -->
             <!-- </StackPanel> -->
         </StackPanel>
     </ScrollViewer>

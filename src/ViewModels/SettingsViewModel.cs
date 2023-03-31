@@ -30,8 +30,21 @@ public sealed class SettingsViewModel : ObservableRecipient
     public ICommand RestartCommand { get; }
 
 #if DEBUG
-    // NotificationCommand- debug only
+    // debug only
     public ICommand NotificationCommand { get; }
+
+    public ICommand TestTrayIconCommand { get; }
+
+    private int _testTrayIconCount;
+    public int TestTrayIconCount
+    {
+        get => _testTrayIconCount;
+        set
+        {
+            SetProperty(ref _testTrayIconCount, value);
+            _batteryIcon.UpdateTrayIconPercent(value);
+        }
+    }
 #endif
 
     private bool _enableFullyChargedNotification;
@@ -188,16 +201,29 @@ public sealed class SettingsViewModel : ObservableRecipient
             AppInstance.Restart(LaunchActivationHandler.OpenSettingsCommandArg);
         });
 
+        _appLanguageId = _settingsService.Language.LanguageId;
+        ReadSettingValues();
+        LanguageChanged = false;
+
 #if DEBUG
         NotificationCommand = new RelayCommand(() =>
         {
             App.GetService<IAppNotificationService>().Show("test");
         });
-#endif
 
-        _appLanguageId = _settingsService.Language.LanguageId;
-        ReadSettingValues();
-        LanguageChanged = false;
+        TestTrayIconCommand = new AsyncRelayCommand(async () =>
+        {
+            int curPercentage = _batteryIcon.ChargedPercent;
+
+            for (int percentage = 0; percentage <= 100; percentage++)
+            {
+                _batteryIcon.UpdateTrayIconPercent(percentage);
+                await Task.Delay(100);
+            }
+
+            _batteryIcon.UpdateTrayIconPercent(curPercentage);
+        });
+#endif
     }
 
     /// <summary>
