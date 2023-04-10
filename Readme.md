@@ -61,6 +61,8 @@ To build Files for development, open the `BatteryTracker.sln` item in Visual Stu
 
 In the top pane, select the items which correspond to your desired build mode and the processor architecture of your device and click 'run'.
 
-## Credits
+## Acknowledgments
+
 Special thanks to:
 - HavenDV's [H.NotifyIcon](https://github.com/HavenDV/H.NotifyIcon)
+- www.flaticon.com's <a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Pixel perfect - Flaticon</a>

@@ -3,7 +3,7 @@ using Microsoft.Windows.AppLifecycle;
 
 namespace BatteryTracker.Activation;
 
-public class DefaultActivationHandler : ActivationHandler<AppActivationArguments>
+public sealed class DefaultActivationHandler : ActivationHandler<AppActivationArguments>
 {
     private readonly INavigationService _navigationService;
 

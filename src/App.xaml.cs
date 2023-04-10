@@ -23,9 +23,11 @@ namespace BatteryTracker;
 /// <summary>
 /// Provides application-specific behavior to supplement the default Application class.
 /// </summary>
-public partial class App : Application
+public sealed partial class App : Application
 {
     public static MainWindow MainWindow { get; } = new();
+
+    public const string SettingsVersion = "v2";
 
     public bool HasLaunched { get; internal set; }
 
@@ -75,7 +77,7 @@ public partial class App : Application
                 services.AddSingleton<IPageService, PageService>();
                 services.AddSingleton<INavigationService, NavigationService>();
                 services.AddSingleton<ISettingsStorageService, AppLocalSettingsStorageService>();
-                services.AddSingleton<SettingsService>();
+                services.AddSingleton<ISettingsService, SettingsService>();
                 services.AddTransient<INavigationViewService, NavigationViewService>();
 
                 // Views and ViewModels
@@ -155,6 +157,7 @@ public partial class App : Application
 
     private void ExitApplicationCommand_ExecuteRequested(object? _, ExecuteRequestedEventArgs args)
     {
+        _logger.LogInformation("User quits the app");
         _batteryIcon?.Dispose();
         Exit();
     }
@@ -171,6 +174,8 @@ public partial class App : Application
     }
 
     #endregion
+
+    #region Methods
 
     public async Task AdaptToDpiChangeAsync(double rastScale)
     {
@@ -242,4 +247,6 @@ public partial class App : Application
 
         Process.GetCurrentProcess().Kill();
     }
+
+    #endregion
 }

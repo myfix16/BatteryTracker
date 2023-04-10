@@ -9,7 +9,7 @@ using Microsoft.UI.Xaml.Controls;
 
 namespace BatteryTracker.Services;
 
-public class NavigationViewService : INavigationViewService
+public sealed class NavigationViewService : INavigationViewService
 {
     private readonly INavigationService _navigationService;
 

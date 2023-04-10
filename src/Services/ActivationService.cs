@@ -8,7 +8,7 @@ using Microsoft.Windows.AppLifecycle;
 
 namespace BatteryTracker.Services;
 
-public class ActivationService : IActivationService
+public sealed class ActivationService : IActivationService
 {
     private readonly ActivationHandler<AppActivationArguments> _defaultHandler;
     private readonly IEnumerable<IActivationHandler> _activationHandlers;
@@ -33,9 +33,6 @@ public class ActivationService : IActivationService
             _shell = App.GetService<ShellPage>();
             App.MainWindow.Content = _shell ?? new Frame();
         }
-
-        // todo: Refactor activation handlers to handle AppActivationArguments
-        // retrieved by AppInstance.GetCurrent().GetActivatedEventArgs()
 
         // Handle activation via ActivationHandlers.
         await HandleActivationAsync(activationArgs);

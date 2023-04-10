@@ -2,134 +2,142 @@
     x:Class="BatteryTracker.Views.SettingsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:converters="using:BatteryTracker.Converters"
     xmlns:controls="using:BatteryTracker.Controls"
+    xmlns:converters="using:BatteryTracker.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:labs="using:CommunityToolkit.Labs.WinUI"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="using:CommunityToolkit.WinUI.UI"
     AutomationProperties.LandmarkType="Main"
+    NavigationCacheMode="Required"
     mc:Ignorable="d">
     <Page.Resources>
         <converters:EnumToIntConverter x:Key="EnumToIntConverter" />
     </Page.Resources>
 
-    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0 0 36 0">
-        <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
-            <!--Notification settings-->
-            <controls:SettingsGroup x:Uid="Settings_Notification" Margin="0 -24 0 0" >
-                <!-- Enable fully charged notification -->
+    <ScrollViewer Padding="0 0 36 0" VerticalScrollBarVisibility="Auto">
+        <StackPanel ChildrenTransitions="{StaticResource SettingsCardsAnimations}" Orientation="Vertical">
+            <!--  Notification settings  -->
+            <controls:SettingsGroup x:Uid="Settings_Notification" Margin="0 -24 0 0">
+                <!--  Enable fully charged notification  -->
                 <labs:SettingsCard
                     x:Uid="Settings_EnableFullyChargedNotification"
-                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xEA8F;}"
+                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily},
+                                             Glyph=&#xEA8F;}"
                     IsEnabled="True">
                     <ToggleSwitch IsOn="{x:Bind ViewModel.EnableFullyChargedNotification, Mode=TwoWay}" />
                 </labs:SettingsCard>
 
-                <!-- Enable low power notification -->
+                <!--  Enable low power notification  -->
                 <labs:SettingsExpander
                     x:Uid="Settings_EnableLowPowerNotification"
-                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xEA8F;}"
+                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily},
+                                             Glyph=&#xEA8F;}"
                     IsExpanded="{x:Bind ViewModel.EnableLowPowerNotification, Mode=OneWay}">
                     <ToggleSwitch IsOn="{x:Bind ViewModel.EnableLowPowerNotification, Mode=TwoWay}" />
                     <labs:SettingsExpander.Items>
-                        <labs:SettingsCard
-                            x:Uid="Settings_LowPowerThreshold"
-                            IsEnabled="{x:Bind ViewModel.EnableLowPowerNotification, Mode=OneWay}">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <Slider x:Name="LowPowerThresholdSlider"
-                                        Value="{x:Bind ViewModel.LowPowerNotificationThreshold, Mode=TwoWay}"
-                                        HorizontalAlignment="Left" VerticalAlignment="Center"
-                                        Width="250" MinWidth="100" MaxWidth="400"
-                                        TickFrequency="20" TickPlacement="BottomRight" />
-                                <TextBlock Text="{x:Bind LowPowerThresholdSlider.Value, Mode=OneWay}"
-                                           Margin="10 0 0 0" Width="25" 
-                                           VerticalAlignment="Center" TextAlignment="Center" />
-                                <TextBlock Text="%" Margin="2 0 0 0" VerticalAlignment="Center" />
+                        <labs:SettingsCard x:Uid="Settings_LowPowerThreshold" IsEnabled="{x:Bind ViewModel.EnableLowPowerNotification, Mode=OneWay}">
+                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                <Slider
+                                    x:Name="LowPowerThresholdSlider"
+                                    Width="250" MinWidth="100" MaxWidth="400"
+                                    HorizontalAlignment="Left" VerticalAlignment="Center"
+                                    TickFrequency="20" TickPlacement="BottomRight"
+                                    Value="{x:Bind ViewModel.LowPowerNotificationThreshold, Mode=TwoWay}" />
+                                <TextBlock
+                                    Width="25"
+                                    Margin="10 0 0 0" VerticalAlignment="Center"
+                                    Text="{x:Bind LowPowerThresholdSlider.Value, Mode=OneWay}"
+                                    TextAlignment="Center" />
+                                <TextBlock
+                                    Margin="2 0 0 0" VerticalAlignment="Center"
+                                    Text="%" />
                             </StackPanel>
                         </labs:SettingsCard>
                     </labs:SettingsExpander.Items>
                 </labs:SettingsExpander>
 
-                <!-- Enable high power notification -->
+                <!--  Enable high power notification  -->
                 <labs:SettingsExpander
                     x:Uid="Settings_EnableHighPowerNotification"
-                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xEA8F;}"
+                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily},
+                                             Glyph=&#xEA8F;}"
                     IsExpanded="{x:Bind ViewModel.EnableHighPowerNotification, Mode=OneWay}">
                     <ToggleSwitch IsOn="{x:Bind ViewModel.EnableHighPowerNotification, Mode=TwoWay}" />
                     <labs:SettingsExpander.Items>
-                        <labs:SettingsCard
-                            x:Uid="Settings_HighPowerThreshold"
-                            IsEnabled="{x:Bind ViewModel.EnableHighPowerNotification, Mode=OneWay}">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <Slider x:Name="HighPowerThresholdSlider"
-                                        Value="{x:Bind ViewModel.HighPowerNotificationThreshold, Mode=TwoWay}"
-                                        HorizontalAlignment="Left" VerticalAlignment="Center"
-                                        Width="250" MinWidth="100" MaxWidth="400"
-                                        TickFrequency="20" TickPlacement="BottomRight" />
-                                <TextBlock Text="{x:Bind HighPowerThresholdSlider.Value, Mode=OneWay}"
-                                           Margin="10 0 0 0" Width="25" 
-                                           VerticalAlignment="Center" TextAlignment="Center" />
-                                <TextBlock Text="%" Margin="2 0 0 0" VerticalAlignment="Center" />
+                        <labs:SettingsCard x:Uid="Settings_HighPowerThreshold" IsEnabled="{x:Bind ViewModel.EnableHighPowerNotification, Mode=OneWay}">
+                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                <Slider
+                                    x:Name="HighPowerThresholdSlider"
+                                    Width="250" MinWidth="100" MaxWidth="400"
+                                    HorizontalAlignment="Left" VerticalAlignment="Center"
+                                    TickFrequency="20" TickPlacement="BottomRight"
+                                    Value="{x:Bind ViewModel.HighPowerNotificationThreshold, Mode=TwoWay}" />
+                                <TextBlock
+                                    Width="25"
+                                    Margin="10 0 0 0" VerticalAlignment="Center"
+                                    Text="{x:Bind HighPowerThresholdSlider.Value, Mode=OneWay}"
+                                    TextAlignment="Center" />
+                                <TextBlock
+                                    Margin="2 0 0 0" VerticalAlignment="Center"
+                                    Text="%" />
                             </StackPanel>
                         </labs:SettingsCard>
                     </labs:SettingsExpander.Items>
                 </labs:SettingsExpander>
             </controls:SettingsGroup>
 
-            <!-- Appearance and behavior -->
-            <controls:SettingsGroup
-                x:Uid="Settings_Appearance_Behavior"
-                IsEnabled="True">
-                <labs:SettingsCard
-                    x:Uid="Settings_ColorModeHeader"
-                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xE790;}">
+            <!--  Appearance and behavior  -->
+            <controls:SettingsGroup x:Uid="Settings_Appearance_Behavior" IsEnabled="True">
+                <labs:SettingsCard x:Uid="Settings_ColorModeHeader" HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xE790;}">
                     <labs:SettingsCard.Description>
-                        <HyperlinkButton x:Uid="Settings_Windows_Color_Settings"
-                                         Click="HyperlinkButton_Click" />
+                        <HyperlinkButton x:Uid="Settings_Windows_Color_Settings" Click="HyperlinkButton_Click" />
                     </labs:SettingsCard.Description>
-                    <ComboBox
-                        MinWidth="{StaticResource SettingActionControlMinWidth}"
-                        SelectedIndex="{x:Bind ViewModel.ElementTheme, Mode=TwoWay, Converter={StaticResource EnumToIntConverter}}">
-                        <ComboBoxItem x:Uid="Settings_Theme_Default" Content="Windows Default"></ComboBoxItem>
-                        <ComboBoxItem x:Uid="Settings_Theme_Light" Content="Light"></ComboBoxItem>
-                        <ComboBoxItem x:Uid="Settings_Theme_Dark" Content="Dark"></ComboBoxItem>
+                    <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="{x:Bind ViewModel.ElementTheme, Mode=TwoWay, Converter={StaticResource EnumToIntConverter}}">
+                        <ComboBoxItem x:Uid="Settings_Theme_Default" Content="Windows Default" />
+                        <ComboBoxItem x:Uid="Settings_Theme_Light" Content="Light" />
+                        <ComboBoxItem x:Uid="Settings_Theme_Dark" Content="Dark" />
                     </ComboBox>
                 </labs:SettingsCard>
 
-                <labs:SettingsCard 
-                    x:Uid="Settings_RunAtStartUp"
-                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xE7E8;}">
+                <labs:SettingsCard x:Uid="Settings_RunAtStartUp" HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xE7E8;}">
                     <ToggleSwitch IsOn="{x:Bind ViewModel.RunAtStartup, Mode=TwoWay}" />
                 </labs:SettingsCard>
             </controls:SettingsGroup>
 
-            <!-- Language -->
-            <controls:SettingsGroup
-                x:Uid="Settings_Language"
-                IsEnabled="True">
-                <labs:SettingsCard
-                    x:Uid="Settings_LanguageHeader"
-                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily},
-                                                 Glyph=&#xF2B7;}">
-                    <ComboBox x:Uid="Settings_LanguageComboBox" ItemsSource="{x:Bind ViewModel.Languages}"
-                              DisplayMemberPath="Item1" SelectedValuePath="Item2"
-                              Width="200" SelectedItem="{x:Bind ViewModel.Language, Mode=TwoWay}" />
+            <!--  Language  -->
+            <controls:SettingsGroup x:Uid="Settings_Language" IsEnabled="True">
+                <labs:SettingsCard x:Uid="Settings_LanguageHeader" HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xF2B7;}">
+                    <ComboBox
+                        x:Uid="Settings_LanguageComboBox"
+                        Width="200"
+                        DisplayMemberPath="LanguageName"
+                        ItemsSource="{x:Bind ViewModel.Languages}"
+                        SelectedItem="{x:Bind ViewModel.Language, Mode=TwoWay}"
+                        SelectedValuePath="LanguageId" />
                 </labs:SettingsCard>
             </controls:SettingsGroup>
-            <InfoBar x:Uid="Settings_LanguageInfoBar"
-                     IsOpen="{x:Bind ViewModel.LanguageChanged, Mode=OneWay}"
-                     Severity="Informational"
-                     IsClosable="False"
-                     Margin="0 0 0 20">
+            <InfoBar
+                x:Uid="Settings_LanguageInfoBar"
+                Margin="0 0 0 20"
+                IsClosable="False"
+                IsOpen="{x:Bind ViewModel.LanguageChanged, Mode=OneWay}"
+                Severity="Informational">
                 <InfoBar.ActionButton>
-                    <Button x:Uid="Settings_LanguageButton"
-                            Command="{x:Bind ViewModel.RestartCommand}" />
+                    <Button x:Uid="Settings_LanguageButton" Command="{x:Bind ViewModel.RestartCommand}" />
                 </InfoBar.ActionButton>
             </InfoBar>
-
+            
+            <!-- ~1~ Tests @1@ -->
             <!-- <StackPanel> -->
-            <!--     <Button Content="Power Notification" Command="{x:Bind ViewModel.NotificationCommand}" /> -->
+            <!--     <TextBlock Text="Notifications" /> -->
+            <!--     <Button Command="{x:Bind ViewModel.NotificationCommand}" Content="Power notification" /> -->
+            <!-- -->
+            <!--     <TextBlock Text="Tray icon" /> -->
+            <!--     <Button Command="{x:Bind ViewModel.TestTrayIconCommand}" Content="Test tray icon" /> -->
+            <!--     <Slider -->
+            <!--         SnapsTo="StepValues" TickFrequency="20" TickPlacement="Outside" -->
+            <!--         Value="{x:Bind ViewModel.TestTrayIconCount, Mode=TwoWay}" /> -->
             <!-- </StackPanel> -->
         </StackPanel>
     </ScrollViewer>

@@ -5,7 +5,7 @@ using Microsoft.Windows.AppNotifications;
 
 namespace BatteryTracker.Activation;
 
-public class AppNotificationActivationHandler : ActivationHandler<AppActivationArguments>
+public sealed class AppNotificationActivationHandler : ActivationHandler<AppActivationArguments>
 {
     // private readonly IAppNotificationService _notificationService;
 

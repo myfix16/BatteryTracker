@@ -1,26 +1,28 @@
-<!-- Copyright (c) Microsoft Corporation and Contributors. -->
-<!-- Licensed under the MIT License. -->
+<!--  Copyright (c) Microsoft Corporation and Contributors.  -->
+<!--  Licensed under the MIT License.  -->
 
 <Page
     x:Class="BatteryTracker.Views.AboutPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:helpers="using:BatteryTracker.Helpers"
     xmlns:controls="using:BatteryTracker.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helpers="using:BatteryTracker.Helpers"
     xmlns:labs="using:CommunityToolkit.Labs.WinUI"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="using:CommunityToolkit.WinUI.UI"
+    NavigationCacheMode="Required"
     mc:Ignorable="d">
 
-    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0 0 36 0">
-        <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
-            <!--Version-->
+    <ScrollViewer Padding="0 0 36 0" VerticalScrollBarVisibility="Auto">
+        <StackPanel ChildrenTransitions="{StaticResource SettingsCardsAnimations}" Orientation="Vertical">
+            <!--  Version  -->
             <controls:SettingsGroup x:Uid="Settings_Version" Margin="0 -24 0 0">
-                <!-- App version -->
+                <!--  App version  -->
                 <labs:SettingsCard
                     Header="Battery Tracker"
-                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xE946;}"
+                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily},
+                                             Glyph=&#xE946;}"
                     IsEnabled="True">
                     <labs:SettingsCard.Description>
                         <StackPanel Orientation="Horizontal" Spacing="8">
@@ -29,20 +31,18 @@
                             <TextBlock x:Uid="Settings_AboutDescription" />
                         </StackPanel>
                     </labs:SettingsCard.Description>
-                    <StackPanel Orientation="Horizontal"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Right"
-                                Spacing="8">
-                        <TextBlock x:Uid="Settings_VersionCopiedTextBlock"
-                                   VerticalAlignment="Center"
-                                   Visibility="{x:Bind ViewModel.ShowCopiedMessage, Mode=OneWay}" />
+                    <StackPanel
+                        HorizontalAlignment="Right" VerticalAlignment="Center"
+                        Orientation="Horizontal" Spacing="8">
+                        <TextBlock
+                            x:Uid="Settings_VersionCopiedTextBlock"
+                            VerticalAlignment="Center"
+                            Visibility="{x:Bind ViewModel.ShowCopiedMessage, Mode=OneWay}" />
                         <DropDownButton x:Uid="Settings_CopyVersionButton">
                             <DropDownButton.Flyout>
                                 <MenuFlyout Placement="Bottom">
-                                    <MenuFlyoutItem x:Uid="Settings_CopyAppVersionMenuItem"
-                                                    Command="{x:Bind ViewModel.CopyAppVersionCommand}" />
-                                    <MenuFlyoutItem x:Uid="Settings_CopyWindowsVersionMenuItem"
-                                                    Command="{x:Bind ViewModel.CopyWindowsVersionCommand}" />
+                                    <MenuFlyoutItem x:Uid="Settings_CopyAppVersionMenuItem" Command="{x:Bind ViewModel.CopyAppVersionCommand}" />
+                                    <MenuFlyoutItem x:Uid="Settings_CopyWindowsVersionMenuItem" Command="{x:Bind ViewModel.CopyWindowsVersionCommand}" />
                                 </MenuFlyout>
                             </DropDownButton.Flyout>
                         </DropDownButton>
@@ -50,78 +50,81 @@
                 </labs:SettingsCard>
             </controls:SettingsGroup>
 
-            <!-- Help and support -->
-            <controls:SettingsGroup
-                x:Uid="Settings_Help_Support"
-                IsEnabled="True">
-                <!-- Feedback -->
-                <labs:SettingsCard
-                    x:Uid="Settings_Feedback"
-                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xED15;}">
+            <!--  Help and support  -->
+            <controls:SettingsGroup x:Uid="Settings_Help_Support" IsEnabled="True">
+                <!--  Feedback  -->
+                <labs:SettingsCard x:Uid="Settings_Feedback" HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xED15;}">
                     <labs:SettingsCard.Description>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Spacing="2">
-                            <HyperlinkButton x:Uid="SettingsPage_GitHubIssuesLink"
-                                             NavigateUri="https://github.com/myfix16/BatteryTracker/issues/new/choose" />
+                        <StackPanel
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal" Spacing="2">
+                            <HyperlinkButton x:Uid="SettingsPage_GitHubIssuesLink" NavigateUri="https://github.com/myfix16/BatteryTracker/issues/new/choose" />
                             <TextBlock Text="|" />
-                            <HyperlinkButton x:Uid="SettingsPage_EmailLink"
-                                             Click="EmailFeedbackHyperlinkButton_Click" />
+                            <HyperlinkButton x:Uid="SettingsPage_EmailLink" Click="EmailFeedbackHyperlinkButton_Click" />
                             <TextBlock Text="|" />
-                            <HyperlinkButton x:Uid="SettingsPage_RateTheApp"
-                                             Click="RateTheAppHyperlinkButton_Click" />
+                            <HyperlinkButton x:Uid="SettingsPage_RateTheApp" Click="RateTheAppHyperlinkButton_Click" />
                         </StackPanel>
                     </labs:SettingsCard.Description>
                 </labs:SettingsCard>
 
-                <!-- Logs -->
+                <!--  Logs  -->
                 <labs:SettingsCard
                     x:Uid="Settings_Logs"
-                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xED25;}"
-                    ActionIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, FontSize=14, Glyph=&#xE8A7;}"
+                    ActionIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily},
+                                             FontSize=14,
+                                             Glyph=&#xE8A7;}"
                     Command="{x:Bind ViewModel.OpenLogFolderCommand}"
-                    IsClickEnabled="True">
-                </labs:SettingsCard>
+                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily},
+                                             Glyph=&#xED25;}"
+                    IsClickEnabled="True" />
             </controls:SettingsGroup>
 
-            <!-- Open source -->
-            <controls:SettingsGroup
-                x:Uid="Settings_OpenSource"
-                IsEnabled="True">
-                <!-- GitHub link -->
+            <!--  Open source  -->
+            <controls:SettingsGroup x:Uid="Settings_OpenSource" IsEnabled="True">
+                <!--  GitHub link  -->
                 <labs:SettingsCard
                     x:Uid="Settings_GitHubLink"
-                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xE774;}"
-                    ActionIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, FontSize=14, Glyph=&#xE8A7;}"
+                    ActionIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily},
+                                             FontSize=14,
+                                             Glyph=&#xE8A7;}"
                     Command="{x:Bind ViewModel.OpenGitHubRepoCommand}"
-                    IsClickEnabled="True">
-                </labs:SettingsCard>
+                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily},
+                                             Glyph=&#xE774;}"
+                    IsClickEnabled="True" />
 
-                <!-- Privacy statement -->
+                <!--  Privacy statement  -->
                 <labs:SettingsCard
                     x:Uid="Settings_PrivacyTerms"
-                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xE72E;}"
-                    ActionIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, FontSize=14, Glyph=&#xE8A7;}"
+                    ActionIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily},
+                                             FontSize=14,
+                                             Glyph=&#xE8A7;}"
                     Command="{x:Bind ViewModel.OpenPrivacyStatementCommand}"
-                    IsClickEnabled="True">
-                </labs:SettingsCard>
+                    HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily},
+                                             Glyph=&#xE72E;}"
+                    IsClickEnabled="True" />
             </controls:SettingsGroup>
 
-            <!-- Third party licenses -->
+            <!--  Third party licenses  -->
             <labs:SettingsExpander
                 x:Uid="Settings_ThirdPartyLicense"
-                HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xE90F;}"
+                HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily},
+                                         Glyph=&#xE90F;}"
                 IsExpanded="False">
                 <labs:SettingsExpander.Items>
                     <labs:SettingsCard HorizontalAlignment="Stretch" FlowDirection="RightToLeft">
                         <StackPanel Orientation="Horizontal" Spacing="4">
-                            <HyperlinkButton Content="H.NotifyIcon"
-                                             NavigateUri="https://github.com/HavenDV/H.NotifyIcon/blob/master/LICENSE.md"
-                                             ToolTipService.ToolTip="https://github.com/HavenDV/H.NotifyIcon/blob/master/LICENSE.md" />
-                            <HyperlinkButton Content="Windows Community Toolkit"
-                                             NavigateUri="https://github.com/CommunityToolkit/WindowsCommunityToolkit/blob/main/License.md"
-                                             ToolTipService.ToolTip="https://github.com/CommunityToolkit/WindowsCommunityToolkit/blob/main/License.md" />
-                            <HyperlinkButton Content="WinUIEx"
-                                             NavigateUri="https://github.com/dotMorten/WinUIEx/blob/main/LICENSE"
-                                             ToolTipService.ToolTip="https://github.com/dotMorten/WinUIEx/blob/main/LICENSE" />
+                            <HyperlinkButton
+                                Content="H.NotifyIcon"
+                                NavigateUri="https://github.com/HavenDV/H.NotifyIcon/blob/master/LICENSE.md"
+                                ToolTipService.ToolTip="https://github.com/HavenDV/H.NotifyIcon/blob/master/LICENSE.md" />
+                            <HyperlinkButton
+                                Content="Windows Community Toolkit"
+                                NavigateUri="https://github.com/CommunityToolkit/WindowsCommunityToolkit/blob/main/License.md"
+                                ToolTipService.ToolTip="https://github.com/CommunityToolkit/WindowsCommunityToolkit/blob/main/License.md" />
+                            <HyperlinkButton
+                                Content="WinUIEx"
+                                NavigateUri="https://github.com/dotMorten/WinUIEx/blob/main/LICENSE"
+                                ToolTipService.ToolTip="https://github.com/dotMorten/WinUIEx/blob/main/LICENSE" />
                         </StackPanel>
                     </labs:SettingsCard>
                 </labs:SettingsExpander.Items>

@@ -1,6 +1,7 @@
-﻿using BatteryTracker.Services;
+﻿using BatteryTracker.Contracts.Services;
 using BatteryTracker.Tests.UnitTests.Mocks;
 using BatteryTracker.ViewModels;
+using Microsoft.Extensions.Logging;
 using Microsoft.UI.Xaml;
 
 namespace BatteryTracker.Tests.UnitTests.ViewModelsTests;
@@ -13,14 +14,16 @@ namespace BatteryTracker.Tests.UnitTests.ViewModelsTests;
 public class SettingsViewModelTest
 {
     private readonly SettingsViewModel _viewModel;
-    private readonly SettingsService _settingsService;
+    private readonly ISettingsService _settingsService;
 
     public SettingsViewModelTest()
     {
-        _settingsService = new SettingsService(new MockSettingsStorageService());
+        ILoggerFactory loggerFactory = new LoggerFactory();
+
+        _settingsService = new MockSettingsService();
 
         _viewModel = new SettingsViewModel(
-            new MockBatteryIcon(new MockAppNotificationService()),
+            new MockBatteryIcon(new MockAppNotificationService(), new Logger<MockBatteryIcon>(loggerFactory)),
             new MockThemeSelectorService(_settingsService),
             new MockLogger<SettingsViewModel>(),
             _settingsService
@@ -34,7 +37,7 @@ public class SettingsViewModelTest
     {
         // Fully charged notification
         _viewModel.EnableFullyChargedNotification = isEnabled;
-        Assert.AreEqual(isEnabled, (bool)_settingsService.Get(SettingsService.FullyChargedNotificationSettingsKey));
+        Assert.AreEqual(isEnabled, (bool)_settingsService.EnableFullyChargedNotification);
     }
 
     [TestMethod]
@@ -44,7 +47,7 @@ public class SettingsViewModelTest
     {
         // Low power notification
         _viewModel.EnableLowPowerNotification = isEnabled;
-        Assert.AreEqual(isEnabled, (bool)_settingsService.Get(SettingsService.LowPowerNotificationSettingsKey));
+        Assert.AreEqual(isEnabled, (bool)_settingsService.EnableLowPowerNotification);
     }
 
     [TestMethod]
@@ -57,7 +60,7 @@ public class SettingsViewModelTest
     {
         // Low power threshold
         _viewModel.LowPowerNotificationThreshold = threshold;
-        Assert.AreEqual(threshold, (int)_settingsService.Get(SettingsService.LowPowerNotificationThresholdSettingsKey));
+        Assert.AreEqual(threshold, (int)_settingsService.LowPowerNotificationThreshold);
     }
 
     [TestMethod]
@@ -67,7 +70,7 @@ public class SettingsViewModelTest
     {
         // High power notification
         _viewModel.EnableHighPowerNotification = isEnabled;
-        Assert.AreEqual(isEnabled, (bool)_settingsService.Get(SettingsService.HighPowerNotificationSettingsKey));
+        Assert.AreEqual(isEnabled, (bool)_settingsService.EnableHighPowerNotification);
     }
 
     [TestMethod]
@@ -81,7 +84,7 @@ public class SettingsViewModelTest
         // High power threshold
         _viewModel.HighPowerNotificationThreshold = threshold;
         Assert.AreEqual(threshold,
-            (int)_settingsService.Get(SettingsService.HighPowerNotificationThresholdSettingsKey));
+            (int)_settingsService.HighPowerNotificationThreshold);
     }
 
     [TestMethod]
@@ -97,8 +100,7 @@ public class SettingsViewModelTest
         }
         catch { }
 
-        Assert.AreEqual(theme,
-            Enum.Parse<ElementTheme>((string)_settingsService.Get(SettingsService.AppThemeSettingsKey)));
+        Assert.AreEqual(theme, _settingsService.Theme);
     }
 
     [TestMethod]
@@ -109,11 +111,10 @@ public class SettingsViewModelTest
         // Language
         try
         {
-            _viewModel.Language = SettingsService.Languages[index];
+            _viewModel.Language = _settingsService.Languages[index];
         }
         catch { }
 
-        Assert.IsTrue(((string)_settingsService.Get(SettingsService.LanguageSettingsKey))
-            .Contains(SettingsService.Languages[index].Item2));
+        Assert.IsTrue((_settingsService.Language.LanguageId.Contains(_settingsService.Languages[index].LanguageId)));
     }
 }

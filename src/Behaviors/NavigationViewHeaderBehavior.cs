@@ -5,7 +5,7 @@ using Microsoft.Xaml.Interactivity;
 
 namespace BatteryTracker.Behaviors;
 
-public class NavigationViewHeaderBehavior : Behavior<NavigationView>
+public sealed class NavigationViewHeaderBehavior : Behavior<NavigationView>
 {
     private static NavigationViewHeaderBehavior? _current;
 

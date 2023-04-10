@@ -1,4 +1,6 @@
-﻿using Microsoft.Windows.ApplicationModel.DynamicDependency;
+﻿using System.Diagnostics;
+using System.Runtime.InteropServices;
+using Microsoft.Windows.ApplicationModel.DynamicDependency;
 
 [assembly: WinUITestTarget(typeof(BatteryTracker.App))]
 
@@ -10,9 +12,15 @@ public class Initialize
     [AssemblyInitialize]
     public static void AssemblyInitialize(TestContext context)
     {
-        // TODO: Initialize the appropriate version of the Windows App SDK.
+        // Initialize the appropriate version of the Windows App SDK.
         // This is required when testing MSIX apps that are framework-dependent on the Windows App SDK.
-        Bootstrap.TryInitialize(0x00010001, out var _);
+        // todo: bug - bootstrap failed
+        bool success = Bootstrap.TryInitialize(0x00010002, out var hresult);
+        if (!success)
+        {
+            Exception? exception = Marshal.GetExceptionForHR(hresult);
+            Debug.WriteLine(exception?.Message);
+        }
     }
 
     [AssemblyCleanup]
