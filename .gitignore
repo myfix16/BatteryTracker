@@ -5,6 +5,7 @@
 
 # Other excluded files
 *.ini
+packages
 
 # User-specific files
 *.rsuser
