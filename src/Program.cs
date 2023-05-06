@@ -11,8 +11,6 @@ namespace BatteryTracker
     {
         private static DispatcherQueue? _uiDispatcherQueue;
 
-        public const string LogPath = @"C:\Users\MyFix\Desktop\BatteryTracker.log";
-
         // Replaces the standard App.g.i.cs.
         // Note: We can't declare Main to be async because in a WinUI app
         // this prevents Narrator from reading XAML elements.
