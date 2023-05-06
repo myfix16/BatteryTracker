@@ -9,6 +9,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决�
 		.gitignore = .gitignore
 		Privacy.md = Privacy.md
 		Readme.md = Readme.md
+		showcase1.png = showcase1.png
+		showcase2.png = showcase2.png
+		showcase3.png = showcase3.png
+		showcase4.png = showcase4.png
+		showcase5.png = showcase5.png
+		showcase6.png = showcase6.png
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BatteryTracker", "src\BatteryTracker.csproj", "{D3E4014A-5A7D-44B7-BFC1-75D7FDFE6B1A}"

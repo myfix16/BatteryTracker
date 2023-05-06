@@ -3,8 +3,8 @@
 Show remaining battery percentage on Windows taskbar.
 <table>
 	<tr>
-		<td><img src=showcase2.png border=0></td>
-		<td><img src=showcase1.png border=0></td>
+		<td><img src=Assets/showcase2.png border=0></td>
+		<td><img src=Assets/showcase1.png border=0></td>
 	</tr>
 	<tr>
 		<td style="text-align: center; vertical-align: middle;">Charging</td>
@@ -17,7 +17,7 @@ Show remaining battery percentage on Windows taskbar.
 2. It can notify users when the battery life is lower/higher than a threshold or the battery is fully charged. And the notifications are fully **customizable**!
 3. **Modern setting UI** that fits the Operating System
 	
-	<img style="width:60%;" src=showcase5.png />
+	<img style="width:60%;" src=Assets/showcase5.png />
 
 ## Prerequisites
 The application requires **.NET 7 Desktop Runtime** and **Windows App SDK Runtime**. If you install from Microsoft Store, dependencies will be automatically installed. 
