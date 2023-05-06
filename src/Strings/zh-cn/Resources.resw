@@ -199,7 +199,7 @@
     <value>电池已有足够电量</value>
   </data>
   <data name="LowPowerMessage" xml:space="preserve">
-    <value>电池电量低</value>
+    <value>电池电量不足</value>
   </data>
   <data name="Settings_EnableHighPowerNotification.Header" xml:space="preserve">
     <value>启用电量充足通知</value>
