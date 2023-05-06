@@ -1,4 +1,7 @@
 ﻿# Battery Tracker
+ <a href="https://hosted.weblate.org/engage/battery-tracker/">
+<img src="https://hosted.weblate.org/widgets/battery-tracker/-/svg-badge.svg" alt="Translation status" />
+</a>
 
 Show remaining battery percentage on Windows taskbar.
 <table>
