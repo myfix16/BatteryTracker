@@ -1,4 +1,7 @@
 ﻿# Battery Tracker
+ <a href="https://hosted.weblate.org/engage/battery-tracker/">
+<img src="https://hosted.weblate.org/widgets/battery-tracker/-/svg-badge.svg" alt="Translation status" />
+</a>
 
 Show remaining battery percentage on Windows taskbar.
 <table>
@@ -36,6 +39,20 @@ See [Privacy.md](./Privacy.md).
 ## How to Contribute
 Priority place for bugs: https://github.com/myfix16/BatteryTracker/issues  
 Priority place for ideas and general questions: https://github.com/myfix16/BatteryTracker/discussions
+
+### Translations
+You can make Battery Tracker more accessible by translating it to new languages! ❤️
+
+We use Weblate's cool [free Libre plan](https://hosted.weblate.org/hosting/) that supports open source software projects!
+You can find our project here: https://hosted.weblate.org/projects/battery-tracker/app/
+<p align="left">
+
+<a href="https://hosted.weblate.org/engage/battery-tracker/">
+<img src="https://hosted.weblate.org/widgets/battery-tracker/-/app/multi-auto.svg" alt="Translation status" />
+</a>
+</p>
+
+Alternatively, you can manually edit the translation files in `src/Strings`.
 
 ## Building from source
 
