@@ -25,7 +25,7 @@
                     HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily},
                                              Glyph=&#xEA8F;}"
                     IsEnabled="True">
-                    <ToggleSwitch IsOn="{x:Bind ViewModel.EnableFullyChargedNotification, Mode=TwoWay}" />
+                    <ToggleSwitch IsOn="{x:Bind ViewModel.FullyChargedNotificationEnabled, Mode=TwoWay}" />
                 </labs:SettingsCard>
 
                 <!--  Enable low power notification  -->
@@ -33,10 +33,10 @@
                     x:Uid="Settings_EnableLowPowerNotification"
                     HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily},
                                              Glyph=&#xEA8F;}"
-                    IsExpanded="{x:Bind ViewModel.EnableLowPowerNotification, Mode=OneWay}">
-                    <ToggleSwitch IsOn="{x:Bind ViewModel.EnableLowPowerNotification, Mode=TwoWay}" />
+                    IsExpanded="{x:Bind ViewModel.LowPowerNotificationEnabled, Mode=OneWay}">
+                    <ToggleSwitch IsOn="{x:Bind ViewModel.LowPowerNotificationEnabled, Mode=TwoWay}" />
                     <labs:SettingsExpander.Items>
-                        <labs:SettingsCard x:Uid="Settings_LowPowerThreshold" IsEnabled="{x:Bind ViewModel.EnableLowPowerNotification, Mode=OneWay}">
+                        <labs:SettingsCard x:Uid="Settings_LowPowerThreshold" IsEnabled="{x:Bind ViewModel.LowPowerNotificationEnabled, Mode=OneWay}">
                             <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                 <Slider
                                     x:Name="LowPowerThresholdSlider"
@@ -62,10 +62,10 @@
                     x:Uid="Settings_EnableHighPowerNotification"
                     HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily},
                                              Glyph=&#xEA8F;}"
-                    IsExpanded="{x:Bind ViewModel.EnableHighPowerNotification, Mode=OneWay}">
-                    <ToggleSwitch IsOn="{x:Bind ViewModel.EnableHighPowerNotification, Mode=TwoWay}" />
+                    IsExpanded="{x:Bind ViewModel.HighPowerNotificationEnabled, Mode=OneWay}">
+                    <ToggleSwitch IsOn="{x:Bind ViewModel.HighPowerNotificationEnabled, Mode=TwoWay}" />
                     <labs:SettingsExpander.Items>
-                        <labs:SettingsCard x:Uid="Settings_HighPowerThreshold" IsEnabled="{x:Bind ViewModel.EnableHighPowerNotification, Mode=OneWay}">
+                        <labs:SettingsCard x:Uid="Settings_HighPowerThreshold" IsEnabled="{x:Bind ViewModel.HighPowerNotificationEnabled, Mode=OneWay}">
                             <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                 <Slider
                                     x:Name="HighPowerThresholdSlider"
@@ -93,7 +93,7 @@
                     <labs:SettingsCard.Description>
                         <HyperlinkButton x:Uid="Settings_Windows_Color_Settings" Click="HyperlinkButton_Click" />
                     </labs:SettingsCard.Description>
-                    <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="{x:Bind ViewModel.ElementTheme, Mode=TwoWay, Converter={StaticResource EnumToIntConverter}}">
+                    <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="{x:Bind ViewModel.AppTheme, Mode=TwoWay, Converter={StaticResource EnumToIntConverter}}">
                         <ComboBoxItem x:Uid="Settings_Theme_Default" Content="Windows Default" />
                         <ComboBoxItem x:Uid="Settings_Theme_Light" Content="Light" />
                         <ComboBoxItem x:Uid="Settings_Theme_Dark" Content="Dark" />

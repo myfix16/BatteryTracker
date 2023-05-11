@@ -41,24 +41,24 @@ internal sealed class SettingsService : BaseJsonSettingsService, ISettingsServic
 
     public IList<AppLanguageItem> Languages { get; private set; }
 
-    private bool _enableFullyChargedNotification;
-    public bool EnableFullyChargedNotification
+    private bool _fullyChargedNotificationEnabled;
+    public bool FullyChargedNotificationEnabled
     {
-        get => _enableFullyChargedNotification;
+        get => _fullyChargedNotificationEnabled;
         set
         {
-            _enableFullyChargedNotification = value;
+            _fullyChargedNotificationEnabled = value;
             Set(EnableFullyChargedNotificationSettingsKey, value);
         }
     }
 
-    private bool _enableLowPowerNotification;
-    public bool EnableLowPowerNotification
+    private bool _lowPowerNotificationEnabled;
+    public bool LowPowerNotificationEnabled
     {
-        get => _enableLowPowerNotification;
+        get => _lowPowerNotificationEnabled;
         set
         {
-            _enableLowPowerNotification = value;
+            _lowPowerNotificationEnabled = value;
             Set(EnableLowPowerNotificationSettingsKey, value);
         }
     }
@@ -74,13 +74,13 @@ internal sealed class SettingsService : BaseJsonSettingsService, ISettingsServic
         }
     }
 
-    private bool _enableHighPowerNotification;
-    public bool EnableHighPowerNotification
+    private bool _highPowerNotificationEnabled;
+    public bool HighPowerNotificationEnabled
     {
-        get => _enableHighPowerNotification;
+        get => _highPowerNotificationEnabled;
         set
         {
-            _enableHighPowerNotification = value;
+            _highPowerNotificationEnabled = value;
             Set(EnableHighPowerNotificationSettingsKey, value);
         }
     }
@@ -173,13 +173,13 @@ internal sealed class SettingsService : BaseJsonSettingsService, ISettingsServic
 
     private void LoadSettingValues()
     {
-        _enableFullyChargedNotification =
+        _fullyChargedNotificationEnabled =
             Get(EnableFullyChargedNotificationSettingsKey, EnableFullyChargedNotificationDefault);
-        _enableLowPowerNotification =
+        _lowPowerNotificationEnabled =
             Get(EnableLowPowerNotificationSettingsKey, EnableLowPowerNotificationDefault);
         _lowPowerNotificationThreshold =
             Get(LowPowerNotificationThresholdSettingsKey, LowPowerNotificationThresholdDefault);
-        _enableHighPowerNotification =
+        _highPowerNotificationEnabled =
             Get(EnableHighPowerNotificationSettingsKey, EnableHighPowerNotificationDefault);
         _highPowerNotificationThreshold =
             Get(HighPowerNotificationThresholdSettingsKey, HighPowerNotificationThresholdDefault);
@@ -198,11 +198,11 @@ internal sealed class SettingsService : BaseJsonSettingsService, ISettingsServic
         // Read and convert old settings
         object? value;
         value = StorageGetRawValue(EnableFullyChargedNotificationSettingsKey);
-        EnableFullyChargedNotification = value != null ? (bool)value : EnableFullyChargedNotificationDefault;
+        FullyChargedNotificationEnabled = value != null ? (bool)value : EnableFullyChargedNotificationDefault;
         value = StorageGetRawValue(EnableLowPowerNotificationSettingsKey);
-        EnableLowPowerNotification = value != null ? (bool)value : EnableLowPowerNotificationDefault;
+        LowPowerNotificationEnabled = value != null ? (bool)value : EnableLowPowerNotificationDefault;
         value = StorageGetRawValue(EnableHighPowerNotificationSettingsKey);
-        EnableHighPowerNotification = value != null ? (bool)value : EnableHighPowerNotificationDefault;
+        HighPowerNotificationEnabled = value != null ? (bool)value : EnableHighPowerNotificationDefault;
         value = StorageGetRawValue(LowPowerNotificationThresholdSettingsKey);
         LowPowerNotificationThreshold = value != null ? (int)value : LowPowerNotificationThresholdDefault;
         value = StorageGetRawValue(HighPowerNotificationThresholdSettingsKey);

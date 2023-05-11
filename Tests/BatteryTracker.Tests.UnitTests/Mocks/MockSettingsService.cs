@@ -8,13 +8,13 @@ public class MockSettingsService : ISettingsService
 {
     public IList<AppLanguageItem> Languages { get; }
 
-    public bool EnableFullyChargedNotification { get; set; }
+    public bool FullyChargedNotificationEnabled { get; set; }
 
-    public bool EnableLowPowerNotification { get; set; }
+    public bool LowPowerNotificationEnabled { get; set; }
 
     public int LowPowerNotificationThreshold { get; set; }
 
-    public bool EnableHighPowerNotification { get; set; }
+    public bool HighPowerNotificationEnabled { get; set; }
 
     public int HighPowerNotificationThreshold { get; set; }
 

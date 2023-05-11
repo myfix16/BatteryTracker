@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows.Input;
 using BatteryTracker.Activation;
+using BatteryTracker.Contracts.Models;
 using BatteryTracker.Contracts.Services;
 using BatteryTracker.Helpers;
 using BatteryTracker.Models;
@@ -15,14 +16,15 @@ using Windows.System.UserProfile;
 
 namespace BatteryTracker.ViewModels;
 
-public sealed class SettingsViewModel : ObservableRecipient
+public sealed class SettingsViewModel : ObservableRecipient, IBatterySettings
 {
-    public ElementTheme ElementTheme
+    private ElementTheme _appTheme;
+    public ElementTheme AppTheme
     {
-        get => _elementTheme;
+        get => _appTheme;
         set
         {
-            SetProperty(ref _elementTheme, value);
+            SetProperty(ref _appTheme, value);
             SwitchThemeAsync(value).Wait();
         }
     }
@@ -47,27 +49,27 @@ public sealed class SettingsViewModel : ObservableRecipient
     }
 #endif
 
-    private bool _enableFullyChargedNotification;
-    public bool EnableFullyChargedNotification
+    private bool _fullyChargedNotificationEnabled;
+    public bool FullyChargedNotificationEnabled
     {
-        get => _enableFullyChargedNotification;
+        get => _fullyChargedNotificationEnabled;
         set
         {
-            SetProperty(ref _enableFullyChargedNotification, value);
-            _batteryIcon.EnableFullyChargedNotification = value;
-            _settingsService.EnableFullyChargedNotification = value;
+            SetProperty(ref _fullyChargedNotificationEnabled, value);
+            _batteryIcon.Settings.FullyChargedNotificationEnabled = value;
+            _settingsService.FullyChargedNotificationEnabled = value;
         }
     }
 
-    private bool _enableLowPowerNotification;
-    public bool EnableLowPowerNotification
+    private bool _lowPowerNotificationEnabled;
+    public bool LowPowerNotificationEnabled
     {
-        get => _enableLowPowerNotification;
+        get => _lowPowerNotificationEnabled;
         set
         {
-            SetProperty(ref _enableLowPowerNotification, value);
-            _batteryIcon.EnableLowPowerNotification = value;
-            _settingsService.EnableLowPowerNotification = value;
+            SetProperty(ref _lowPowerNotificationEnabled, value);
+            _batteryIcon.Settings.LowPowerNotificationEnabled = value;
+            _settingsService.LowPowerNotificationEnabled = value;
         }
     }
 
@@ -78,20 +80,20 @@ public sealed class SettingsViewModel : ObservableRecipient
         set
         {
             SetProperty(ref _lowPowerNotificationThreshold, value);
-            _batteryIcon.LowPowerNotificationThreshold = value;
+            _batteryIcon.Settings.LowPowerNotificationThreshold = value;
             _settingsService.LowPowerNotificationThreshold = value;
         }
     }
 
-    private bool _enableHighPowerNotification;
-    public bool EnableHighPowerNotification
+    private bool _highPowerNotificationEnabled;
+    public bool HighPowerNotificationEnabled
     {
-        get => _enableHighPowerNotification;
+        get => _highPowerNotificationEnabled;
         set
         {
-            SetProperty(ref _enableHighPowerNotification, value);
-            _batteryIcon.EnableHighPowerNotification = value;
-            _settingsService.EnableHighPowerNotification = value;
+            SetProperty(ref _highPowerNotificationEnabled, value);
+            _batteryIcon.Settings.HighPowerNotificationEnabled = value;
+            _settingsService.HighPowerNotificationEnabled = value;
         }
     }
 
@@ -102,7 +104,7 @@ public sealed class SettingsViewModel : ObservableRecipient
         set
         {
             SetProperty(ref _highPowerNotificationThreshold, value);
-            _batteryIcon.HighPowerNotificationThreshold = value;
+            _batteryIcon.Settings.HighPowerNotificationThreshold = value;
             _settingsService.HighPowerNotificationThreshold = value;
         }
     }
@@ -173,8 +175,6 @@ public sealed class SettingsViewModel : ObservableRecipient
 
     #region Private fields
 
-    private ElementTheme _elementTheme;
-
     private readonly string _appLanguageId;
 
     // service reference
@@ -194,7 +194,7 @@ public sealed class SettingsViewModel : ObservableRecipient
         _logger = logger;
         _settingsService = settingsService;
 
-        _elementTheme = _themeService.Theme;
+        _appTheme = _themeService.Theme;
 
         RestartCommand = new RelayCommand(() =>
         {
@@ -231,10 +231,10 @@ public sealed class SettingsViewModel : ObservableRecipient
     /// </summary>
     private void ReadSettingValues()
     {
-        _enableFullyChargedNotification = _settingsService.EnableFullyChargedNotification;
-        _enableLowPowerNotification = _settingsService.EnableLowPowerNotification;
+        _fullyChargedNotificationEnabled = _settingsService.FullyChargedNotificationEnabled;
+        _lowPowerNotificationEnabled = _settingsService.LowPowerNotificationEnabled;
         _lowPowerNotificationThreshold = _settingsService.LowPowerNotificationThreshold;
-        _enableHighPowerNotification = _settingsService.EnableHighPowerNotification;
+        _highPowerNotificationEnabled = _settingsService.HighPowerNotificationEnabled;
         _highPowerNotificationThreshold = _settingsService.HighPowerNotificationThreshold;
         _runAtStartup = _settingsService.RunAtStartup;
         Language = Languages.FirstOrDefault(l => l.LanguageId == _settingsService.Language.LanguageId)

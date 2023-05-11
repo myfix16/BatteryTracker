@@ -36,8 +36,8 @@ public class SettingsViewModelTest
     public void TestFullyChargedNotificationSettingWroteToStorage(bool isEnabled)
     {
         // Fully charged notification
-        _viewModel.EnableFullyChargedNotification = isEnabled;
-        Assert.AreEqual(isEnabled, (bool)_settingsService.EnableFullyChargedNotification);
+        _viewModel.FullyChargedNotificationEnabled = isEnabled;
+        Assert.AreEqual(isEnabled, _settingsService.FullyChargedNotificationEnabled);
     }
 
     [TestMethod]
@@ -46,8 +46,8 @@ public class SettingsViewModelTest
     public void TestLowPowerNotificationSettingWroteToStorage(bool isEnabled)
     {
         // Low power notification
-        _viewModel.EnableLowPowerNotification = isEnabled;
-        Assert.AreEqual(isEnabled, (bool)_settingsService.EnableLowPowerNotification);
+        _viewModel.LowPowerNotificationEnabled = isEnabled;
+        Assert.AreEqual(isEnabled, _settingsService.LowPowerNotificationEnabled);
     }
 
     [TestMethod]
@@ -60,7 +60,7 @@ public class SettingsViewModelTest
     {
         // Low power threshold
         _viewModel.LowPowerNotificationThreshold = threshold;
-        Assert.AreEqual(threshold, (int)_settingsService.LowPowerNotificationThreshold);
+        Assert.AreEqual(threshold, _settingsService.LowPowerNotificationThreshold);
     }
 
     [TestMethod]
@@ -69,8 +69,8 @@ public class SettingsViewModelTest
     public void TestHighPowerNotificationSettingWroteToStorage(bool isEnabled)
     {
         // High power notification
-        _viewModel.EnableHighPowerNotification = isEnabled;
-        Assert.AreEqual(isEnabled, (bool)_settingsService.EnableHighPowerNotification);
+        _viewModel.HighPowerNotificationEnabled = isEnabled;
+        Assert.AreEqual(isEnabled, _settingsService.HighPowerNotificationEnabled);
     }
 
     [TestMethod]
@@ -83,8 +83,7 @@ public class SettingsViewModelTest
     {
         // High power threshold
         _viewModel.HighPowerNotificationThreshold = threshold;
-        Assert.AreEqual(threshold,
-            (int)_settingsService.HighPowerNotificationThreshold);
+        Assert.AreEqual(threshold, _settingsService.HighPowerNotificationThreshold);
     }
 
     [TestMethod]
@@ -96,7 +95,7 @@ public class SettingsViewModelTest
         // App theme
         try
         {
-            _viewModel.ElementTheme = theme;
+            _viewModel.AppTheme = theme;
         }
         catch { }
 
