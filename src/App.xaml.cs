@@ -126,7 +126,7 @@ public sealed partial class App : Application
     protected override async void OnLaunched(LaunchActivatedEventArgs args)
     {
         AppActivationArguments activationArgs = AppInstance.GetCurrent().GetActivatedEventArgs();
-        _logger.LogInformation($"App launched with activation kind: {activationArgs.Kind}");
+        _logger.LogInformation("App launched with activation kind: {activationKind}", activationArgs.Kind);
 
         await GetService<IActivationService>().ActivateAsync(activationArgs);
 

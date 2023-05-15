@@ -125,6 +125,8 @@ public sealed class SettingsViewModel : ObservableRecipient, IBatterySettings
             {
                 ApplicationLanguages.PrimaryLanguageOverride = value.LanguageId == string.Empty
                     ? GlobalizationPreferences.Languages[0] : newLanguageId;
+
+                _logger.LogInformation("Change language to {languageId}", value.LanguageId);
             }
         }
     }
@@ -150,13 +152,13 @@ public sealed class SettingsViewModel : ObservableRecipient, IBatterySettings
 
                     if (success)
                     {
-                        _logger.LogInformation($"Set running at startup to: {value}");
+                        _logger.LogInformation("Set running at startup to: {runAtStartupValue}", value);
                         _settingsService.RunAtStartup = value;
                     }
                     else
                     {
                         // Log and revert the change
-                        _logger.LogError($"Setting running at startup failed.");
+                        _logger.LogError("Setting running at startup failed.");
                         SetProperty(ref _runAtStartup, !value);
                     }
                 }

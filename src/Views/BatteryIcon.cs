@@ -204,7 +204,7 @@ public partial class BatteryIcon : IDisposable
             case DisplayStatus.Dimmed:
                 break;
             default:
-                _logger.LogWarning($"Invalid display status: {displayStatus}");
+                _logger.LogWarning("Invalid display status: {displayStatus}", displayStatus);
                 break;
         }
     }

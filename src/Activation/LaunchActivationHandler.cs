@@ -45,7 +45,7 @@ public sealed class LaunchActivationHandler : ActivationHandler<AppActivationArg
         if (args.Data is ILaunchActivatedEventArgs launchArgs)
         {
             string[] argStrings = launchArgs.Arguments.Split(' ');
-            _logger.LogInformation($"App launched with command line args: [{string.Join(", ", argStrings)}]");
+            _logger.LogInformation("App launched with command line args: [{args}]", string.Join(", ", argStrings));
 
             if (argStrings.Contains(OpenSettingsCommandArg))
             {
