@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Settings_CopyVersionButton.Content" xml:space="preserve">
+    <value>Копіювати</value>
+  </data>
+  <data name="Settings_OpenSource.Header" xml:space="preserve">
+    <value>Відкритий вихідний код</value>
+  </data>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Battery Tracker</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>Показати відсоток заряду батареї на панелі завдань</value>
+  </data>
+  <data name="Settings_Personalization.Text" xml:space="preserve">
+    <value>Персоналізація</value>
+  </data>
+  <data name="Settings_Theme.Text" xml:space="preserve">
+    <value>Тема</value>
+  </data>
+  <data name="Settings_Theme_Light.Content" xml:space="preserve">
+    <value>Світла</value>
+  </data>
+  <data name="Settings_Theme_Dark.Content" xml:space="preserve">
+    <value>Темна</value>
+  </data>
+  <data name="Settings_Theme_Default.Content" xml:space="preserve">
+    <value>За замовчуванням Windows</value>
+  </data>
+  <data name="Settings_About.Text" xml:space="preserve">
+    <value>Про цей застосунок</value>
+  </data>
+  <data name="Settings_PrivacyTerms.Header" xml:space="preserve">
+    <value>Положення про конфіденційність</value>
+  </data>
+  <data name="Settings_EnableFullyChargedNotification.Header" xml:space="preserve">
+    <value>Ввімкнути сповіщення про повний заряд</value>
+  </data>
+  <data name="Settings_EnableLowPowerNotification.Header" xml:space="preserve">
+    <value>Ввімкнути сповіщення про низький рівень енергоспоживання</value>
+  </data>
+  <data name="Settings_Notification.Header" xml:space="preserve">
+    <value>Сповіщення</value>
+  </data>
+  <data name="Shell_About.Content" xml:space="preserve">
+    <value>Про</value>
+  </data>
+  <data name="Shell_Settings.Content" xml:space="preserve">
+    <value>Налаштування</value>
+  </data>
+  <data name="Settings_LanguageButton.Content" xml:space="preserve">
+    <value>Перезавантажити</value>
+  </data>
+  <data name="UnhandledExceptionMessage" xml:space="preserve">
+    <value>Застосунок завершено, оскільки сталася непередбачувана помилка</value>
+  </data>
+  <data name="SettingsPage_EmailLink.Content" xml:space="preserve">
+    <value>Надсилайте відгуки електронною поштою</value>
+  </data>
+  <data name="SubmitFeedback" xml:space="preserve">
+    <value>Надіслати відгук</value>
+  </data>
+  <data name="ExitApplicationCommand.Label" xml:space="preserve">
+    <value>Вийти</value>
+  </data>
+  <data name="OpenSettingsCommand.Label" xml:space="preserve">
+    <value>Налаштування</value>
+  </data>
+  <data name="FullyChargedMessage" xml:space="preserve">
+    <value>Батарею повністю заряджено</value>
+  </data>
+  <data name="LowPowerMessage" xml:space="preserve">
+    <value>Мало заряду</value>
+  </data>
+  <data name="Settings_EnableHighPowerNotification.Header" xml:space="preserve">
+    <value>Ввімкнути сповіщення про достатній заряд</value>
+  </data>
+  <data name="InstanceRunningMessage" xml:space="preserve">
+    <value>Інший екземпляр вже запущено</value>
+  </data>
+  <data name="Settings_Appearance_Behavior.Header" xml:space="preserve">
+    <value>Зовнішній вигляд і поведінка</value>
+  </data>
+  <data name="Settings_ColorModeHeader.Header" xml:space="preserve">
+    <value>Тема застосунку</value>
+  </data>
+  <data name="Settings_CopyAppVersionMenuItem.Text" xml:space="preserve">
+    <value>Версія застосунку</value>
+  </data>
+  <data name="Settings_General.ModuleTitle" xml:space="preserve">
+    <value>Налаштування</value>
+  </data>
+  <data name="Settings_Logs.Header" xml:space="preserve">
+    <value>Відкрити папку журналу</value>
+  </data>
+  <data name="Settings_LowPowerThreshold.Header" xml:space="preserve">
+    <value>Повідомити мене, коли відсоток заряду батареї буде нижчим за:</value>
+  </data>
+  <data name="Settings_RunAtStartUp.Description" xml:space="preserve">
+    <value>Battery Tracker запуститься автоматично</value>
+  </data>
+  <data name="Settings_RunAtStartUp.Header" xml:space="preserve">
+    <value>Запустити під час запуску системи</value>
+  </data>
+  <data name="Settings_ThirdPartyLicense.Header" xml:space="preserve">
+    <value>Сторонні ліцензії</value>
+  </data>
+  <data name="Settings_Version.Header" xml:space="preserve">
+    <value>Версія</value>
+  </data>
+  <data name="Settings_VersionCopiedTextBlock.Text" xml:space="preserve">
+    <value>Скопійовано!</value>
+  </data>
+  <data name="Settings_Windows_Color_Settings.Content" xml:space="preserve">
+    <value>Налаштування кольорів Windows</value>
+  </data>
+  <data name="SettingsPage_RateTheApp.Content" xml:space="preserve">
+    <value>Оцініть застосунок</value>
+  </data>
+  <data name="SettingsPreferencesSystemDefaultLanguageOption" xml:space="preserve">
+    <value>Системний за замовчуванням</value>
+  </data>
+  <data name="Settings_AboutDescription.Text" xml:space="preserve">
+    <value>Показувати відсоток заряду батареї на панелі завдань</value>
+  </data>
+  <data name="Settings_Language.Header" xml:space="preserve">
+    <value>Мова</value>
+  </data>
+  <data name="Settings_LanguageInfoBar.Message" xml:space="preserve">
+    <value>Перезапустіть застосунок, щоб зміна мови набула чинності</value>
+  </data>
+  <data name="Settings_Help_Support.Header" xml:space="preserve">
+    <value>Допомога та підтримка</value>
+  </data>
+  <data name="SettingsPage_GitHubIssuesLink.Content" xml:space="preserve">
+    <value>Надіслати проблему на GitHub</value>
+  </data>
+  <data name="Settings_CopyWindowsVersionMenuItem.Text" xml:space="preserve">
+    <value>Версія Windows</value>
+  </data>
+  <data name="Settings_HighPowerThreshold.Header" xml:space="preserve">
+    <value>Повідомити мене, коли відсоток заряду батареї буде вищим за:</value>
+  </data>
+  <data name="Settings_Feedback.Header" xml:space="preserve">
+    <value>Надайте зворотній зв'язок</value>
+  </data>
+  <data name="HighPowerMessage" xml:space="preserve">
+    <value>Батарея має достатньо заряду</value>
+  </data>
+  <data name="Settings_GitHubLink.Header" xml:space="preserve">
+    <value>Репозиторій GitHub</value>
+  </data>
+  <data name="Settings_LanguageHeader.Header" xml:space="preserve">
+    <value>Мова застосунку</value>
+  </data>
+</root>
