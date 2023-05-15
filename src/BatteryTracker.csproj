@@ -50,6 +50,7 @@
 		<EmbeddedResource Remove="StaticResources\**" />
 		<None Remove="StaticResources\**" />
 		<Page Remove="StaticResources\**" />
+		<PRIResource Remove="StaticResources\**" />
 	</ItemGroup>
 	<ItemGroup>
 		<Content Remove="Assets\BadgeLogo.png" />
@@ -79,9 +80,20 @@
 		<None Remove="Assets\Square44x44Logo.targetsize-32.png" />
 		<None Remove="Assets\Square44x44Logo.targetsize-48.png" />
 		<None Remove="Assets\Square44x44Logo.targetsize-48_altform-unplated.png" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<Content Include="Assets\SplashScreen.scale-200.png" />
+		<Content Include="Assets\LockScreenLogo.scale-200.png" />
+		<Content Include="Assets\Square150x150Logo.scale-200.png" />
+		<Content Include="Assets\Square44x44Logo.scale-200.png" />
+		<Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+		<Content Include="Assets\Wide310x150Logo.scale-200.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<None Remove="Controls\SettingsGroup.xaml" />
 		<None Remove="MainWindow.xaml" />
-		<None Remove="Settings.xaml" />
 		<None Remove="Styles\Button.xaml" />
 		<None Remove="Styles\FontSizes.xaml" />
 		<None Remove="Styles\TextBlock.xaml" />
@@ -92,15 +104,7 @@
 		<None Remove="Views\ShellPage.xaml" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<Content Include="Assets\SplashScreen.scale-200.png" />
-		<Content Include="Assets\LockScreenLogo.scale-200.png" />
-		<Content Include="Assets\Square150x150Logo.scale-200.png" />
-		<Content Include="Assets\Square44x44Logo.scale-200.png" />
-		<Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-		<Content Include="Assets\Wide310x150Logo.scale-200.png" />
-	</ItemGroup>
-
+	<!-- Package references -->
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Labs.WinUI.SettingsControls" Version="0.0.17" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
@@ -125,16 +129,42 @@
 	<ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
 		<ProjectCapability Include="Msix" />
 	</ItemGroup>
-	<ItemGroup>
-		<Page Update="Views\AboutPage.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</Page>
-	</ItemGroup>
+
+	<!-- 
+    Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution 
+    Explorer "Package and Publish" context menu entry to be enabled for this project even if 
+    the Windows App SDK Nuget package has not yet been restored.
+  -->
+	<PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+		<HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
+	</PropertyGroup>
+
+	<!-- Views -->
 	<ItemGroup>
 		<Page Update="MainWindow.xaml">
 			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		</Page>
-		<Page Update="Settings.xaml">
+		<Folder Include="Controls\SettingsGroup\" />
+		<Page Update="Controls\SettingsGroup.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Update="TrayIcon.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Update="Views\AboutPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Update="Views\SettingsPage.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		</Page>
+		<Page Update="Views\ShellPage.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		</Page>
+	</ItemGroup>
+
+	<!-- Styles -->
+	<ItemGroup>
+		<Page Update="Styles\Button.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</Page>
 		<Page Update="Styles\FontSizes.xaml">
@@ -147,42 +177,7 @@
 			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		</Page>
 	</ItemGroup>
-	<ItemGroup>
-		<Page Update="TrayIcon.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</Page>
-		<Page Update="Views\SettingsPage.xaml">
-			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-		</Page>
-		<Page Update="Views\ShellPage.xaml">
-			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-		</Page>
-	</ItemGroup>
 
-	<!-- 
-    Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution 
-    Explorer "Package and Publish" context menu entry to be enabled for this project even if 
-    the Windows App SDK Nuget package has not yet been restored.
-  -->
-	<PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
-		<HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
-	</PropertyGroup>
-	<ItemGroup>
-		<PRIResource Remove="StaticResources\**" />
-	</ItemGroup>
-	<ItemGroup>
-		<Page Update="Styles\Button.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</Page>
-	</ItemGroup>
-	<ItemGroup>
-		<Page Update="Controls\SettingsGroup.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</Page>
-	</ItemGroup>
-	<ItemGroup>
-		<Folder Include="Controls\SettingsGroup\" />
-	</ItemGroup>
 	<!-- <ItemGroup> -->
 	<!-- 	<Page Remove="Themes\Generic.xaml" /> -->
 	<!-- </ItemGroup> -->
