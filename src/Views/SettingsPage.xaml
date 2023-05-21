@@ -91,7 +91,7 @@
             <controls:SettingsGroup x:Uid="Settings_Appearance_Behavior" IsEnabled="True">
                 <labs:SettingsCard x:Uid="Settings_ColorModeHeader" HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xE790;}">
                     <labs:SettingsCard.Description>
-                        <HyperlinkButton x:Uid="Settings_Windows_Color_Settings" Click="HyperlinkButton_Click" />
+                        <HyperlinkButton x:Uid="Settings_Windows_Color_Settings" Command="{x:Bind ViewModel.OpenWindowsColorSettingsCommand}" />
                     </labs:SettingsCard.Description>
                     <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="{x:Bind ViewModel.AppTheme, Mode=TwoWay, Converter={StaticResource EnumToIntConverter}}">
                         <ComboBoxItem x:Uid="Settings_Theme_Default" Content="Windows Default" />
@@ -108,6 +108,9 @@
             <!--  Language  -->
             <controls:SettingsGroup x:Uid="Settings_Language" IsEnabled="True">
                 <labs:SettingsCard x:Uid="Settings_LanguageHeader" HeaderIcon="{ui:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xF2B7;}">
+                    <labs:SettingsCard.Description>
+                        <HyperlinkButton x:Uid="Settings_Help_Us_Translate" Command="{x:Bind ViewModel.OpenTranslationUrlCommand}" />
+                    </labs:SettingsCard.Description>
                     <ComboBox
                         x:Uid="Settings_LanguageComboBox"
                         Width="200"
@@ -127,17 +130,17 @@
                     <Button x:Uid="Settings_LanguageButton" Command="{x:Bind ViewModel.RestartCommand}" />
                 </InfoBar.ActionButton>
             </InfoBar>
-            
-            <!-- ~1~ Tests @1@ -->
+
+            <!--  ~1~ Tests @1@  -->
             <!-- <StackPanel> -->
             <!--     <TextBlock Text="Notifications" /> -->
             <!--     <Button Command="{x:Bind ViewModel.NotificationCommand}" Content="Power notification" /> -->
-            <!-- -->
+            <!--    -->
             <!--     <TextBlock Text="Tray icon" /> -->
             <!--     <Button Command="{x:Bind ViewModel.TestTrayIconCommand}" Content="Test tray icon" /> -->
-            <!--     <Slider -->
-            <!--         SnapsTo="StepValues" TickFrequency="20" TickPlacement="Outside" -->
-            <!--         Value="{x:Bind ViewModel.TestTrayIconCount, Mode=TwoWay}" /> -->
+            <!--  <Slider  -->
+            <!--  SnapsTo="StepValues" TickFrequency="20" TickPlacement="Outside"  -->
+            <!--  Value="{x:Bind ViewModel.TestTrayIconCount, Mode=TwoWay}" />  -->
             <!-- </StackPanel> -->
         </StackPanel>
     </ScrollViewer>

@@ -10,6 +10,7 @@ namespace BatteryTracker.Helpers
         public const string PrivacyStatementUri = "https://github.com/myfix16/BatteryTracker/blob/main/Privacy.md";
         public const string EmailFeedbackUri = "mailto:myfix16@outlook.com?subject=Battery%20Tracker%20Feedback";
         public const string StoreRatingUri = "ms-windows-store:review/?ProductId=9P1FBSLRNM43";
+        public const string TranslationUri = "https://hosted.weblate.org/projects/battery-tracker/app/";
 
         public static Process? StartProcess(string process)
         {

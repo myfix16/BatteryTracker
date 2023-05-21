@@ -19,6 +19,7 @@ namespace BatteryTracker.ViewModels;
 public sealed class SettingsViewModel : ObservableRecipient, IBatterySettings
 {
     private ElementTheme _appTheme;
+
     public ElementTheme AppTheme
     {
         get => _appTheme;
@@ -30,6 +31,10 @@ public sealed class SettingsViewModel : ObservableRecipient, IBatterySettings
     }
 
     public ICommand RestartCommand { get; }
+
+    public ICommand OpenTranslationUrlCommand { get; }
+
+    public ICommand OpenWindowsColorSettingsCommand { get; }
 
 #if DEBUG
     // debug only
@@ -50,6 +55,7 @@ public sealed class SettingsViewModel : ObservableRecipient, IBatterySettings
 #endif
 
     private bool _fullyChargedNotificationEnabled;
+
     public bool FullyChargedNotificationEnabled
     {
         get => _fullyChargedNotificationEnabled;
@@ -62,6 +68,7 @@ public sealed class SettingsViewModel : ObservableRecipient, IBatterySettings
     }
 
     private bool _lowPowerNotificationEnabled;
+
     public bool LowPowerNotificationEnabled
     {
         get => _lowPowerNotificationEnabled;
@@ -74,6 +81,7 @@ public sealed class SettingsViewModel : ObservableRecipient, IBatterySettings
     }
 
     private int _lowPowerNotificationThreshold;
+
     public int LowPowerNotificationThreshold
     {
         get => _lowPowerNotificationThreshold;
@@ -86,6 +94,7 @@ public sealed class SettingsViewModel : ObservableRecipient, IBatterySettings
     }
 
     private bool _highPowerNotificationEnabled;
+
     public bool HighPowerNotificationEnabled
     {
         get => _highPowerNotificationEnabled;
@@ -98,6 +107,7 @@ public sealed class SettingsViewModel : ObservableRecipient, IBatterySettings
     }
 
     private int _highPowerNotificationThreshold;
+
     public int HighPowerNotificationThreshold
     {
         get => _highPowerNotificationThreshold;
@@ -110,6 +120,7 @@ public sealed class SettingsViewModel : ObservableRecipient, IBatterySettings
     }
 
     private AppLanguageItem _language;
+
     public AppLanguageItem Language
     {
         get => _language;
@@ -124,7 +135,8 @@ public sealed class SettingsViewModel : ObservableRecipient, IBatterySettings
             if (LanguageChanged)
             {
                 ApplicationLanguages.PrimaryLanguageOverride = value.LanguageId == string.Empty
-                    ? GlobalizationPreferences.Languages[0] : newLanguageId;
+                    ? GlobalizationPreferences.Languages[0]
+                    : newLanguageId;
 
                 _logger.LogInformation("Change language to {languageId}", value.LanguageId);
             }
@@ -132,6 +144,7 @@ public sealed class SettingsViewModel : ObservableRecipient, IBatterySettings
     }
 
     private bool _runAtStartup;
+
     public bool RunAtStartup
     {
         get => _runAtStartup;
@@ -167,6 +180,7 @@ public sealed class SettingsViewModel : ObservableRecipient, IBatterySettings
     }
 
     private bool _languageChanged;
+
     public bool LanguageChanged
     {
         get => _languageChanged;
@@ -201,6 +215,16 @@ public sealed class SettingsViewModel : ObservableRecipient, IBatterySettings
         RestartCommand = new RelayCommand(() =>
         {
             AppInstance.Restart(LaunchActivationHandler.OpenSettingsCommandArg);
+        });
+
+        OpenTranslationUrlCommand = new AsyncRelayCommand(async () =>
+        {
+            await LaunchHelper.LaunchUriAsync(LaunchHelper.TranslationUri);
+        });
+
+        OpenWindowsColorSettingsCommand = new AsyncRelayCommand(async () =>
+        {
+            await LaunchHelper.LaunchUriAsync(LaunchHelper.ColorsSettingsUri);
         });
 
         _appLanguageId = _settingsService.Language.LanguageId;
