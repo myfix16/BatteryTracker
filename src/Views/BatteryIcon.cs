@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using BatteryTracker.Contracts.Models;
 using BatteryTracker.Contracts.Services;
 using BatteryTracker.Helpers;
 using CommunityToolkit.WinUI;
@@ -17,6 +18,44 @@ namespace BatteryTracker.Views;
 
 public partial class BatteryIcon : IDisposable
 {
+    private sealed class BatteryIconSettings : IBatterySettings
+    {
+        private readonly BatteryIcon _batteryIcon;
+
+        public BatteryIconSettings(BatteryIcon batteryIcon)
+        {
+            _batteryIcon = batteryIcon;
+        }
+
+        public bool LowPowerNotificationEnabled { get; set; }
+
+        public bool HighPowerNotificationEnabled { get; set; }
+
+        public bool FullyChargedNotificationEnabled { get; set; }
+
+        private int _lowPowerNotificationThreshold;
+        public int LowPowerNotificationThreshold
+        {
+            get => _lowPowerNotificationThreshold;
+            set
+            {
+                _lowPowerNotificationThreshold = value;
+                _batteryIcon._isLowPower = false;
+            }
+        }
+
+        private int _highPowerNotificationThreshold;
+        public int HighPowerNotificationThreshold
+        {
+            get => _highPowerNotificationThreshold;
+            set
+            {
+                _highPowerNotificationThreshold = value;
+                _batteryIcon._isHighPower = false;
+            }
+        }
+    }
+
     #region Static
 
     private static readonly Dictionary<double, int> DpiFontSizeMap = new()
@@ -36,33 +75,7 @@ public partial class BatteryIcon : IDisposable
 
     #region Properties
 
-    public bool EnableLowPowerNotification { get; set; }
-
-    public bool EnableHighPowerNotification { get; set; }
-
-    public bool EnableFullyChargedNotification { get; set; }
-
-    private int _lowPowerNotificationThreshold;
-    public int LowPowerNotificationThreshold
-    {
-        get => _lowPowerNotificationThreshold;
-        set
-        {
-            _lowPowerNotificationThreshold = value;
-            _isLowPower = false;
-        }
-    }
-
-    private int _highPowerNotificationThreshold;
-    public int HighPowerNotificationThreshold
-    {
-        get => _highPowerNotificationThreshold;
-        set
-        {
-            _highPowerNotificationThreshold = value;
-            _isHighPower = false;
-        }
-    }
+    public IBatterySettings Settings { get; }
 
     private int _chargedPercent;
     public int ChargedPercent
@@ -120,6 +133,7 @@ public partial class BatteryIcon : IDisposable
     {
         _notificationService = notificationService;
         _logger = logger;
+        Settings = new BatteryIconSettings(this);
     }
 
     public async Task InitAsync(TaskbarIcon icon)
@@ -190,7 +204,7 @@ public partial class BatteryIcon : IDisposable
             case DisplayStatus.Dimmed:
                 break;
             default:
-                _logger.LogWarning($"Invalid display status: {displayStatus}");
+                _logger.LogWarning("Invalid display status: {displayStatus}", displayStatus);
                 break;
         }
     }
@@ -220,34 +234,34 @@ public partial class BatteryIcon : IDisposable
         BatteryStatus batteryStatus = PowerManager.BatteryStatus;
 
         // push low power notification
-        if (EnableLowPowerNotification
+        if (Settings.LowPowerNotificationEnabled
             && !_isLowPower
-            && _chargedPercent <= LowPowerNotificationThreshold)
+            && _chargedPercent <= Settings.LowPowerNotificationThreshold)
         {
             _isLowPower = true;
             _notificationService.Show($"{"LowPowerMessage".Localized()}: {_chargedPercent}%");
         }
-        else if (_chargedPercent > LowPowerNotificationThreshold)
+        else if (_chargedPercent > Settings.LowPowerNotificationThreshold)
         {
             _isLowPower = false;
         }
 
         // push high power notification
-        if (EnableHighPowerNotification
+        if (Settings.HighPowerNotificationEnabled
             && batteryStatus != BatteryStatus.Discharging // only when the battery is not discharging
             && !_isHighPower
-            && _chargedPercent >= HighPowerNotificationThreshold)
+            && _chargedPercent >= Settings.HighPowerNotificationThreshold)
         {
             _isHighPower = true;
             _notificationService.Show($"{"HighPowerMessage".Localized()}: {_chargedPercent}%");
         }
-        else if (_chargedPercent < HighPowerNotificationThreshold)
+        else if (_chargedPercent < Settings.HighPowerNotificationThreshold)
         {
             _isHighPower = false;
         }
 
         // push fully charged notification
-        if (EnableFullyChargedNotification && _chargedPercent == 100)
+        if (Settings.FullyChargedNotificationEnabled && _chargedPercent == 100)
         {
             _notificationService.Show($"{"FullyChargedMessage".Localized()}⚡");
         }

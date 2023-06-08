@@ -117,160 +117,160 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppDescription" xml:space="preserve">
+    <value>一款在任務欄顯示電池百分比的實用工具</value>
+  </data>
+  <data name="Settings_Personalization.Text" xml:space="preserve">
+    <value>個性化</value>
+  </data>
+  <data name="Settings_Theme.Text" xml:space="preserve">
+    <value>主題</value>
+  </data>
+  <data name="Settings_Theme_Light.Content" xml:space="preserve">
+    <value>淺色</value>
+  </data>
+  <data name="Settings_Theme_Dark.Content" xml:space="preserve">
+    <value>深色</value>
+  </data>
+  <data name="Settings_Theme_Default.Content" xml:space="preserve">
+    <value>Windows 默認</value>
+  </data>
+  <data name="Settings_About.Text" xml:space="preserve">
+    <value>關於</value>
+  </data>
+  <data name="Settings_PrivacyTerms.Header" xml:space="preserve">
+    <value>隱私聲明</value>
+  </data>
+  <data name="Settings_EnableLowPowerNotification.Header" xml:space="preserve">
+    <value>啓用低電量通知</value>
+  </data>
+  <data name="Settings_Language.Header" xml:space="preserve">
+    <value>語言</value>
+  </data>
+  <data name="Settings_Notification.Header" xml:space="preserve">
+    <value>通知</value>
+  </data>
+  <data name="Shell_Settings.Content" xml:space="preserve">
+    <value>設置</value>
+  </data>
+  <data name="Settings_LanguageButton.Content" xml:space="preserve">
+    <value>重啓</value>
+  </data>
+  <data name="Settings_LanguageInfoBar.Message" xml:space="preserve">
+    <value>重啓應用使變更生效</value>
+  </data>
+  <data name="Settings_AboutDescription.Text" xml:space="preserve">
+    <value>一款在任務欄顯示電池百分比的實用工具</value>
+  </data>
+  <data name="UnhandledExceptionMessage" xml:space="preserve">
+    <value>出現了未知錯誤，應用將退出</value>
+  </data>
   <data name="AppDisplayName" xml:space="preserve">
     <value>Battery Tracker</value>
   </data>
-  <data name="AppDescription" xml:space="preserve">
-    <value>Show battery remaining percentage on taskbar</value>
-  </data>
-  <data name="Settings_Personalization.Text" xml:space="preserve">
-    <value>Personalization</value>
-  </data>
-  <data name="Settings_Theme.Text" xml:space="preserve">
-    <value>Theme</value>
-  </data>
-  <data name="Settings_Theme_Light.Content" xml:space="preserve">
-    <value>Light</value>
-  </data>
-  <data name="Settings_Theme_Dark.Content" xml:space="preserve">
-    <value>Dark</value>
-  </data>
-  <data name="Settings_Theme_Default.Content" xml:space="preserve">
-    <value>Windows Default</value>
-  </data>
-  <data name="Settings_About.Text" xml:space="preserve">
-    <value>About this application</value>
-  </data>
-  <data name="Settings_AboutDescription.Text" xml:space="preserve">
-    <value>Show battery remaining percentage on taskbar</value>
-  </data>
-  <data name="Settings_PrivacyTerms.Header" xml:space="preserve">
-    <value>Privacy Statement</value>
-  </data>
-  <data name="Settings_EnableFullyChargedNotification.Header" xml:space="preserve">
-    <value>Enable fully charged notification</value>
-  </data>
-  <data name="Settings_EnableLowPowerNotification.Header" xml:space="preserve">
-    <value>Enable low power notification</value>
-  </data>
-  <data name="Settings_Language.Header" xml:space="preserve">
-    <value>Language</value>
-  </data>
-  <data name="Settings_Notification.Header" xml:space="preserve">
-    <value>Notifications</value>
-  </data>
-  <data name="Shell_About.Content" xml:space="preserve">
-    <value>About</value>
-  </data>
-  <data name="Shell_Settings.Content" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="Settings_LanguageButton.Content" xml:space="preserve">
-    <value>Restart</value>
-  </data>
-  <data name="Settings_LanguageInfoBar.Message" xml:space="preserve">
-    <value>Restart the app for the language change to take effect</value>
-  </data>
-  <data name="UnhandledExceptionMessage" xml:space="preserve">
-    <value>The app is aborting because an unexpected error occurred</value>
-  </data>
-  <data name="SettingsPage_EmailLink.Content" xml:space="preserve">
-    <value>Send feedback via email</value>
-  </data>
   <data name="SettingsPage_GitHubIssuesLink.Content" xml:space="preserve">
-    <value>Submit an issue on GitHub</value>
+    <value>在Github上提交issue</value>
   </data>
   <data name="Settings_Feedback.Header" xml:space="preserve">
-    <value>Provide feedback</value>
+    <value>提供反饋</value>
   </data>
   <data name="SubmitFeedback" xml:space="preserve">
-    <value>Submit feedback</value>
+    <value>提交反饋</value>
   </data>
   <data name="ExitApplicationCommand.Label" xml:space="preserve">
-    <value>Exit</value>
-  </data>
-  <data name="OpenSettingsCommand.Label" xml:space="preserve">
-    <value>Settings</value>
+    <value>退出</value>
   </data>
   <data name="FullyChargedMessage" xml:space="preserve">
-    <value>The battery is fully charged</value>
+    <value>電池已充滿</value>
   </data>
   <data name="HighPowerMessage" xml:space="preserve">
-    <value>The battery has enough charge</value>
+    <value>電池已有足夠電量</value>
   </data>
   <data name="LowPowerMessage" xml:space="preserve">
-    <value>Low power</value>
-  </data>
-  <data name="Settings_EnableHighPowerNotification.Header" xml:space="preserve">
-    <value>Enable sufficient power notification</value>
+    <value>電池電量不足</value>
   </data>
   <data name="InstanceRunningMessage" xml:space="preserve">
-    <value>Another instance is already running</value>
+    <value>該應用的另一個實例正在運行</value>
   </data>
   <data name="Settings_Appearance_Behavior.Header" xml:space="preserve">
-    <value>Appearance &amp; behavior</value>
+    <value>外觀和行爲</value>
   </data>
   <data name="Settings_ColorModeHeader.Header" xml:space="preserve">
-    <value>Application theme</value>
+    <value>應用主題</value>
   </data>
   <data name="Settings_CopyAppVersionMenuItem.Text" xml:space="preserve">
-    <value>Application version</value>
+    <value>應用版本</value>
   </data>
   <data name="Settings_CopyVersionButton.Content" xml:space="preserve">
-    <value>Copy</value>
+    <value>複製</value>
   </data>
   <data name="Settings_CopyWindowsVersionMenuItem.Text" xml:space="preserve">
-    <value>Windows version</value>
+    <value>Windows 版本</value>
   </data>
   <data name="Settings_General.ModuleTitle" xml:space="preserve">
-    <value>Settings</value>
+    <value>設置</value>
   </data>
   <data name="Settings_GitHubLink.Header" xml:space="preserve">
-    <value>GitHub repository</value>
+    <value>Github 存儲庫</value>
   </data>
   <data name="Settings_Help_Support.Header" xml:space="preserve">
-    <value>Help &amp; support</value>
+    <value>幫助和支持</value>
   </data>
   <data name="Settings_HighPowerThreshold.Header" xml:space="preserve">
-    <value>Notify me when battery percentage is higher than:</value>
+    <value>在電量百分比高於以下值時推送通知：</value>
   </data>
   <data name="Settings_LanguageHeader.Header" xml:space="preserve">
-    <value>Application language</value>
+    <value>應用語言</value>
   </data>
   <data name="Settings_Logs.Header" xml:space="preserve">
-    <value>Open log folder</value>
+    <value>打開日志文件夾</value>
   </data>
   <data name="Settings_LowPowerThreshold.Header" xml:space="preserve">
-    <value>Notify me when battery percentage is lower than:</value>
-  </data>
-  <data name="Settings_OpenSource.Header" xml:space="preserve">
-    <value>Open source</value>
+    <value>儅電池百分比低於以下值時推送通知：</value>
   </data>
   <data name="Settings_RunAtStartUp.Description" xml:space="preserve">
-    <value>Battery Tracker will launch automatically</value>
+    <value>Battery Tracker 將自動啓動</value>
   </data>
   <data name="Settings_RunAtStartUp.Header" xml:space="preserve">
-    <value>Run at startup</value>
+    <value>啓動時運行</value>
   </data>
   <data name="Settings_ThirdPartyLicense.Header" xml:space="preserve">
-    <value>Third-party licenses</value>
+    <value>第三方許可</value>
   </data>
   <data name="Settings_Version.Header" xml:space="preserve">
-    <value>Version</value>
+    <value>版本</value>
   </data>
   <data name="Settings_VersionCopiedTextBlock.Text" xml:space="preserve">
-    <value>Copied!</value>
+    <value>已複製！</value>
   </data>
   <data name="Settings_Windows_Color_Settings.Content" xml:space="preserve">
-    <value>Windows color settings</value>
+    <value>Windows 顔色設置</value>
   </data>
   <data name="SettingsPage_RateTheApp.Content" xml:space="preserve">
-    <value>Rate the app</value>
+    <value>評價本應用</value>
+  </data>
+  <data name="Settings_EnableFullyChargedNotification.Header" xml:space="preserve">
+    <value>啓用滿電量通知</value>
+  </data>
+  <data name="Shell_About.Content" xml:space="preserve">
+    <value>關於</value>
+  </data>
+  <data name="SettingsPage_EmailLink.Content" xml:space="preserve">
+    <value>電子郵件反饋</value>
+  </data>
+  <data name="OpenSettingsCommand.Label" xml:space="preserve">
+    <value>設置</value>
+  </data>
+  <data name="Settings_EnableHighPowerNotification.Header" xml:space="preserve">
+    <value>啓用電量充足通知</value>
+  </data>
+  <data name="Settings_OpenSource.Header" xml:space="preserve">
+    <value>開放源代碼</value>
   </data>
   <data name="SettingsPreferencesSystemDefaultLanguageOption" xml:space="preserve">
-    <value>System default</value>
+    <value>系統默認</value>
   </data>
   <data name="Settings_Help_Us_Translate.Content" xml:space="preserve">
-    <value>Help us translate Battery Tracker!</value>
+    <value>幫助我們翻譯Battery Tracker!</value>
   </data>
 </root>

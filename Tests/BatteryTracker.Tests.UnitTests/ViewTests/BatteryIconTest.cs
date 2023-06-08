@@ -44,7 +44,7 @@ public class BatteryIconTest
     {
         _batteryIcon.Dispose();
     }
-
+#if DEBUG
     [UITestMethod]
     public void TestUpdateIconPercent()
     {
@@ -54,4 +54,5 @@ public class BatteryIconTest
             Thread.Sleep(100);
         }
     }
+#endif
 }
