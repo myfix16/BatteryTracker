@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -58,4 +58,160 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Settings_Theme_Light.Content" xml:space="preserve">
+    <value>rušênā</value>
+  </data>
+  <data name="Settings_Theme_Default.Content" xml:space="preserve">
+    <value>pîšfarzê vindowz</value>
+  </data>
+  <data name="Shell_About.Content" xml:space="preserve">
+    <value>zêbār</value>
+  </data>
+  <data name="SettingsPage_RateTheApp.Content" xml:space="preserve">
+    <value>arzêšê barnoma</value>
+  </data>
+  <data name="SettingsPreferencesSystemDefaultLanguageOption" xml:space="preserve">
+    <value>pîšfarzê sistom</value>
+  </data>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>raďyāb bâtri</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>nêšow dāďên darsaďê bâqi mande zê bâtri mênê navārê vazifa</value>
+  </data>
+  <data name="Settings_Personalization.Text" xml:space="preserve">
+    <value>sixomi kerdên</value>
+  </data>
+  <data name="Settings_About.Text" xml:space="preserve">
+    <value>zêbāre i barnoma</value>
+  </data>
+  <data name="Settings_Theme.Text" xml:space="preserve">
+    <value>têm</value>
+  </data>
+  <data name="Settings_Theme_Dark.Content" xml:space="preserve">
+    <value>târik</value>
+  </data>
+  <data name="Settings_AboutDescription.Text" xml:space="preserve">
+    <value>nêšow dāďên darsaďê bâqi mande zê bâtri mênê navārê vazifa</value>
+  </data>
+  <data name="Settings_PrivacyTerms.Header" xml:space="preserve">
+    <value>bayovê harimê sixomi</value>
+  </data>
+  <data name="Settings_EnableFullyChargedNotification.Header" xml:space="preserve">
+    <value>vārasuvi šārjê kāmêlênê faāl ko</value>
+  </data>
+  <data name="Settings_EnableLowPowerNotification.Header" xml:space="preserve">
+    <value>vārasuvi kam masrafê nê faāl ko</value>
+  </data>
+  <data name="Settings_Language.Header" xml:space="preserve">
+    <value>zow</value>
+  </data>
+  <data name="Settings_Notification.Header" xml:space="preserve">
+    <value>vārasuviyā</value>
+  </data>
+  <data name="Shell_Settings.Content" xml:space="preserve">
+    <value>sāmovā</value>
+  </data>
+  <data name="Settings_LanguageButton.Content" xml:space="preserve">
+    <value>zê nu ra' van</value>
+  </data>
+  <data name="Settings_LanguageInfoBar.Message" xml:space="preserve">
+    <value>barnome nê zê nu ra' van tā ālêštê zow sit anjom bu</value>
+  </data>
+  <data name="UnhandledExceptionMessage" xml:space="preserve">
+    <value>barnome honêy laqv êbu čināke ya xatā pîš avoďe</value>
+  </data>
+  <data name="Settings_General.ModuleTitle" xml:space="preserve">
+    <value>sāmovā</value>
+  </data>
+  <data name="SettingsPage_EmailLink.Content" xml:space="preserve">
+    <value>fêšnāďên nazar vā imêyl</value>
+  </data>
+  <data name="SettingsPage_GitHubIssuesLink.Content" xml:space="preserve">
+    <value>moškêlê nê mênê GitHub bêfêšn</value>
+  </data>
+  <data name="Settings_Feedback.Header" xml:space="preserve">
+    <value>fêšnāďên nazar</value>
+  </data>
+  <data name="SubmitFeedback" xml:space="preserve">
+    <value>fêšnāďênê nazar</value>
+  </data>
+  <data name="OpenSettingsCommand.Label" xml:space="preserve">
+    <value>sāmovā</value>
+  </data>
+  <data name="HighPowerMessage" xml:space="preserve">
+    <value>šārjê bâtri ba'se</value>
+  </data>
+  <data name="ExitApplicationCommand.Label" xml:space="preserve">
+    <value>vêdar zêyďên</value>
+  </data>
+  <data name="LowPowerMessage" xml:space="preserve">
+    <value>kam šārj</value>
+  </data>
+  <data name="FullyChargedMessage" xml:space="preserve">
+    <value>bâtri kāmêl šārj vâbi</value>
+  </data>
+  <data name="Settings_EnableHighPowerNotification.Header" xml:space="preserve">
+    <value>vārasuvi barqe kâfi nê faāl ko</value>
+  </data>
+  <data name="Settings_Appearance_Behavior.Header" xml:space="preserve">
+    <value>šîvāt vo raftār</value>
+  </data>
+  <data name="InstanceRunningMessage" xml:space="preserve">
+    <value>ya nêmovê di honêy kār êkone</value>
+  </data>
+  <data name="Settings_CopyWindowsVersionMenuItem.Text" xml:space="preserve">
+    <value>nosxê vindowz</value>
+  </data>
+  <data name="Settings_GitHubLink.Header" xml:space="preserve">
+    <value>maxzanê GitHub</value>
+  </data>
+  <data name="Settings_CopyVersionButton.Content" xml:space="preserve">
+    <value>lefgiri</value>
+  </data>
+  <data name="Settings_ColorModeHeader.Header" xml:space="preserve">
+    <value>têm barnoma</value>
+  </data>
+  <data name="Settings_CopyAppVersionMenuItem.Text" xml:space="preserve">
+    <value>nosxê barnoma</value>
+  </data>
+  <data name="Settings_Help_Support.Header" xml:space="preserve">
+    <value>hayâri vo lādêrâri</value>
+  </data>
+  <data name="Settings_LanguageHeader.Header" xml:space="preserve">
+    <value>zowê barnoma</value>
+  </data>
+  <data name="Settings_HighPowerThreshold.Header" xml:space="preserve">
+    <value>harsā darsaďê bâtri bištar zê:</value>
+  </data>
+  <data name="Settings_ThirdPartyLicense.Header" xml:space="preserve">
+    <value>javāzā šasxê sāles</value>
+  </data>
+  <data name="Settings_Logs.Header" xml:space="preserve">
+    <value>dobalgê log nê bogoš</value>
+  </data>
+  <data name="Settings_LowPowerThreshold.Header" xml:space="preserve">
+    <value>harsā darsaďê bâtri kamtar zê:</value>
+  </data>
+  <data name="Settings_VersionCopiedTextBlock.Text" xml:space="preserve">
+    <value>lefgiri vâbi!</value>
+  </data>
+  <data name="Settings_RunAtStartUp.Description" xml:space="preserve">
+    <value>raďyāb bâtri xosāxos ra' êvufte</value>
+  </data>
+  <data name="Settings_OpenSource.Header" xml:space="preserve">
+    <value>bončak gušiďa</value>
+  </data>
+  <data name="Settings_Version.Header" xml:space="preserve">
+    <value>nosxa</value>
+  </data>
+  <data name="Settings_Windows_Color_Settings.Content" xml:space="preserve">
+    <value>sāmovā rangê vindowz</value>
+  </data>
+  <data name="Settings_RunAtStartUp.Header" xml:space="preserve">
+    <value>ra' vandên hamso ke sistom rušên êbu</value>
+  </data>
+  <data name="Settings_Help_Us_Translate.Content" xml:space="preserve">
+    <value>mênê vêlêrniďênê Battery Tracker vê imā hayâri bêďe!</value>
+  </data>
 </root>
