@@ -193,8 +193,16 @@ public sealed partial class App : Application
         var exitApplicationCommand = (XamlUICommand)Resources["ExitApplicationCommand"];
         exitApplicationCommand.ExecuteRequested += ExitApplicationCommand_ExecuteRequested;
 
+        var displayBatteryInfoCommand = (XamlUICommand)Resources["DisplayBatteryInfoCommand"];
+        displayBatteryInfoCommand.ExecuteRequested += DisplayBatteryInfoCommand_ExecuteRequested;
+
         _batteryIcon = GetService<BatteryIcon>();
         await _batteryIcon.InitAsync(MainWindow.BatteryTrayIcon);
+    }
+
+    void DisplayBatteryInfoCommand_ExecuteRequested(XamlUICommand sender, ExecuteRequestedEventArgs args)
+    {
+        _batteryIcon!.BatteryInfoWindow.Activate();
     }
 
     private void ProcessUnhandledException(Exception? e, bool showNotification)

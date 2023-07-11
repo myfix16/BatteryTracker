@@ -80,6 +80,7 @@
 		<None Remove="Assets\Square44x44Logo.targetsize-32.png" />
 		<None Remove="Assets\Square44x44Logo.targetsize-48.png" />
 		<None Remove="Assets\Square44x44Logo.targetsize-48_altform-unplated.png" />
+		<None Remove="Views\BatteryInfoWindow.xaml" />
 	</ItemGroup>
 	
 	<ItemGroup>
@@ -107,7 +108,7 @@
 	<!-- Package references -->
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Labs.WinUI.SettingsControls" Version="0.0.17" />
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
 		<PackageReference Include="CommunityToolkit.WinUI.UI" Version="7.1.2" />
 		<PackageReference Include="CommunityToolkit.WinUI.UI.Controls" Version="7.1.2" />
 		<PackageReference Include="H.NotifyIcon" Version="2.0.108" />
@@ -145,6 +146,9 @@
 			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		</Page>
 		<Folder Include="Controls\SettingsGroup\" />
+		<Page Update="Views\BatteryInfoWindow.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
 		<Page Update="Controls\SettingsGroup.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</Page>
