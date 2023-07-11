@@ -87,6 +87,7 @@ public sealed partial class App : Application
                 services.AddTransient<ShellViewModel>();
                 services.AddTransient<AboutPage>();
                 services.AddTransient<AboutViewModel>();
+                services.AddTransient<BatteryInfoViewModel>();
 
                 // Taskbar icon
                 services.AddSingleton<BatteryIcon>();

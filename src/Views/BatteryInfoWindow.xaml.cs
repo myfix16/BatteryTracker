@@ -33,7 +33,7 @@ namespace BatteryTracker.Views
 
         public BatteryInfoWindow()
         {
-            ViewModel = new BatteryInfoViewModel();
+            ViewModel = App.GetService<BatteryInfoViewModel>();
             InitializeComponent();
             Activated += OnActivated;
             Closed += BatteryInfoWindow_Closed;

@@ -80,7 +80,6 @@
 		<None Remove="Assets\Square44x44Logo.targetsize-32.png" />
 		<None Remove="Assets\Square44x44Logo.targetsize-48.png" />
 		<None Remove="Assets\Square44x44Logo.targetsize-48_altform-unplated.png" />
-		<None Remove="Views\BatteryInfoWindow.xaml" />
 	</ItemGroup>
 	
 	<ItemGroup>
@@ -99,10 +98,12 @@
 		<None Remove="Styles\FontSizes.xaml" />
 		<None Remove="Styles\TextBlock.xaml" />
 		<None Remove="Styles\Thickness.xaml" />
+		<None Remove="Styles\FontIcon.xaml" />
 		<None Remove="TrayIcon.xaml" />
 		<None Remove="Views\AboutPage.xaml" />
 		<None Remove="Views\SettingsPage.xaml" />
 		<None Remove="Views\ShellPage.xaml" />
+		<None Remove="Views\BatteryInfoWindow.xaml" />
 	</ItemGroup>
 
 	<!-- Package references -->
@@ -145,10 +146,10 @@
 		<Page Update="MainWindow.xaml">
 			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		</Page>
-		<Folder Include="Controls\SettingsGroup\" />
 		<Page Update="Views\BatteryInfoWindow.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</Page>
+		<Folder Include="Controls\SettingsGroup\" />
 		<Page Update="Controls\SettingsGroup.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</Page>
@@ -178,6 +179,9 @@
 			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		</Page>
 		<Page Update="Styles\Thickness.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		</Page>
+		<Page Update="Styles\FontIcon.xaml">
 			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		</Page>
 	</ItemGroup>
