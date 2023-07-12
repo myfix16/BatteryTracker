@@ -4,6 +4,9 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.Extensions.Logging;
 using Microsoft.Windows.System.Power;
 using Windows.Devices.Power;
+using BatteryTracker.Helpers;
+using CommunityToolkit.WinUI;
+using Microsoft.UI.Dispatching;
 
 namespace BatteryTracker.ViewModels
 {
@@ -11,11 +14,16 @@ namespace BatteryTracker.ViewModels
     {
         #region Private fields
 
+        readonly DispatcherQueue _dispatcher = DispatcherQueue.GetForCurrentThread();
+
         BatteryInfo _batteryInfo;
         PowerMode _powerMode;
+        int _refreshInterval = 5000;  // todo: allow customizing refresh interval in settings
 
         readonly ILogger<BatteryInfoViewModel> _logger;
         readonly IPowerService _powerService;
+
+        readonly Timer _timer;
 
         #endregion
 
@@ -80,30 +88,47 @@ namespace BatteryTracker.ViewModels
             _logger = logger;
             _powerService = powerService;
             _powerMode = PowerMode.Balanced;
+            PowerMode = _powerService.GetPowerMode();
+
+            _timer = new Timer();
+            _timer.Action += UpdateStatus;
         }
 
-        public void UpdateStatus()
+        ~BatteryInfoViewModel()
         {
-            // Update battery info
-            ChargePercent = PowerManager.RemainingChargePercent;
-            BatteryStatus = PowerManager.BatteryStatus;
-            PowerSupplyStatus = PowerManager.PowerSupplyStatus;
+            _timer.Action -= UpdateStatus;
+        }
 
-            BatteryReport info = Battery.AggregateBattery.GetReport();
-            if (info == null)
-            {
-                _logger.LogError("Failed to fetch battery report");
-            }
-            else
-            {
-                DesignedCapacity = info.DesignCapacityInMilliwattHours!.Value;
-                MaxCapacity = info.FullChargeCapacityInMilliwattHours!.Value;
-                RemainingCapacity = info.RemainingCapacityInMilliwattHours!.Value;
-                ChargingRate = info.ChargeRateInMilliwatts!.Value;
-            }
+        public void StartUpdatingStatus()
+        {
+            UpdateStatus();
+            _timer.StartTimer(_refreshInterval);
+        }
 
-            // Update power mode
-            PowerMode = _powerService.GetPowerMode();
+        public void StopUpdatingStatus() => _timer.StopTimer();
+
+        void UpdateStatus()
+        {
+            _dispatcher.TryEnqueue(() =>
+            {
+                // Update battery info
+                ChargePercent = PowerManager.RemainingChargePercent;
+                BatteryStatus = PowerManager.BatteryStatus;
+                PowerSupplyStatus = PowerManager.PowerSupplyStatus;
+
+                BatteryReport info = Battery.AggregateBattery.GetReport();
+                if (info == null)
+                {
+                    _logger.LogError("Failed to fetch battery report");
+                }
+                else
+                {
+                    DesignedCapacity = info.DesignCapacityInMilliwattHours!.Value;
+                    MaxCapacity = info.FullChargeCapacityInMilliwattHours!.Value;
+                    RemainingCapacity = info.RemainingCapacityInMilliwattHours!.Value;
+                    ChargingRate = info.ChargeRateInMilliwatts!.Value;
+                }
+            });
         }
 
         #region Binding functions
@@ -116,7 +141,11 @@ namespace BatteryTracker.ViewModels
                $"({(double)maxCapacity / 1000:0.##} Wh / {(double)designedCapacity / 1000} Wh)";
 
         internal static string GetChargingRateText(int rate, BatteryStatus status)
-            => $"{(double)rate / 1000:0.##} Wh ({status})";
+            => $"{(double)rate / 1000:0.##} W ({status})";
+
+        // todo: localize this text
+        internal static string GetPowerModeText(PowerMode powerMode)
+            => $"Power Mode: {powerMode}";
 
         #endregion
     }

@@ -29,17 +29,20 @@ namespace BatteryTracker.Views
             {
                 // Hide the window on losing focus
                 case WindowActivationState.Deactivated:
-                    // this.Hide();
+                    BatteryInfoPage.ViewModel.StopUpdatingStatus();
+                    this.Hide();
                     break;
                 // Fetch the latest battery info and display the window
                 case WindowActivationState.CodeActivated:
                 case WindowActivationState.PointerActivated:
-                    BatteryInfoPage.ViewModel.UpdateStatus();
+                    BatteryInfoPage.ViewModel.StartUpdatingStatus();
                     BringToFront();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(args), "Invalid WindowActivationState");
             }
         }
+
+
     }
 }

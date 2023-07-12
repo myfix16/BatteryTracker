@@ -50,6 +50,6 @@ public sealed record PowerMode(PowerModeEnum Mode, Guid Guid)
 
     public override string ToString()
     {
-        return $"{Mode} {Guid}";
+        return $"{Mode}";
     }
 }

@@ -204,7 +204,15 @@ public sealed partial class App : Application
 
     void DisplayBatteryInfoCommand_ExecuteRequested(XamlUICommand sender, ExecuteRequestedEventArgs args)
     {
-        _batteryIcon!.BatteryInfoWindow.Activate();
+        BatteryInfoWindow window = _batteryIcon!.BatteryInfoWindow;
+        if (window.Visible)
+        {
+            window.Hide();
+        }
+        else
+        {
+            window.Activate();
+        }
     }
 
     private void ProcessUnhandledException(Exception? e, bool showNotification)
