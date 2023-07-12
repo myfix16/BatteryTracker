@@ -104,6 +104,7 @@
 		<None Remove="Views\SettingsPage.xaml" />
 		<None Remove="Views\ShellPage.xaml" />
 		<None Remove="Views\BatteryInfoWindow.xaml" />
+		<None Remove="Views\BatteryInfoPage.xaml" />
 	</ItemGroup>
 
 	<!-- Package references -->
@@ -150,6 +151,9 @@
 		  <Generator>MSBuild:Compile</Generator>
 		</Page>
 		<Folder Include="Controls\SettingsGroup\" />
+		<Page Update="Views\BatteryInfoPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
 		<Page Update="Controls\SettingsGroup.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</Page>
@@ -163,6 +167,9 @@
 			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		</Page>
 		<Page Update="Views\ShellPage.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		</Page>
+		<Page Update="Views\BatteryInfoPage.xaml">
 			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		</Page>
 	</ItemGroup>

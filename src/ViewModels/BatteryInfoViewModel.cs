@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BatteryTracker.Contracts.Services;
 using BatteryTracker.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
+using Microsoft.Extensions.Logging;
 using Microsoft.Windows.System.Power;
 using Windows.Devices.Power;
-using Microsoft.Extensions.Logging;
 
 namespace BatteryTracker.ViewModels
 {
@@ -17,8 +12,10 @@ namespace BatteryTracker.ViewModels
         #region Private fields
 
         BatteryInfo _batteryInfo;
+        PowerMode _powerMode;
 
         readonly ILogger<BatteryInfoViewModel> _logger;
+        readonly IPowerService _powerService;
 
         #endregion
 
@@ -33,7 +30,7 @@ namespace BatteryTracker.ViewModels
         public BatteryStatus BatteryStatus
         {
             get => _batteryInfo.BatteryStatus;
-            set => SetProperty(ref _batteryInfo.BatteryStatus, value);
+            private set => SetProperty(ref _batteryInfo.BatteryStatus, value);
         }
 
         public PowerSupplyStatus PowerSupplyStatus
@@ -45,36 +42,49 @@ namespace BatteryTracker.ViewModels
         public int DesignedCapacity
         {
             get => _batteryInfo.DesignedCapacity;
-            set => SetProperty(ref _batteryInfo.DesignedCapacity, value);
+            private set => SetProperty(ref _batteryInfo.DesignedCapacity, value);
         }
 
         public int MaxCapacity
         {
             get => _batteryInfo.MaxCapacity;
-            set => SetProperty(ref _batteryInfo.MaxCapacity, value);
+            private set => SetProperty(ref _batteryInfo.MaxCapacity, value);
         }
 
         public int RemainingCapacity
         {
             get => _batteryInfo.RemainingCapacity;
-            set => SetProperty(ref _batteryInfo.RemainingCapacity, value);
+            private set => SetProperty(ref _batteryInfo.RemainingCapacity, value);
         }
 
         public int ChargingRate
         {
             get => _batteryInfo.ChargingRate;
-            set => SetProperty(ref _batteryInfo.ChargingRate, value);
+            private set => SetProperty(ref _batteryInfo.ChargingRate, value);
+        }
+
+        public PowerMode PowerMode
+        {
+            get => _powerMode;
+            set
+            {
+                _powerService.SetPowerMode(value);
+                SetProperty(ref _powerMode, value);
+            }
         }
 
         #endregion
 
-        public BatteryInfoViewModel(ILogger<BatteryInfoViewModel> logger)
+        public BatteryInfoViewModel(ILogger<BatteryInfoViewModel> logger, IPowerService powerService)
         {
             _logger = logger;
+            _powerService = powerService;
+            _powerMode = PowerMode.Balanced;
         }
 
         public void UpdateStatus()
         {
+            // Update battery info
             ChargePercent = PowerManager.RemainingChargePercent;
             BatteryStatus = PowerManager.BatteryStatus;
             PowerSupplyStatus = PowerManager.PowerSupplyStatus;
@@ -91,6 +101,9 @@ namespace BatteryTracker.ViewModels
                 RemainingCapacity = info.RemainingCapacityInMilliwattHours!.Value;
                 ChargingRate = info.ChargeRateInMilliwatts!.Value;
             }
+
+            // Update power mode
+            PowerMode = _powerService.GetPowerMode();
         }
 
         #region Binding functions
@@ -102,7 +115,7 @@ namespace BatteryTracker.ViewModels
             => $"{(double)maxCapacity * 100 / designedCapacity:0.#}% " +
                $"({(double)maxCapacity / 1000:0.##} Wh / {(double)designedCapacity / 1000} Wh)";
 
-        internal static string GetChargingRateText(int rate, BatteryStatus status) 
+        internal static string GetChargingRateText(int rate, BatteryStatus status)
             => $"{(double)rate / 1000:0.##} Wh ({status})";
 
         #endregion

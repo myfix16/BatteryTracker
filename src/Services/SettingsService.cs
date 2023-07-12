@@ -146,6 +146,7 @@ internal sealed class SettingsService : BaseJsonSettingsService, ISettingsServic
         // Add supported languages and set default language
         AddSupportedAppLanguages();
         _languageDefault = new AppLanguageItem(string.Empty);
+        _language = Languages![0];   // dummy line to disable compiler warning
 
         // Read setting values from storage
         string? settingsVersion = Get<string>(SettingVersionSettingsKey, null);

@@ -1,5 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Microsoft.Windows.System.Power;
+﻿using Microsoft.Windows.System.Power;
 
 namespace BatteryTracker.Models;
 

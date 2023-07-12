@@ -79,6 +79,7 @@ public sealed partial class App : Application
                 services.AddSingleton<ISettingsStorageService, AppLocalSettingsStorageService>();
                 services.AddSingleton<ISettingsService, SettingsService>();
                 services.AddTransient<INavigationViewService, NavigationViewService>();
+                services.AddTransient<IPowerService, PowerService>();
 
                 // Views and ViewModels
                 services.AddTransient<SettingsViewModel>();
