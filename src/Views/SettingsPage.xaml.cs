@@ -1,5 +1,4 @@
-﻿using BatteryTracker.Helpers;
-using BatteryTracker.ViewModels;
+﻿using BatteryTracker.ViewModels;
 using Microsoft.UI.Xaml.Controls;
 
 namespace BatteryTracker.Views;

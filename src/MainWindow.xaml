@@ -15,8 +15,10 @@
 
     <tb:TaskbarIcon
         x:Name="TrayIcon"
-        ContextMenuMode="PopupMenu" NoLeftClickDelay="True"
-        ToolTipText="Battery Tracker" Visibility="Visible">
+        ContextMenuMode="PopupMenu"
+        LeftClickCommand="{StaticResource DisplayBatteryInfoCommand}"
+        NoLeftClickDelay="True" ToolTipText="Battery Tracker"
+        Visibility="Visible">
         <tb:TaskbarIcon.IconSource>
             <tb:GeneratedIconSource
                 BackgroundType="Rectangle" FontFamily="Arial" FontWeight="SemiBold"
