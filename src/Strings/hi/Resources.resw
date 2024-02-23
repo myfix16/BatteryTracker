@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -58,4 +58,160 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Battery Tracker</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>टास्कबार पर बैटरी शेष प्रतिशत दिखाएँ</value>
+  </data>
+  <data name="Settings_Personalization.Text" xml:space="preserve">
+    <value>वैयक्तिकरण</value>
+  </data>
+  <data name="Settings_Theme.Text" xml:space="preserve">
+    <value>थीम</value>
+  </data>
+  <data name="Settings_Theme_Light.Content" xml:space="preserve">
+    <value>हल्की</value>
+  </data>
+  <data name="Settings_Theme_Dark.Content" xml:space="preserve">
+    <value>गहरी</value>
+  </data>
+  <data name="Settings_Theme_Default.Content" xml:space="preserve">
+    <value>विंडोज डिफ़ॉल्ट</value>
+  </data>
+  <data name="Settings_About.Text" xml:space="preserve">
+    <value>इस एप्लिकेशन के बारे में</value>
+  </data>
+  <data name="Settings_AboutDescription.Text" xml:space="preserve">
+    <value>टास्कबार पर बैटरी शेष प्रतिशत दिखाएँ</value>
+  </data>
+  <data name="Settings_PrivacyTerms.Header" xml:space="preserve">
+    <value>गोपनीयता वक्तव्य</value>
+  </data>
+  <data name="Settings_EnableLowPowerNotification.Header" xml:space="preserve">
+    <value>कम पावर अधिसूचना सक्षम करें</value>
+  </data>
+  <data name="Settings_Language.Header" xml:space="preserve">
+    <value>भाषा</value>
+  </data>
+  <data name="Settings_Notification.Header" xml:space="preserve">
+    <value>सूचनाएं</value>
+  </data>
+  <data name="Shell_About.Content" xml:space="preserve">
+    <value>बारे में</value>
+  </data>
+  <data name="Settings_LanguageButton.Content" xml:space="preserve">
+    <value>पुनः आरंभ करें</value>
+  </data>
+  <data name="Settings_LanguageInfoBar.Message" xml:space="preserve">
+    <value>भाषा परिवर्तन को प्रभावी बनाने के लिए ऐप को पुनरारंभ करें</value>
+  </data>
+  <data name="SettingsPage_EmailLink.Content" xml:space="preserve">
+    <value>ईमेल के माध्यम से प्रतिक्रिया भेजें</value>
+  </data>
+  <data name="SettingsPage_GitHubIssuesLink.Content" xml:space="preserve">
+    <value>GitHub पर समस्या सबमिट करें</value>
+  </data>
+  <data name="Settings_Feedback.Header" xml:space="preserve">
+    <value>प्रतिक्रिया दें</value>
+  </data>
+  <data name="SubmitFeedback" xml:space="preserve">
+    <value>प्रतिक्रिया सबमिट करें</value>
+  </data>
+  <data name="ExitApplicationCommand.Label" xml:space="preserve">
+    <value>बाहर निकलें</value>
+  </data>
+  <data name="OpenSettingsCommand.Label" xml:space="preserve">
+    <value>सेटिंग्स</value>
+  </data>
+  <data name="HighPowerMessage" xml:space="preserve">
+    <value>बैटरी में पर्याप्त चार्ज है</value>
+  </data>
+  <data name="Settings_EnableHighPowerNotification.Header" xml:space="preserve">
+    <value>पर्याप्त बिजली अधिसूचना सक्षम करें</value>
+  </data>
+  <data name="Settings_Appearance_Behavior.Header" xml:space="preserve">
+    <value>दिखावट एवं व्यवहार</value>
+  </data>
+  <data name="Settings_CopyAppVersionMenuItem.Text" xml:space="preserve">
+    <value>एप्लिकेशन संस्करण</value>
+  </data>
+  <data name="Settings_CopyVersionButton.Content" xml:space="preserve">
+    <value>कॉपी</value>
+  </data>
+  <data name="Settings_CopyWindowsVersionMenuItem.Text" xml:space="preserve">
+    <value>विंडोज़ संस्करण</value>
+  </data>
+  <data name="Settings_General.ModuleTitle" xml:space="preserve">
+    <value>सेटिंग्स</value>
+  </data>
+  <data name="Settings_GitHubLink.Header" xml:space="preserve">
+    <value>GitHub रिपोजिटरी</value>
+  </data>
+  <data name="Settings_Help_Support.Header" xml:space="preserve">
+    <value>सहायता एवं समर्थन</value>
+  </data>
+  <data name="LowPowerMessage" xml:space="preserve">
+    <value>कम पावर</value>
+  </data>
+  <data name="Settings_ColorModeHeader.Header" xml:space="preserve">
+    <value>एप्लिकेशन थीम</value>
+  </data>
+  <data name="Settings_LanguageHeader.Header" xml:space="preserve">
+    <value>एप्लिकेशन भाषा</value>
+  </data>
+  <data name="Settings_Logs.Header" xml:space="preserve">
+    <value>लॉग फ़ोल्डर खोलें</value>
+  </data>
+  <data name="Settings_OpenSource.Header" xml:space="preserve">
+    <value>खुला स्त्रोत</value>
+  </data>
+  <data name="Settings_RunAtStartUp.Description" xml:space="preserve">
+    <value>बैटरी ट्रैकर स्वचालित रूप से लॉन्च हो जाएगा</value>
+  </data>
+  <data name="Settings_RunAtStartUp.Header" xml:space="preserve">
+    <value>शुरु होते वक्त चलाएं</value>
+  </data>
+  <data name="Settings_Version.Header" xml:space="preserve">
+    <value>संस्करण</value>
+  </data>
+  <data name="Settings_VersionCopiedTextBlock.Text" xml:space="preserve">
+    <value>प्रतिलिपि बनाई गई!</value>
+  </data>
+  <data name="Settings_Windows_Color_Settings.Content" xml:space="preserve">
+    <value>विंडोज़ रंग सेटिंग्स</value>
+  </data>
+  <data name="SettingsPage_RateTheApp.Content" xml:space="preserve">
+    <value>ऐप को रेट करें</value>
+  </data>
+  <data name="Settings_Help_Us_Translate.Content" xml:space="preserve">
+    <value>बैटरी ट्रैकर का अनुवाद करने में हमारी सहायता करें!</value>
+  </data>
+  <data name="Settings_EnableFullyChargedNotification.Header" xml:space="preserve">
+    <value>पूरी तरह चार्ज अधिसूचना सक्षम करें</value>
+  </data>
+  <data name="Shell_Settings.Content" xml:space="preserve">
+    <value>सेटिंग्स</value>
+  </data>
+  <data name="UnhandledExceptionMessage" xml:space="preserve">
+    <value>एक अप्रत्याशित त्रुटि उत्पन्न होने के कारण ऐप निरस्त हो रहा है</value>
+  </data>
+  <data name="FullyChargedMessage" xml:space="preserve">
+    <value>बैटरी पूरी तरह चार्ज है</value>
+  </data>
+  <data name="InstanceRunningMessage" xml:space="preserve">
+    <value>न संभाले गए अपवादों के लिए त्रुटि संदेश</value>
+  </data>
+  <data name="Settings_HighPowerThreshold.Header" xml:space="preserve">
+    <value>बैटरी प्रतिशत इससे अधिक होने पर मुझे सूचित करें:</value>
+  </data>
+  <data name="Settings_LowPowerThreshold.Header" xml:space="preserve">
+    <value>बैटरी प्रतिशत इससे कम होने पर मुझे सूचित करें:</value>
+  </data>
+  <data name="Settings_ThirdPartyLicense.Header" xml:space="preserve">
+    <value>तृतीय-पक्ष लाइसेंस</value>
+  </data>
+  <data name="SettingsPreferencesSystemDefaultLanguageOption" xml:space="preserve">
+    <value>सिस्टम डिफ़ॉल्ट</value>
+  </data>
 </root>
