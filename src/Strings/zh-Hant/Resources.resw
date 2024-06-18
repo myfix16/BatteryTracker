@@ -59,7 +59,7 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -133,10 +133,10 @@
     <value>深色</value>
   </data>
   <data name="Settings_Theme_Default.Content" xml:space="preserve">
-    <value>Windows 默認</value>
+    <value>Windows 預設</value>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
-    <value>關於</value>
+    <value>關於本應用程式</value>
   </data>
   <data name="Settings_PrivacyTerms.Header" xml:space="preserve">
     <value>隱私聲明</value>
@@ -151,25 +151,25 @@
     <value>通知</value>
   </data>
   <data name="Shell_Settings.Content" xml:space="preserve">
-    <value>設置</value>
+    <value>設定</value>
   </data>
   <data name="Settings_LanguageButton.Content" xml:space="preserve">
     <value>重啓</value>
   </data>
   <data name="Settings_LanguageInfoBar.Message" xml:space="preserve">
-    <value>重啓應用使變更生效</value>
+    <value>重啓應用程式使語言變更生效</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
     <value>一款在任務欄顯示電池百分比的實用工具</value>
   </data>
   <data name="UnhandledExceptionMessage" xml:space="preserve">
-    <value>出現了未知錯誤，應用將退出</value>
+    <value>出現了未知錯誤，應用程式將退出</value>
   </data>
   <data name="AppDisplayName" xml:space="preserve">
     <value>Battery Tracker</value>
   </data>
   <data name="SettingsPage_GitHubIssuesLink.Content" xml:space="preserve">
-    <value>在Github上提交issue</value>
+    <value>在 Github 上提交 issue</value>
   </data>
   <data name="Settings_Feedback.Header" xml:space="preserve">
     <value>提供反饋</value>
@@ -190,16 +190,16 @@
     <value>電池電量不足</value>
   </data>
   <data name="InstanceRunningMessage" xml:space="preserve">
-    <value>該應用的另一個實例正在運行</value>
+    <value>該應用程式的另一個實例正在運行</value>
   </data>
   <data name="Settings_Appearance_Behavior.Header" xml:space="preserve">
     <value>外觀和行爲</value>
   </data>
   <data name="Settings_ColorModeHeader.Header" xml:space="preserve">
-    <value>應用主題</value>
+    <value>應用程式主題</value>
   </data>
   <data name="Settings_CopyAppVersionMenuItem.Text" xml:space="preserve">
-    <value>應用版本</value>
+    <value>應用程式版本</value>
   </data>
   <data name="Settings_CopyVersionButton.Content" xml:space="preserve">
     <value>複製</value>
@@ -208,25 +208,25 @@
     <value>Windows 版本</value>
   </data>
   <data name="Settings_General.ModuleTitle" xml:space="preserve">
-    <value>設置</value>
+    <value>設定</value>
   </data>
   <data name="Settings_GitHubLink.Header" xml:space="preserve">
     <value>Github 存儲庫</value>
   </data>
   <data name="Settings_Help_Support.Header" xml:space="preserve">
-    <value>幫助和支持</value>
+    <value>幫助和支援</value>
   </data>
   <data name="Settings_HighPowerThreshold.Header" xml:space="preserve">
     <value>在電量百分比高於以下值時推送通知：</value>
   </data>
   <data name="Settings_LanguageHeader.Header" xml:space="preserve">
-    <value>應用語言</value>
+    <value>應用程式語言</value>
   </data>
   <data name="Settings_Logs.Header" xml:space="preserve">
-    <value>打開日志文件夾</value>
+    <value>打開日誌資料夾</value>
   </data>
   <data name="Settings_LowPowerThreshold.Header" xml:space="preserve">
-    <value>儅電池百分比低於以下值時推送通知：</value>
+    <value>當電池百分比低於以下值時推送通知：</value>
   </data>
   <data name="Settings_RunAtStartUp.Description" xml:space="preserve">
     <value>Battery Tracker 將自動啓動</value>
@@ -244,10 +244,10 @@
     <value>已複製！</value>
   </data>
   <data name="Settings_Windows_Color_Settings.Content" xml:space="preserve">
-    <value>Windows 顔色設置</value>
+    <value>Windows 顔色設定</value>
   </data>
   <data name="SettingsPage_RateTheApp.Content" xml:space="preserve">
-    <value>評價本應用</value>
+    <value>評價本應用程式</value>
   </data>
   <data name="Settings_EnableFullyChargedNotification.Header" xml:space="preserve">
     <value>啓用滿電量通知</value>
@@ -259,7 +259,7 @@
     <value>電子郵件反饋</value>
   </data>
   <data name="OpenSettingsCommand.Label" xml:space="preserve">
-    <value>設置</value>
+    <value>設定</value>
   </data>
   <data name="Settings_EnableHighPowerNotification.Header" xml:space="preserve">
     <value>啓用電量充足通知</value>
@@ -268,9 +268,9 @@
     <value>開放源代碼</value>
   </data>
   <data name="SettingsPreferencesSystemDefaultLanguageOption" xml:space="preserve">
-    <value>系統默認</value>
+    <value>系統預設</value>
   </data>
   <data name="Settings_Help_Us_Translate.Content" xml:space="preserve">
-    <value>幫助我們翻譯Battery Tracker!</value>
+    <value>幫助我們翻譯 Battery Tracker!</value>
   </data>
 </root>
