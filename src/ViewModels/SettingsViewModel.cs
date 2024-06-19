@@ -228,6 +228,7 @@ public sealed class SettingsViewModel : ObservableRecipient, IBatterySettings
         });
 
         _appLanguageId = _settingsService.Language.LanguageId;
+        _language = Languages[0];  // dummy line to disable compiler warning
         ReadSettingValues();
         LanguageChanged = false;
 

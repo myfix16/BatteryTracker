@@ -79,6 +79,7 @@ public sealed partial class App : Application
                 services.AddSingleton<ISettingsStorageService, AppLocalSettingsStorageService>();
                 services.AddSingleton<ISettingsService, SettingsService>();
                 services.AddTransient<INavigationViewService, NavigationViewService>();
+                services.AddTransient<IPowerService, PowerService>();
 
                 // Views and ViewModels
                 services.AddTransient<SettingsViewModel>();
@@ -87,6 +88,7 @@ public sealed partial class App : Application
                 services.AddTransient<ShellViewModel>();
                 services.AddTransient<AboutPage>();
                 services.AddTransient<AboutViewModel>();
+                services.AddTransient<BatteryInfoViewModel>();
 
                 // Taskbar icon
                 services.AddSingleton<BatteryIcon>();
@@ -193,8 +195,24 @@ public sealed partial class App : Application
         var exitApplicationCommand = (XamlUICommand)Resources["ExitApplicationCommand"];
         exitApplicationCommand.ExecuteRequested += ExitApplicationCommand_ExecuteRequested;
 
+        var displayBatteryInfoCommand = (XamlUICommand)Resources["DisplayBatteryInfoCommand"];
+        displayBatteryInfoCommand.ExecuteRequested += DisplayBatteryInfoCommand_ExecuteRequested;
+
         _batteryIcon = GetService<BatteryIcon>();
         await _batteryIcon.InitAsync(MainWindow.BatteryTrayIcon);
+    }
+
+    void DisplayBatteryInfoCommand_ExecuteRequested(XamlUICommand sender, ExecuteRequestedEventArgs args)
+    {
+        BatteryInfoWindow window = _batteryIcon!.BatteryInfoWindow;
+        if (window.Visible)
+        {
+            window.Hide();
+        }
+        else
+        {
+            window.Activate();
+        }
     }
 
     private void ProcessUnhandledException(Exception? e, bool showNotification)

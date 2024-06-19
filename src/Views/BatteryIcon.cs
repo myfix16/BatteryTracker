@@ -109,6 +109,8 @@ public partial class BatteryIcon : IDisposable
 
     #endregion
 
+    internal readonly BatteryInfoWindow BatteryInfoWindow;
+
     #region Private fields
 
     private static readonly Brush White = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
@@ -133,6 +135,7 @@ public partial class BatteryIcon : IDisposable
     {
         _notificationService = notificationService;
         _logger = logger;
+        BatteryInfoWindow = new BatteryInfoWindow();
         Settings = new BatteryIconSettings(this);
     }
 
@@ -164,6 +167,8 @@ public partial class BatteryIcon : IDisposable
         PowerManager.DisplayStatusChanged -= PowerManager_DisplayStatusChanged;
 
         _trayIcon?.Dispose();
+
+        BatteryInfoWindow.AppWindow.Destroy();
 
         GC.SuppressFinalize(this);
     }
