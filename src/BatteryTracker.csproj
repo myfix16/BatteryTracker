@@ -15,7 +15,7 @@
 		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 		<ApplicationIcon>Assets\logo.ico</ApplicationIcon>
 		<GenerateAppInstallerFile>False</GenerateAppInstallerFile>
-		<AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+		<AppxPackageSigningEnabled>False</AppxPackageSigningEnabled>
 		<AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
 		<AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
 		<AppxSymbolPackageEnabled>True</AppxSymbolPackageEnabled>
@@ -23,7 +23,6 @@
 		<AppxBundle>Always</AppxBundle>
 		<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
 		<AppxBundlePlatforms>x86|x64|arm64</AppxBundlePlatforms>
-		<PackageCertificateKeyFile>BatteryTracker_TemporaryKey.pfx</PackageCertificateKeyFile>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -108,15 +107,15 @@
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Labs.WinUI.SettingsControls" Version="0.0.17" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-		<PackageReference Include="CommunityToolkit.WinUI.UI" Version="7.1.2" />
 		<PackageReference Include="CommunityToolkit.WinUI.UI.Controls" Version="7.1.2" />
 		<PackageReference Include="H.NotifyIcon" Version="2.0.131" />
 		<PackageReference Include="H.NotifyIcon.WinUI" Version="2.0.131" />
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
 		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.240607001" />
-		<PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1" />
+		<PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.3233" />
 		<PackageReference Include="Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.0.9" />
 		<PackageReference Include="Mii.Serilog.Extensions.Logging.File" Version="1.0.1" />
+		<PackageReference Include="System.Net.Http" Version="4.3.4" />
 		<PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
 		<PackageReference Include="WinUIEx" Version="2.3.4" />
 		<Manifest Include="$(ApplicationManifest)" />

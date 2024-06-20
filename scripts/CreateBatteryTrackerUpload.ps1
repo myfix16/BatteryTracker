@@ -12,7 +12,7 @@ param (
 $packagesFolder = Join-Path (Get-Item $PSScriptRoot).Parent "packages"
 $msixsFolder = Join-Path $packagesFolder "msixs"
 $symbolsFolder = Join-Path $packagesFolder "symbols"
-$outputFormatString = Join-Path (Get-Item $PSScriptRoot).Parent "src/bin/{0}/Release/net7.0-windows10.0.22000.0/AppPackages/BatteryTracker_{1}_Test"
+$outputFormatString = Join-Path (Get-Item $PSScriptRoot).Parent "src/bin/{0}/Release/net8.0-windows10.0.22000.0/AppPackages/BatteryTracker_{1}_Test"
 $msixBundlePath = Join-Path $packagesFolder "BatteryTracker_${version}_x86_x64_arm64.msixbundle"
 $msixUploadPath = Join-Path $packagesFolder "BatteryTracker_${version}_x86_x64_arm64_bundle.msixupload"
 $archs = "x86", "x64", "arm64"
