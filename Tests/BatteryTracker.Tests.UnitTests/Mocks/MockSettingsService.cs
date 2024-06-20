@@ -26,11 +26,11 @@ public class MockSettingsService : ISettingsService
 
     public MockSettingsService()
     {
-        Languages = new List<AppLanguageItem>
-        {
-            new("en-US"),
-            new("zh-Hans"),
-        };
+        Languages =
+        [
+            new AppLanguageItem("en-US"),
+            new AppLanguageItem("zh-Hans"),
+        ];
         Language = Languages[0];
     }
 }

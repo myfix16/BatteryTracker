@@ -9,23 +9,14 @@ using Microsoft.UI.Xaml.Controls;
 
 namespace BatteryTracker.Services;
 
-public sealed class NavigationViewService : INavigationViewService
+public sealed class NavigationViewService(INavigationService navigationService, IPageService pageService)
+    : INavigationViewService
 {
-    private readonly INavigationService _navigationService;
-
-    private readonly IPageService _pageService;
-
     private NavigationView? _navigationView;
 
     public IList<object>? MenuItems => _navigationView?.MenuItems;
 
     public object? SettingsItem => _navigationView?.SettingsItem;
-
-    public NavigationViewService(INavigationService navigationService, IPageService pageService)
-    {
-        _navigationService = navigationService;
-        _pageService = pageService;
-    }
 
     [MemberNotNull(nameof(_navigationView))]
     public void Initialize(NavigationView navigationView)
@@ -54,13 +45,13 @@ public sealed class NavigationViewService : INavigationViewService
         return null;
     }
 
-    private void OnBackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args) => _navigationService.GoBack();
+    private void OnBackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args) => navigationService.GoBack();
 
     private void OnItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
     {
         if (args.IsSettingsInvoked)
         {
-            _navigationService.NavigateTo(typeof(SettingsViewModel).FullName!);
+            navigationService.NavigateTo(typeof(SettingsViewModel).FullName!);
         }
         else
         {
@@ -68,7 +59,7 @@ public sealed class NavigationViewService : INavigationViewService
 
             if (selectedItem?.GetValue(NavigationHelper.NavigateToProperty) is string pageKey)
             {
-                _navigationService.NavigateTo(pageKey);
+                navigationService.NavigateTo(pageKey);
             }
         }
     }
@@ -96,7 +87,7 @@ public sealed class NavigationViewService : INavigationViewService
     {
         if (menuItem.GetValue(NavigationHelper.NavigateToProperty) is string pageKey)
         {
-            return _pageService.GetPageType(pageKey) == sourcePageType;
+            return pageService.GetPageType(pageKey) == sourcePageType;
         }
 
         return false;

@@ -7,6 +7,15 @@ using Windows.UI;
 
 namespace BatteryTracker.Helpers;
 
+public class AnsiStringMarshaller
+{
+    public static IntPtr ConvertToUnmanaged(string managed) => Marshal.StringToHGlobalAnsi(managed);
+
+    public static string? ConvertToManaged(IntPtr unmanaged) => Marshal.PtrToStringAnsi(unmanaged);
+
+    public static void Free(IntPtr unmanaged) => Marshal.FreeHGlobal(unmanaged);
+}
+
 // Helper class to workaround custom title bar bugs.
 // DISCLAIMER: The resource key names and color values used below are subject to change. Do not depend on them.
 // https://github.com/microsoft/TemplateStudio/issues/4516

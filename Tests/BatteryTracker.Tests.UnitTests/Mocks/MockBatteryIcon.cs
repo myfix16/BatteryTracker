@@ -5,13 +5,9 @@ using Microsoft.Extensions.Logging;
 
 namespace BatteryTracker.Tests.UnitTests.Mocks
 {
-    internal class MockBatteryIcon : BatteryIcon
+    internal class MockBatteryIcon(IAppNotificationService notificationService, ILogger<MockBatteryIcon> logger)
+        : BatteryIcon(notificationService, logger)
     {
-        public MockBatteryIcon(IAppNotificationService notificationService, ILogger<MockBatteryIcon> logger)
-            : base(notificationService, logger)
-        {
-        }
-
         public new async Task InitAsync(TaskbarIcon icon)
         {
             await Task.CompletedTask;

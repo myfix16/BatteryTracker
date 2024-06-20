@@ -3,19 +3,13 @@ using Microsoft.Windows.AppLifecycle;
 
 namespace BatteryTracker.Activation;
 
-public sealed class DefaultActivationHandler : ActivationHandler<AppActivationArguments>
+public sealed class DefaultActivationHandler(INavigationService navigationService)
+    : ActivationHandler<AppActivationArguments>
 {
-    private readonly INavigationService _navigationService;
-
-    public DefaultActivationHandler(INavigationService navigationService)
-    {
-        _navigationService = navigationService;
-    }
-
     protected override bool CanHandleInternal(AppActivationArguments args)
     {
         // None of the ActivationHandlers has handled the activation.
-        return _navigationService.Frame?.Content == null;
+        return navigationService.Frame?.Content == null;
     }
 
     protected override async Task HandleInternalAsync(AppActivationArguments args)

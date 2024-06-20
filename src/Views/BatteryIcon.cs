@@ -18,15 +18,8 @@ namespace BatteryTracker.Views;
 
 public partial class BatteryIcon : IDisposable
 {
-    private sealed class BatteryIconSettings : IBatterySettings
+    private sealed class BatteryIconSettings(BatteryIcon batteryIcon) : IBatterySettings
     {
-        private readonly BatteryIcon _batteryIcon;
-
-        public BatteryIconSettings(BatteryIcon batteryIcon)
-        {
-            _batteryIcon = batteryIcon;
-        }
-
         public bool LowPowerNotificationEnabled { get; set; }
 
         public bool HighPowerNotificationEnabled { get; set; }
@@ -40,7 +33,7 @@ public partial class BatteryIcon : IDisposable
             set
             {
                 _lowPowerNotificationThreshold = value;
-                _batteryIcon._isLowPower = false;
+                batteryIcon._isLowPower = false;
             }
         }
 
@@ -51,7 +44,7 @@ public partial class BatteryIcon : IDisposable
             set
             {
                 _highPowerNotificationThreshold = value;
-                _batteryIcon._isHighPower = false;
+                batteryIcon._isHighPower = false;
             }
         }
     }

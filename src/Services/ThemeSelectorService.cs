@@ -3,20 +3,13 @@ using BatteryTracker.Helpers;
 
 namespace BatteryTracker.Services;
 
-public sealed class ThemeSelectorService : IThemeSelectorService
+public sealed class ThemeSelectorService(ISettingsService settingsService) : IThemeSelectorService
 {
-    private readonly ISettingsService _settingsService;
-
     public ElementTheme Theme { get; private set; } = ElementTheme.Default;
-
-    public ThemeSelectorService(ISettingsService settingsService)
-    {
-        _settingsService = settingsService;
-    }
 
     public async Task InitializeAsync()
     {
-        Theme = _settingsService.Theme;
+        Theme = settingsService.Theme;
         await Task.CompletedTask;
     }
 
@@ -25,7 +18,7 @@ public sealed class ThemeSelectorService : IThemeSelectorService
         Theme = theme;
 
         await SetRequestedThemeAsync();
-        _settingsService.Theme = theme;
+        settingsService.Theme = theme;
     }
 
     public async Task SetRequestedThemeAsync()

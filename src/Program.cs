@@ -15,7 +15,7 @@ namespace BatteryTracker
         // Note: We can't declare Main to be async because in a WinUI app
         // this prevents Narrator from reading XAML elements.
         [STAThread]
-        static void Main(string[] args)
+        static void Main()
         {
             WinRT.ComWrappersSupport.InitializeComWrappers();
 

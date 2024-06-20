@@ -4,14 +4,9 @@ using BatteryTracker.Contracts.Services;
 
 namespace BatteryTracker.Services
 {
-    internal abstract class BaseJsonSettingsService
+    internal abstract class BaseJsonSettingsService(ISettingsStorageService settingsStorageService)
     {
-        private readonly IDictionary<string, object> _settingsStorage;
-
-        protected BaseJsonSettingsService(ISettingsStorageService settingsStorageService)
-        {
-            _settingsStorage = settingsStorageService.GetSettingsStorage();
-        }
+        private readonly IDictionary<string, object> _settingsStorage = settingsStorageService.GetSettingsStorage();
 
         protected T? Get<T>(string key, T? defaultValue)
         {

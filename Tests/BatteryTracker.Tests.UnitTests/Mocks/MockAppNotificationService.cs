@@ -9,15 +9,9 @@ namespace BatteryTracker.Tests.UnitTests.Mocks
         {
         }
 
-        public bool Show(string payload)
-        {
-            return true;
-        }
+        public bool Show(string payload) => true;
 
-        public NameValueCollection ParseArguments(string arguments)
-        {
-            return new NameValueCollection();
-        }
+        public NameValueCollection ParseArguments(string arguments) => [];
 
         public void Unregister()
         {

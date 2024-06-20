@@ -6,12 +6,8 @@ using Microsoft.UI.Xaml.Automation.Peers;
 
 namespace BatteryTracker.Controls
 {
-    public sealed class SettingsGroupAutomationPeer : FrameworkElementAutomationPeer
+    public sealed class SettingsGroupAutomationPeer(SettingsGroup owner) : FrameworkElementAutomationPeer(owner)
     {
-        public SettingsGroupAutomationPeer(SettingsGroup owner) : base(owner)
-        {
-        }
-
         protected override string GetNameCore()
         {
             var selectedSettingsGroup = (SettingsGroup)Owner;

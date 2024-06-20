@@ -9,18 +9,12 @@ using WinUIEx;
 
 namespace BatteryTracker.Activation;
 
-public sealed class LaunchActivationHandler : ActivationHandler<AppActivationArguments>
+public sealed class LaunchActivationHandler(
+    ILogger<LaunchActivationHandler> logger,
+    IAppNotificationService notificationService)
+    : ActivationHandler<AppActivationArguments>
 {
     public const string OpenSettingsCommandArg = "--open-settings";
-
-    private readonly ILogger<LaunchActivationHandler> _logger;
-    private readonly IAppNotificationService _notificationService;
-
-    public LaunchActivationHandler(ILogger<LaunchActivationHandler> logger, IAppNotificationService notificationService)
-    {
-        _logger = logger;
-        _notificationService = notificationService;
-    }
 
     protected override bool CanHandleInternal(AppActivationArguments args)
     {
@@ -37,7 +31,7 @@ public sealed class LaunchActivationHandler : ActivationHandler<AppActivationArg
         }
         else
         {
-            _notificationService.Show("InstanceRunningMessage".Localized());
+            notificationService.Show("InstanceRunningMessage".Localized());
             return;
         }
 
@@ -45,7 +39,7 @@ public sealed class LaunchActivationHandler : ActivationHandler<AppActivationArg
         if (args.Data is ILaunchActivatedEventArgs launchArgs)
         {
             string[] argStrings = launchArgs.Arguments.Split(' ');
-            _logger.LogInformation("App launched with command line args: [{args}]", string.Join(", ", argStrings));
+            logger.LogInformation("App launched with command line args: [{args}]", string.Join(", ", argStrings));
 
             if (argStrings.Contains(OpenSettingsCommandArg))
             {

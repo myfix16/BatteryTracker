@@ -3,16 +3,9 @@ using Microsoft.UI.Xaml;
 
 namespace BatteryTracker.Tests.UnitTests.Mocks
 {
-    internal class MockThemeSelectorService : IThemeSelectorService
+    internal class MockThemeSelectorService(ISettingsService settingsService) : IThemeSelectorService
     {
         public ElementTheme Theme { get; private set; } = ElementTheme.Default;
-
-        private readonly ISettingsService _settingsService;
-
-        public MockThemeSelectorService(ISettingsService settingsService)
-        {
-            _settingsService = settingsService;
-        }
 
         public Task InitializeAsync()
         {
@@ -22,7 +15,7 @@ namespace BatteryTracker.Tests.UnitTests.Mocks
         public Task SetThemeAsync(ElementTheme theme)
         {
             Theme = theme;
-            _settingsService.Theme = theme;
+            settingsService.Theme = theme;
 
             return Task.CompletedTask;
         }
