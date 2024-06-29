@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -58,4 +58,160 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Settings_EnableFullyChargedNotification.Header" xml:space="preserve">
+    <value>Benachrichtigung bei vollständiger Aufladung aktivieren</value>
+  </data>
+  <data name="Settings_Language.Header" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="SubmitFeedback" xml:space="preserve">
+    <value>Feedback übermitteln</value>
+  </data>
+  <data name="ExitApplicationCommand.Label" xml:space="preserve">
+    <value>Ausgehen</value>
+  </data>
+  <data name="OpenSettingsCommand.Label" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="FullyChargedMessage" xml:space="preserve">
+    <value>DIe Batterie ist voll</value>
+  </data>
+  <data name="Settings_CopyAppVersionMenuItem.Text" xml:space="preserve">
+    <value>Anwendungsversion</value>
+  </data>
+  <data name="Settings_CopyVersionButton.Content" xml:space="preserve">
+    <value>Kopieren</value>
+  </data>
+  <data name="Settings_CopyWindowsVersionMenuItem.Text" xml:space="preserve">
+    <value>Windows Version</value>
+  </data>
+  <data name="Settings_General.ModuleTitle" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="Settings_GitHubLink.Header" xml:space="preserve">
+    <value>GitHub-Repository</value>
+  </data>
+  <data name="Settings_Help_Support.Header" xml:space="preserve">
+    <value>Hilfe und Unterstützung</value>
+  </data>
+  <data name="Settings_HighPowerThreshold.Header" xml:space="preserve">
+    <value>Benachrichtigen Sie mich, wenn der Batterieprozentsatz höher ist als:</value>
+  </data>
+  <data name="Settings_OpenSource.Header" xml:space="preserve">
+    <value>Open Source</value>
+  </data>
+  <data name="Settings_Version.Header" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="Settings_VersionCopiedTextBlock.Text" xml:space="preserve">
+    <value>Kopiert!</value>
+  </data>
+  <data name="SettingsPreferencesSystemDefaultLanguageOption" xml:space="preserve">
+    <value>System-Standard</value>
+  </data>
+  <data name="Settings_Help_Us_Translate.Content" xml:space="preserve">
+    <value>Helfen Sie uns, Battery Tracker zu übersetzen!</value>
+  </data>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Batterietracker</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>Zeige den Prozentsatz der verbleibenden Batterie in der Taskleiste an</value>
+  </data>
+  <data name="Settings_Theme.Text" xml:space="preserve">
+    <value>Thema</value>
+  </data>
+  <data name="Settings_About.Text" xml:space="preserve">
+    <value>Über diese Applikation</value>
+  </data>
+  <data name="Shell_Settings.Content" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="Settings_Personalization.Text" xml:space="preserve">
+    <value>Personalisierung</value>
+  </data>
+  <data name="Settings_Theme_Light.Content" xml:space="preserve">
+    <value>Licht</value>
+  </data>
+  <data name="Settings_Theme_Dark.Content" xml:space="preserve">
+    <value>Dunkelheit</value>
+  </data>
+  <data name="Settings_Theme_Default.Content" xml:space="preserve">
+    <value>Windows Standart</value>
+  </data>
+  <data name="Settings_AboutDescription.Text" xml:space="preserve">
+    <value>Zeige den Prozentsatz der verbleibenden Batterie in der Taskleiste an</value>
+  </data>
+  <data name="Settings_PrivacyTerms.Header" xml:space="preserve">
+    <value>Datenschutzerklärung</value>
+  </data>
+  <data name="Settings_EnableLowPowerNotification.Header" xml:space="preserve">
+    <value>Benachrichtigung bei niedrigem Akkustand aktivieren</value>
+  </data>
+  <data name="Settings_LanguageInfoBar.Message" xml:space="preserve">
+    <value>Starten Sie die App neu, damit die Sprachänderung wirksam wird</value>
+  </data>
+  <data name="HighPowerMessage" xml:space="preserve">
+    <value>Die Batterie ist genug geladen</value>
+  </data>
+  <data name="Settings_Notification.Header" xml:space="preserve">
+    <value>Benachrichtungen</value>
+  </data>
+  <data name="Shell_About.Content" xml:space="preserve">
+    <value>Über</value>
+  </data>
+  <data name="Settings_LanguageButton.Content" xml:space="preserve">
+    <value>Neustarten</value>
+  </data>
+  <data name="UnhandledExceptionMessage" xml:space="preserve">
+    <value>Die App wird abgebrochen, weil ein unerwarteter Fehler aufgetreten ist</value>
+  </data>
+  <data name="SettingsPage_GitHubIssuesLink.Content" xml:space="preserve">
+    <value>Senden Sie das Problem auf GitHub</value>
+  </data>
+  <data name="Settings_Feedback.Header" xml:space="preserve">
+    <value>Feedback geben</value>
+  </data>
+  <data name="LowPowerMessage" xml:space="preserve">
+    <value>Geringer Strom</value>
+  </data>
+  <data name="Settings_EnableHighPowerNotification.Header" xml:space="preserve">
+    <value>Benachrichtigung über ausreichende Stromversorgung aktivieren</value>
+  </data>
+  <data name="SettingsPage_EmailLink.Content" xml:space="preserve">
+    <value>Senden Sie Feedback per E-Mail</value>
+  </data>
+  <data name="InstanceRunningMessage" xml:space="preserve">
+    <value>Eine andere Instanz läuft bereits</value>
+  </data>
+  <data name="Settings_Appearance_Behavior.Header" xml:space="preserve">
+    <value>Aussehen &amp; Verhalten</value>
+  </data>
+  <data name="Settings_ColorModeHeader.Header" xml:space="preserve">
+    <value>Anwendungsthema</value>
+  </data>
+  <data name="Settings_LanguageHeader.Header" xml:space="preserve">
+    <value>Anwendungssprache</value>
+  </data>
+  <data name="Settings_Logs.Header" xml:space="preserve">
+    <value>Log-Ordner öffnen</value>
+  </data>
+  <data name="Settings_LowPowerThreshold.Header" xml:space="preserve">
+    <value>Benachrichtigen Sie mich, wenn der Batterieprozentsatz niedriger ist als:</value>
+  </data>
+  <data name="SettingsPage_RateTheApp.Content" xml:space="preserve">
+    <value>Bewerte die App</value>
+  </data>
+  <data name="Settings_RunAtStartUp.Description" xml:space="preserve">
+    <value>Battery Tracker wird automatisch starten</value>
+  </data>
+  <data name="Settings_RunAtStartUp.Header" xml:space="preserve">
+    <value>beim Start ausführen</value>
+  </data>
+  <data name="Settings_ThirdPartyLicense.Header" xml:space="preserve">
+    <value>Lizenzen von Drittanbietern</value>
+  </data>
+  <data name="Settings_Windows_Color_Settings.Content" xml:space="preserve">
+    <value>Windows-Farbeinstellungen</value>
+  </data>
 </root>
