@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Monitor batteria</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>Mostra la percentuale della batteria nella barra delle applicazioni</value>
+  </data>
+  <data name="Settings_Personalization.Text" xml:space="preserve">
+    <value>Personalizzazione</value>
+  </data>
+  <data name="Settings_Theme.Text" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="Settings_Theme_Light.Content" xml:space="preserve">
+    <value>Chiaro</value>
+  </data>
+  <data name="Settings_Theme_Dark.Content" xml:space="preserve">
+    <value>Scuro</value>
+  </data>
+  <data name="Settings_Language.Header" xml:space="preserve">
+    <value>Lingua</value>
+  </data>
+  <data name="Settings_Notification.Header" xml:space="preserve">
+    <value>Notifiche</value>
+  </data>
+  <data name="ExitApplicationCommand.Label" xml:space="preserve">
+    <value>Esci</value>
+  </data>
+  <data name="OpenSettingsCommand.Label" xml:space="preserve">
+    <value>Impostazioni</value>
+  </data>
+  <data name="FullyChargedMessage" xml:space="preserve">
+    <value>La batteria è completamente carica</value>
+  </data>
+  <data name="HighPowerMessage" xml:space="preserve">
+    <value>La batteria ha abbastanza energia</value>
+  </data>
+  <data name="LowPowerMessage" xml:space="preserve">
+    <value>Batteria bassa</value>
+  </data>
+  <data name="Settings_EnableHighPowerNotification.Header" xml:space="preserve">
+    <value>Abilita la notifica di energia sufficiente</value>
+  </data>
+  <data name="InstanceRunningMessage" xml:space="preserve">
+    <value>Un'altra istanza è già in esecuzione</value>
+  </data>
+  <data name="Settings_Appearance_Behavior.Header" xml:space="preserve">
+    <value>Aspetto e comportamento</value>
+  </data>
+  <data name="Settings_ColorModeHeader.Header" xml:space="preserve">
+    <value>Tema dell'apllicazione</value>
+  </data>
+  <data name="Settings_CopyAppVersionMenuItem.Text" xml:space="preserve">
+    <value>Versione dell'applicazione</value>
+  </data>
+  <data name="Settings_CopyVersionButton.Content" xml:space="preserve">
+    <value>Copia</value>
+  </data>
+  <data name="Settings_CopyWindowsVersionMenuItem.Text" xml:space="preserve">
+    <value>Versione di Windows</value>
+  </data>
+  <data name="Settings_General.ModuleTitle" xml:space="preserve">
+    <value>Impostazioni</value>
+  </data>
+  <data name="Settings_GitHubLink.Header" xml:space="preserve">
+    <value>Repository GitHub</value>
+  </data>
+  <data name="Settings_Help_Support.Header" xml:space="preserve">
+    <value>Aiuto e supporto</value>
+  </data>
+  <data name="Settings_HighPowerThreshold.Header" xml:space="preserve">
+    <value>Notificami quando la percentuale della batteria è più alta di:</value>
+  </data>
+  <data name="Settings_LanguageHeader.Header" xml:space="preserve">
+    <value>Lingua dell'applicazione</value>
+  </data>
+  <data name="Settings_Logs.Header" xml:space="preserve">
+    <value>Apri la cartella di registro</value>
+  </data>
+  <data name="Settings_LowPowerThreshold.Header" xml:space="preserve">
+    <value>Notificami quando la batteria è più bassa di:</value>
+  </data>
+  <data name="Settings_OpenSource.Header" xml:space="preserve">
+    <value>Open source</value>
+  </data>
+  <data name="Settings_RunAtStartUp.Description" xml:space="preserve">
+    <value>Battery Tracker si avvierà automaticamente</value>
+  </data>
+  <data name="Settings_RunAtStartUp.Header" xml:space="preserve">
+    <value>Esegui all'avvio</value>
+  </data>
+  <data name="Settings_ThirdPartyLicense.Header" xml:space="preserve">
+    <value>Licenze di terze parti</value>
+  </data>
+  <data name="Settings_Version.Header" xml:space="preserve">
+    <value>Versione</value>
+  </data>
+  <data name="Settings_VersionCopiedTextBlock.Text" xml:space="preserve">
+    <value>Copiato!</value>
+  </data>
+  <data name="Settings_Windows_Color_Settings.Content" xml:space="preserve">
+    <value>Impostazioni colore di Windows</value>
+  </data>
+  <data name="SettingsPage_RateTheApp.Content" xml:space="preserve">
+    <value>Valuta l'app</value>
+  </data>
+  <data name="SettingsPreferencesSystemDefaultLanguageOption" xml:space="preserve">
+    <value>Predefinito di sistema</value>
+  </data>
+  <data name="Settings_Help_Us_Translate.Content" xml:space="preserve">
+    <value>Aiutaci a tradurre Battery Tracker!</value>
+  </data>
+  <data name="Settings_Theme_Default.Content" xml:space="preserve">
+    <value>Predefinito di Windows</value>
+  </data>
+  <data name="Settings_About.Text" xml:space="preserve">
+    <value>Su questa applicazione</value>
+  </data>
+  <data name="Settings_AboutDescription.Text" xml:space="preserve">
+    <value>Mostra la percentuale di batteria rimanente nella barra delle applicazioni</value>
+  </data>
+  <data name="Settings_PrivacyTerms.Header" xml:space="preserve">
+    <value>Informativa sulla privacy</value>
+  </data>
+  <data name="Settings_EnableFullyChargedNotification.Header" xml:space="preserve">
+    <value>Abilita le notifiche di carica completa</value>
+  </data>
+  <data name="Settings_EnableLowPowerNotification.Header" xml:space="preserve">
+    <value>Abilita le notifiche di batteria bassa</value>
+  </data>
+  <data name="Shell_About.Content" xml:space="preserve">
+    <value>A proposito</value>
+  </data>
+  <data name="Shell_Settings.Content" xml:space="preserve">
+    <value>Impostazioni</value>
+  </data>
+  <data name="Settings_LanguageButton.Content" xml:space="preserve">
+    <value>Riavvio</value>
+  </data>
+  <data name="Settings_LanguageInfoBar.Message" xml:space="preserve">
+    <value>Riavvia l'app per applicare le modifiche sulla lingua</value>
+  </data>
+  <data name="UnhandledExceptionMessage" xml:space="preserve">
+    <value>L'app si è interrotta per un'errore inaspettato</value>
+  </data>
+  <data name="SettingsPage_EmailLink.Content" xml:space="preserve">
+    <value>Invia feedback via email</value>
+  </data>
+  <data name="SettingsPage_GitHubIssuesLink.Content" xml:space="preserve">
+    <value>Invia un problema su GitHub</value>
+  </data>
+  <data name="Settings_Feedback.Header" xml:space="preserve">
+    <value>Fornisci feedback</value>
+  </data>
+  <data name="SubmitFeedback" xml:space="preserve">
+    <value>Invia feedback</value>
+  </data>
+</root>

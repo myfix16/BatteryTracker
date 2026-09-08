@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppDescription" xml:space="preserve">
+    <value>Показывать процент оставшегося заряда батареи на панели задач</value>
+  </data>
+  <data name="Settings_Personalization.Text" xml:space="preserve">
+    <value>Персонализация</value>
+  </data>
+  <data name="Settings_Theme.Text" xml:space="preserve">
+    <value>Тема</value>
+  </data>
+  <data name="Settings_Theme_Light.Content" xml:space="preserve">
+    <value>Светлая</value>
+  </data>
+  <data name="Settings_Theme_Dark.Content" xml:space="preserve">
+    <value>Темная</value>
+  </data>
+  <data name="Settings_About.Text" xml:space="preserve">
+    <value>Об этом приложении</value>
+  </data>
+  <data name="Settings_AboutDescription.Text" xml:space="preserve">
+    <value>Показывать процент оставшегося заряда батареи на панели задач</value>
+  </data>
+  <data name="Settings_PrivacyTerms.Header" xml:space="preserve">
+    <value>Заявление о конфиденциальности</value>
+  </data>
+  <data name="Settings_EnableFullyChargedNotification.Header" xml:space="preserve">
+    <value>Включить уведомление о полной зарядке</value>
+  </data>
+  <data name="Settings_EnableLowPowerNotification.Header" xml:space="preserve">
+    <value>Включить уведомление о низком заряде батареи</value>
+  </data>
+  <data name="Settings_Language.Header" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="Settings_Notification.Header" xml:space="preserve">
+    <value>Уведомления</value>
+  </data>
+  <data name="Shell_About.Content" xml:space="preserve">
+    <value>О программе</value>
+  </data>
+  <data name="Shell_Settings.Content" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="Settings_LanguageButton.Content" xml:space="preserve">
+    <value>Перезапуск</value>
+  </data>
+  <data name="Settings_LanguageInfoBar.Message" xml:space="preserve">
+    <value>Перезапустите приложение, чтобы изменение языка вступило в силу</value>
+  </data>
+  <data name="UnhandledExceptionMessage" xml:space="preserve">
+    <value>Приложение завершает работу из-за непредвиденной ошибки</value>
+  </data>
+  <data name="SettingsPage_EmailLink.Content" xml:space="preserve">
+    <value>Отправить отзыв по электронной почте</value>
+  </data>
+  <data name="SettingsPage_GitHubIssuesLink.Content" xml:space="preserve">
+    <value>Сообщить о проблеме на GitHub</value>
+  </data>
+  <data name="Settings_Feedback.Header" xml:space="preserve">
+    <value>Оставьте отзыв</value>
+  </data>
+  <data name="SubmitFeedback" xml:space="preserve">
+    <value>Оставить отзыв</value>
+  </data>
+  <data name="ExitApplicationCommand.Label" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="OpenSettingsCommand.Label" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="FullyChargedMessage" xml:space="preserve">
+    <value>Аккумулятор полностью заряжен</value>
+  </data>
+  <data name="HighPowerMessage" xml:space="preserve">
+    <value>Заряда аккумулятора достаточно для работы</value>
+  </data>
+  <data name="Settings_GitHubLink.Header" xml:space="preserve">
+    <value>Репозиторий на GitHub</value>
+  </data>
+  <data name="Settings_Help_Support.Header" xml:space="preserve">
+    <value>Помощь и поддержка</value>
+  </data>
+  <data name="Settings_HighPowerThreshold.Header" xml:space="preserve">
+    <value>Уведомить меня, когда процент заряда батареи превысит:</value>
+  </data>
+  <data name="Settings_LanguageHeader.Header" xml:space="preserve">
+    <value>Язык приложения</value>
+  </data>
+  <data name="Settings_Logs.Header" xml:space="preserve">
+    <value>Открыть каталог с журналами</value>
+  </data>
+  <data name="Settings_LowPowerThreshold.Header" xml:space="preserve">
+    <value>Уведомить меня, когда процент заряда батареи станет ниже:</value>
+  </data>
+  <data name="Settings_OpenSource.Header" xml:space="preserve">
+    <value>Открытый исходный код</value>
+  </data>
+  <data name="Settings_RunAtStartUp.Description" xml:space="preserve">
+    <value>Battery Tracker запустится автоматически</value>
+  </data>
+  <data name="Settings_RunAtStartUp.Header" xml:space="preserve">
+    <value>Запускать при запуске</value>
+  </data>
+  <data name="Settings_ThirdPartyLicense.Header" xml:space="preserve">
+    <value>Лицензии третьих лиц</value>
+  </data>
+  <data name="Settings_Version.Header" xml:space="preserve">
+    <value>Версия</value>
+  </data>
+  <data name="Settings_VersionCopiedTextBlock.Text" xml:space="preserve">
+    <value>Скопировано!</value>
+  </data>
+  <data name="Settings_Windows_Color_Settings.Content" xml:space="preserve">
+    <value>Настройки цвета окна</value>
+  </data>
+  <data name="SettingsPage_RateTheApp.Content" xml:space="preserve">
+    <value>Оцените приложение</value>
+  </data>
+  <data name="SettingsPreferencesSystemDefaultLanguageOption" xml:space="preserve">
+    <value>Системные настройки по умолчанию</value>
+  </data>
+  <data name="Settings_Help_Us_Translate.Content" xml:space="preserve">
+    <value>Помогите нам перевести Battery Tracker!</value>
+  </data>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Battery Tracker</value>
+  </data>
+  <data name="Settings_Theme_Default.Content" xml:space="preserve">
+    <value>Как в системе</value>
+  </data>
+</root>

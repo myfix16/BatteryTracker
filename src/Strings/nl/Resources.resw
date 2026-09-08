@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Batterijtracker</value>
+  </data>
+  <data name="ExitApplicationCommand.Label" xml:space="preserve">
+    <value>Verlaten</value>
+  </data>
+  <data name="Settings_Personalization.Text" xml:space="preserve">
+    <value>Personalisering</value>
+  </data>
+  <data name="Settings_Theme.Text" xml:space="preserve">
+    <value>Thema</value>
+  </data>
+  <data name="Settings_Theme_Dark.Content" xml:space="preserve">
+    <value>Donker</value>
+  </data>
+  <data name="Settings_Theme_Light.Content" xml:space="preserve">
+    <value>Licht</value>
+  </data>
+  <data name="Settings_Theme_Default.Content" xml:space="preserve">
+    <value>Windows Standaard</value>
+  </data>
+  <data name="Settings_About.Text" xml:space="preserve">
+    <value>Over deze applicatie</value>
+  </data>
+  <data name="Settings_AboutDescription.Text" xml:space="preserve">
+    <value>Toon het resterende batterijpercentage op de taakbalk</value>
+  </data>
+  <data name="Settings_PrivacyTerms.Header" xml:space="preserve">
+    <value>Privacyverklaring</value>
+  </data>
+  <data name="Shell_About.Content" xml:space="preserve">
+    <value>Over</value>
+  </data>
+  <data name="Settings_EnableFullyChargedNotification.Header" xml:space="preserve">
+    <value>Schakel melding over volledig opgeladen batterij in</value>
+  </data>
+  <data name="Settings_Language.Header" xml:space="preserve">
+    <value>Taal</value>
+  </data>
+  <data name="Shell_Settings.Content" xml:space="preserve">
+    <value>Instellingen</value>
+  </data>
+  <data name="Settings_Notification.Header" xml:space="preserve">
+    <value>Meldingen</value>
+  </data>
+  <data name="Settings_LanguageButton.Content" xml:space="preserve">
+    <value>Herstarten</value>
+  </data>
+  <data name="Settings_LanguageInfoBar.Message" xml:space="preserve">
+    <value>Herstart de app om de taalwijziging door te voeren</value>
+  </data>
+  <data name="UnhandledExceptionMessage" xml:space="preserve">
+    <value>De app wordt afgebroken omdat er een onverwachte fout is opgetreden</value>
+  </data>
+  <data name="SettingsPage_EmailLink.Content" xml:space="preserve">
+    <value>Stuur feedback per e-mail</value>
+  </data>
+  <data name="SettingsPage_GitHubIssuesLink.Content" xml:space="preserve">
+    <value>Dien een probleem in op GitHub</value>
+  </data>
+  <data name="SubmitFeedback" xml:space="preserve">
+    <value>Feedback verzenden</value>
+  </data>
+  <data name="Settings_Feedback.Header" xml:space="preserve">
+    <value>Feedback geven</value>
+  </data>
+  <data name="OpenSettingsCommand.Label" xml:space="preserve">
+    <value>Instellingen</value>
+  </data>
+  <data name="FullyChargedMessage" xml:space="preserve">
+    <value>De batterij is volledig opgeladen</value>
+  </data>
+  <data name="HighPowerMessage" xml:space="preserve">
+    <value>De batterij is voldoende opgeladen</value>
+  </data>
+  <data name="Settings_HighPowerThreshold.Header" xml:space="preserve">
+    <value>Stuur mij een melding wanneer het batterijpercentage hoger is dan:</value>
+  </data>
+  <data name="LowPowerMessage" xml:space="preserve">
+    <value>Laag vermogen</value>
+  </data>
+  <data name="Settings_EnableHighPowerNotification.Header" xml:space="preserve">
+    <value>Schakel melding over voldoende stroom in</value>
+  </data>
+  <data name="Settings_Appearance_Behavior.Header" xml:space="preserve">
+    <value>Uiterlijk en gedrag</value>
+  </data>
+  <data name="InstanceRunningMessage" xml:space="preserve">
+    <value>Er loopt al een andere instantie</value>
+  </data>
+  <data name="Settings_OpenSource.Header" xml:space="preserve">
+    <value>Open source</value>
+  </data>
+  <data name="Settings_CopyAppVersionMenuItem.Text" xml:space="preserve">
+    <value>Applicatieversie</value>
+  </data>
+  <data name="Settings_ColorModeHeader.Header" xml:space="preserve">
+    <value>Applicatiethema</value>
+  </data>
+  <data name="Settings_CopyVersionButton.Content" xml:space="preserve">
+    <value>Kopiëren</value>
+  </data>
+  <data name="Settings_GitHubLink.Header" xml:space="preserve">
+    <value>GitHub repository</value>
+  </data>
+  <data name="Settings_CopyWindowsVersionMenuItem.Text" xml:space="preserve">
+    <value>Windows versie</value>
+  </data>
+  <data name="Settings_General.ModuleTitle" xml:space="preserve">
+    <value>Instellingen</value>
+  </data>
+  <data name="Settings_Help_Support.Header" xml:space="preserve">
+    <value>Hulp en ondersteuning</value>
+  </data>
+  <data name="Settings_Logs.Header" xml:space="preserve">
+    <value>Open log folder</value>
+  </data>
+  <data name="Settings_LanguageHeader.Header" xml:space="preserve">
+    <value>Applicatietaal</value>
+  </data>
+  <data name="Settings_LowPowerThreshold.Header" xml:space="preserve">
+    <value>Stuur een melding wanneer het batterijpercentage lager is dan:</value>
+  </data>
+  <data name="Settings_RunAtStartUp.Description" xml:space="preserve">
+    <value>Battery Tracker wordt automatisch opgestart</value>
+  </data>
+  <data name="Settings_RunAtStartUp.Header" xml:space="preserve">
+    <value>Uitvoeren bij opstarten</value>
+  </data>
+  <data name="Settings_ThirdPartyLicense.Header" xml:space="preserve">
+    <value>Licenties van derden</value>
+  </data>
+  <data name="Settings_Version.Header" xml:space="preserve">
+    <value>Versie</value>
+  </data>
+  <data name="Settings_VersionCopiedTextBlock.Text" xml:space="preserve">
+    <value>Gekopieerd!</value>
+  </data>
+  <data name="Settings_Windows_Color_Settings.Content" xml:space="preserve">
+    <value>Windows kleurinstellingen</value>
+  </data>
+  <data name="SettingsPage_RateTheApp.Content" xml:space="preserve">
+    <value>Beoordeel de app</value>
+  </data>
+  <data name="Settings_EnableLowPowerNotification.Header" xml:space="preserve">
+    <value>Schakel melding over bijna lege batterij in</value>
+  </data>
+  <data name="SettingsPreferencesSystemDefaultLanguageOption" xml:space="preserve">
+    <value>Systeemstandaard</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>Toon het resterende batterijpercentage op de taakbalk</value>
+  </data>
+  <data name="Settings_Help_Us_Translate.Content" xml:space="preserve">
+    <value>Help ons Battery Tracker te vertalen!</value>
+  </data>
+</root>

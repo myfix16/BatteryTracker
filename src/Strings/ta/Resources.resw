@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>மின்கலம் கண்காணி</value>
+  </data>
+  <data name="Settings_Personalization.Text" xml:space="preserve">
+    <value>தனிப்பயனாக்கம்</value>
+  </data>
+  <data name="Settings_AboutDescription.Text" xml:space="preserve">
+    <value>பணிப்பட்டியில் மின்கலம் மீதமுள்ள சதவீதம் காட்டு</value>
+  </data>
+  <data name="Settings_LanguageInfoBar.Message" xml:space="preserve">
+    <value>மொழி மாற்றம் செயல்பட செயலியை மீண்டும் துவக்கு</value>
+  </data>
+  <data name="UnhandledExceptionMessage" xml:space="preserve">
+    <value>எதிர்பாராத பிழை ஏற்பட்டதால் செயலி இடைமுறிக்கிறது</value>
+  </data>
+  <data name="SettingsPage_EmailLink.Content" xml:space="preserve">
+    <value>மின்னஞ்சல் வழி பின்னூட்டம் அனுப்பு</value>
+  </data>
+  <data name="SettingsPage_GitHubIssuesLink.Content" xml:space="preserve">
+    <value>கிட்கப் -ல் ஒரு சிக்கலை முன்வைக்கவும்</value>
+  </data>
+  <data name="Settings_Feedback.Header" xml:space="preserve">
+    <value>பின்னூட்டம் வழங்கவும்</value>
+  </data>
+  <data name="SubmitFeedback" xml:space="preserve">
+    <value>பின்னூட்டம் முன்வைக்கவும்</value>
+  </data>
+  <data name="ExitApplicationCommand.Label" xml:space="preserve">
+    <value>வெளியேறு</value>
+  </data>
+  <data name="OpenSettingsCommand.Label" xml:space="preserve">
+    <value>அமைப்புகள்</value>
+  </data>
+  <data name="HighPowerMessage" xml:space="preserve">
+    <value>மின்கலம் போதுமான மின்னேற்றம் கொண்டுள்ளது</value>
+  </data>
+  <data name="Settings_Version.Header" xml:space="preserve">
+    <value>பதிப்பு</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>பணிப்பட்டியில் மின்கலம் மீதமுள்ள சதவீதம் காட்டு</value>
+  </data>
+  <data name="Settings_Theme.Text" xml:space="preserve">
+    <value>கருப்பொருள்</value>
+  </data>
+  <data name="Settings_Theme_Light.Content" xml:space="preserve">
+    <value>வெளிர்</value>
+  </data>
+  <data name="Settings_Theme_Dark.Content" xml:space="preserve">
+    <value>அடர்</value>
+  </data>
+  <data name="Settings_Theme_Default.Content" xml:space="preserve">
+    <value>சாளரங்கள் இயல்புநிலை</value>
+  </data>
+  <data name="Settings_About.Text" xml:space="preserve">
+    <value>இந்த செயலி விவரம்</value>
+  </data>
+  <data name="Settings_PrivacyTerms.Header" xml:space="preserve">
+    <value>தனியுரிமை அறிக்கை</value>
+  </data>
+  <data name="Settings_EnableFullyChargedNotification.Header" xml:space="preserve">
+    <value>மின்னேற்றம் முழுமையானது அறிவிப்பை இயக்கவும்</value>
+  </data>
+  <data name="Settings_EnableLowPowerNotification.Header" xml:space="preserve">
+    <value>ஆற்றல் குறைவு அறிவிப்பை இயக்கவும்</value>
+  </data>
+  <data name="Settings_Language.Header" xml:space="preserve">
+    <value>மொழி</value>
+  </data>
+  <data name="Settings_Notification.Header" xml:space="preserve">
+    <value>அறிவிப்புகள்</value>
+  </data>
+  <data name="Shell_About.Content" xml:space="preserve">
+    <value>விவரம்</value>
+  </data>
+  <data name="Shell_Settings.Content" xml:space="preserve">
+    <value>அமைப்புகள்</value>
+  </data>
+  <data name="Settings_LanguageButton.Content" xml:space="preserve">
+    <value>மீண்டும் துவக்கு</value>
+  </data>
+  <data name="FullyChargedMessage" xml:space="preserve">
+    <value>மின்கலம் முழுமையாக மின்னேற்றப்பட்டது</value>
+  </data>
+  <data name="LowPowerMessage" xml:space="preserve">
+    <value>ஆற்றல் குறைவு</value>
+  </data>
+  <data name="Settings_EnableHighPowerNotification.Header" xml:space="preserve">
+    <value>போதிய ஆற்றல் அறிவிப்பை இயக்கு</value>
+  </data>
+  <data name="InstanceRunningMessage" xml:space="preserve">
+    <value>மற்றொரு நிகழ்வு ஏற்கனவே இயக்கத்தில் உள்ளது</value>
+  </data>
+  <data name="Settings_Appearance_Behavior.Header" xml:space="preserve">
+    <value>தோற்றம் மற்றும் நடத்தை</value>
+  </data>
+  <data name="Settings_ColorModeHeader.Header" xml:space="preserve">
+    <value>செயலி கருப்பொருள்</value>
+  </data>
+  <data name="Settings_CopyAppVersionMenuItem.Text" xml:space="preserve">
+    <value>செயலி பதிப்பு</value>
+  </data>
+  <data name="Settings_CopyVersionButton.Content" xml:space="preserve">
+    <value>நகலெடு</value>
+  </data>
+  <data name="Settings_CopyWindowsVersionMenuItem.Text" xml:space="preserve">
+    <value>சாளரங்கள் பதிப்பு</value>
+  </data>
+  <data name="Settings_General.ModuleTitle" xml:space="preserve">
+    <value>அமைப்புகள்</value>
+  </data>
+  <data name="Settings_GitHubLink.Header" xml:space="preserve">
+    <value>கிட்கப் களஞ்சியம்</value>
+  </data>
+  <data name="Settings_HighPowerThreshold.Header" xml:space="preserve">
+    <value>மின்கலம் விழுக்காடு அதிகமாகும்போது எனக்கு அறிவிக்கவும்:</value>
+  </data>
+  <data name="Settings_LanguageHeader.Header" xml:space="preserve">
+    <value>செயலி மொழி</value>
+  </data>
+  <data name="Settings_Logs.Header" xml:space="preserve">
+    <value>பதிவு கோப்புறை திறக்கவும்</value>
+  </data>
+  <data name="Settings_LowPowerThreshold.Header" xml:space="preserve">
+    <value>மின் விழுக்காடு குறைவாகும்போது எனக்கு அறிவிக்கவும்:</value>
+  </data>
+  <data name="Settings_OpenSource.Header" xml:space="preserve">
+    <value>திறந்த மூலம்</value>
+  </data>
+  <data name="Settings_RunAtStartUp.Description" xml:space="preserve">
+    <value>மின்கலம் கண்காணி தானாகவே துவக்கும்</value>
+  </data>
+  <data name="Settings_RunAtStartUp.Header" xml:space="preserve">
+    <value>துவக்கும்போது இயக்கவும்</value>
+  </data>
+  <data name="Settings_ThirdPartyLicense.Header" xml:space="preserve">
+    <value>மூன்றாம் தரப்பு உரிமங்கள்</value>
+  </data>
+  <data name="Settings_VersionCopiedTextBlock.Text" xml:space="preserve">
+    <value>நகலெடுக்கப்பட்டது!</value>
+  </data>
+  <data name="Settings_Windows_Color_Settings.Content" xml:space="preserve">
+    <value>சாளரங்கள் வண்ண அமைப்புகள்</value>
+  </data>
+  <data name="SettingsPage_RateTheApp.Content" xml:space="preserve">
+    <value>செயலி ஐ மதிப்பிடவும்</value>
+  </data>
+  <data name="SettingsPreferencesSystemDefaultLanguageOption" xml:space="preserve">
+    <value>கணினி இயல்புநிலை</value>
+  </data>
+  <data name="Settings_Help_Us_Translate.Content" xml:space="preserve">
+    <value>மின்கலம் கண்காணி ஐ மொழிபெயர்க்க எங்களுக்கு உதவுங்கள்!</value>
+  </data>
+  <data name="Settings_Help_Support.Header" xml:space="preserve">
+    <value>உதவி &amp; ஆதரவு</value>
+  </data>
+</root>

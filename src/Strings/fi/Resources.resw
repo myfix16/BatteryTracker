@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Settings_RunAtStartUp.Header" xml:space="preserve">
+    <value>Suorita käynnistyksen yhteydessä</value>
+  </data>
+  <data name="SettingsPreferencesSystemDefaultLanguageOption" xml:space="preserve">
+    <value>Järjestelmän oletus</value>
+  </data>
+  <data name="Settings_Appearance_Behavior.Header" xml:space="preserve">
+    <value>Ulkoasu ja käyttäytyminen</value>
+  </data>
+  <data name="Settings_ColorModeHeader.Header" xml:space="preserve">
+    <value>Sovelluksen teema</value>
+  </data>
+  <data name="Settings_LanguageInfoBar.Message" xml:space="preserve">
+    <value>Käynnistä sovellus uudelleen, jotta kielenvaihto astuu voimaan</value>
+  </data>
+  <data name="Settings_LowPowerThreshold.Header" xml:space="preserve">
+    <value>Ilmoita minulle, kun akun prosenttiosuus on alhaisempi kuin:</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>Näytä akun jäljellä oleva prosenttiosuus tehtäväpalkista</value>
+  </data>
+  <data name="Settings_Personalization.Text" xml:space="preserve">
+    <value>Personointi</value>
+  </data>
+  <data name="Settings_Theme.Text" xml:space="preserve">
+    <value>Teema</value>
+  </data>
+  <data name="Settings_Theme_Light.Content" xml:space="preserve">
+    <value>Vaalea</value>
+  </data>
+  <data name="Settings_Theme_Dark.Content" xml:space="preserve">
+    <value>Tumma</value>
+  </data>
+  <data name="Settings_About.Text" xml:space="preserve">
+    <value>Tietoja tästä sovelluksesta</value>
+  </data>
+  <data name="Settings_AboutDescription.Text" xml:space="preserve">
+    <value>Näytä akun jäljellä oleva prosenttiosuus tehtäväpalkista</value>
+  </data>
+  <data name="Settings_PrivacyTerms.Header" xml:space="preserve">
+    <value>Tietosuojalausunto</value>
+  </data>
+  <data name="Settings_EnableLowPowerNotification.Header" xml:space="preserve">
+    <value>Ota alhaisen virrankulutusilmoitus käyttöön</value>
+  </data>
+  <data name="Settings_Language.Header" xml:space="preserve">
+    <value>Kieli</value>
+  </data>
+  <data name="Settings_Notification.Header" xml:space="preserve">
+    <value>Ilmoitukset</value>
+  </data>
+  <data name="Shell_About.Content" xml:space="preserve">
+    <value>Tietoja</value>
+  </data>
+  <data name="Shell_Settings.Content" xml:space="preserve">
+    <value>Asetukset</value>
+  </data>
+  <data name="UnhandledExceptionMessage" xml:space="preserve">
+    <value>Sovellus keskeytyy odottamattoman virheen vuoksi</value>
+  </data>
+  <data name="SettingsPage_EmailLink.Content" xml:space="preserve">
+    <value>Lähetä palautetta sähköpostitse</value>
+  </data>
+  <data name="SettingsPage_GitHubIssuesLink.Content" xml:space="preserve">
+    <value>Ilmoita viasta GitHubissa</value>
+  </data>
+  <data name="Settings_Feedback.Header" xml:space="preserve">
+    <value>Anna palautetta</value>
+  </data>
+  <data name="SubmitFeedback" xml:space="preserve">
+    <value>Lähetä palaute</value>
+  </data>
+  <data name="ExitApplicationCommand.Label" xml:space="preserve">
+    <value>Poistu</value>
+  </data>
+  <data name="OpenSettingsCommand.Label" xml:space="preserve">
+    <value>Asetukset</value>
+  </data>
+  <data name="FullyChargedMessage" xml:space="preserve">
+    <value>Akku on ladattu täyteen</value>
+  </data>
+  <data name="HighPowerMessage" xml:space="preserve">
+    <value>Akussa on tarpeeksi varausta</value>
+  </data>
+  <data name="LowPowerMessage" xml:space="preserve">
+    <value>Alhainen teho</value>
+  </data>
+  <data name="Settings_EnableHighPowerNotification.Header" xml:space="preserve">
+    <value>Ota riittävä teho -ilmoituksen käyttöön</value>
+  </data>
+  <data name="InstanceRunningMessage" xml:space="preserve">
+    <value>Toinen ilmentymä on jo käynnissä</value>
+  </data>
+  <data name="Settings_CopyAppVersionMenuItem.Text" xml:space="preserve">
+    <value>Sovellusversio</value>
+  </data>
+  <data name="Settings_CopyVersionButton.Content" xml:space="preserve">
+    <value>Kopioi</value>
+  </data>
+  <data name="Settings_CopyWindowsVersionMenuItem.Text" xml:space="preserve">
+    <value>Windows-versio</value>
+  </data>
+  <data name="Settings_General.ModuleTitle" xml:space="preserve">
+    <value>Asetukset</value>
+  </data>
+  <data name="Settings_GitHubLink.Header" xml:space="preserve">
+    <value>GitHub-tietovarasto</value>
+  </data>
+  <data name="Settings_Help_Support.Header" xml:space="preserve">
+    <value>Apu ja tuki</value>
+  </data>
+  <data name="Settings_HighPowerThreshold.Header" xml:space="preserve">
+    <value>Ilmoita minulle, kun akun prosenttiosuus on suurempi kuin:</value>
+  </data>
+  <data name="Settings_LanguageHeader.Header" xml:space="preserve">
+    <value>Sovelluksen kieli</value>
+  </data>
+  <data name="Settings_Logs.Header" xml:space="preserve">
+    <value>Avaa lokikansio</value>
+  </data>
+  <data name="Settings_OpenSource.Header" xml:space="preserve">
+    <value>Avoin lähdekoodi</value>
+  </data>
+  <data name="Settings_RunAtStartUp.Description" xml:space="preserve">
+    <value>Battery Tracker käynnistyy automaattisesti</value>
+  </data>
+  <data name="Settings_ThirdPartyLicense.Header" xml:space="preserve">
+    <value>Kolmannen osapuolen lisenssit</value>
+  </data>
+  <data name="Settings_Version.Header" xml:space="preserve">
+    <value>Versio</value>
+  </data>
+  <data name="Settings_VersionCopiedTextBlock.Text" xml:space="preserve">
+    <value>Kopioitu!</value>
+  </data>
+  <data name="Settings_Windows_Color_Settings.Content" xml:space="preserve">
+    <value>Windowsin väriasetukset</value>
+  </data>
+  <data name="SettingsPage_RateTheApp.Content" xml:space="preserve">
+    <value>Arvioi sovellus</value>
+  </data>
+  <data name="Settings_Help_Us_Translate.Content" xml:space="preserve">
+    <value>Auta meitä kääntämään Battery Tracker!</value>
+  </data>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Battery Tracker</value>
+  </data>
+  <data name="Settings_Theme_Default.Content" xml:space="preserve">
+    <value>Windowsin oletus</value>
+  </data>
+  <data name="Settings_EnableFullyChargedNotification.Header" xml:space="preserve">
+    <value>Ota täyteen ladattu ilmoitus käyttöön</value>
+  </data>
+  <data name="Settings_LanguageButton.Content" xml:space="preserve">
+    <value>Käynnistä uudelleen</value>
+  </data>
+</root>
